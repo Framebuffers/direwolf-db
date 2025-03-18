@@ -1,0 +1,62 @@
+services:
+  postgres_db:
+    image: postgres:15
+    hostname: direwolf
+    container_name: postgres_db
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    networks:
+      - prisma-network
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U wolf -d direwolf" ]
+      interval: 5s
+      timeout: 2s
+      retries: 20
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+    env_file:
+      - .env.prod
+    networks:
+      - prisma-network
+
+  prisma-studio:
+    image: node:lts-alpine3.17
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: npx prisma studio --port 5555 --browser none
+    ports:
+      - "5555:5555"
+    env_file:
+      - .env.prod
+    networks:
+      - prisma-network
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+      server:
+        condition: service_started
+
+networks:
+  prisma-network:
+    name: prisma-network
+
+volumes:
+  postgres_data:

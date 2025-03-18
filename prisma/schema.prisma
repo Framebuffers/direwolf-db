@@ -1,0 +1,24 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output = "../generated/prisma-client"
+}
+
+model Wolfpack {
+  id              Int      @id @default(autoincrement())
+  documentName    String   @db.VarChar(255)
+  fileOrigin      String   @db.VarChar(255)
+  documentVersion String
+  wasCompleted    Boolean  @default(false)
+  timeTaken       Float    @default(0)
+  createdAt       DateTime @default(now())
+  guid            String
+  resultCount     Int      @default(0)
+  testName        String   @db.VarChar(255)
+  results         Json?    @db.Json
+  testId          Int
+}
