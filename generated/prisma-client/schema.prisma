@@ -9,16 +9,73 @@ generator client {
 }
 
 model Wolfpack {
-  id              Int      @id @default(autoincrement())
-  documentName    String   @db.VarChar(255)
-  fileOrigin      String   @db.VarChar(255)
+  id              Int                  @id @default(autoincrement())
+  documentName    String               @db.VarChar(255)
+  fileOrigin      String               @db.VarChar(255)
   documentVersion String
-  wasCompleted    Boolean  @default(false)
-  timeTaken       Float    @default(0)
-  createdAt       DateTime @default(now())
-  guid            String
-  resultCount     Int      @default(0)
-  testName        String   @db.VarChar(255)
-  results         Json?    @db.Json
-  testId          Int
+  wasCompleted    Boolean              @default(false)
+  timeTaken       Float                @default(0)
+  createdAt       DateTime             @default(now())
+  guid            String               @unique
+  resultCount     Int                  @default(0)
+  testName        String               @db.VarChar(255)
+  results         Json?                @db.Json
+  elementInfo     ElementInformation[]
+  Parameters      Parameters[]
+}
+
+model ElementInformation {
+  id                Int          @id @default(autoincrement())
+  uniqueElementId   String       @default("00000000-0000-0000-0000-000000000000")
+  elementInfoId     Int          @default(0)
+  wolfpackId        Wolfpack     @relation(fields: [elementInfoId], references: [id])
+  idValue           BigInt
+  elementUniqueId   String       @unique @default("")
+  elementVersionId  String       @default("00000000-0000-0000-0000-000000000000")
+  familyName        String       @default("")
+  category          String       @default("")
+  builtInCategory   String       @default("")
+  workset           String       @default("")
+  views             String[]     @default([])
+  designOption      String       @default("")
+  documentOwner     String       @default("")
+  ownerViewId       String       @default("")
+  worksetId         String       @default("")
+  levelId           String       @default("")
+  createPhaseId     String       @default("")
+  demolishedPhaseId String       @default("")
+  groupPhaseId      String       @default("")
+  workshareId       String       @default("")
+  isGrouped         Boolean      @default(false)
+  isModifiable      Boolean      @default(false)
+  isViewSpecific    Boolean      @default(false)
+  isBuiltInCategory Boolean      @default(false)
+  isAnnotative      Boolean      @default(false)
+  isModel           Boolean      @default(false)
+  isPinned          Boolean      @default(false)
+  isWorkshared      Boolean      @default(false)
+  Parameters        Parameters[]
+}
+
+enum StorageType {
+  INTEGER
+  DOUBLE
+  STRING
+  ELEMENTID
+  INVALID
+}
+
+model Parameters {
+  id                Int                @id @default(autoincrement())
+  createdAt         DateTime           @default(now())
+  parameterGuid     String             @unique
+  documentOwner     String             @default("")
+  parentElementInfo ElementInformation @relation(fields: [parameterGuid], references: [elementUniqueId])
+  parentWolfpack    Wolfpack           @relation(fields: [documentOwner], references: [guid])
+  storageType       StorageType        @default(INVALID)
+  hasValue          Boolean            @default(false)
+  parameterIdValue  BigInt
+  isReadOnly        Boolean            @default(false)
+  isShared          Boolean            @default(false)
+  isUserModifiable  Boolean            @default(false)
 }

@@ -18,6 +18,36 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  * 
  */
 export type Wolfpack = $Result.DefaultSelection<Prisma.$WolfpackPayload>
+/**
+ * Model ElementInformation
+ * 
+ */
+export type ElementInformation = $Result.DefaultSelection<Prisma.$ElementInformationPayload>
+/**
+ * Model Parameters
+ * 
+ */
+export type Parameters = $Result.DefaultSelection<Prisma.$ParametersPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const StorageType: {
+  INTEGER: 'INTEGER',
+  DOUBLE: 'DOUBLE',
+  STRING: 'STRING',
+  ELEMENTID: 'ELEMENTID',
+  INVALID: 'INVALID'
+};
+
+export type StorageType = (typeof StorageType)[keyof typeof StorageType]
+
+}
+
+export type StorageType = $Enums.StorageType
+
+export const StorageType: typeof $Enums.StorageType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -153,6 +183,26 @@ export class PrismaClient<
     * ```
     */
   get wolfpack(): Prisma.WolfpackDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.elementInformation`: Exposes CRUD operations for the **ElementInformation** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ElementInformations
+    * const elementInformations = await prisma.elementInformation.findMany()
+    * ```
+    */
+  get elementInformation(): Prisma.ElementInformationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.parameters`: Exposes CRUD operations for the **Parameters** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Parameters
+    * const parameters = await prisma.parameters.findMany()
+    * ```
+    */
+  get parameters(): Prisma.ParametersDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +643,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Wolfpack: 'Wolfpack'
+    Wolfpack: 'Wolfpack',
+    ElementInformation: 'ElementInformation',
+    Parameters: 'Parameters'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,7 +664,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "wolfpack"
+      modelProps: "wolfpack" | "elementInformation" | "parameters"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -687,6 +739,154 @@ export namespace Prisma {
           count: {
             args: Prisma.WolfpackCountArgs<ExtArgs>
             result: $Utils.Optional<WolfpackCountAggregateOutputType> | number
+          }
+        }
+      }
+      ElementInformation: {
+        payload: Prisma.$ElementInformationPayload<ExtArgs>
+        fields: Prisma.ElementInformationFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ElementInformationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ElementInformationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          findFirst: {
+            args: Prisma.ElementInformationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ElementInformationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          findMany: {
+            args: Prisma.ElementInformationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
+          }
+          create: {
+            args: Prisma.ElementInformationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          createMany: {
+            args: Prisma.ElementInformationCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ElementInformationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
+          }
+          delete: {
+            args: Prisma.ElementInformationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          update: {
+            args: Prisma.ElementInformationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          deleteMany: {
+            args: Prisma.ElementInformationDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ElementInformationUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ElementInformationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
+          }
+          upsert: {
+            args: Prisma.ElementInformationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
+          }
+          aggregate: {
+            args: Prisma.ElementInformationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateElementInformation>
+          }
+          groupBy: {
+            args: Prisma.ElementInformationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ElementInformationGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ElementInformationCountArgs<ExtArgs>
+            result: $Utils.Optional<ElementInformationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Parameters: {
+        payload: Prisma.$ParametersPayload<ExtArgs>
+        fields: Prisma.ParametersFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ParametersFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ParametersFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          findFirst: {
+            args: Prisma.ParametersFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ParametersFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          findMany: {
+            args: Prisma.ParametersFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
+          }
+          create: {
+            args: Prisma.ParametersCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          createMany: {
+            args: Prisma.ParametersCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ParametersCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
+          }
+          delete: {
+            args: Prisma.ParametersDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          update: {
+            args: Prisma.ParametersUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          deleteMany: {
+            args: Prisma.ParametersDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ParametersUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ParametersUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
+          }
+          upsert: {
+            args: Prisma.ParametersUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
+          }
+          aggregate: {
+            args: Prisma.ParametersAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateParameters>
+          }
+          groupBy: {
+            args: Prisma.ParametersGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ParametersGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ParametersCountArgs<ExtArgs>
+            result: $Utils.Optional<ParametersCountAggregateOutputType> | number
           }
         }
       }
@@ -775,6 +975,8 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     wolfpack?: WolfpackOmit
+    elementInformation?: ElementInformationOmit
+    parameters?: ParametersOmit
   }
 
   /* Types for Logging */
@@ -864,6 +1066,76 @@ export namespace Prisma {
    */
 
 
+  /**
+   * Count Type WolfpackCountOutputType
+   */
+
+  export type WolfpackCountOutputType = {
+    elementInfo: number
+    Parameters: number
+  }
+
+  export type WolfpackCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    elementInfo?: boolean | WolfpackCountOutputTypeCountElementInfoArgs
+    Parameters?: boolean | WolfpackCountOutputTypeCountParametersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * WolfpackCountOutputType without action
+   */
+  export type WolfpackCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the WolfpackCountOutputType
+     */
+    select?: WolfpackCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * WolfpackCountOutputType without action
+   */
+  export type WolfpackCountOutputTypeCountElementInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ElementInformationWhereInput
+  }
+
+  /**
+   * WolfpackCountOutputType without action
+   */
+  export type WolfpackCountOutputTypeCountParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ParametersWhereInput
+  }
+
+
+  /**
+   * Count Type ElementInformationCountOutputType
+   */
+
+  export type ElementInformationCountOutputType = {
+    Parameters: number
+  }
+
+  export type ElementInformationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Parameters?: boolean | ElementInformationCountOutputTypeCountParametersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ElementInformationCountOutputType without action
+   */
+  export type ElementInformationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformationCountOutputType
+     */
+    select?: ElementInformationCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ElementInformationCountOutputType without action
+   */
+  export type ElementInformationCountOutputTypeCountParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ParametersWhereInput
+  }
+
 
   /**
    * Models
@@ -885,14 +1157,12 @@ export namespace Prisma {
     id: number | null
     timeTaken: number | null
     resultCount: number | null
-    testId: number | null
   }
 
   export type WolfpackSumAggregateOutputType = {
     id: number | null
     timeTaken: number | null
     resultCount: number | null
-    testId: number | null
   }
 
   export type WolfpackMinAggregateOutputType = {
@@ -906,7 +1176,6 @@ export namespace Prisma {
     guid: string | null
     resultCount: number | null
     testName: string | null
-    testId: number | null
   }
 
   export type WolfpackMaxAggregateOutputType = {
@@ -920,7 +1189,6 @@ export namespace Prisma {
     guid: string | null
     resultCount: number | null
     testName: string | null
-    testId: number | null
   }
 
   export type WolfpackCountAggregateOutputType = {
@@ -935,7 +1203,6 @@ export namespace Prisma {
     resultCount: number
     testName: number
     results: number
-    testId: number
     _all: number
   }
 
@@ -944,14 +1211,12 @@ export namespace Prisma {
     id?: true
     timeTaken?: true
     resultCount?: true
-    testId?: true
   }
 
   export type WolfpackSumAggregateInputType = {
     id?: true
     timeTaken?: true
     resultCount?: true
-    testId?: true
   }
 
   export type WolfpackMinAggregateInputType = {
@@ -965,7 +1230,6 @@ export namespace Prisma {
     guid?: true
     resultCount?: true
     testName?: true
-    testId?: true
   }
 
   export type WolfpackMaxAggregateInputType = {
@@ -979,7 +1243,6 @@ export namespace Prisma {
     guid?: true
     resultCount?: true
     testName?: true
-    testId?: true
   }
 
   export type WolfpackCountAggregateInputType = {
@@ -994,7 +1257,6 @@ export namespace Prisma {
     resultCount?: true
     testName?: true
     results?: true
-    testId?: true
     _all?: true
   }
 
@@ -1096,7 +1358,6 @@ export namespace Prisma {
     resultCount: number
     testName: string
     results: JsonValue | null
-    testId: number
     _count: WolfpackCountAggregateOutputType | null
     _avg: WolfpackAvgAggregateOutputType | null
     _sum: WolfpackSumAggregateOutputType | null
@@ -1130,7 +1391,9 @@ export namespace Prisma {
     resultCount?: boolean
     testName?: boolean
     results?: boolean
-    testId?: boolean
+    elementInfo?: boolean | Wolfpack$elementInfoArgs<ExtArgs>
+    Parameters?: boolean | Wolfpack$ParametersArgs<ExtArgs>
+    _count?: boolean | WolfpackCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["wolfpack"]>
 
   export type WolfpackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1145,7 +1408,6 @@ export namespace Prisma {
     resultCount?: boolean
     testName?: boolean
     results?: boolean
-    testId?: boolean
   }, ExtArgs["result"]["wolfpack"]>
 
   export type WolfpackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1160,7 +1422,6 @@ export namespace Prisma {
     resultCount?: boolean
     testName?: boolean
     results?: boolean
-    testId?: boolean
   }, ExtArgs["result"]["wolfpack"]>
 
   export type WolfpackSelectScalar = {
@@ -1175,14 +1436,23 @@ export namespace Prisma {
     resultCount?: boolean
     testName?: boolean
     results?: boolean
-    testId?: boolean
   }
 
-  export type WolfpackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentName" | "fileOrigin" | "documentVersion" | "wasCompleted" | "timeTaken" | "createdAt" | "guid" | "resultCount" | "testName" | "results" | "testId", ExtArgs["result"]["wolfpack"]>
+  export type WolfpackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentName" | "fileOrigin" | "documentVersion" | "wasCompleted" | "timeTaken" | "createdAt" | "guid" | "resultCount" | "testName" | "results", ExtArgs["result"]["wolfpack"]>
+  export type WolfpackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    elementInfo?: boolean | Wolfpack$elementInfoArgs<ExtArgs>
+    Parameters?: boolean | Wolfpack$ParametersArgs<ExtArgs>
+    _count?: boolean | WolfpackCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type WolfpackIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type WolfpackIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $WolfpackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Wolfpack"
-    objects: {}
+    objects: {
+      elementInfo: Prisma.$ElementInformationPayload<ExtArgs>[]
+      Parameters: Prisma.$ParametersPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       documentName: string
@@ -1195,7 +1465,6 @@ export namespace Prisma {
       resultCount: number
       testName: string
       results: Prisma.JsonValue | null
-      testId: number
     }, ExtArgs["result"]["wolfpack"]>
     composites: {}
   }
@@ -1590,6 +1859,8 @@ export namespace Prisma {
    */
   export interface Prisma__WolfpackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    elementInfo<T extends Wolfpack$elementInfoArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$elementInfoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Parameters<T extends Wolfpack$ParametersArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$ParametersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1630,7 +1901,6 @@ export namespace Prisma {
     readonly resultCount: FieldRef<"Wolfpack", 'Int'>
     readonly testName: FieldRef<"Wolfpack", 'String'>
     readonly results: FieldRef<"Wolfpack", 'Json'>
-    readonly testId: FieldRef<"Wolfpack", 'Int'>
   }
     
 
@@ -1647,6 +1917,10 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
     /**
      * Filter, which Wolfpack to fetch.
      */
@@ -1666,6 +1940,10 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+    /**
      * Filter, which Wolfpack to fetch.
      */
     where: WolfpackWhereUniqueInput
@@ -1683,6 +1961,10 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
     /**
      * Filter, which Wolfpack to fetch.
      */
@@ -1732,6 +2014,10 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+    /**
      * Filter, which Wolfpack to fetch.
      */
     where?: WolfpackWhereInput
@@ -1780,6 +2066,10 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+    /**
      * Filter, which Wolfpacks to fetch.
      */
     where?: WolfpackWhereInput
@@ -1822,6 +2112,10 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
     /**
      * The data needed to create a Wolfpack.
      */
@@ -1870,6 +2164,10 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
     /**
      * The data needed to update a Wolfpack.
      */
@@ -1937,6 +2235,10 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+    /**
      * The filter to search for the Wolfpack to update in case it exists.
      */
     where: WolfpackWhereUniqueInput
@@ -1963,6 +2265,10 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+    /**
      * Filter which Wolfpack to delete.
      */
     where: WolfpackWhereUniqueInput
@@ -1983,6 +2289,54 @@ export namespace Prisma {
   }
 
   /**
+   * Wolfpack.elementInfo
+   */
+  export type Wolfpack$elementInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    where?: ElementInformationWhereInput
+    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
+    cursor?: ElementInformationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
+  }
+
+  /**
+   * Wolfpack.Parameters
+   */
+  export type Wolfpack$ParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    where?: ParametersWhereInput
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    cursor?: ParametersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+  }
+
+  /**
    * Wolfpack without action
    */
   export type WolfpackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1994,6 +2348,2604 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: WolfpackInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ElementInformation
+   */
+
+  export type AggregateElementInformation = {
+    _count: ElementInformationCountAggregateOutputType | null
+    _avg: ElementInformationAvgAggregateOutputType | null
+    _sum: ElementInformationSumAggregateOutputType | null
+    _min: ElementInformationMinAggregateOutputType | null
+    _max: ElementInformationMaxAggregateOutputType | null
+  }
+
+  export type ElementInformationAvgAggregateOutputType = {
+    id: number | null
+    elementInfoId: number | null
+    idValue: number | null
+  }
+
+  export type ElementInformationSumAggregateOutputType = {
+    id: number | null
+    elementInfoId: number | null
+    idValue: bigint | null
+  }
+
+  export type ElementInformationMinAggregateOutputType = {
+    id: number | null
+    uniqueElementId: string | null
+    elementInfoId: number | null
+    idValue: bigint | null
+    elementUniqueId: string | null
+    elementVersionId: string | null
+    familyName: string | null
+    category: string | null
+    builtInCategory: string | null
+    workset: string | null
+    designOption: string | null
+    documentOwner: string | null
+    ownerViewId: string | null
+    worksetId: string | null
+    levelId: string | null
+    createPhaseId: string | null
+    demolishedPhaseId: string | null
+    groupPhaseId: string | null
+    workshareId: string | null
+    isGrouped: boolean | null
+    isModifiable: boolean | null
+    isViewSpecific: boolean | null
+    isBuiltInCategory: boolean | null
+    isAnnotative: boolean | null
+    isModel: boolean | null
+    isPinned: boolean | null
+    isWorkshared: boolean | null
+  }
+
+  export type ElementInformationMaxAggregateOutputType = {
+    id: number | null
+    uniqueElementId: string | null
+    elementInfoId: number | null
+    idValue: bigint | null
+    elementUniqueId: string | null
+    elementVersionId: string | null
+    familyName: string | null
+    category: string | null
+    builtInCategory: string | null
+    workset: string | null
+    designOption: string | null
+    documentOwner: string | null
+    ownerViewId: string | null
+    worksetId: string | null
+    levelId: string | null
+    createPhaseId: string | null
+    demolishedPhaseId: string | null
+    groupPhaseId: string | null
+    workshareId: string | null
+    isGrouped: boolean | null
+    isModifiable: boolean | null
+    isViewSpecific: boolean | null
+    isBuiltInCategory: boolean | null
+    isAnnotative: boolean | null
+    isModel: boolean | null
+    isPinned: boolean | null
+    isWorkshared: boolean | null
+  }
+
+  export type ElementInformationCountAggregateOutputType = {
+    id: number
+    uniqueElementId: number
+    elementInfoId: number
+    idValue: number
+    elementUniqueId: number
+    elementVersionId: number
+    familyName: number
+    category: number
+    builtInCategory: number
+    workset: number
+    views: number
+    designOption: number
+    documentOwner: number
+    ownerViewId: number
+    worksetId: number
+    levelId: number
+    createPhaseId: number
+    demolishedPhaseId: number
+    groupPhaseId: number
+    workshareId: number
+    isGrouped: number
+    isModifiable: number
+    isViewSpecific: number
+    isBuiltInCategory: number
+    isAnnotative: number
+    isModel: number
+    isPinned: number
+    isWorkshared: number
+    _all: number
+  }
+
+
+  export type ElementInformationAvgAggregateInputType = {
+    id?: true
+    elementInfoId?: true
+    idValue?: true
+  }
+
+  export type ElementInformationSumAggregateInputType = {
+    id?: true
+    elementInfoId?: true
+    idValue?: true
+  }
+
+  export type ElementInformationMinAggregateInputType = {
+    id?: true
+    uniqueElementId?: true
+    elementInfoId?: true
+    idValue?: true
+    elementUniqueId?: true
+    elementVersionId?: true
+    familyName?: true
+    category?: true
+    builtInCategory?: true
+    workset?: true
+    designOption?: true
+    documentOwner?: true
+    ownerViewId?: true
+    worksetId?: true
+    levelId?: true
+    createPhaseId?: true
+    demolishedPhaseId?: true
+    groupPhaseId?: true
+    workshareId?: true
+    isGrouped?: true
+    isModifiable?: true
+    isViewSpecific?: true
+    isBuiltInCategory?: true
+    isAnnotative?: true
+    isModel?: true
+    isPinned?: true
+    isWorkshared?: true
+  }
+
+  export type ElementInformationMaxAggregateInputType = {
+    id?: true
+    uniqueElementId?: true
+    elementInfoId?: true
+    idValue?: true
+    elementUniqueId?: true
+    elementVersionId?: true
+    familyName?: true
+    category?: true
+    builtInCategory?: true
+    workset?: true
+    designOption?: true
+    documentOwner?: true
+    ownerViewId?: true
+    worksetId?: true
+    levelId?: true
+    createPhaseId?: true
+    demolishedPhaseId?: true
+    groupPhaseId?: true
+    workshareId?: true
+    isGrouped?: true
+    isModifiable?: true
+    isViewSpecific?: true
+    isBuiltInCategory?: true
+    isAnnotative?: true
+    isModel?: true
+    isPinned?: true
+    isWorkshared?: true
+  }
+
+  export type ElementInformationCountAggregateInputType = {
+    id?: true
+    uniqueElementId?: true
+    elementInfoId?: true
+    idValue?: true
+    elementUniqueId?: true
+    elementVersionId?: true
+    familyName?: true
+    category?: true
+    builtInCategory?: true
+    workset?: true
+    views?: true
+    designOption?: true
+    documentOwner?: true
+    ownerViewId?: true
+    worksetId?: true
+    levelId?: true
+    createPhaseId?: true
+    demolishedPhaseId?: true
+    groupPhaseId?: true
+    workshareId?: true
+    isGrouped?: true
+    isModifiable?: true
+    isViewSpecific?: true
+    isBuiltInCategory?: true
+    isAnnotative?: true
+    isModel?: true
+    isPinned?: true
+    isWorkshared?: true
+    _all?: true
+  }
+
+  export type ElementInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ElementInformation to aggregate.
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ElementInformations to fetch.
+     */
+    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ElementInformationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ElementInformations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ElementInformations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ElementInformations
+    **/
+    _count?: true | ElementInformationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ElementInformationAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ElementInformationSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ElementInformationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ElementInformationMaxAggregateInputType
+  }
+
+  export type GetElementInformationAggregateType<T extends ElementInformationAggregateArgs> = {
+        [P in keyof T & keyof AggregateElementInformation]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateElementInformation[P]>
+      : GetScalarType<T[P], AggregateElementInformation[P]>
+  }
+
+
+
+
+  export type ElementInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ElementInformationWhereInput
+    orderBy?: ElementInformationOrderByWithAggregationInput | ElementInformationOrderByWithAggregationInput[]
+    by: ElementInformationScalarFieldEnum[] | ElementInformationScalarFieldEnum
+    having?: ElementInformationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ElementInformationCountAggregateInputType | true
+    _avg?: ElementInformationAvgAggregateInputType
+    _sum?: ElementInformationSumAggregateInputType
+    _min?: ElementInformationMinAggregateInputType
+    _max?: ElementInformationMaxAggregateInputType
+  }
+
+  export type ElementInformationGroupByOutputType = {
+    id: number
+    uniqueElementId: string
+    elementInfoId: number
+    idValue: bigint
+    elementUniqueId: string
+    elementVersionId: string
+    familyName: string
+    category: string
+    builtInCategory: string
+    workset: string
+    views: string[]
+    designOption: string
+    documentOwner: string
+    ownerViewId: string
+    worksetId: string
+    levelId: string
+    createPhaseId: string
+    demolishedPhaseId: string
+    groupPhaseId: string
+    workshareId: string
+    isGrouped: boolean
+    isModifiable: boolean
+    isViewSpecific: boolean
+    isBuiltInCategory: boolean
+    isAnnotative: boolean
+    isModel: boolean
+    isPinned: boolean
+    isWorkshared: boolean
+    _count: ElementInformationCountAggregateOutputType | null
+    _avg: ElementInformationAvgAggregateOutputType | null
+    _sum: ElementInformationSumAggregateOutputType | null
+    _min: ElementInformationMinAggregateOutputType | null
+    _max: ElementInformationMaxAggregateOutputType | null
+  }
+
+  type GetElementInformationGroupByPayload<T extends ElementInformationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ElementInformationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ElementInformationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ElementInformationGroupByOutputType[P]>
+            : GetScalarType<T[P], ElementInformationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ElementInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    uniqueElementId?: boolean
+    elementInfoId?: boolean
+    idValue?: boolean
+    elementUniqueId?: boolean
+    elementVersionId?: boolean
+    familyName?: boolean
+    category?: boolean
+    builtInCategory?: boolean
+    workset?: boolean
+    views?: boolean
+    designOption?: boolean
+    documentOwner?: boolean
+    ownerViewId?: boolean
+    worksetId?: boolean
+    levelId?: boolean
+    createPhaseId?: boolean
+    demolishedPhaseId?: boolean
+    groupPhaseId?: boolean
+    workshareId?: boolean
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+    Parameters?: boolean | ElementInformation$ParametersArgs<ExtArgs>
+    _count?: boolean | ElementInformationCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["elementInformation"]>
+
+  export type ElementInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    uniqueElementId?: boolean
+    elementInfoId?: boolean
+    idValue?: boolean
+    elementUniqueId?: boolean
+    elementVersionId?: boolean
+    familyName?: boolean
+    category?: boolean
+    builtInCategory?: boolean
+    workset?: boolean
+    views?: boolean
+    designOption?: boolean
+    documentOwner?: boolean
+    ownerViewId?: boolean
+    worksetId?: boolean
+    levelId?: boolean
+    createPhaseId?: boolean
+    demolishedPhaseId?: boolean
+    groupPhaseId?: boolean
+    workshareId?: boolean
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["elementInformation"]>
+
+  export type ElementInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    uniqueElementId?: boolean
+    elementInfoId?: boolean
+    idValue?: boolean
+    elementUniqueId?: boolean
+    elementVersionId?: boolean
+    familyName?: boolean
+    category?: boolean
+    builtInCategory?: boolean
+    workset?: boolean
+    views?: boolean
+    designOption?: boolean
+    documentOwner?: boolean
+    ownerViewId?: boolean
+    worksetId?: boolean
+    levelId?: boolean
+    createPhaseId?: boolean
+    demolishedPhaseId?: boolean
+    groupPhaseId?: boolean
+    workshareId?: boolean
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["elementInformation"]>
+
+  export type ElementInformationSelectScalar = {
+    id?: boolean
+    uniqueElementId?: boolean
+    elementInfoId?: boolean
+    idValue?: boolean
+    elementUniqueId?: boolean
+    elementVersionId?: boolean
+    familyName?: boolean
+    category?: boolean
+    builtInCategory?: boolean
+    workset?: boolean
+    views?: boolean
+    designOption?: boolean
+    documentOwner?: boolean
+    ownerViewId?: boolean
+    worksetId?: boolean
+    levelId?: boolean
+    createPhaseId?: boolean
+    demolishedPhaseId?: boolean
+    groupPhaseId?: boolean
+    workshareId?: boolean
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+  }
+
+  export type ElementInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uniqueElementId" | "elementInfoId" | "idValue" | "elementUniqueId" | "elementVersionId" | "familyName" | "category" | "builtInCategory" | "workset" | "views" | "designOption" | "documentOwner" | "ownerViewId" | "worksetId" | "levelId" | "createPhaseId" | "demolishedPhaseId" | "groupPhaseId" | "workshareId" | "isGrouped" | "isModifiable" | "isViewSpecific" | "isBuiltInCategory" | "isAnnotative" | "isModel" | "isPinned" | "isWorkshared", ExtArgs["result"]["elementInformation"]>
+  export type ElementInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+    Parameters?: boolean | ElementInformation$ParametersArgs<ExtArgs>
+    _count?: boolean | ElementInformationCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ElementInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }
+  export type ElementInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }
+
+  export type $ElementInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ElementInformation"
+    objects: {
+      wolfpackId: Prisma.$WolfpackPayload<ExtArgs>
+      Parameters: Prisma.$ParametersPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      uniqueElementId: string
+      elementInfoId: number
+      idValue: bigint
+      elementUniqueId: string
+      elementVersionId: string
+      familyName: string
+      category: string
+      builtInCategory: string
+      workset: string
+      views: string[]
+      designOption: string
+      documentOwner: string
+      ownerViewId: string
+      worksetId: string
+      levelId: string
+      createPhaseId: string
+      demolishedPhaseId: string
+      groupPhaseId: string
+      workshareId: string
+      isGrouped: boolean
+      isModifiable: boolean
+      isViewSpecific: boolean
+      isBuiltInCategory: boolean
+      isAnnotative: boolean
+      isModel: boolean
+      isPinned: boolean
+      isWorkshared: boolean
+    }, ExtArgs["result"]["elementInformation"]>
+    composites: {}
+  }
+
+  type ElementInformationGetPayload<S extends boolean | null | undefined | ElementInformationDefaultArgs> = $Result.GetResult<Prisma.$ElementInformationPayload, S>
+
+  type ElementInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ElementInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ElementInformationCountAggregateInputType | true
+    }
+
+  export interface ElementInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ElementInformation'], meta: { name: 'ElementInformation' } }
+    /**
+     * Find zero or one ElementInformation that matches the filter.
+     * @param {ElementInformationFindUniqueArgs} args - Arguments to find a ElementInformation
+     * @example
+     * // Get one ElementInformation
+     * const elementInformation = await prisma.elementInformation.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ElementInformationFindUniqueArgs>(args: SelectSubset<T, ElementInformationFindUniqueArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ElementInformation that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ElementInformationFindUniqueOrThrowArgs} args - Arguments to find a ElementInformation
+     * @example
+     * // Get one ElementInformation
+     * const elementInformation = await prisma.elementInformation.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ElementInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, ElementInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ElementInformation that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationFindFirstArgs} args - Arguments to find a ElementInformation
+     * @example
+     * // Get one ElementInformation
+     * const elementInformation = await prisma.elementInformation.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ElementInformationFindFirstArgs>(args?: SelectSubset<T, ElementInformationFindFirstArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ElementInformation that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationFindFirstOrThrowArgs} args - Arguments to find a ElementInformation
+     * @example
+     * // Get one ElementInformation
+     * const elementInformation = await prisma.elementInformation.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ElementInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, ElementInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ElementInformations that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ElementInformations
+     * const elementInformations = await prisma.elementInformation.findMany()
+     * 
+     * // Get first 10 ElementInformations
+     * const elementInformations = await prisma.elementInformation.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const elementInformationWithIdOnly = await prisma.elementInformation.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ElementInformationFindManyArgs>(args?: SelectSubset<T, ElementInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ElementInformation.
+     * @param {ElementInformationCreateArgs} args - Arguments to create a ElementInformation.
+     * @example
+     * // Create one ElementInformation
+     * const ElementInformation = await prisma.elementInformation.create({
+     *   data: {
+     *     // ... data to create a ElementInformation
+     *   }
+     * })
+     * 
+     */
+    create<T extends ElementInformationCreateArgs>(args: SelectSubset<T, ElementInformationCreateArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ElementInformations.
+     * @param {ElementInformationCreateManyArgs} args - Arguments to create many ElementInformations.
+     * @example
+     * // Create many ElementInformations
+     * const elementInformation = await prisma.elementInformation.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ElementInformationCreateManyArgs>(args?: SelectSubset<T, ElementInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ElementInformations and returns the data saved in the database.
+     * @param {ElementInformationCreateManyAndReturnArgs} args - Arguments to create many ElementInformations.
+     * @example
+     * // Create many ElementInformations
+     * const elementInformation = await prisma.elementInformation.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ElementInformations and only return the `id`
+     * const elementInformationWithIdOnly = await prisma.elementInformation.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ElementInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, ElementInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ElementInformation.
+     * @param {ElementInformationDeleteArgs} args - Arguments to delete one ElementInformation.
+     * @example
+     * // Delete one ElementInformation
+     * const ElementInformation = await prisma.elementInformation.delete({
+     *   where: {
+     *     // ... filter to delete one ElementInformation
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ElementInformationDeleteArgs>(args: SelectSubset<T, ElementInformationDeleteArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ElementInformation.
+     * @param {ElementInformationUpdateArgs} args - Arguments to update one ElementInformation.
+     * @example
+     * // Update one ElementInformation
+     * const elementInformation = await prisma.elementInformation.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ElementInformationUpdateArgs>(args: SelectSubset<T, ElementInformationUpdateArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ElementInformations.
+     * @param {ElementInformationDeleteManyArgs} args - Arguments to filter ElementInformations to delete.
+     * @example
+     * // Delete a few ElementInformations
+     * const { count } = await prisma.elementInformation.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ElementInformationDeleteManyArgs>(args?: SelectSubset<T, ElementInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ElementInformations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ElementInformations
+     * const elementInformation = await prisma.elementInformation.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ElementInformationUpdateManyArgs>(args: SelectSubset<T, ElementInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ElementInformations and returns the data updated in the database.
+     * @param {ElementInformationUpdateManyAndReturnArgs} args - Arguments to update many ElementInformations.
+     * @example
+     * // Update many ElementInformations
+     * const elementInformation = await prisma.elementInformation.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ElementInformations and only return the `id`
+     * const elementInformationWithIdOnly = await prisma.elementInformation.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ElementInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, ElementInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ElementInformation.
+     * @param {ElementInformationUpsertArgs} args - Arguments to update or create a ElementInformation.
+     * @example
+     * // Update or create a ElementInformation
+     * const elementInformation = await prisma.elementInformation.upsert({
+     *   create: {
+     *     // ... data to create a ElementInformation
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ElementInformation we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ElementInformationUpsertArgs>(args: SelectSubset<T, ElementInformationUpsertArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ElementInformations.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationCountArgs} args - Arguments to filter ElementInformations to count.
+     * @example
+     * // Count the number of ElementInformations
+     * const count = await prisma.elementInformation.count({
+     *   where: {
+     *     // ... the filter for the ElementInformations we want to count
+     *   }
+     * })
+    **/
+    count<T extends ElementInformationCountArgs>(
+      args?: Subset<T, ElementInformationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ElementInformationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ElementInformation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ElementInformationAggregateArgs>(args: Subset<T, ElementInformationAggregateArgs>): Prisma.PrismaPromise<GetElementInformationAggregateType<T>>
+
+    /**
+     * Group by ElementInformation.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ElementInformationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ElementInformationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ElementInformationGroupByArgs['orderBy'] }
+        : { orderBy?: ElementInformationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ElementInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetElementInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ElementInformation model
+   */
+  readonly fields: ElementInformationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ElementInformation.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ElementInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    wolfpackId<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Parameters<T extends ElementInformation$ParametersArgs<ExtArgs> = {}>(args?: Subset<T, ElementInformation$ParametersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ElementInformation model
+   */ 
+  interface ElementInformationFieldRefs {
+    readonly id: FieldRef<"ElementInformation", 'Int'>
+    readonly uniqueElementId: FieldRef<"ElementInformation", 'String'>
+    readonly elementInfoId: FieldRef<"ElementInformation", 'Int'>
+    readonly idValue: FieldRef<"ElementInformation", 'BigInt'>
+    readonly elementUniqueId: FieldRef<"ElementInformation", 'String'>
+    readonly elementVersionId: FieldRef<"ElementInformation", 'String'>
+    readonly familyName: FieldRef<"ElementInformation", 'String'>
+    readonly category: FieldRef<"ElementInformation", 'String'>
+    readonly builtInCategory: FieldRef<"ElementInformation", 'String'>
+    readonly workset: FieldRef<"ElementInformation", 'String'>
+    readonly views: FieldRef<"ElementInformation", 'String[]'>
+    readonly designOption: FieldRef<"ElementInformation", 'String'>
+    readonly documentOwner: FieldRef<"ElementInformation", 'String'>
+    readonly ownerViewId: FieldRef<"ElementInformation", 'String'>
+    readonly worksetId: FieldRef<"ElementInformation", 'String'>
+    readonly levelId: FieldRef<"ElementInformation", 'String'>
+    readonly createPhaseId: FieldRef<"ElementInformation", 'String'>
+    readonly demolishedPhaseId: FieldRef<"ElementInformation", 'String'>
+    readonly groupPhaseId: FieldRef<"ElementInformation", 'String'>
+    readonly workshareId: FieldRef<"ElementInformation", 'String'>
+    readonly isGrouped: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isModifiable: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isViewSpecific: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isBuiltInCategory: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isAnnotative: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isModel: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isPinned: FieldRef<"ElementInformation", 'Boolean'>
+    readonly isWorkshared: FieldRef<"ElementInformation", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ElementInformation findUnique
+   */
+  export type ElementInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter, which ElementInformation to fetch.
+     */
+    where: ElementInformationWhereUniqueInput
+  }
+
+  /**
+   * ElementInformation findUniqueOrThrow
+   */
+  export type ElementInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter, which ElementInformation to fetch.
+     */
+    where: ElementInformationWhereUniqueInput
+  }
+
+  /**
+   * ElementInformation findFirst
+   */
+  export type ElementInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter, which ElementInformation to fetch.
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ElementInformations to fetch.
+     */
+    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ElementInformations.
+     */
+    cursor?: ElementInformationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ElementInformations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ElementInformations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ElementInformations.
+     */
+    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
+  }
+
+  /**
+   * ElementInformation findFirstOrThrow
+   */
+  export type ElementInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter, which ElementInformation to fetch.
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ElementInformations to fetch.
+     */
+    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ElementInformations.
+     */
+    cursor?: ElementInformationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ElementInformations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ElementInformations.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ElementInformations.
+     */
+    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
+  }
+
+  /**
+   * ElementInformation findMany
+   */
+  export type ElementInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter, which ElementInformations to fetch.
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ElementInformations to fetch.
+     */
+    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ElementInformations.
+     */
+    cursor?: ElementInformationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ElementInformations from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ElementInformations.
+     */
+    skip?: number
+    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
+  }
+
+  /**
+   * ElementInformation create
+   */
+  export type ElementInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ElementInformation.
+     */
+    data: XOR<ElementInformationCreateInput, ElementInformationUncheckedCreateInput>
+  }
+
+  /**
+   * ElementInformation createMany
+   */
+  export type ElementInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ElementInformations.
+     */
+    data: ElementInformationCreateManyInput | ElementInformationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ElementInformation createManyAndReturn
+   */
+  export type ElementInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * The data used to create many ElementInformations.
+     */
+    data: ElementInformationCreateManyInput | ElementInformationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ElementInformation update
+   */
+  export type ElementInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ElementInformation.
+     */
+    data: XOR<ElementInformationUpdateInput, ElementInformationUncheckedUpdateInput>
+    /**
+     * Choose, which ElementInformation to update.
+     */
+    where: ElementInformationWhereUniqueInput
+  }
+
+  /**
+   * ElementInformation updateMany
+   */
+  export type ElementInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ElementInformations.
+     */
+    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyInput>
+    /**
+     * Filter which ElementInformations to update
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * Limit how many ElementInformations to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ElementInformation updateManyAndReturn
+   */
+  export type ElementInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * The data used to update ElementInformations.
+     */
+    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyInput>
+    /**
+     * Filter which ElementInformations to update
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * Limit how many ElementInformations to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ElementInformation upsert
+   */
+  export type ElementInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ElementInformation to update in case it exists.
+     */
+    where: ElementInformationWhereUniqueInput
+    /**
+     * In case the ElementInformation found by the `where` argument doesn't exist, create a new ElementInformation with this data.
+     */
+    create: XOR<ElementInformationCreateInput, ElementInformationUncheckedCreateInput>
+    /**
+     * In case the ElementInformation was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ElementInformationUpdateInput, ElementInformationUncheckedUpdateInput>
+  }
+
+  /**
+   * ElementInformation delete
+   */
+  export type ElementInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+    /**
+     * Filter which ElementInformation to delete.
+     */
+    where: ElementInformationWhereUniqueInput
+  }
+
+  /**
+   * ElementInformation deleteMany
+   */
+  export type ElementInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ElementInformations to delete
+     */
+    where?: ElementInformationWhereInput
+    /**
+     * Limit how many ElementInformations to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ElementInformation.Parameters
+   */
+  export type ElementInformation$ParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    where?: ParametersWhereInput
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    cursor?: ParametersWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+  }
+
+  /**
+   * ElementInformation without action
+   */
+  export type ElementInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ElementInformation
+     */
+    select?: ElementInformationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ElementInformation
+     */
+    omit?: ElementInformationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ElementInformationInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Parameters
+   */
+
+  export type AggregateParameters = {
+    _count: ParametersCountAggregateOutputType | null
+    _avg: ParametersAvgAggregateOutputType | null
+    _sum: ParametersSumAggregateOutputType | null
+    _min: ParametersMinAggregateOutputType | null
+    _max: ParametersMaxAggregateOutputType | null
+  }
+
+  export type ParametersAvgAggregateOutputType = {
+    id: number | null
+    parameterIdValue: number | null
+  }
+
+  export type ParametersSumAggregateOutputType = {
+    id: number | null
+    parameterIdValue: bigint | null
+  }
+
+  export type ParametersMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    parameterGuid: string | null
+    documentOwner: string | null
+    storageType: $Enums.StorageType | null
+    hasValue: boolean | null
+    parameterIdValue: bigint | null
+    isReadOnly: boolean | null
+    isShared: boolean | null
+    isUserModifiable: boolean | null
+  }
+
+  export type ParametersMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    parameterGuid: string | null
+    documentOwner: string | null
+    storageType: $Enums.StorageType | null
+    hasValue: boolean | null
+    parameterIdValue: bigint | null
+    isReadOnly: boolean | null
+    isShared: boolean | null
+    isUserModifiable: boolean | null
+  }
+
+  export type ParametersCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    parameterGuid: number
+    documentOwner: number
+    storageType: number
+    hasValue: number
+    parameterIdValue: number
+    isReadOnly: number
+    isShared: number
+    isUserModifiable: number
+    _all: number
+  }
+
+
+  export type ParametersAvgAggregateInputType = {
+    id?: true
+    parameterIdValue?: true
+  }
+
+  export type ParametersSumAggregateInputType = {
+    id?: true
+    parameterIdValue?: true
+  }
+
+  export type ParametersMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    parameterGuid?: true
+    documentOwner?: true
+    storageType?: true
+    hasValue?: true
+    parameterIdValue?: true
+    isReadOnly?: true
+    isShared?: true
+    isUserModifiable?: true
+  }
+
+  export type ParametersMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    parameterGuid?: true
+    documentOwner?: true
+    storageType?: true
+    hasValue?: true
+    parameterIdValue?: true
+    isReadOnly?: true
+    isShared?: true
+    isUserModifiable?: true
+  }
+
+  export type ParametersCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    parameterGuid?: true
+    documentOwner?: true
+    storageType?: true
+    hasValue?: true
+    parameterIdValue?: true
+    isReadOnly?: true
+    isShared?: true
+    isUserModifiable?: true
+    _all?: true
+  }
+
+  export type ParametersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Parameters to aggregate.
+     */
+    where?: ParametersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Parameters to fetch.
+     */
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ParametersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Parameters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Parameters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Parameters
+    **/
+    _count?: true | ParametersCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ParametersAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ParametersSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ParametersMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ParametersMaxAggregateInputType
+  }
+
+  export type GetParametersAggregateType<T extends ParametersAggregateArgs> = {
+        [P in keyof T & keyof AggregateParameters]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateParameters[P]>
+      : GetScalarType<T[P], AggregateParameters[P]>
+  }
+
+
+
+
+  export type ParametersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ParametersWhereInput
+    orderBy?: ParametersOrderByWithAggregationInput | ParametersOrderByWithAggregationInput[]
+    by: ParametersScalarFieldEnum[] | ParametersScalarFieldEnum
+    having?: ParametersScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ParametersCountAggregateInputType | true
+    _avg?: ParametersAvgAggregateInputType
+    _sum?: ParametersSumAggregateInputType
+    _min?: ParametersMinAggregateInputType
+    _max?: ParametersMaxAggregateInputType
+  }
+
+  export type ParametersGroupByOutputType = {
+    id: number
+    createdAt: Date
+    parameterGuid: string
+    documentOwner: string
+    storageType: $Enums.StorageType
+    hasValue: boolean
+    parameterIdValue: bigint
+    isReadOnly: boolean
+    isShared: boolean
+    isUserModifiable: boolean
+    _count: ParametersCountAggregateOutputType | null
+    _avg: ParametersAvgAggregateOutputType | null
+    _sum: ParametersSumAggregateOutputType | null
+    _min: ParametersMinAggregateOutputType | null
+    _max: ParametersMaxAggregateOutputType | null
+  }
+
+  type GetParametersGroupByPayload<T extends ParametersGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ParametersGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ParametersGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ParametersGroupByOutputType[P]>
+            : GetScalarType<T[P], ParametersGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ParametersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    parameterGuid?: boolean
+    documentOwner?: boolean
+    storageType?: boolean
+    hasValue?: boolean
+    parameterIdValue?: boolean
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["parameters"]>
+
+  export type ParametersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    parameterGuid?: boolean
+    documentOwner?: boolean
+    storageType?: boolean
+    hasValue?: boolean
+    parameterIdValue?: boolean
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["parameters"]>
+
+  export type ParametersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    parameterGuid?: boolean
+    documentOwner?: boolean
+    storageType?: boolean
+    hasValue?: boolean
+    parameterIdValue?: boolean
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["parameters"]>
+
+  export type ParametersSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    parameterGuid?: boolean
+    documentOwner?: boolean
+    storageType?: boolean
+    hasValue?: boolean
+    parameterIdValue?: boolean
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "parameterGuid" | "documentOwner" | "storageType" | "hasValue" | "parameterIdValue" | "isReadOnly" | "isShared" | "isUserModifiable", ExtArgs["result"]["parameters"]>
+  export type ParametersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }
+  export type ParametersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }
+  export type ParametersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
+    parentWolfpack?: boolean | WolfpackDefaultArgs<ExtArgs>
+  }
+
+  export type $ParametersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Parameters"
+    objects: {
+      parentElementInfo: Prisma.$ElementInformationPayload<ExtArgs>
+      parentWolfpack: Prisma.$WolfpackPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      parameterGuid: string
+      documentOwner: string
+      storageType: $Enums.StorageType
+      hasValue: boolean
+      parameterIdValue: bigint
+      isReadOnly: boolean
+      isShared: boolean
+      isUserModifiable: boolean
+    }, ExtArgs["result"]["parameters"]>
+    composites: {}
+  }
+
+  type ParametersGetPayload<S extends boolean | null | undefined | ParametersDefaultArgs> = $Result.GetResult<Prisma.$ParametersPayload, S>
+
+  type ParametersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ParametersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ParametersCountAggregateInputType | true
+    }
+
+  export interface ParametersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Parameters'], meta: { name: 'Parameters' } }
+    /**
+     * Find zero or one Parameters that matches the filter.
+     * @param {ParametersFindUniqueArgs} args - Arguments to find a Parameters
+     * @example
+     * // Get one Parameters
+     * const parameters = await prisma.parameters.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ParametersFindUniqueArgs>(args: SelectSubset<T, ParametersFindUniqueArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Parameters that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ParametersFindUniqueOrThrowArgs} args - Arguments to find a Parameters
+     * @example
+     * // Get one Parameters
+     * const parameters = await prisma.parameters.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ParametersFindUniqueOrThrowArgs>(args: SelectSubset<T, ParametersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Parameters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersFindFirstArgs} args - Arguments to find a Parameters
+     * @example
+     * // Get one Parameters
+     * const parameters = await prisma.parameters.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ParametersFindFirstArgs>(args?: SelectSubset<T, ParametersFindFirstArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Parameters that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersFindFirstOrThrowArgs} args - Arguments to find a Parameters
+     * @example
+     * // Get one Parameters
+     * const parameters = await prisma.parameters.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ParametersFindFirstOrThrowArgs>(args?: SelectSubset<T, ParametersFindFirstOrThrowArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Parameters that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Parameters
+     * const parameters = await prisma.parameters.findMany()
+     * 
+     * // Get first 10 Parameters
+     * const parameters = await prisma.parameters.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const parametersWithIdOnly = await prisma.parameters.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ParametersFindManyArgs>(args?: SelectSubset<T, ParametersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Parameters.
+     * @param {ParametersCreateArgs} args - Arguments to create a Parameters.
+     * @example
+     * // Create one Parameters
+     * const Parameters = await prisma.parameters.create({
+     *   data: {
+     *     // ... data to create a Parameters
+     *   }
+     * })
+     * 
+     */
+    create<T extends ParametersCreateArgs>(args: SelectSubset<T, ParametersCreateArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Parameters.
+     * @param {ParametersCreateManyArgs} args - Arguments to create many Parameters.
+     * @example
+     * // Create many Parameters
+     * const parameters = await prisma.parameters.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ParametersCreateManyArgs>(args?: SelectSubset<T, ParametersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Parameters and returns the data saved in the database.
+     * @param {ParametersCreateManyAndReturnArgs} args - Arguments to create many Parameters.
+     * @example
+     * // Create many Parameters
+     * const parameters = await prisma.parameters.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Parameters and only return the `id`
+     * const parametersWithIdOnly = await prisma.parameters.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ParametersCreateManyAndReturnArgs>(args?: SelectSubset<T, ParametersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Parameters.
+     * @param {ParametersDeleteArgs} args - Arguments to delete one Parameters.
+     * @example
+     * // Delete one Parameters
+     * const Parameters = await prisma.parameters.delete({
+     *   where: {
+     *     // ... filter to delete one Parameters
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ParametersDeleteArgs>(args: SelectSubset<T, ParametersDeleteArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Parameters.
+     * @param {ParametersUpdateArgs} args - Arguments to update one Parameters.
+     * @example
+     * // Update one Parameters
+     * const parameters = await prisma.parameters.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ParametersUpdateArgs>(args: SelectSubset<T, ParametersUpdateArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Parameters.
+     * @param {ParametersDeleteManyArgs} args - Arguments to filter Parameters to delete.
+     * @example
+     * // Delete a few Parameters
+     * const { count } = await prisma.parameters.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ParametersDeleteManyArgs>(args?: SelectSubset<T, ParametersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Parameters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Parameters
+     * const parameters = await prisma.parameters.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ParametersUpdateManyArgs>(args: SelectSubset<T, ParametersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Parameters and returns the data updated in the database.
+     * @param {ParametersUpdateManyAndReturnArgs} args - Arguments to update many Parameters.
+     * @example
+     * // Update many Parameters
+     * const parameters = await prisma.parameters.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Parameters and only return the `id`
+     * const parametersWithIdOnly = await prisma.parameters.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ParametersUpdateManyAndReturnArgs>(args: SelectSubset<T, ParametersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Parameters.
+     * @param {ParametersUpsertArgs} args - Arguments to update or create a Parameters.
+     * @example
+     * // Update or create a Parameters
+     * const parameters = await prisma.parameters.upsert({
+     *   create: {
+     *     // ... data to create a Parameters
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Parameters we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ParametersUpsertArgs>(args: SelectSubset<T, ParametersUpsertArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Parameters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersCountArgs} args - Arguments to filter Parameters to count.
+     * @example
+     * // Count the number of Parameters
+     * const count = await prisma.parameters.count({
+     *   where: {
+     *     // ... the filter for the Parameters we want to count
+     *   }
+     * })
+    **/
+    count<T extends ParametersCountArgs>(
+      args?: Subset<T, ParametersCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ParametersCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Parameters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ParametersAggregateArgs>(args: Subset<T, ParametersAggregateArgs>): Prisma.PrismaPromise<GetParametersAggregateType<T>>
+
+    /**
+     * Group by Parameters.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ParametersGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ParametersGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ParametersGroupByArgs['orderBy'] }
+        : { orderBy?: ParametersGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ParametersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetParametersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Parameters model
+   */
+  readonly fields: ParametersFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Parameters.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ParametersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    parentElementInfo<T extends ElementInformationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ElementInformationDefaultArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    parentWolfpack<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Parameters model
+   */ 
+  interface ParametersFieldRefs {
+    readonly id: FieldRef<"Parameters", 'Int'>
+    readonly createdAt: FieldRef<"Parameters", 'DateTime'>
+    readonly parameterGuid: FieldRef<"Parameters", 'String'>
+    readonly documentOwner: FieldRef<"Parameters", 'String'>
+    readonly storageType: FieldRef<"Parameters", 'StorageType'>
+    readonly hasValue: FieldRef<"Parameters", 'Boolean'>
+    readonly parameterIdValue: FieldRef<"Parameters", 'BigInt'>
+    readonly isReadOnly: FieldRef<"Parameters", 'Boolean'>
+    readonly isShared: FieldRef<"Parameters", 'Boolean'>
+    readonly isUserModifiable: FieldRef<"Parameters", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Parameters findUnique
+   */
+  export type ParametersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter, which Parameters to fetch.
+     */
+    where: ParametersWhereUniqueInput
+  }
+
+  /**
+   * Parameters findUniqueOrThrow
+   */
+  export type ParametersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter, which Parameters to fetch.
+     */
+    where: ParametersWhereUniqueInput
+  }
+
+  /**
+   * Parameters findFirst
+   */
+  export type ParametersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter, which Parameters to fetch.
+     */
+    where?: ParametersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Parameters to fetch.
+     */
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Parameters.
+     */
+    cursor?: ParametersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Parameters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Parameters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Parameters.
+     */
+    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+  }
+
+  /**
+   * Parameters findFirstOrThrow
+   */
+  export type ParametersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter, which Parameters to fetch.
+     */
+    where?: ParametersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Parameters to fetch.
+     */
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Parameters.
+     */
+    cursor?: ParametersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Parameters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Parameters.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Parameters.
+     */
+    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+  }
+
+  /**
+   * Parameters findMany
+   */
+  export type ParametersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter, which Parameters to fetch.
+     */
+    where?: ParametersWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Parameters to fetch.
+     */
+    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Parameters.
+     */
+    cursor?: ParametersWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Parameters from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Parameters.
+     */
+    skip?: number
+    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+  }
+
+  /**
+   * Parameters create
+   */
+  export type ParametersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Parameters.
+     */
+    data: XOR<ParametersCreateInput, ParametersUncheckedCreateInput>
+  }
+
+  /**
+   * Parameters createMany
+   */
+  export type ParametersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Parameters.
+     */
+    data: ParametersCreateManyInput | ParametersCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Parameters createManyAndReturn
+   */
+  export type ParametersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * The data used to create many Parameters.
+     */
+    data: ParametersCreateManyInput | ParametersCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Parameters update
+   */
+  export type ParametersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Parameters.
+     */
+    data: XOR<ParametersUpdateInput, ParametersUncheckedUpdateInput>
+    /**
+     * Choose, which Parameters to update.
+     */
+    where: ParametersWhereUniqueInput
+  }
+
+  /**
+   * Parameters updateMany
+   */
+  export type ParametersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Parameters.
+     */
+    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyInput>
+    /**
+     * Filter which Parameters to update
+     */
+    where?: ParametersWhereInput
+    /**
+     * Limit how many Parameters to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Parameters updateManyAndReturn
+   */
+  export type ParametersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * The data used to update Parameters.
+     */
+    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyInput>
+    /**
+     * Filter which Parameters to update
+     */
+    where?: ParametersWhereInput
+    /**
+     * Limit how many Parameters to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Parameters upsert
+   */
+  export type ParametersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Parameters to update in case it exists.
+     */
+    where: ParametersWhereUniqueInput
+    /**
+     * In case the Parameters found by the `where` argument doesn't exist, create a new Parameters with this data.
+     */
+    create: XOR<ParametersCreateInput, ParametersUncheckedCreateInput>
+    /**
+     * In case the Parameters was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ParametersUpdateInput, ParametersUncheckedUpdateInput>
+  }
+
+  /**
+   * Parameters delete
+   */
+  export type ParametersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
+    /**
+     * Filter which Parameters to delete.
+     */
+    where: ParametersWhereUniqueInput
+  }
+
+  /**
+   * Parameters deleteMany
+   */
+  export type ParametersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Parameters to delete
+     */
+    where?: ParametersWhereInput
+    /**
+     * Limit how many Parameters to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Parameters without action
+   */
+  export type ParametersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Parameters
+     */
+    select?: ParametersSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Parameters
+     */
+    omit?: ParametersOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ParametersInclude<ExtArgs> | null
   }
 
 
@@ -2022,11 +4974,60 @@ export namespace Prisma {
     guid: 'guid',
     resultCount: 'resultCount',
     testName: 'testName',
-    results: 'results',
-    testId: 'testId'
+    results: 'results'
   };
 
   export type WolfpackScalarFieldEnum = (typeof WolfpackScalarFieldEnum)[keyof typeof WolfpackScalarFieldEnum]
+
+
+  export const ElementInformationScalarFieldEnum: {
+    id: 'id',
+    uniqueElementId: 'uniqueElementId',
+    elementInfoId: 'elementInfoId',
+    idValue: 'idValue',
+    elementUniqueId: 'elementUniqueId',
+    elementVersionId: 'elementVersionId',
+    familyName: 'familyName',
+    category: 'category',
+    builtInCategory: 'builtInCategory',
+    workset: 'workset',
+    views: 'views',
+    designOption: 'designOption',
+    documentOwner: 'documentOwner',
+    ownerViewId: 'ownerViewId',
+    worksetId: 'worksetId',
+    levelId: 'levelId',
+    createPhaseId: 'createPhaseId',
+    demolishedPhaseId: 'demolishedPhaseId',
+    groupPhaseId: 'groupPhaseId',
+    workshareId: 'workshareId',
+    isGrouped: 'isGrouped',
+    isModifiable: 'isModifiable',
+    isViewSpecific: 'isViewSpecific',
+    isBuiltInCategory: 'isBuiltInCategory',
+    isAnnotative: 'isAnnotative',
+    isModel: 'isModel',
+    isPinned: 'isPinned',
+    isWorkshared: 'isWorkshared'
+  };
+
+  export type ElementInformationScalarFieldEnum = (typeof ElementInformationScalarFieldEnum)[keyof typeof ElementInformationScalarFieldEnum]
+
+
+  export const ParametersScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    parameterGuid: 'parameterGuid',
+    documentOwner: 'documentOwner',
+    storageType: 'storageType',
+    hasValue: 'hasValue',
+    parameterIdValue: 'parameterIdValue',
+    isReadOnly: 'isReadOnly',
+    isShared: 'isShared',
+    isUserModifiable: 'isUserModifiable'
+  };
+
+  export type ParametersScalarFieldEnum = (typeof ParametersScalarFieldEnum)[keyof typeof ParametersScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -2150,6 +5151,34 @@ export namespace Prisma {
    */
   export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
+
+
+  /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'StorageType'
+   */
+  export type EnumStorageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StorageType'>
+    
+
+
+  /**
+   * Reference to a field of type 'StorageType[]'
+   */
+  export type ListEnumStorageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StorageType[]'>
+    
   /**
    * Deep Input Types
    */
@@ -2170,7 +5199,8 @@ export namespace Prisma {
     resultCount?: IntFilter<"Wolfpack"> | number
     testName?: StringFilter<"Wolfpack"> | string
     results?: JsonNullableFilter<"Wolfpack">
-    testId?: IntFilter<"Wolfpack"> | number
+    elementInfo?: ElementInformationListRelationFilter
+    Parameters?: ParametersListRelationFilter
   }
 
   export type WolfpackOrderByWithRelationInput = {
@@ -2185,11 +5215,13 @@ export namespace Prisma {
     resultCount?: SortOrder
     testName?: SortOrder
     results?: SortOrderInput | SortOrder
-    testId?: SortOrder
+    elementInfo?: ElementInformationOrderByRelationAggregateInput
+    Parameters?: ParametersOrderByRelationAggregateInput
   }
 
   export type WolfpackWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    guid?: string
     AND?: WolfpackWhereInput | WolfpackWhereInput[]
     OR?: WolfpackWhereInput[]
     NOT?: WolfpackWhereInput | WolfpackWhereInput[]
@@ -2199,12 +5231,12 @@ export namespace Prisma {
     wasCompleted?: BoolFilter<"Wolfpack"> | boolean
     timeTaken?: FloatFilter<"Wolfpack"> | number
     createdAt?: DateTimeFilter<"Wolfpack"> | Date | string
-    guid?: StringFilter<"Wolfpack"> | string
     resultCount?: IntFilter<"Wolfpack"> | number
     testName?: StringFilter<"Wolfpack"> | string
     results?: JsonNullableFilter<"Wolfpack">
-    testId?: IntFilter<"Wolfpack"> | number
-  }, "id">
+    elementInfo?: ElementInformationListRelationFilter
+    Parameters?: ParametersListRelationFilter
+  }, "id" | "guid">
 
   export type WolfpackOrderByWithAggregationInput = {
     id?: SortOrder
@@ -2218,7 +5250,6 @@ export namespace Prisma {
     resultCount?: SortOrder
     testName?: SortOrder
     results?: SortOrderInput | SortOrder
-    testId?: SortOrder
     _count?: WolfpackCountOrderByAggregateInput
     _avg?: WolfpackAvgOrderByAggregateInput
     _max?: WolfpackMaxOrderByAggregateInput
@@ -2241,7 +5272,266 @@ export namespace Prisma {
     resultCount?: IntWithAggregatesFilter<"Wolfpack"> | number
     testName?: StringWithAggregatesFilter<"Wolfpack"> | string
     results?: JsonNullableWithAggregatesFilter<"Wolfpack">
-    testId?: IntWithAggregatesFilter<"Wolfpack"> | number
+  }
+
+  export type ElementInformationWhereInput = {
+    AND?: ElementInformationWhereInput | ElementInformationWhereInput[]
+    OR?: ElementInformationWhereInput[]
+    NOT?: ElementInformationWhereInput | ElementInformationWhereInput[]
+    id?: IntFilter<"ElementInformation"> | number
+    uniqueElementId?: StringFilter<"ElementInformation"> | string
+    elementInfoId?: IntFilter<"ElementInformation"> | number
+    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
+    elementUniqueId?: StringFilter<"ElementInformation"> | string
+    elementVersionId?: StringFilter<"ElementInformation"> | string
+    familyName?: StringFilter<"ElementInformation"> | string
+    category?: StringFilter<"ElementInformation"> | string
+    builtInCategory?: StringFilter<"ElementInformation"> | string
+    workset?: StringFilter<"ElementInformation"> | string
+    views?: StringNullableListFilter<"ElementInformation">
+    designOption?: StringFilter<"ElementInformation"> | string
+    documentOwner?: StringFilter<"ElementInformation"> | string
+    ownerViewId?: StringFilter<"ElementInformation"> | string
+    worksetId?: StringFilter<"ElementInformation"> | string
+    levelId?: StringFilter<"ElementInformation"> | string
+    createPhaseId?: StringFilter<"ElementInformation"> | string
+    demolishedPhaseId?: StringFilter<"ElementInformation"> | string
+    groupPhaseId?: StringFilter<"ElementInformation"> | string
+    workshareId?: StringFilter<"ElementInformation"> | string
+    isGrouped?: BoolFilter<"ElementInformation"> | boolean
+    isModifiable?: BoolFilter<"ElementInformation"> | boolean
+    isViewSpecific?: BoolFilter<"ElementInformation"> | boolean
+    isBuiltInCategory?: BoolFilter<"ElementInformation"> | boolean
+    isAnnotative?: BoolFilter<"ElementInformation"> | boolean
+    isModel?: BoolFilter<"ElementInformation"> | boolean
+    isPinned?: BoolFilter<"ElementInformation"> | boolean
+    isWorkshared?: BoolFilter<"ElementInformation"> | boolean
+    wolfpackId?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
+    Parameters?: ParametersListRelationFilter
+  }
+
+  export type ElementInformationOrderByWithRelationInput = {
+    id?: SortOrder
+    uniqueElementId?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+    elementUniqueId?: SortOrder
+    elementVersionId?: SortOrder
+    familyName?: SortOrder
+    category?: SortOrder
+    builtInCategory?: SortOrder
+    workset?: SortOrder
+    views?: SortOrder
+    designOption?: SortOrder
+    documentOwner?: SortOrder
+    ownerViewId?: SortOrder
+    worksetId?: SortOrder
+    levelId?: SortOrder
+    createPhaseId?: SortOrder
+    demolishedPhaseId?: SortOrder
+    groupPhaseId?: SortOrder
+    workshareId?: SortOrder
+    isGrouped?: SortOrder
+    isModifiable?: SortOrder
+    isViewSpecific?: SortOrder
+    isBuiltInCategory?: SortOrder
+    isAnnotative?: SortOrder
+    isModel?: SortOrder
+    isPinned?: SortOrder
+    isWorkshared?: SortOrder
+    wolfpackId?: WolfpackOrderByWithRelationInput
+    Parameters?: ParametersOrderByRelationAggregateInput
+  }
+
+  export type ElementInformationWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    elementUniqueId?: string
+    AND?: ElementInformationWhereInput | ElementInformationWhereInput[]
+    OR?: ElementInformationWhereInput[]
+    NOT?: ElementInformationWhereInput | ElementInformationWhereInput[]
+    uniqueElementId?: StringFilter<"ElementInformation"> | string
+    elementInfoId?: IntFilter<"ElementInformation"> | number
+    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
+    elementVersionId?: StringFilter<"ElementInformation"> | string
+    familyName?: StringFilter<"ElementInformation"> | string
+    category?: StringFilter<"ElementInformation"> | string
+    builtInCategory?: StringFilter<"ElementInformation"> | string
+    workset?: StringFilter<"ElementInformation"> | string
+    views?: StringNullableListFilter<"ElementInformation">
+    designOption?: StringFilter<"ElementInformation"> | string
+    documentOwner?: StringFilter<"ElementInformation"> | string
+    ownerViewId?: StringFilter<"ElementInformation"> | string
+    worksetId?: StringFilter<"ElementInformation"> | string
+    levelId?: StringFilter<"ElementInformation"> | string
+    createPhaseId?: StringFilter<"ElementInformation"> | string
+    demolishedPhaseId?: StringFilter<"ElementInformation"> | string
+    groupPhaseId?: StringFilter<"ElementInformation"> | string
+    workshareId?: StringFilter<"ElementInformation"> | string
+    isGrouped?: BoolFilter<"ElementInformation"> | boolean
+    isModifiable?: BoolFilter<"ElementInformation"> | boolean
+    isViewSpecific?: BoolFilter<"ElementInformation"> | boolean
+    isBuiltInCategory?: BoolFilter<"ElementInformation"> | boolean
+    isAnnotative?: BoolFilter<"ElementInformation"> | boolean
+    isModel?: BoolFilter<"ElementInformation"> | boolean
+    isPinned?: BoolFilter<"ElementInformation"> | boolean
+    isWorkshared?: BoolFilter<"ElementInformation"> | boolean
+    wolfpackId?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
+    Parameters?: ParametersListRelationFilter
+  }, "id" | "elementUniqueId">
+
+  export type ElementInformationOrderByWithAggregationInput = {
+    id?: SortOrder
+    uniqueElementId?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+    elementUniqueId?: SortOrder
+    elementVersionId?: SortOrder
+    familyName?: SortOrder
+    category?: SortOrder
+    builtInCategory?: SortOrder
+    workset?: SortOrder
+    views?: SortOrder
+    designOption?: SortOrder
+    documentOwner?: SortOrder
+    ownerViewId?: SortOrder
+    worksetId?: SortOrder
+    levelId?: SortOrder
+    createPhaseId?: SortOrder
+    demolishedPhaseId?: SortOrder
+    groupPhaseId?: SortOrder
+    workshareId?: SortOrder
+    isGrouped?: SortOrder
+    isModifiable?: SortOrder
+    isViewSpecific?: SortOrder
+    isBuiltInCategory?: SortOrder
+    isAnnotative?: SortOrder
+    isModel?: SortOrder
+    isPinned?: SortOrder
+    isWorkshared?: SortOrder
+    _count?: ElementInformationCountOrderByAggregateInput
+    _avg?: ElementInformationAvgOrderByAggregateInput
+    _max?: ElementInformationMaxOrderByAggregateInput
+    _min?: ElementInformationMinOrderByAggregateInput
+    _sum?: ElementInformationSumOrderByAggregateInput
+  }
+
+  export type ElementInformationScalarWhereWithAggregatesInput = {
+    AND?: ElementInformationScalarWhereWithAggregatesInput | ElementInformationScalarWhereWithAggregatesInput[]
+    OR?: ElementInformationScalarWhereWithAggregatesInput[]
+    NOT?: ElementInformationScalarWhereWithAggregatesInput | ElementInformationScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ElementInformation"> | number
+    uniqueElementId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    elementInfoId?: IntWithAggregatesFilter<"ElementInformation"> | number
+    idValue?: BigIntWithAggregatesFilter<"ElementInformation"> | bigint | number
+    elementUniqueId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    elementVersionId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    familyName?: StringWithAggregatesFilter<"ElementInformation"> | string
+    category?: StringWithAggregatesFilter<"ElementInformation"> | string
+    builtInCategory?: StringWithAggregatesFilter<"ElementInformation"> | string
+    workset?: StringWithAggregatesFilter<"ElementInformation"> | string
+    views?: StringNullableListFilter<"ElementInformation">
+    designOption?: StringWithAggregatesFilter<"ElementInformation"> | string
+    documentOwner?: StringWithAggregatesFilter<"ElementInformation"> | string
+    ownerViewId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    worksetId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    levelId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    createPhaseId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    demolishedPhaseId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    groupPhaseId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    workshareId?: StringWithAggregatesFilter<"ElementInformation"> | string
+    isGrouped?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isModifiable?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isViewSpecific?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isBuiltInCategory?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isAnnotative?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isModel?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isPinned?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+    isWorkshared?: BoolWithAggregatesFilter<"ElementInformation"> | boolean
+  }
+
+  export type ParametersWhereInput = {
+    AND?: ParametersWhereInput | ParametersWhereInput[]
+    OR?: ParametersWhereInput[]
+    NOT?: ParametersWhereInput | ParametersWhereInput[]
+    id?: IntFilter<"Parameters"> | number
+    createdAt?: DateTimeFilter<"Parameters"> | Date | string
+    parameterGuid?: StringFilter<"Parameters"> | string
+    documentOwner?: StringFilter<"Parameters"> | string
+    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
+    hasValue?: BoolFilter<"Parameters"> | boolean
+    parameterIdValue?: BigIntFilter<"Parameters"> | bigint | number
+    isReadOnly?: BoolFilter<"Parameters"> | boolean
+    isShared?: BoolFilter<"Parameters"> | boolean
+    isUserModifiable?: BoolFilter<"Parameters"> | boolean
+    parentElementInfo?: XOR<ElementInformationScalarRelationFilter, ElementInformationWhereInput>
+    parentWolfpack?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
+  }
+
+  export type ParametersOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    parameterGuid?: SortOrder
+    documentOwner?: SortOrder
+    storageType?: SortOrder
+    hasValue?: SortOrder
+    parameterIdValue?: SortOrder
+    isReadOnly?: SortOrder
+    isShared?: SortOrder
+    isUserModifiable?: SortOrder
+    parentElementInfo?: ElementInformationOrderByWithRelationInput
+    parentWolfpack?: WolfpackOrderByWithRelationInput
+  }
+
+  export type ParametersWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    parameterGuid?: string
+    AND?: ParametersWhereInput | ParametersWhereInput[]
+    OR?: ParametersWhereInput[]
+    NOT?: ParametersWhereInput | ParametersWhereInput[]
+    createdAt?: DateTimeFilter<"Parameters"> | Date | string
+    documentOwner?: StringFilter<"Parameters"> | string
+    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
+    hasValue?: BoolFilter<"Parameters"> | boolean
+    parameterIdValue?: BigIntFilter<"Parameters"> | bigint | number
+    isReadOnly?: BoolFilter<"Parameters"> | boolean
+    isShared?: BoolFilter<"Parameters"> | boolean
+    isUserModifiable?: BoolFilter<"Parameters"> | boolean
+    parentElementInfo?: XOR<ElementInformationScalarRelationFilter, ElementInformationWhereInput>
+    parentWolfpack?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
+  }, "id" | "parameterGuid">
+
+  export type ParametersOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    parameterGuid?: SortOrder
+    documentOwner?: SortOrder
+    storageType?: SortOrder
+    hasValue?: SortOrder
+    parameterIdValue?: SortOrder
+    isReadOnly?: SortOrder
+    isShared?: SortOrder
+    isUserModifiable?: SortOrder
+    _count?: ParametersCountOrderByAggregateInput
+    _avg?: ParametersAvgOrderByAggregateInput
+    _max?: ParametersMaxOrderByAggregateInput
+    _min?: ParametersMinOrderByAggregateInput
+    _sum?: ParametersSumOrderByAggregateInput
+  }
+
+  export type ParametersScalarWhereWithAggregatesInput = {
+    AND?: ParametersScalarWhereWithAggregatesInput | ParametersScalarWhereWithAggregatesInput[]
+    OR?: ParametersScalarWhereWithAggregatesInput[]
+    NOT?: ParametersScalarWhereWithAggregatesInput | ParametersScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Parameters"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Parameters"> | Date | string
+    parameterGuid?: StringWithAggregatesFilter<"Parameters"> | string
+    documentOwner?: StringWithAggregatesFilter<"Parameters"> | string
+    storageType?: EnumStorageTypeWithAggregatesFilter<"Parameters"> | $Enums.StorageType
+    hasValue?: BoolWithAggregatesFilter<"Parameters"> | boolean
+    parameterIdValue?: BigIntWithAggregatesFilter<"Parameters"> | bigint | number
+    isReadOnly?: BoolWithAggregatesFilter<"Parameters"> | boolean
+    isShared?: BoolWithAggregatesFilter<"Parameters"> | boolean
+    isUserModifiable?: BoolWithAggregatesFilter<"Parameters"> | boolean
   }
 
   export type WolfpackCreateInput = {
@@ -2255,7 +5545,8 @@ export namespace Prisma {
     resultCount?: number
     testName: string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId: number
+    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
+    Parameters?: ParametersCreateNestedManyWithoutParentWolfpackInput
   }
 
   export type WolfpackUncheckedCreateInput = {
@@ -2270,7 +5561,8 @@ export namespace Prisma {
     resultCount?: number
     testName: string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId: number
+    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
+    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentWolfpackInput
   }
 
   export type WolfpackUpdateInput = {
@@ -2284,7 +5576,8 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId?: IntFieldUpdateOperationsInput | number
+    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
+    Parameters?: ParametersUpdateManyWithoutParentWolfpackNestedInput
   }
 
   export type WolfpackUncheckedUpdateInput = {
@@ -2299,7 +5592,8 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId?: IntFieldUpdateOperationsInput | number
+    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
+    Parameters?: ParametersUncheckedUpdateManyWithoutParentWolfpackNestedInput
   }
 
   export type WolfpackCreateManyInput = {
@@ -2314,7 +5608,6 @@ export namespace Prisma {
     resultCount?: number
     testName: string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId: number
   }
 
   export type WolfpackUpdateManyMutationInput = {
@@ -2328,7 +5621,6 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId?: IntFieldUpdateOperationsInput | number
   }
 
   export type WolfpackUncheckedUpdateManyInput = {
@@ -2343,7 +5635,309 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    testId?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type ElementInformationCreateInput = {
+    uniqueElementId?: string
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    wolfpackId?: WolfpackCreateNestedOneWithoutElementInfoInput
+    Parameters?: ParametersCreateNestedManyWithoutParentElementInfoInput
+  }
+
+  export type ElementInformationUncheckedCreateInput = {
+    id?: number
+    uniqueElementId?: string
+    elementInfoId?: number
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput
+  }
+
+  export type ElementInformationUpdateInput = {
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+    wolfpackId?: WolfpackUpdateOneRequiredWithoutElementInfoNestedInput
+    Parameters?: ParametersUpdateManyWithoutParentElementInfoNestedInput
+  }
+
+  export type ElementInformationUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    elementInfoId?: IntFieldUpdateOperationsInput | number
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+    Parameters?: ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput
+  }
+
+  export type ElementInformationCreateManyInput = {
+    id?: number
+    uniqueElementId?: string
+    elementInfoId?: number
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+  }
+
+  export type ElementInformationUpdateManyMutationInput = {
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ElementInformationUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    elementInfoId?: IntFieldUpdateOperationsInput | number
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersCreateInput = {
+    createdAt?: Date | string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentElementInfo: ElementInformationCreateNestedOneWithoutParametersInput
+    parentWolfpack?: WolfpackCreateNestedOneWithoutParametersInput
+  }
+
+  export type ParametersUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    parameterGuid: string
+    documentOwner?: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+    parentElementInfo?: ElementInformationUpdateOneRequiredWithoutParametersNestedInput
+    parentWolfpack?: WolfpackUpdateOneRequiredWithoutParametersNestedInput
+  }
+
+  export type ParametersUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    parameterGuid?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersCreateManyInput = {
+    id?: number
+    createdAt?: Date | string
+    parameterGuid: string
+    documentOwner?: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    parameterGuid?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2422,9 +6016,29 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type ElementInformationListRelationFilter = {
+    every?: ElementInformationWhereInput
+    some?: ElementInformationWhereInput
+    none?: ElementInformationWhereInput
+  }
+
+  export type ParametersListRelationFilter = {
+    every?: ParametersWhereInput
+    some?: ParametersWhereInput
+    none?: ParametersWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type ElementInformationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ParametersOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type WolfpackCountOrderByAggregateInput = {
@@ -2439,14 +6053,12 @@ export namespace Prisma {
     resultCount?: SortOrder
     testName?: SortOrder
     results?: SortOrder
-    testId?: SortOrder
   }
 
   export type WolfpackAvgOrderByAggregateInput = {
     id?: SortOrder
     timeTaken?: SortOrder
     resultCount?: SortOrder
-    testId?: SortOrder
   }
 
   export type WolfpackMaxOrderByAggregateInput = {
@@ -2460,7 +6072,6 @@ export namespace Prisma {
     guid?: SortOrder
     resultCount?: SortOrder
     testName?: SortOrder
-    testId?: SortOrder
   }
 
   export type WolfpackMinOrderByAggregateInput = {
@@ -2474,14 +6085,12 @@ export namespace Prisma {
     guid?: SortOrder
     resultCount?: SortOrder
     testName?: SortOrder
-    testId?: SortOrder
   }
 
   export type WolfpackSumOrderByAggregateInput = {
     id?: SortOrder
     timeTaken?: SortOrder
     resultCount?: SortOrder
-    testId?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2582,6 +6191,248 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type BigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+
+  export type WolfpackScalarRelationFilter = {
+    is?: WolfpackWhereInput
+    isNot?: WolfpackWhereInput
+  }
+
+  export type ElementInformationCountOrderByAggregateInput = {
+    id?: SortOrder
+    uniqueElementId?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+    elementUniqueId?: SortOrder
+    elementVersionId?: SortOrder
+    familyName?: SortOrder
+    category?: SortOrder
+    builtInCategory?: SortOrder
+    workset?: SortOrder
+    views?: SortOrder
+    designOption?: SortOrder
+    documentOwner?: SortOrder
+    ownerViewId?: SortOrder
+    worksetId?: SortOrder
+    levelId?: SortOrder
+    createPhaseId?: SortOrder
+    demolishedPhaseId?: SortOrder
+    groupPhaseId?: SortOrder
+    workshareId?: SortOrder
+    isGrouped?: SortOrder
+    isModifiable?: SortOrder
+    isViewSpecific?: SortOrder
+    isBuiltInCategory?: SortOrder
+    isAnnotative?: SortOrder
+    isModel?: SortOrder
+    isPinned?: SortOrder
+    isWorkshared?: SortOrder
+  }
+
+  export type ElementInformationAvgOrderByAggregateInput = {
+    id?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+  }
+
+  export type ElementInformationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    uniqueElementId?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+    elementUniqueId?: SortOrder
+    elementVersionId?: SortOrder
+    familyName?: SortOrder
+    category?: SortOrder
+    builtInCategory?: SortOrder
+    workset?: SortOrder
+    designOption?: SortOrder
+    documentOwner?: SortOrder
+    ownerViewId?: SortOrder
+    worksetId?: SortOrder
+    levelId?: SortOrder
+    createPhaseId?: SortOrder
+    demolishedPhaseId?: SortOrder
+    groupPhaseId?: SortOrder
+    workshareId?: SortOrder
+    isGrouped?: SortOrder
+    isModifiable?: SortOrder
+    isViewSpecific?: SortOrder
+    isBuiltInCategory?: SortOrder
+    isAnnotative?: SortOrder
+    isModel?: SortOrder
+    isPinned?: SortOrder
+    isWorkshared?: SortOrder
+  }
+
+  export type ElementInformationMinOrderByAggregateInput = {
+    id?: SortOrder
+    uniqueElementId?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+    elementUniqueId?: SortOrder
+    elementVersionId?: SortOrder
+    familyName?: SortOrder
+    category?: SortOrder
+    builtInCategory?: SortOrder
+    workset?: SortOrder
+    designOption?: SortOrder
+    documentOwner?: SortOrder
+    ownerViewId?: SortOrder
+    worksetId?: SortOrder
+    levelId?: SortOrder
+    createPhaseId?: SortOrder
+    demolishedPhaseId?: SortOrder
+    groupPhaseId?: SortOrder
+    workshareId?: SortOrder
+    isGrouped?: SortOrder
+    isModifiable?: SortOrder
+    isViewSpecific?: SortOrder
+    isBuiltInCategory?: SortOrder
+    isAnnotative?: SortOrder
+    isModel?: SortOrder
+    isPinned?: SortOrder
+    isWorkshared?: SortOrder
+  }
+
+  export type ElementInformationSumOrderByAggregateInput = {
+    id?: SortOrder
+    elementInfoId?: SortOrder
+    idValue?: SortOrder
+  }
+
+  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type EnumStorageTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumStorageTypeFilter<$PrismaModel> | $Enums.StorageType
+  }
+
+  export type ElementInformationScalarRelationFilter = {
+    is?: ElementInformationWhereInput
+    isNot?: ElementInformationWhereInput
+  }
+
+  export type ParametersCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    parameterGuid?: SortOrder
+    documentOwner?: SortOrder
+    storageType?: SortOrder
+    hasValue?: SortOrder
+    parameterIdValue?: SortOrder
+    isReadOnly?: SortOrder
+    isShared?: SortOrder
+    isUserModifiable?: SortOrder
+  }
+
+  export type ParametersAvgOrderByAggregateInput = {
+    id?: SortOrder
+    parameterIdValue?: SortOrder
+  }
+
+  export type ParametersMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    parameterGuid?: SortOrder
+    documentOwner?: SortOrder
+    storageType?: SortOrder
+    hasValue?: SortOrder
+    parameterIdValue?: SortOrder
+    isReadOnly?: SortOrder
+    isShared?: SortOrder
+    isUserModifiable?: SortOrder
+  }
+
+  export type ParametersMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    parameterGuid?: SortOrder
+    documentOwner?: SortOrder
+    storageType?: SortOrder
+    hasValue?: SortOrder
+    parameterIdValue?: SortOrder
+    isReadOnly?: SortOrder
+    isShared?: SortOrder
+    isUserModifiable?: SortOrder
+  }
+
+  export type ParametersSumOrderByAggregateInput = {
+    id?: SortOrder
+    parameterIdValue?: SortOrder
+  }
+
+  export type EnumStorageTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel> | $Enums.StorageType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStorageTypeFilter<$PrismaModel>
+    _max?: NestedEnumStorageTypeFilter<$PrismaModel>
+  }
+
+  export type ElementInformationCreateNestedManyWithoutWolfpackIdInput = {
+    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
+    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
+    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+  }
+
+  export type ParametersCreateNestedManyWithoutParentWolfpackInput = {
+    create?: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput> | ParametersCreateWithoutParentWolfpackInput[] | ParametersUncheckedCreateWithoutParentWolfpackInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentWolfpackInput | ParametersCreateOrConnectWithoutParentWolfpackInput[]
+    createMany?: ParametersCreateManyParentWolfpackInputEnvelope
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+  }
+
+  export type ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput = {
+    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
+    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
+    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+  }
+
+  export type ParametersUncheckedCreateNestedManyWithoutParentWolfpackInput = {
+    create?: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput> | ParametersCreateWithoutParentWolfpackInput[] | ParametersUncheckedCreateWithoutParentWolfpackInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentWolfpackInput | ParametersCreateOrConnectWithoutParentWolfpackInput[]
+    createMany?: ParametersCreateManyParentWolfpackInputEnvelope
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2608,6 +6459,167 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type ElementInformationUpdateManyWithoutWolfpackIdNestedInput = {
+    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
+    upsert?: ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput[]
+    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
+    set?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    disconnect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    delete?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    update?: ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput[]
+    updateMany?: ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput | ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput[]
+    deleteMany?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
+  }
+
+  export type ParametersUpdateManyWithoutParentWolfpackNestedInput = {
+    create?: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput> | ParametersCreateWithoutParentWolfpackInput[] | ParametersUncheckedCreateWithoutParentWolfpackInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentWolfpackInput | ParametersCreateOrConnectWithoutParentWolfpackInput[]
+    upsert?: ParametersUpsertWithWhereUniqueWithoutParentWolfpackInput | ParametersUpsertWithWhereUniqueWithoutParentWolfpackInput[]
+    createMany?: ParametersCreateManyParentWolfpackInputEnvelope
+    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    update?: ParametersUpdateWithWhereUniqueWithoutParentWolfpackInput | ParametersUpdateWithWhereUniqueWithoutParentWolfpackInput[]
+    updateMany?: ParametersUpdateManyWithWhereWithoutParentWolfpackInput | ParametersUpdateManyWithWhereWithoutParentWolfpackInput[]
+    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+  }
+
+  export type ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput = {
+    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
+    upsert?: ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput[]
+    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
+    set?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    disconnect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    delete?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    update?: ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput[]
+    updateMany?: ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput | ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput[]
+    deleteMany?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
+  }
+
+  export type ParametersUncheckedUpdateManyWithoutParentWolfpackNestedInput = {
+    create?: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput> | ParametersCreateWithoutParentWolfpackInput[] | ParametersUncheckedCreateWithoutParentWolfpackInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentWolfpackInput | ParametersCreateOrConnectWithoutParentWolfpackInput[]
+    upsert?: ParametersUpsertWithWhereUniqueWithoutParentWolfpackInput | ParametersUpsertWithWhereUniqueWithoutParentWolfpackInput[]
+    createMany?: ParametersCreateManyParentWolfpackInputEnvelope
+    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    update?: ParametersUpdateWithWhereUniqueWithoutParentWolfpackInput | ParametersUpdateWithWhereUniqueWithoutParentWolfpackInput[]
+    updateMany?: ParametersUpdateManyWithWhereWithoutParentWolfpackInput | ParametersUpdateManyWithWhereWithoutParentWolfpackInput[]
+    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+  }
+
+  export type ElementInformationCreateviewsInput = {
+    set: string[]
+  }
+
+  export type WolfpackCreateNestedOneWithoutElementInfoInput = {
+    create?: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
+    connectOrCreate?: WolfpackCreateOrConnectWithoutElementInfoInput
+    connect?: WolfpackWhereUniqueInput
+  }
+
+  export type ParametersCreateNestedManyWithoutParentElementInfoInput = {
+    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
+    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+  }
+
+  export type ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput = {
+    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
+    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+  }
+
+  export type BigIntFieldUpdateOperationsInput = {
+    set?: bigint | number
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type ElementInformationUpdateviewsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type WolfpackUpdateOneRequiredWithoutElementInfoNestedInput = {
+    create?: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
+    connectOrCreate?: WolfpackCreateOrConnectWithoutElementInfoInput
+    upsert?: WolfpackUpsertWithoutElementInfoInput
+    connect?: WolfpackWhereUniqueInput
+    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutElementInfoInput, WolfpackUpdateWithoutElementInfoInput>, WolfpackUncheckedUpdateWithoutElementInfoInput>
+  }
+
+  export type ParametersUpdateManyWithoutParentElementInfoNestedInput = {
+    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
+    upsert?: ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput | ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput[]
+    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
+    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    update?: ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput | ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput[]
+    updateMany?: ParametersUpdateManyWithWhereWithoutParentElementInfoInput | ParametersUpdateManyWithWhereWithoutParentElementInfoInput[]
+    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+  }
+
+  export type ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput = {
+    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
+    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
+    upsert?: ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput | ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput[]
+    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
+    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
+    update?: ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput | ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput[]
+    updateMany?: ParametersUpdateManyWithWhereWithoutParentElementInfoInput | ParametersUpdateManyWithWhereWithoutParentElementInfoInput[]
+    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+  }
+
+  export type ElementInformationCreateNestedOneWithoutParametersInput = {
+    create?: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutParametersInput
+    connect?: ElementInformationWhereUniqueInput
+  }
+
+  export type WolfpackCreateNestedOneWithoutParametersInput = {
+    create?: XOR<WolfpackCreateWithoutParametersInput, WolfpackUncheckedCreateWithoutParametersInput>
+    connectOrCreate?: WolfpackCreateOrConnectWithoutParametersInput
+    connect?: WolfpackWhereUniqueInput
+  }
+
+  export type EnumStorageTypeFieldUpdateOperationsInput = {
+    set?: $Enums.StorageType
+  }
+
+  export type ElementInformationUpdateOneRequiredWithoutParametersNestedInput = {
+    create?: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
+    connectOrCreate?: ElementInformationCreateOrConnectWithoutParametersInput
+    upsert?: ElementInformationUpsertWithoutParametersInput
+    connect?: ElementInformationWhereUniqueInput
+    update?: XOR<XOR<ElementInformationUpdateToOneWithWhereWithoutParametersInput, ElementInformationUpdateWithoutParametersInput>, ElementInformationUncheckedUpdateWithoutParametersInput>
+  }
+
+  export type WolfpackUpdateOneRequiredWithoutParametersNestedInput = {
+    create?: XOR<WolfpackCreateWithoutParametersInput, WolfpackUncheckedCreateWithoutParametersInput>
+    connectOrCreate?: WolfpackCreateOrConnectWithoutParametersInput
+    upsert?: WolfpackUpsertWithoutParametersInput
+    connect?: WolfpackWhereUniqueInput
+    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutParametersInput, WolfpackUpdateWithoutParametersInput>, WolfpackUncheckedUpdateWithoutParametersInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2765,6 +6777,786 @@ export namespace Prisma {
     gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type NestedBigIntFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  }
+
+  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedBigIntFilter<$PrismaModel>
+    _min?: NestedBigIntFilter<$PrismaModel>
+    _max?: NestedBigIntFilter<$PrismaModel>
+  }
+
+  export type NestedEnumStorageTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumStorageTypeFilter<$PrismaModel> | $Enums.StorageType
+  }
+
+  export type NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
+    not?: NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel> | $Enums.StorageType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStorageTypeFilter<$PrismaModel>
+    _max?: NestedEnumStorageTypeFilter<$PrismaModel>
+  }
+
+  export type ElementInformationCreateWithoutWolfpackIdInput = {
+    uniqueElementId?: string
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    Parameters?: ParametersCreateNestedManyWithoutParentElementInfoInput
+  }
+
+  export type ElementInformationUncheckedCreateWithoutWolfpackIdInput = {
+    id?: number
+    uniqueElementId?: string
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput
+  }
+
+  export type ElementInformationCreateOrConnectWithoutWolfpackIdInput = {
+    where: ElementInformationWhereUniqueInput
+    create: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput>
+  }
+
+  export type ElementInformationCreateManyWolfpackIdInputEnvelope = {
+    data: ElementInformationCreateManyWolfpackIdInput | ElementInformationCreateManyWolfpackIdInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ParametersCreateWithoutParentWolfpackInput = {
+    createdAt?: Date | string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentElementInfo: ElementInformationCreateNestedOneWithoutParametersInput
+  }
+
+  export type ParametersUncheckedCreateWithoutParentWolfpackInput = {
+    id?: number
+    createdAt?: Date | string
+    parameterGuid: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersCreateOrConnectWithoutParentWolfpackInput = {
+    where: ParametersWhereUniqueInput
+    create: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput>
+  }
+
+  export type ParametersCreateManyParentWolfpackInputEnvelope = {
+    data: ParametersCreateManyParentWolfpackInput | ParametersCreateManyParentWolfpackInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput = {
+    where: ElementInformationWhereUniqueInput
+    update: XOR<ElementInformationUpdateWithoutWolfpackIdInput, ElementInformationUncheckedUpdateWithoutWolfpackIdInput>
+    create: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput>
+  }
+
+  export type ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput = {
+    where: ElementInformationWhereUniqueInput
+    data: XOR<ElementInformationUpdateWithoutWolfpackIdInput, ElementInformationUncheckedUpdateWithoutWolfpackIdInput>
+  }
+
+  export type ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput = {
+    where: ElementInformationScalarWhereInput
+    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyWithoutWolfpackIdInput>
+  }
+
+  export type ElementInformationScalarWhereInput = {
+    AND?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
+    OR?: ElementInformationScalarWhereInput[]
+    NOT?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
+    id?: IntFilter<"ElementInformation"> | number
+    uniqueElementId?: StringFilter<"ElementInformation"> | string
+    elementInfoId?: IntFilter<"ElementInformation"> | number
+    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
+    elementUniqueId?: StringFilter<"ElementInformation"> | string
+    elementVersionId?: StringFilter<"ElementInformation"> | string
+    familyName?: StringFilter<"ElementInformation"> | string
+    category?: StringFilter<"ElementInformation"> | string
+    builtInCategory?: StringFilter<"ElementInformation"> | string
+    workset?: StringFilter<"ElementInformation"> | string
+    views?: StringNullableListFilter<"ElementInformation">
+    designOption?: StringFilter<"ElementInformation"> | string
+    documentOwner?: StringFilter<"ElementInformation"> | string
+    ownerViewId?: StringFilter<"ElementInformation"> | string
+    worksetId?: StringFilter<"ElementInformation"> | string
+    levelId?: StringFilter<"ElementInformation"> | string
+    createPhaseId?: StringFilter<"ElementInformation"> | string
+    demolishedPhaseId?: StringFilter<"ElementInformation"> | string
+    groupPhaseId?: StringFilter<"ElementInformation"> | string
+    workshareId?: StringFilter<"ElementInformation"> | string
+    isGrouped?: BoolFilter<"ElementInformation"> | boolean
+    isModifiable?: BoolFilter<"ElementInformation"> | boolean
+    isViewSpecific?: BoolFilter<"ElementInformation"> | boolean
+    isBuiltInCategory?: BoolFilter<"ElementInformation"> | boolean
+    isAnnotative?: BoolFilter<"ElementInformation"> | boolean
+    isModel?: BoolFilter<"ElementInformation"> | boolean
+    isPinned?: BoolFilter<"ElementInformation"> | boolean
+    isWorkshared?: BoolFilter<"ElementInformation"> | boolean
+  }
+
+  export type ParametersUpsertWithWhereUniqueWithoutParentWolfpackInput = {
+    where: ParametersWhereUniqueInput
+    update: XOR<ParametersUpdateWithoutParentWolfpackInput, ParametersUncheckedUpdateWithoutParentWolfpackInput>
+    create: XOR<ParametersCreateWithoutParentWolfpackInput, ParametersUncheckedCreateWithoutParentWolfpackInput>
+  }
+
+  export type ParametersUpdateWithWhereUniqueWithoutParentWolfpackInput = {
+    where: ParametersWhereUniqueInput
+    data: XOR<ParametersUpdateWithoutParentWolfpackInput, ParametersUncheckedUpdateWithoutParentWolfpackInput>
+  }
+
+  export type ParametersUpdateManyWithWhereWithoutParentWolfpackInput = {
+    where: ParametersScalarWhereInput
+    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyWithoutParentWolfpackInput>
+  }
+
+  export type ParametersScalarWhereInput = {
+    AND?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+    OR?: ParametersScalarWhereInput[]
+    NOT?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
+    id?: IntFilter<"Parameters"> | number
+    createdAt?: DateTimeFilter<"Parameters"> | Date | string
+    parameterGuid?: StringFilter<"Parameters"> | string
+    documentOwner?: StringFilter<"Parameters"> | string
+    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
+    hasValue?: BoolFilter<"Parameters"> | boolean
+    parameterIdValue?: BigIntFilter<"Parameters"> | bigint | number
+    isReadOnly?: BoolFilter<"Parameters"> | boolean
+    isShared?: BoolFilter<"Parameters"> | boolean
+    isUserModifiable?: BoolFilter<"Parameters"> | boolean
+  }
+
+  export type WolfpackCreateWithoutElementInfoInput = {
+    documentName: string
+    fileOrigin: string
+    documentVersion: string
+    wasCompleted?: boolean
+    timeTaken?: number
+    createdAt?: Date | string
+    guid: string
+    resultCount?: number
+    testName: string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    Parameters?: ParametersCreateNestedManyWithoutParentWolfpackInput
+  }
+
+  export type WolfpackUncheckedCreateWithoutElementInfoInput = {
+    id?: number
+    documentName: string
+    fileOrigin: string
+    documentVersion: string
+    wasCompleted?: boolean
+    timeTaken?: number
+    createdAt?: Date | string
+    guid: string
+    resultCount?: number
+    testName: string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentWolfpackInput
+  }
+
+  export type WolfpackCreateOrConnectWithoutElementInfoInput = {
+    where: WolfpackWhereUniqueInput
+    create: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
+  }
+
+  export type ParametersCreateWithoutParentElementInfoInput = {
+    createdAt?: Date | string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+    parentWolfpack?: WolfpackCreateNestedOneWithoutParametersInput
+  }
+
+  export type ParametersUncheckedCreateWithoutParentElementInfoInput = {
+    id?: number
+    createdAt?: Date | string
+    documentOwner?: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersCreateOrConnectWithoutParentElementInfoInput = {
+    where: ParametersWhereUniqueInput
+    create: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput>
+  }
+
+  export type ParametersCreateManyParentElementInfoInputEnvelope = {
+    data: ParametersCreateManyParentElementInfoInput | ParametersCreateManyParentElementInfoInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type WolfpackUpsertWithoutElementInfoInput = {
+    update: XOR<WolfpackUpdateWithoutElementInfoInput, WolfpackUncheckedUpdateWithoutElementInfoInput>
+    create: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
+    where?: WolfpackWhereInput
+  }
+
+  export type WolfpackUpdateToOneWithWhereWithoutElementInfoInput = {
+    where?: WolfpackWhereInput
+    data: XOR<WolfpackUpdateWithoutElementInfoInput, WolfpackUncheckedUpdateWithoutElementInfoInput>
+  }
+
+  export type WolfpackUpdateWithoutElementInfoInput = {
+    documentName?: StringFieldUpdateOperationsInput | string
+    fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
+    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
+    timeTaken?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    guid?: StringFieldUpdateOperationsInput | string
+    resultCount?: IntFieldUpdateOperationsInput | number
+    testName?: StringFieldUpdateOperationsInput | string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    Parameters?: ParametersUpdateManyWithoutParentWolfpackNestedInput
+  }
+
+  export type WolfpackUncheckedUpdateWithoutElementInfoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documentName?: StringFieldUpdateOperationsInput | string
+    fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
+    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
+    timeTaken?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    guid?: StringFieldUpdateOperationsInput | string
+    resultCount?: IntFieldUpdateOperationsInput | number
+    testName?: StringFieldUpdateOperationsInput | string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    Parameters?: ParametersUncheckedUpdateManyWithoutParentWolfpackNestedInput
+  }
+
+  export type ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput = {
+    where: ParametersWhereUniqueInput
+    update: XOR<ParametersUpdateWithoutParentElementInfoInput, ParametersUncheckedUpdateWithoutParentElementInfoInput>
+    create: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput>
+  }
+
+  export type ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput = {
+    where: ParametersWhereUniqueInput
+    data: XOR<ParametersUpdateWithoutParentElementInfoInput, ParametersUncheckedUpdateWithoutParentElementInfoInput>
+  }
+
+  export type ParametersUpdateManyWithWhereWithoutParentElementInfoInput = {
+    where: ParametersScalarWhereInput
+    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyWithoutParentElementInfoInput>
+  }
+
+  export type ElementInformationCreateWithoutParametersInput = {
+    uniqueElementId?: string
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+    wolfpackId?: WolfpackCreateNestedOneWithoutElementInfoInput
+  }
+
+  export type ElementInformationUncheckedCreateWithoutParametersInput = {
+    id?: number
+    uniqueElementId?: string
+    elementInfoId?: number
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+  }
+
+  export type ElementInformationCreateOrConnectWithoutParametersInput = {
+    where: ElementInformationWhereUniqueInput
+    create: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
+  }
+
+  export type WolfpackCreateWithoutParametersInput = {
+    documentName: string
+    fileOrigin: string
+    documentVersion: string
+    wasCompleted?: boolean
+    timeTaken?: number
+    createdAt?: Date | string
+    guid: string
+    resultCount?: number
+    testName: string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
+  }
+
+  export type WolfpackUncheckedCreateWithoutParametersInput = {
+    id?: number
+    documentName: string
+    fileOrigin: string
+    documentVersion: string
+    wasCompleted?: boolean
+    timeTaken?: number
+    createdAt?: Date | string
+    guid: string
+    resultCount?: number
+    testName: string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
+  }
+
+  export type WolfpackCreateOrConnectWithoutParametersInput = {
+    where: WolfpackWhereUniqueInput
+    create: XOR<WolfpackCreateWithoutParametersInput, WolfpackUncheckedCreateWithoutParametersInput>
+  }
+
+  export type ElementInformationUpsertWithoutParametersInput = {
+    update: XOR<ElementInformationUpdateWithoutParametersInput, ElementInformationUncheckedUpdateWithoutParametersInput>
+    create: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
+    where?: ElementInformationWhereInput
+  }
+
+  export type ElementInformationUpdateToOneWithWhereWithoutParametersInput = {
+    where?: ElementInformationWhereInput
+    data: XOR<ElementInformationUpdateWithoutParametersInput, ElementInformationUncheckedUpdateWithoutParametersInput>
+  }
+
+  export type ElementInformationUpdateWithoutParametersInput = {
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+    wolfpackId?: WolfpackUpdateOneRequiredWithoutElementInfoNestedInput
+  }
+
+  export type ElementInformationUncheckedUpdateWithoutParametersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    elementInfoId?: IntFieldUpdateOperationsInput | number
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type WolfpackUpsertWithoutParametersInput = {
+    update: XOR<WolfpackUpdateWithoutParametersInput, WolfpackUncheckedUpdateWithoutParametersInput>
+    create: XOR<WolfpackCreateWithoutParametersInput, WolfpackUncheckedCreateWithoutParametersInput>
+    where?: WolfpackWhereInput
+  }
+
+  export type WolfpackUpdateToOneWithWhereWithoutParametersInput = {
+    where?: WolfpackWhereInput
+    data: XOR<WolfpackUpdateWithoutParametersInput, WolfpackUncheckedUpdateWithoutParametersInput>
+  }
+
+  export type WolfpackUpdateWithoutParametersInput = {
+    documentName?: StringFieldUpdateOperationsInput | string
+    fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
+    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
+    timeTaken?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    guid?: StringFieldUpdateOperationsInput | string
+    resultCount?: IntFieldUpdateOperationsInput | number
+    testName?: StringFieldUpdateOperationsInput | string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
+  }
+
+  export type WolfpackUncheckedUpdateWithoutParametersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documentName?: StringFieldUpdateOperationsInput | string
+    fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
+    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
+    timeTaken?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    guid?: StringFieldUpdateOperationsInput | string
+    resultCount?: IntFieldUpdateOperationsInput | number
+    testName?: StringFieldUpdateOperationsInput | string
+    results?: NullableJsonNullValueInput | InputJsonValue
+    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
+  }
+
+  export type ElementInformationCreateManyWolfpackIdInput = {
+    id?: number
+    uniqueElementId?: string
+    idValue: bigint | number
+    elementUniqueId?: string
+    elementVersionId?: string
+    familyName?: string
+    category?: string
+    builtInCategory?: string
+    workset?: string
+    views?: ElementInformationCreateviewsInput | string[]
+    designOption?: string
+    documentOwner?: string
+    ownerViewId?: string
+    worksetId?: string
+    levelId?: string
+    createPhaseId?: string
+    demolishedPhaseId?: string
+    groupPhaseId?: string
+    workshareId?: string
+    isGrouped?: boolean
+    isModifiable?: boolean
+    isViewSpecific?: boolean
+    isBuiltInCategory?: boolean
+    isAnnotative?: boolean
+    isModel?: boolean
+    isPinned?: boolean
+    isWorkshared?: boolean
+  }
+
+  export type ParametersCreateManyParentWolfpackInput = {
+    id?: number
+    createdAt?: Date | string
+    parameterGuid: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ElementInformationUpdateWithoutWolfpackIdInput = {
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+    Parameters?: ParametersUpdateManyWithoutParentElementInfoNestedInput
+  }
+
+  export type ElementInformationUncheckedUpdateWithoutWolfpackIdInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+    Parameters?: ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput
+  }
+
+  export type ElementInformationUncheckedUpdateManyWithoutWolfpackIdInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    uniqueElementId?: StringFieldUpdateOperationsInput | string
+    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    elementUniqueId?: StringFieldUpdateOperationsInput | string
+    elementVersionId?: StringFieldUpdateOperationsInput | string
+    familyName?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
+    builtInCategory?: StringFieldUpdateOperationsInput | string
+    workset?: StringFieldUpdateOperationsInput | string
+    views?: ElementInformationUpdateviewsInput | string[]
+    designOption?: StringFieldUpdateOperationsInput | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    ownerViewId?: StringFieldUpdateOperationsInput | string
+    worksetId?: StringFieldUpdateOperationsInput | string
+    levelId?: StringFieldUpdateOperationsInput | string
+    createPhaseId?: StringFieldUpdateOperationsInput | string
+    demolishedPhaseId?: StringFieldUpdateOperationsInput | string
+    groupPhaseId?: StringFieldUpdateOperationsInput | string
+    workshareId?: StringFieldUpdateOperationsInput | string
+    isGrouped?: BoolFieldUpdateOperationsInput | boolean
+    isModifiable?: BoolFieldUpdateOperationsInput | boolean
+    isViewSpecific?: BoolFieldUpdateOperationsInput | boolean
+    isBuiltInCategory?: BoolFieldUpdateOperationsInput | boolean
+    isAnnotative?: BoolFieldUpdateOperationsInput | boolean
+    isModel?: BoolFieldUpdateOperationsInput | boolean
+    isPinned?: BoolFieldUpdateOperationsInput | boolean
+    isWorkshared?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersUpdateWithoutParentWolfpackInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+    parentElementInfo?: ElementInformationUpdateOneRequiredWithoutParametersNestedInput
+  }
+
+  export type ParametersUncheckedUpdateWithoutParentWolfpackInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    parameterGuid?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersUncheckedUpdateManyWithoutParentWolfpackInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    parameterGuid?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersCreateManyParentElementInfoInput = {
+    id?: number
+    createdAt?: Date | string
+    documentOwner?: string
+    storageType?: $Enums.StorageType
+    hasValue?: boolean
+    parameterIdValue: bigint | number
+    isReadOnly?: boolean
+    isShared?: boolean
+    isUserModifiable?: boolean
+  }
+
+  export type ParametersUpdateWithoutParentElementInfoInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+    parentWolfpack?: WolfpackUpdateOneRequiredWithoutParametersNestedInput
+  }
+
+  export type ParametersUncheckedUpdateWithoutParentElementInfoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ParametersUncheckedUpdateManyWithoutParentElementInfoInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    documentOwner?: StringFieldUpdateOperationsInput | string
+    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
+    hasValue?: BoolFieldUpdateOperationsInput | boolean
+    parameterIdValue?: BigIntFieldUpdateOperationsInput | bigint | number
+    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
+    isShared?: BoolFieldUpdateOperationsInput | boolean
+    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

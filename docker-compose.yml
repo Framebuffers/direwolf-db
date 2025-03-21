@@ -54,9 +54,23 @@ services:
       server:
         condition: service_started
 
+  grafana:
+    image: grafana/grafana
+    ports:
+      - '3001:3000'
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - prisma-network
+    depends_on:
+      - postgres_db
+    user: "1000"
+
 networks:
   prisma-network:
     name: prisma-network
 
 volumes:
   postgres_data:
+
+  grafana_data:

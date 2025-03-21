@@ -128,8 +128,51 @@ exports.Prisma.WolfpackScalarFieldEnum = {
   guid: 'guid',
   resultCount: 'resultCount',
   testName: 'testName',
-  results: 'results',
-  testId: 'testId'
+  results: 'results'
+};
+
+exports.Prisma.ElementInformationScalarFieldEnum = {
+  id: 'id',
+  uniqueElementId: 'uniqueElementId',
+  elementInfoId: 'elementInfoId',
+  idValue: 'idValue',
+  elementUniqueId: 'elementUniqueId',
+  elementVersionId: 'elementVersionId',
+  familyName: 'familyName',
+  category: 'category',
+  builtInCategory: 'builtInCategory',
+  workset: 'workset',
+  views: 'views',
+  designOption: 'designOption',
+  documentOwner: 'documentOwner',
+  ownerViewId: 'ownerViewId',
+  worksetId: 'worksetId',
+  levelId: 'levelId',
+  createPhaseId: 'createPhaseId',
+  demolishedPhaseId: 'demolishedPhaseId',
+  groupPhaseId: 'groupPhaseId',
+  workshareId: 'workshareId',
+  isGrouped: 'isGrouped',
+  isModifiable: 'isModifiable',
+  isViewSpecific: 'isViewSpecific',
+  isBuiltInCategory: 'isBuiltInCategory',
+  isAnnotative: 'isAnnotative',
+  isModel: 'isModel',
+  isPinned: 'isPinned',
+  isWorkshared: 'isWorkshared'
+};
+
+exports.Prisma.ParametersScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  parameterGuid: 'parameterGuid',
+  documentOwner: 'documentOwner',
+  storageType: 'storageType',
+  hasValue: 'hasValue',
+  parameterIdValue: 'parameterIdValue',
+  isReadOnly: 'isReadOnly',
+  isShared: 'isShared',
+  isUserModifiable: 'isUserModifiable'
 };
 
 exports.Prisma.SortOrder = {
@@ -157,10 +200,18 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.StorageType = exports.$Enums.StorageType = {
+  INTEGER: 'INTEGER',
+  DOUBLE: 'DOUBLE',
+  STRING: 'STRING',
+  ELEMENTID: 'ELEMENTID',
+  INVALID: 'INVALID'
+};
 
 exports.Prisma.ModelName = {
-  Wolfpack: 'Wolfpack'
+  Wolfpack: 'Wolfpack',
+  ElementInformation: 'ElementInformation',
+  Parameters: 'Parameters'
 };
 
 /**
