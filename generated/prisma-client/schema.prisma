@@ -8,55 +8,6 @@ generator client {
   output   = "../generated/prisma-client"
 }
 
-model Wolfpack {
-  id              Int                  @id @default(autoincrement())
-  documentName    String               @db.VarChar(255)
-  fileOrigin      String               @db.VarChar(255)
-  documentVersion String
-  wasCompleted    Boolean              @default(false)
-  timeTaken       Float                @default(0)
-  createdAt       DateTime             @default(now())
-  guid            String               @unique
-  resultCount     Int                  @default(0)
-  testName        String               @db.VarChar(255)
-  results         Json?                @db.Json
-  elementInfo     ElementInformation[]
-  Parameters      Parameters[]
-}
-
-model ElementInformation {
-  id                Int          @id @default(autoincrement())
-  uniqueElementId   String       @default("00000000-0000-0000-0000-000000000000")
-  elementInfoId     Int          @default(0)
-  wolfpackId        Wolfpack     @relation(fields: [elementInfoId], references: [id])
-  idValue           BigInt
-  elementUniqueId   String       @unique @default("")
-  elementVersionId  String       @default("00000000-0000-0000-0000-000000000000")
-  familyName        String       @default("")
-  category          String       @default("")
-  builtInCategory   String       @default("")
-  workset           String       @default("")
-  views             String[]     @default([])
-  designOption      String       @default("")
-  documentOwner     String       @default("")
-  ownerViewId       String       @default("")
-  worksetId         String       @default("")
-  levelId           String       @default("")
-  createPhaseId     String       @default("")
-  demolishedPhaseId String       @default("")
-  groupPhaseId      String       @default("")
-  workshareId       String       @default("")
-  isGrouped         Boolean      @default(false)
-  isModifiable      Boolean      @default(false)
-  isViewSpecific    Boolean      @default(false)
-  isBuiltInCategory Boolean      @default(false)
-  isAnnotative      Boolean      @default(false)
-  isModel           Boolean      @default(false)
-  isPinned          Boolean      @default(false)
-  isWorkshared      Boolean      @default(false)
-  Parameters        Parameters[]
-}
-
 enum StorageType {
   INTEGER
   DOUBLE
@@ -65,17 +16,122 @@ enum StorageType {
   INVALID
 }
 
+model Wolfpack {
+  id                  Int                  @id @default(autoincrement())
+  projectInformation  ProjectInformation?
+  documentInformation DocumentInformation?
+  siteInformation     SiteInformation?
+  unitsInformation    UnitsInformation?
+  warnings            DocumentWarning[]
+  documentName        String               @default("")
+  documentSessionId   String               @default("00000000-0000-0000-0000-000000000000")
+  documentCreationId  String               @default("00000000-0000-0000-0000-000000000000")
+  changedElements     BigInt[]
+  fileOrigin          String               @db.VarChar(255)
+  wasCompleted        Boolean              @default(false)
+  timeTaken           Float                @default(0)
+  createdAt           DateTime             @default(now())
+  guid                String               @unique
+  resultCount         Int                  @default(0)
+  testName            String               @db.VarChar(255)
+  results             Json?                @db.Json
+  elementInfo         ElementInformation[]
+}
+
+model ProjectInformation {
+  id                      Int      @id @default(autoincrement())
+  projectId               String   @unique
+  document                Wolfpack @relation(fields: [projectId], references: [guid])
+  projectName             String   @default("") @db.VarChar(255)
+  client                  String   @default("") @db.VarChar(255)
+  address                 String   @default("") @db.VarChar(255)
+  author                  String   @default("") @db.VarChar(255)
+  buildingName            String   @default("") @db.VarChar(255)
+  issueDate               String   @default("") @db.VarChar(255)
+  location                String   @default("") @db.VarChar(255)
+  projectNumber           String   @default("") @db.VarChar(255)
+  organizationDescription String   @default("") @db.VarChar(255)
+  organizationName        String   @default("") @db.VarChar(255)
+  status                  String   @default("") @db.VarChar(255)
+}
+
+model ElementInformation {
+  id               Int          @id @default(autoincrement())
+  uniqueElementId  String       @unique
+  wolfpackId       Wolfpack     @relation(fields: [uniqueElementId], references: [guid])
+  idValue          BigInt
+  elementVersionId String       @default("00000000-0000-0000-0000-000000000000")
+  familyName       String       @default("")
+  builtInCategory  String       @default("")
+  name             String       @default("")
+  Parameters       Parameters[]
+}
+
 model Parameters {
-  id                Int                @id @default(autoincrement())
-  createdAt         DateTime           @default(now())
-  parameterGuid     String             @unique
-  documentOwner     String             @default("")
-  parentElementInfo ElementInformation @relation(fields: [parameterGuid], references: [elementUniqueId])
-  parentWolfpack    Wolfpack           @relation(fields: [documentOwner], references: [guid])
-  storageType       StorageType        @default(INVALID)
-  hasValue          Boolean            @default(false)
-  parameterIdValue  BigInt
-  isReadOnly        Boolean            @default(false)
-  isShared          Boolean            @default(false)
-  isUserModifiable  Boolean            @default(false)
+  id                  Int                @id @default(autoincrement())
+  createdAt           DateTime           @default(now())
+  parameterGuid       String             @unique
+  documentOwner       String             @default("00000000-0000-0000-0000-000000000000")
+  parentElementInfo   ElementInformation @relation(fields: [parameterGuid], references: [uniqueElementId])
+  storageType         StorageType        @default(INVALID)
+  name                String             @default("")
+  value               String             @default("")
+  isReadOnly          Boolean            @default(false)
+  typeId              String             @default("")
+  dataType            String             @default("")
+  groupTypeId         String             @default("")
+  hasValue            Boolean            @default(false)
+  isShared            Boolean            @default(false)
+  isUserModifiable    Boolean            @default(false)
+  sharedParameterGuid String             @default("00000000-0000-0000-0000-000000000000")
+}
+
+model DocumentInformation {
+  id         Int      @id @default(autoincrement())
+  documentId String   @unique
+  document   Wolfpack @relation(fields: [documentId], references: [guid])
+  name       String   @default("") @db.VarChar(255)
+  path       String   @default("") @db.VarChar(255)
+  uuid       String   @default("")
+  saveCount  Int      @default(0)
+}
+
+model DocumentWarning {
+  id               Int      @id @default(autoincrement())
+  documentId       String   @unique
+  document         Wolfpack @relation(fields: [documentId], references: [guid])
+  createdAt        DateTime
+  severity         String
+  message          String
+  failingElementId BigInt[]
+}
+
+model SiteInformation {
+  id                         Int      @id @default(autoincrement())
+  documentId                 String   @unique
+  document                   Wolfpack @relation(fields: [documentId], references: [guid])
+  placeName                  String   @default("")
+  elevation                  BigInt   @default(0)
+  latitude                   BigInt   @default(0)
+  longitude                  BigInt   @default(0)
+  timeZone                   BigInt   @default(0)
+  coordinateSystemId         String   @default("")
+  coordinateSystemDefinition String   @default("")
+}
+
+model UnitsInformation {
+  id            Int      @id @default(autoincrement())
+  documentId    String   @unique
+  document      Wolfpack @relation(fields: [documentId], references: [guid])
+  lengthUnits   String   @default("") @db.VarChar(255)
+  areaUnits     String   @default("") @db.VarChar(255)
+  angle         String   @default("") @db.VarChar(255)
+  currency      String   @default("") @db.VarChar(255)
+  number        String   @default("") @db.VarChar(255)
+  rotationAngle String   @default("") @db.VarChar(255)
+  sheetLength   String   @default("") @db.VarChar(255)
+  slope         String   @default("") @db.VarChar(255)
+  speed         String   @default("") @db.VarChar(255)
+  time          String   @default("") @db.VarChar(255)
+  volume        String   @default("") @db.VarChar(255)
 }

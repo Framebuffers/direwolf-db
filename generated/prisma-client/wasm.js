@@ -120,8 +120,10 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.WolfpackScalarFieldEnum = {
   id: 'id',
   documentName: 'documentName',
+  documentSessionId: 'documentSessionId',
+  documentCreationId: 'documentCreationId',
+  changedElements: 'changedElements',
   fileOrigin: 'fileOrigin',
-  documentVersion: 'documentVersion',
   wasCompleted: 'wasCompleted',
   timeTaken: 'timeTaken',
   createdAt: 'createdAt',
@@ -131,35 +133,30 @@ exports.Prisma.WolfpackScalarFieldEnum = {
   results: 'results'
 };
 
+exports.Prisma.ProjectInformationScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  projectName: 'projectName',
+  client: 'client',
+  address: 'address',
+  author: 'author',
+  buildingName: 'buildingName',
+  issueDate: 'issueDate',
+  location: 'location',
+  projectNumber: 'projectNumber',
+  organizationDescription: 'organizationDescription',
+  organizationName: 'organizationName',
+  status: 'status'
+};
+
 exports.Prisma.ElementInformationScalarFieldEnum = {
   id: 'id',
   uniqueElementId: 'uniqueElementId',
-  elementInfoId: 'elementInfoId',
   idValue: 'idValue',
-  elementUniqueId: 'elementUniqueId',
   elementVersionId: 'elementVersionId',
   familyName: 'familyName',
-  category: 'category',
   builtInCategory: 'builtInCategory',
-  workset: 'workset',
-  views: 'views',
-  designOption: 'designOption',
-  documentOwner: 'documentOwner',
-  ownerViewId: 'ownerViewId',
-  worksetId: 'worksetId',
-  levelId: 'levelId',
-  createPhaseId: 'createPhaseId',
-  demolishedPhaseId: 'demolishedPhaseId',
-  groupPhaseId: 'groupPhaseId',
-  workshareId: 'workshareId',
-  isGrouped: 'isGrouped',
-  isModifiable: 'isModifiable',
-  isViewSpecific: 'isViewSpecific',
-  isBuiltInCategory: 'isBuiltInCategory',
-  isAnnotative: 'isAnnotative',
-  isModel: 'isModel',
-  isPinned: 'isPinned',
-  isWorkshared: 'isWorkshared'
+  name: 'name'
 };
 
 exports.Prisma.ParametersScalarFieldEnum = {
@@ -168,11 +165,62 @@ exports.Prisma.ParametersScalarFieldEnum = {
   parameterGuid: 'parameterGuid',
   documentOwner: 'documentOwner',
   storageType: 'storageType',
-  hasValue: 'hasValue',
-  parameterIdValue: 'parameterIdValue',
+  name: 'name',
+  value: 'value',
   isReadOnly: 'isReadOnly',
+  typeId: 'typeId',
+  dataType: 'dataType',
+  groupTypeId: 'groupTypeId',
+  hasValue: 'hasValue',
   isShared: 'isShared',
-  isUserModifiable: 'isUserModifiable'
+  isUserModifiable: 'isUserModifiable',
+  sharedParameterGuid: 'sharedParameterGuid'
+};
+
+exports.Prisma.DocumentInformationScalarFieldEnum = {
+  id: 'id',
+  documentId: 'documentId',
+  name: 'name',
+  path: 'path',
+  uuid: 'uuid',
+  saveCount: 'saveCount'
+};
+
+exports.Prisma.DocumentWarningScalarFieldEnum = {
+  id: 'id',
+  documentId: 'documentId',
+  createdAt: 'createdAt',
+  severity: 'severity',
+  message: 'message',
+  failingElementId: 'failingElementId'
+};
+
+exports.Prisma.SiteInformationScalarFieldEnum = {
+  id: 'id',
+  documentId: 'documentId',
+  placeName: 'placeName',
+  elevation: 'elevation',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  timeZone: 'timeZone',
+  coordinateSystemId: 'coordinateSystemId',
+  coordinateSystemDefinition: 'coordinateSystemDefinition'
+};
+
+exports.Prisma.UnitsInformationScalarFieldEnum = {
+  id: 'id',
+  documentId: 'documentId',
+  lengthUnits: 'lengthUnits',
+  areaUnits: 'areaUnits',
+  angle: 'angle',
+  currency: 'currency',
+  number: 'number',
+  rotationAngle: 'rotationAngle',
+  sheetLength: 'sheetLength',
+  slope: 'slope',
+  speed: 'speed',
+  time: 'time',
+  volume: 'volume'
 };
 
 exports.Prisma.SortOrder = {
@@ -210,8 +258,13 @@ exports.StorageType = exports.$Enums.StorageType = {
 
 exports.Prisma.ModelName = {
   Wolfpack: 'Wolfpack',
+  ProjectInformation: 'ProjectInformation',
   ElementInformation: 'ElementInformation',
-  Parameters: 'Parameters'
+  Parameters: 'Parameters',
+  DocumentInformation: 'DocumentInformation',
+  DocumentWarning: 'DocumentWarning',
+  SiteInformation: 'SiteInformation',
+  UnitsInformation: 'UnitsInformation'
 };
 
 /**
