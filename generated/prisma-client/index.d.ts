@@ -19,60 +19,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type Wolfpack = $Result.DefaultSelection<Prisma.$WolfpackPayload>
 /**
- * Model ProjectInformation
+ * Model DocumentRecord
  * 
  */
-export type ProjectInformation = $Result.DefaultSelection<Prisma.$ProjectInformationPayload>
-/**
- * Model ElementInformation
- * 
- */
-export type ElementInformation = $Result.DefaultSelection<Prisma.$ElementInformationPayload>
-/**
- * Model Parameters
- * 
- */
-export type Parameters = $Result.DefaultSelection<Prisma.$ParametersPayload>
-/**
- * Model DocumentInformation
- * 
- */
-export type DocumentInformation = $Result.DefaultSelection<Prisma.$DocumentInformationPayload>
-/**
- * Model DocumentWarning
- * 
- */
-export type DocumentWarning = $Result.DefaultSelection<Prisma.$DocumentWarningPayload>
-/**
- * Model SiteInformation
- * 
- */
-export type SiteInformation = $Result.DefaultSelection<Prisma.$SiteInformationPayload>
-/**
- * Model UnitsInformation
- * 
- */
-export type UnitsInformation = $Result.DefaultSelection<Prisma.$UnitsInformationPayload>
-
-/**
- * Enums
- */
-export namespace $Enums {
-  export const StorageType: {
-  INTEGER: 'INTEGER',
-  DOUBLE: 'DOUBLE',
-  STRING: 'STRING',
-  ELEMENTID: 'ELEMENTID',
-  INVALID: 'INVALID'
-};
-
-export type StorageType = (typeof StorageType)[keyof typeof StorageType]
-
-}
-
-export type StorageType = $Enums.StorageType
-
-export const StorageType: typeof $Enums.StorageType
+export type DocumentRecord = $Result.DefaultSelection<Prisma.$DocumentRecordPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -210,74 +160,14 @@ export class PrismaClient<
   get wolfpack(): Prisma.WolfpackDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.projectInformation`: Exposes CRUD operations for the **ProjectInformation** model.
+   * `prisma.documentRecord`: Exposes CRUD operations for the **DocumentRecord** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more ProjectInformations
-    * const projectInformations = await prisma.projectInformation.findMany()
+    * // Fetch zero or more DocumentRecords
+    * const documentRecords = await prisma.documentRecord.findMany()
     * ```
     */
-  get projectInformation(): Prisma.ProjectInformationDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.elementInformation`: Exposes CRUD operations for the **ElementInformation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more ElementInformations
-    * const elementInformations = await prisma.elementInformation.findMany()
-    * ```
-    */
-  get elementInformation(): Prisma.ElementInformationDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.parameters`: Exposes CRUD operations for the **Parameters** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Parameters
-    * const parameters = await prisma.parameters.findMany()
-    * ```
-    */
-  get parameters(): Prisma.ParametersDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.documentInformation`: Exposes CRUD operations for the **DocumentInformation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more DocumentInformations
-    * const documentInformations = await prisma.documentInformation.findMany()
-    * ```
-    */
-  get documentInformation(): Prisma.DocumentInformationDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.documentWarning`: Exposes CRUD operations for the **DocumentWarning** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more DocumentWarnings
-    * const documentWarnings = await prisma.documentWarning.findMany()
-    * ```
-    */
-  get documentWarning(): Prisma.DocumentWarningDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.siteInformation`: Exposes CRUD operations for the **SiteInformation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more SiteInformations
-    * const siteInformations = await prisma.siteInformation.findMany()
-    * ```
-    */
-  get siteInformation(): Prisma.SiteInformationDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.unitsInformation`: Exposes CRUD operations for the **UnitsInformation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more UnitsInformations
-    * const unitsInformations = await prisma.unitsInformation.findMany()
-    * ```
-    */
-  get unitsInformation(): Prisma.UnitsInformationDelegate<ExtArgs, ClientOptions>;
+  get documentRecord(): Prisma.DocumentRecordDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -719,13 +609,7 @@ export namespace Prisma {
 
   export const ModelName: {
     Wolfpack: 'Wolfpack',
-    ProjectInformation: 'ProjectInformation',
-    ElementInformation: 'ElementInformation',
-    Parameters: 'Parameters',
-    DocumentInformation: 'DocumentInformation',
-    DocumentWarning: 'DocumentWarning',
-    SiteInformation: 'SiteInformation',
-    UnitsInformation: 'UnitsInformation'
+    DocumentRecord: 'DocumentRecord'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -744,7 +628,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "wolfpack" | "projectInformation" | "elementInformation" | "parameters" | "documentInformation" | "documentWarning" | "siteInformation" | "unitsInformation"
+      modelProps: "wolfpack" | "documentRecord"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -822,521 +706,77 @@ export namespace Prisma {
           }
         }
       }
-      ProjectInformation: {
-        payload: Prisma.$ProjectInformationPayload<ExtArgs>
-        fields: Prisma.ProjectInformationFieldRefs
+      DocumentRecord: {
+        payload: Prisma.$DocumentRecordPayload<ExtArgs>
+        fields: Prisma.DocumentRecordFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.ProjectInformationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload> | null
+            args: Prisma.DocumentRecordFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.ProjectInformationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           findFirst: {
-            args: Prisma.ProjectInformationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload> | null
+            args: Prisma.DocumentRecordFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.ProjectInformationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           findMany: {
-            args: Prisma.ProjectInformationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>[]
+            args: Prisma.DocumentRecordFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>[]
           }
           create: {
-            args: Prisma.ProjectInformationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           createMany: {
-            args: Prisma.ProjectInformationCreateManyArgs<ExtArgs>
+            args: Prisma.DocumentRecordCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.ProjectInformationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>[]
+            args: Prisma.DocumentRecordCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>[]
           }
           delete: {
-            args: Prisma.ProjectInformationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           update: {
-            args: Prisma.ProjectInformationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           deleteMany: {
-            args: Prisma.ProjectInformationDeleteManyArgs<ExtArgs>
+            args: Prisma.DocumentRecordDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.ProjectInformationUpdateManyArgs<ExtArgs>
+            args: Prisma.DocumentRecordUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.ProjectInformationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>[]
+            args: Prisma.DocumentRecordUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>[]
           }
           upsert: {
-            args: Prisma.ProjectInformationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProjectInformationPayload>
+            args: Prisma.DocumentRecordUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentRecordPayload>
           }
           aggregate: {
-            args: Prisma.ProjectInformationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateProjectInformation>
+            args: Prisma.DocumentRecordAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocumentRecord>
           }
           groupBy: {
-            args: Prisma.ProjectInformationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ProjectInformationGroupByOutputType>[]
+            args: Prisma.DocumentRecordGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentRecordGroupByOutputType>[]
           }
           count: {
-            args: Prisma.ProjectInformationCountArgs<ExtArgs>
-            result: $Utils.Optional<ProjectInformationCountAggregateOutputType> | number
-          }
-        }
-      }
-      ElementInformation: {
-        payload: Prisma.$ElementInformationPayload<ExtArgs>
-        fields: Prisma.ElementInformationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.ElementInformationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.ElementInformationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          findFirst: {
-            args: Prisma.ElementInformationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.ElementInformationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          findMany: {
-            args: Prisma.ElementInformationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
-          }
-          create: {
-            args: Prisma.ElementInformationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          createMany: {
-            args: Prisma.ElementInformationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ElementInformationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
-          }
-          delete: {
-            args: Prisma.ElementInformationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          update: {
-            args: Prisma.ElementInformationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          deleteMany: {
-            args: Prisma.ElementInformationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.ElementInformationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.ElementInformationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>[]
-          }
-          upsert: {
-            args: Prisma.ElementInformationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ElementInformationPayload>
-          }
-          aggregate: {
-            args: Prisma.ElementInformationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateElementInformation>
-          }
-          groupBy: {
-            args: Prisma.ElementInformationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ElementInformationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.ElementInformationCountArgs<ExtArgs>
-            result: $Utils.Optional<ElementInformationCountAggregateOutputType> | number
-          }
-        }
-      }
-      Parameters: {
-        payload: Prisma.$ParametersPayload<ExtArgs>
-        fields: Prisma.ParametersFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.ParametersFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.ParametersFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          findFirst: {
-            args: Prisma.ParametersFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.ParametersFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          findMany: {
-            args: Prisma.ParametersFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
-          }
-          create: {
-            args: Prisma.ParametersCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          createMany: {
-            args: Prisma.ParametersCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.ParametersCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
-          }
-          delete: {
-            args: Prisma.ParametersDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          update: {
-            args: Prisma.ParametersUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          deleteMany: {
-            args: Prisma.ParametersDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.ParametersUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.ParametersUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>[]
-          }
-          upsert: {
-            args: Prisma.ParametersUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ParametersPayload>
-          }
-          aggregate: {
-            args: Prisma.ParametersAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateParameters>
-          }
-          groupBy: {
-            args: Prisma.ParametersGroupByArgs<ExtArgs>
-            result: $Utils.Optional<ParametersGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.ParametersCountArgs<ExtArgs>
-            result: $Utils.Optional<ParametersCountAggregateOutputType> | number
-          }
-        }
-      }
-      DocumentInformation: {
-        payload: Prisma.$DocumentInformationPayload<ExtArgs>
-        fields: Prisma.DocumentInformationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.DocumentInformationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.DocumentInformationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          findFirst: {
-            args: Prisma.DocumentInformationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.DocumentInformationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          findMany: {
-            args: Prisma.DocumentInformationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>[]
-          }
-          create: {
-            args: Prisma.DocumentInformationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          createMany: {
-            args: Prisma.DocumentInformationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.DocumentInformationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>[]
-          }
-          delete: {
-            args: Prisma.DocumentInformationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          update: {
-            args: Prisma.DocumentInformationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          deleteMany: {
-            args: Prisma.DocumentInformationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.DocumentInformationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.DocumentInformationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>[]
-          }
-          upsert: {
-            args: Prisma.DocumentInformationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentInformationPayload>
-          }
-          aggregate: {
-            args: Prisma.DocumentInformationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDocumentInformation>
-          }
-          groupBy: {
-            args: Prisma.DocumentInformationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DocumentInformationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.DocumentInformationCountArgs<ExtArgs>
-            result: $Utils.Optional<DocumentInformationCountAggregateOutputType> | number
-          }
-        }
-      }
-      DocumentWarning: {
-        payload: Prisma.$DocumentWarningPayload<ExtArgs>
-        fields: Prisma.DocumentWarningFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.DocumentWarningFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.DocumentWarningFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          findFirst: {
-            args: Prisma.DocumentWarningFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.DocumentWarningFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          findMany: {
-            args: Prisma.DocumentWarningFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>[]
-          }
-          create: {
-            args: Prisma.DocumentWarningCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          createMany: {
-            args: Prisma.DocumentWarningCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.DocumentWarningCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>[]
-          }
-          delete: {
-            args: Prisma.DocumentWarningDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          update: {
-            args: Prisma.DocumentWarningUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          deleteMany: {
-            args: Prisma.DocumentWarningDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.DocumentWarningUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.DocumentWarningUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>[]
-          }
-          upsert: {
-            args: Prisma.DocumentWarningUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentWarningPayload>
-          }
-          aggregate: {
-            args: Prisma.DocumentWarningAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDocumentWarning>
-          }
-          groupBy: {
-            args: Prisma.DocumentWarningGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DocumentWarningGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.DocumentWarningCountArgs<ExtArgs>
-            result: $Utils.Optional<DocumentWarningCountAggregateOutputType> | number
-          }
-        }
-      }
-      SiteInformation: {
-        payload: Prisma.$SiteInformationPayload<ExtArgs>
-        fields: Prisma.SiteInformationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.SiteInformationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.SiteInformationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          findFirst: {
-            args: Prisma.SiteInformationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.SiteInformationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          findMany: {
-            args: Prisma.SiteInformationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>[]
-          }
-          create: {
-            args: Prisma.SiteInformationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          createMany: {
-            args: Prisma.SiteInformationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.SiteInformationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>[]
-          }
-          delete: {
-            args: Prisma.SiteInformationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          update: {
-            args: Prisma.SiteInformationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          deleteMany: {
-            args: Prisma.SiteInformationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.SiteInformationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.SiteInformationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>[]
-          }
-          upsert: {
-            args: Prisma.SiteInformationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SiteInformationPayload>
-          }
-          aggregate: {
-            args: Prisma.SiteInformationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateSiteInformation>
-          }
-          groupBy: {
-            args: Prisma.SiteInformationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<SiteInformationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.SiteInformationCountArgs<ExtArgs>
-            result: $Utils.Optional<SiteInformationCountAggregateOutputType> | number
-          }
-        }
-      }
-      UnitsInformation: {
-        payload: Prisma.$UnitsInformationPayload<ExtArgs>
-        fields: Prisma.UnitsInformationFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.UnitsInformationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.UnitsInformationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          findFirst: {
-            args: Prisma.UnitsInformationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.UnitsInformationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          findMany: {
-            args: Prisma.UnitsInformationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>[]
-          }
-          create: {
-            args: Prisma.UnitsInformationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          createMany: {
-            args: Prisma.UnitsInformationCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.UnitsInformationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>[]
-          }
-          delete: {
-            args: Prisma.UnitsInformationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          update: {
-            args: Prisma.UnitsInformationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          deleteMany: {
-            args: Prisma.UnitsInformationDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.UnitsInformationUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.UnitsInformationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>[]
-          }
-          upsert: {
-            args: Prisma.UnitsInformationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UnitsInformationPayload>
-          }
-          aggregate: {
-            args: Prisma.UnitsInformationAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUnitsInformation>
-          }
-          groupBy: {
-            args: Prisma.UnitsInformationGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UnitsInformationGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.UnitsInformationCountArgs<ExtArgs>
-            result: $Utils.Optional<UnitsInformationCountAggregateOutputType> | number
+            args: Prisma.DocumentRecordCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentRecordCountAggregateOutputType> | number
           }
         }
       }
@@ -1425,13 +865,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     wolfpack?: WolfpackOmit
-    projectInformation?: ProjectInformationOmit
-    elementInformation?: ElementInformationOmit
-    parameters?: ParametersOmit
-    documentInformation?: DocumentInformationOmit
-    documentWarning?: DocumentWarningOmit
-    siteInformation?: SiteInformationOmit
-    unitsInformation?: UnitsInformationOmit
+    documentRecord?: DocumentRecordOmit
   }
 
   /* Types for Logging */
@@ -1521,76 +955,6 @@ export namespace Prisma {
    */
 
 
-  /**
-   * Count Type WolfpackCountOutputType
-   */
-
-  export type WolfpackCountOutputType = {
-    warnings: number
-    elementInfo: number
-  }
-
-  export type WolfpackCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    warnings?: boolean | WolfpackCountOutputTypeCountWarningsArgs
-    elementInfo?: boolean | WolfpackCountOutputTypeCountElementInfoArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * WolfpackCountOutputType without action
-   */
-  export type WolfpackCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the WolfpackCountOutputType
-     */
-    select?: WolfpackCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * WolfpackCountOutputType without action
-   */
-  export type WolfpackCountOutputTypeCountWarningsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DocumentWarningWhereInput
-  }
-
-  /**
-   * WolfpackCountOutputType without action
-   */
-  export type WolfpackCountOutputTypeCountElementInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ElementInformationWhereInput
-  }
-
-
-  /**
-   * Count Type ElementInformationCountOutputType
-   */
-
-  export type ElementInformationCountOutputType = {
-    Parameters: number
-  }
-
-  export type ElementInformationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Parameters?: boolean | ElementInformationCountOutputTypeCountParametersArgs
-  }
-
-  // Custom InputTypes
-  /**
-   * ElementInformationCountOutputType without action
-   */
-  export type ElementInformationCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformationCountOutputType
-     */
-    select?: ElementInformationCountOutputTypeSelect<ExtArgs> | null
-  }
-
-  /**
-   * ElementInformationCountOutputType without action
-   */
-  export type ElementInformationCountOutputTypeCountParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ParametersWhereInput
-  }
-
 
   /**
    * Models
@@ -1610,14 +974,12 @@ export namespace Prisma {
 
   export type WolfpackAvgAggregateOutputType = {
     id: number | null
-    changedElements: number | null
     timeTaken: number | null
     resultCount: number | null
   }
 
   export type WolfpackSumAggregateOutputType = {
     id: number | null
-    changedElements: bigint[]
     timeTaken: number | null
     resultCount: number | null
   }
@@ -1625,9 +987,8 @@ export namespace Prisma {
   export type WolfpackMinAggregateOutputType = {
     id: number | null
     documentName: string | null
-    documentSessionId: string | null
-    documentCreationId: string | null
     fileOrigin: string | null
+    documentVersion: string | null
     wasCompleted: boolean | null
     timeTaken: number | null
     createdAt: Date | null
@@ -1639,9 +1000,8 @@ export namespace Prisma {
   export type WolfpackMaxAggregateOutputType = {
     id: number | null
     documentName: string | null
-    documentSessionId: string | null
-    documentCreationId: string | null
     fileOrigin: string | null
+    documentVersion: string | null
     wasCompleted: boolean | null
     timeTaken: number | null
     createdAt: Date | null
@@ -1653,10 +1013,8 @@ export namespace Prisma {
   export type WolfpackCountAggregateOutputType = {
     id: number
     documentName: number
-    documentSessionId: number
-    documentCreationId: number
-    changedElements: number
     fileOrigin: number
+    documentVersion: number
     wasCompleted: number
     timeTaken: number
     createdAt: number
@@ -1670,14 +1028,12 @@ export namespace Prisma {
 
   export type WolfpackAvgAggregateInputType = {
     id?: true
-    changedElements?: true
     timeTaken?: true
     resultCount?: true
   }
 
   export type WolfpackSumAggregateInputType = {
     id?: true
-    changedElements?: true
     timeTaken?: true
     resultCount?: true
   }
@@ -1685,9 +1041,8 @@ export namespace Prisma {
   export type WolfpackMinAggregateInputType = {
     id?: true
     documentName?: true
-    documentSessionId?: true
-    documentCreationId?: true
     fileOrigin?: true
+    documentVersion?: true
     wasCompleted?: true
     timeTaken?: true
     createdAt?: true
@@ -1699,9 +1054,8 @@ export namespace Prisma {
   export type WolfpackMaxAggregateInputType = {
     id?: true
     documentName?: true
-    documentSessionId?: true
-    documentCreationId?: true
     fileOrigin?: true
+    documentVersion?: true
     wasCompleted?: true
     timeTaken?: true
     createdAt?: true
@@ -1713,10 +1067,8 @@ export namespace Prisma {
   export type WolfpackCountAggregateInputType = {
     id?: true
     documentName?: true
-    documentSessionId?: true
-    documentCreationId?: true
-    changedElements?: true
     fileOrigin?: true
+    documentVersion?: true
     wasCompleted?: true
     timeTaken?: true
     createdAt?: true
@@ -1816,10 +1168,8 @@ export namespace Prisma {
   export type WolfpackGroupByOutputType = {
     id: number
     documentName: string
-    documentSessionId: string
-    documentCreationId: string
-    changedElements: bigint[]
     fileOrigin: string
+    documentVersion: string
     wasCompleted: boolean
     timeTaken: number
     createdAt: Date
@@ -1851,10 +1201,8 @@ export namespace Prisma {
   export type WolfpackSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     documentName?: boolean
-    documentSessionId?: boolean
-    documentCreationId?: boolean
-    changedElements?: boolean
     fileOrigin?: boolean
+    documentVersion?: boolean
     wasCompleted?: boolean
     timeTaken?: boolean
     createdAt?: boolean
@@ -1862,22 +1210,13 @@ export namespace Prisma {
     resultCount?: boolean
     testName?: boolean
     results?: boolean
-    projectInformation?: boolean | Wolfpack$projectInformationArgs<ExtArgs>
-    documentInformation?: boolean | Wolfpack$documentInformationArgs<ExtArgs>
-    siteInformation?: boolean | Wolfpack$siteInformationArgs<ExtArgs>
-    unitsInformation?: boolean | Wolfpack$unitsInformationArgs<ExtArgs>
-    warnings?: boolean | Wolfpack$warningsArgs<ExtArgs>
-    elementInfo?: boolean | Wolfpack$elementInfoArgs<ExtArgs>
-    _count?: boolean | WolfpackCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["wolfpack"]>
 
   export type WolfpackSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     documentName?: boolean
-    documentSessionId?: boolean
-    documentCreationId?: boolean
-    changedElements?: boolean
     fileOrigin?: boolean
+    documentVersion?: boolean
     wasCompleted?: boolean
     timeTaken?: boolean
     createdAt?: boolean
@@ -1890,10 +1229,8 @@ export namespace Prisma {
   export type WolfpackSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     documentName?: boolean
-    documentSessionId?: boolean
-    documentCreationId?: boolean
-    changedElements?: boolean
     fileOrigin?: boolean
+    documentVersion?: boolean
     wasCompleted?: boolean
     timeTaken?: boolean
     createdAt?: boolean
@@ -1906,10 +1243,8 @@ export namespace Prisma {
   export type WolfpackSelectScalar = {
     id?: boolean
     documentName?: boolean
-    documentSessionId?: boolean
-    documentCreationId?: boolean
-    changedElements?: boolean
     fileOrigin?: boolean
+    documentVersion?: boolean
     wasCompleted?: boolean
     timeTaken?: boolean
     createdAt?: boolean
@@ -1919,36 +1254,16 @@ export namespace Prisma {
     results?: boolean
   }
 
-  export type WolfpackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentName" | "documentSessionId" | "documentCreationId" | "changedElements" | "fileOrigin" | "wasCompleted" | "timeTaken" | "createdAt" | "guid" | "resultCount" | "testName" | "results", ExtArgs["result"]["wolfpack"]>
-  export type WolfpackInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    projectInformation?: boolean | Wolfpack$projectInformationArgs<ExtArgs>
-    documentInformation?: boolean | Wolfpack$documentInformationArgs<ExtArgs>
-    siteInformation?: boolean | Wolfpack$siteInformationArgs<ExtArgs>
-    unitsInformation?: boolean | Wolfpack$unitsInformationArgs<ExtArgs>
-    warnings?: boolean | Wolfpack$warningsArgs<ExtArgs>
-    elementInfo?: boolean | Wolfpack$elementInfoArgs<ExtArgs>
-    _count?: boolean | WolfpackCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type WolfpackIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type WolfpackIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type WolfpackOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentName" | "fileOrigin" | "documentVersion" | "wasCompleted" | "timeTaken" | "createdAt" | "guid" | "resultCount" | "testName" | "results", ExtArgs["result"]["wolfpack"]>
 
   export type $WolfpackPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Wolfpack"
-    objects: {
-      projectInformation: Prisma.$ProjectInformationPayload<ExtArgs> | null
-      documentInformation: Prisma.$DocumentInformationPayload<ExtArgs> | null
-      siteInformation: Prisma.$SiteInformationPayload<ExtArgs> | null
-      unitsInformation: Prisma.$UnitsInformationPayload<ExtArgs> | null
-      warnings: Prisma.$DocumentWarningPayload<ExtArgs>[]
-      elementInfo: Prisma.$ElementInformationPayload<ExtArgs>[]
-    }
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
       documentName: string
-      documentSessionId: string
-      documentCreationId: string
-      changedElements: bigint[]
       fileOrigin: string
+      documentVersion: string
       wasCompleted: boolean
       timeTaken: number
       createdAt: Date
@@ -2350,12 +1665,6 @@ export namespace Prisma {
    */
   export interface Prisma__WolfpackClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    projectInformation<T extends Wolfpack$projectInformationArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$projectInformationArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    documentInformation<T extends Wolfpack$documentInformationArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$documentInformationArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    siteInformation<T extends Wolfpack$siteInformationArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$siteInformationArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    unitsInformation<T extends Wolfpack$unitsInformationArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$unitsInformationArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    warnings<T extends Wolfpack$warningsArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$warningsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    elementInfo<T extends Wolfpack$elementInfoArgs<ExtArgs> = {}>(args?: Subset<T, Wolfpack$elementInfoArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2387,10 +1696,8 @@ export namespace Prisma {
   interface WolfpackFieldRefs {
     readonly id: FieldRef<"Wolfpack", 'Int'>
     readonly documentName: FieldRef<"Wolfpack", 'String'>
-    readonly documentSessionId: FieldRef<"Wolfpack", 'String'>
-    readonly documentCreationId: FieldRef<"Wolfpack", 'String'>
-    readonly changedElements: FieldRef<"Wolfpack", 'BigInt[]'>
     readonly fileOrigin: FieldRef<"Wolfpack", 'String'>
+    readonly documentVersion: FieldRef<"Wolfpack", 'String'>
     readonly wasCompleted: FieldRef<"Wolfpack", 'Boolean'>
     readonly timeTaken: FieldRef<"Wolfpack", 'Float'>
     readonly createdAt: FieldRef<"Wolfpack", 'DateTime'>
@@ -2415,10 +1722,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * Filter, which Wolfpack to fetch.
      */
     where: WolfpackWhereUniqueInput
@@ -2437,10 +1740,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * Filter, which Wolfpack to fetch.
      */
     where: WolfpackWhereUniqueInput
@@ -2458,10 +1757,6 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
     /**
      * Filter, which Wolfpack to fetch.
      */
@@ -2511,10 +1806,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * Filter, which Wolfpack to fetch.
      */
     where?: WolfpackWhereInput
@@ -2563,10 +1854,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * Filter, which Wolfpacks to fetch.
      */
     where?: WolfpackWhereInput
@@ -2609,10 +1896,6 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
     /**
      * The data needed to create a Wolfpack.
      */
@@ -2661,10 +1944,6 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
     /**
      * The data needed to update a Wolfpack.
      */
@@ -2732,10 +2011,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * The filter to search for the Wolfpack to update in case it exists.
      */
     where: WolfpackWhereUniqueInput
@@ -2762,10 +2037,6 @@ export namespace Prisma {
      */
     omit?: WolfpackOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
-    /**
      * Filter which Wolfpack to delete.
      */
     where: WolfpackWhereUniqueInput
@@ -2786,130 +2057,6 @@ export namespace Prisma {
   }
 
   /**
-   * Wolfpack.projectInformation
-   */
-  export type Wolfpack$projectInformationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    where?: ProjectInformationWhereInput
-  }
-
-  /**
-   * Wolfpack.documentInformation
-   */
-  export type Wolfpack$documentInformationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    where?: DocumentInformationWhereInput
-  }
-
-  /**
-   * Wolfpack.siteInformation
-   */
-  export type Wolfpack$siteInformationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    where?: SiteInformationWhereInput
-  }
-
-  /**
-   * Wolfpack.unitsInformation
-   */
-  export type Wolfpack$unitsInformationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    where?: UnitsInformationWhereInput
-  }
-
-  /**
-   * Wolfpack.warnings
-   */
-  export type Wolfpack$warningsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    where?: DocumentWarningWhereInput
-    orderBy?: DocumentWarningOrderByWithRelationInput | DocumentWarningOrderByWithRelationInput[]
-    cursor?: DocumentWarningWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: DocumentWarningScalarFieldEnum | DocumentWarningScalarFieldEnum[]
-  }
-
-  /**
-   * Wolfpack.elementInfo
-   */
-  export type Wolfpack$elementInfoArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    where?: ElementInformationWhereInput
-    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
-    cursor?: ElementInformationWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
-  }
-
-  /**
    * Wolfpack without action
    */
   export type WolfpackDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2921,488 +2068,814 @@ export namespace Prisma {
      * Omit specific fields from the Wolfpack
      */
     omit?: WolfpackOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: WolfpackInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model ProjectInformation
+   * Model DocumentRecord
    */
 
-  export type AggregateProjectInformation = {
-    _count: ProjectInformationCountAggregateOutputType | null
-    _avg: ProjectInformationAvgAggregateOutputType | null
-    _sum: ProjectInformationSumAggregateOutputType | null
-    _min: ProjectInformationMinAggregateOutputType | null
-    _max: ProjectInformationMaxAggregateOutputType | null
+  export type AggregateDocumentRecord = {
+    _count: DocumentRecordCountAggregateOutputType | null
+    _avg: DocumentRecordAvgAggregateOutputType | null
+    _sum: DocumentRecordSumAggregateOutputType | null
+    _min: DocumentRecordMinAggregateOutputType | null
+    _max: DocumentRecordMaxAggregateOutputType | null
   }
 
-  export type ProjectInformationAvgAggregateOutputType = {
+  export type DocumentRecordAvgAggregateOutputType = {
     id: number | null
+    documentSaveCount: number | null
+    projectElevation: number | null
+    projectLatitude: number | null
+    projectLongitude: number | null
+    projectTimeZone: number | null
   }
 
-  export type ProjectInformationSumAggregateOutputType = {
+  export type DocumentRecordSumAggregateOutputType = {
     id: number | null
+    documentSaveCount: number | null
+    projectElevation: bigint | null
+    projectLatitude: bigint | null
+    projectLongitude: bigint | null
+    projectTimeZone: bigint | null
   }
 
-  export type ProjectInformationMinAggregateOutputType = {
+  export type DocumentRecordMinAggregateOutputType = {
     id: number | null
-    projectId: string | null
+    documentRecordUniqueId: string | null
+    parentWolfpackUniqueId: string | null
+    documentCreationId: string | null
+    documentSaveId: string | null
+    documentSaveCount: number | null
+    documentLastSaveDateTime: Date | null
+    parentDocumentEpisodeUniqueId: string | null
+    documentName: string | null
+    documentPath: string | null
     projectName: string | null
-    client: string | null
-    address: string | null
-    author: string | null
-    buildingName: string | null
-    issueDate: string | null
-    location: string | null
+    projectClient: string | null
+    projectAddress: string | null
+    projectAuthor: string | null
+    projectBuildingName: string | null
+    projectIssueDate: string | null
+    projectLocation: string | null
     projectNumber: string | null
-    organizationDescription: string | null
-    organizationName: string | null
-    status: string | null
+    projectOrganizationDescription: string | null
+    projectOrganizationName: string | null
+    projectStatus: string | null
+    projectPlaceName: string | null
+    projectElevation: bigint | null
+    projectLatitude: bigint | null
+    projectLongitude: bigint | null
+    projectTimeZone: bigint | null
+    projectGeoCoordinateSystemId: string | null
+    projectGeoCoordinateSystemDefinition: string | null
+    projectSpecLength: string | null
+    projectSpecArea: string | null
+    projectSpecAngle: string | null
+    projectSpecCurrency: string | null
+    projectSpecNumber: string | null
+    projectSpecRotationAngle: string | null
+    projectSpecSheetLength: string | null
+    projectSpecSiteAngle: string | null
+    projectSpecSlope: string | null
+    projectSpecSpeed: string | null
+    projectSpecTime: string | null
+    projectSpecVolume: string | null
   }
 
-  export type ProjectInformationMaxAggregateOutputType = {
+  export type DocumentRecordMaxAggregateOutputType = {
     id: number | null
-    projectId: string | null
+    documentRecordUniqueId: string | null
+    parentWolfpackUniqueId: string | null
+    documentCreationId: string | null
+    documentSaveId: string | null
+    documentSaveCount: number | null
+    documentLastSaveDateTime: Date | null
+    parentDocumentEpisodeUniqueId: string | null
+    documentName: string | null
+    documentPath: string | null
     projectName: string | null
-    client: string | null
-    address: string | null
-    author: string | null
-    buildingName: string | null
-    issueDate: string | null
-    location: string | null
+    projectClient: string | null
+    projectAddress: string | null
+    projectAuthor: string | null
+    projectBuildingName: string | null
+    projectIssueDate: string | null
+    projectLocation: string | null
     projectNumber: string | null
-    organizationDescription: string | null
-    organizationName: string | null
-    status: string | null
+    projectOrganizationDescription: string | null
+    projectOrganizationName: string | null
+    projectStatus: string | null
+    projectPlaceName: string | null
+    projectElevation: bigint | null
+    projectLatitude: bigint | null
+    projectLongitude: bigint | null
+    projectTimeZone: bigint | null
+    projectGeoCoordinateSystemId: string | null
+    projectGeoCoordinateSystemDefinition: string | null
+    projectSpecLength: string | null
+    projectSpecArea: string | null
+    projectSpecAngle: string | null
+    projectSpecCurrency: string | null
+    projectSpecNumber: string | null
+    projectSpecRotationAngle: string | null
+    projectSpecSheetLength: string | null
+    projectSpecSiteAngle: string | null
+    projectSpecSlope: string | null
+    projectSpecSpeed: string | null
+    projectSpecTime: string | null
+    projectSpecVolume: string | null
   }
 
-  export type ProjectInformationCountAggregateOutputType = {
+  export type DocumentRecordCountAggregateOutputType = {
     id: number
-    projectId: number
+    documentRecordUniqueId: number
+    parentWolfpackUniqueId: number
+    documentCreationId: number
+    documentSaveId: number
+    documentSaveCount: number
+    documentLastSaveDateTime: number
+    parentDocumentEpisodeUniqueId: number
+    documentName: number
+    documentPath: number
     projectName: number
-    client: number
-    address: number
-    author: number
-    buildingName: number
-    issueDate: number
-    location: number
+    projectClient: number
+    projectAddress: number
+    projectAuthor: number
+    projectBuildingName: number
+    projectIssueDate: number
+    projectLocation: number
     projectNumber: number
-    organizationDescription: number
-    organizationName: number
-    status: number
+    projectOrganizationDescription: number
+    projectOrganizationName: number
+    projectStatus: number
+    projectPlaceName: number
+    projectElevation: number
+    projectLatitude: number
+    projectLongitude: number
+    projectTimeZone: number
+    projectGeoCoordinateSystemId: number
+    projectGeoCoordinateSystemDefinition: number
+    projectSpecLength: number
+    projectSpecArea: number
+    projectSpecAngle: number
+    projectSpecCurrency: number
+    projectSpecNumber: number
+    projectSpecRotationAngle: number
+    projectSpecSheetLength: number
+    projectSpecSiteAngle: number
+    projectSpecSlope: number
+    projectSpecSpeed: number
+    projectSpecTime: number
+    projectSpecVolume: number
     _all: number
   }
 
 
-  export type ProjectInformationAvgAggregateInputType = {
+  export type DocumentRecordAvgAggregateInputType = {
     id?: true
+    documentSaveCount?: true
+    projectElevation?: true
+    projectLatitude?: true
+    projectLongitude?: true
+    projectTimeZone?: true
   }
 
-  export type ProjectInformationSumAggregateInputType = {
+  export type DocumentRecordSumAggregateInputType = {
     id?: true
+    documentSaveCount?: true
+    projectElevation?: true
+    projectLatitude?: true
+    projectLongitude?: true
+    projectTimeZone?: true
   }
 
-  export type ProjectInformationMinAggregateInputType = {
+  export type DocumentRecordMinAggregateInputType = {
     id?: true
-    projectId?: true
+    documentRecordUniqueId?: true
+    parentWolfpackUniqueId?: true
+    documentCreationId?: true
+    documentSaveId?: true
+    documentSaveCount?: true
+    documentLastSaveDateTime?: true
+    parentDocumentEpisodeUniqueId?: true
+    documentName?: true
+    documentPath?: true
     projectName?: true
-    client?: true
-    address?: true
-    author?: true
-    buildingName?: true
-    issueDate?: true
-    location?: true
+    projectClient?: true
+    projectAddress?: true
+    projectAuthor?: true
+    projectBuildingName?: true
+    projectIssueDate?: true
+    projectLocation?: true
     projectNumber?: true
-    organizationDescription?: true
-    organizationName?: true
-    status?: true
+    projectOrganizationDescription?: true
+    projectOrganizationName?: true
+    projectStatus?: true
+    projectPlaceName?: true
+    projectElevation?: true
+    projectLatitude?: true
+    projectLongitude?: true
+    projectTimeZone?: true
+    projectGeoCoordinateSystemId?: true
+    projectGeoCoordinateSystemDefinition?: true
+    projectSpecLength?: true
+    projectSpecArea?: true
+    projectSpecAngle?: true
+    projectSpecCurrency?: true
+    projectSpecNumber?: true
+    projectSpecRotationAngle?: true
+    projectSpecSheetLength?: true
+    projectSpecSiteAngle?: true
+    projectSpecSlope?: true
+    projectSpecSpeed?: true
+    projectSpecTime?: true
+    projectSpecVolume?: true
   }
 
-  export type ProjectInformationMaxAggregateInputType = {
+  export type DocumentRecordMaxAggregateInputType = {
     id?: true
-    projectId?: true
+    documentRecordUniqueId?: true
+    parentWolfpackUniqueId?: true
+    documentCreationId?: true
+    documentSaveId?: true
+    documentSaveCount?: true
+    documentLastSaveDateTime?: true
+    parentDocumentEpisodeUniqueId?: true
+    documentName?: true
+    documentPath?: true
     projectName?: true
-    client?: true
-    address?: true
-    author?: true
-    buildingName?: true
-    issueDate?: true
-    location?: true
+    projectClient?: true
+    projectAddress?: true
+    projectAuthor?: true
+    projectBuildingName?: true
+    projectIssueDate?: true
+    projectLocation?: true
     projectNumber?: true
-    organizationDescription?: true
-    organizationName?: true
-    status?: true
+    projectOrganizationDescription?: true
+    projectOrganizationName?: true
+    projectStatus?: true
+    projectPlaceName?: true
+    projectElevation?: true
+    projectLatitude?: true
+    projectLongitude?: true
+    projectTimeZone?: true
+    projectGeoCoordinateSystemId?: true
+    projectGeoCoordinateSystemDefinition?: true
+    projectSpecLength?: true
+    projectSpecArea?: true
+    projectSpecAngle?: true
+    projectSpecCurrency?: true
+    projectSpecNumber?: true
+    projectSpecRotationAngle?: true
+    projectSpecSheetLength?: true
+    projectSpecSiteAngle?: true
+    projectSpecSlope?: true
+    projectSpecSpeed?: true
+    projectSpecTime?: true
+    projectSpecVolume?: true
   }
 
-  export type ProjectInformationCountAggregateInputType = {
+  export type DocumentRecordCountAggregateInputType = {
     id?: true
-    projectId?: true
+    documentRecordUniqueId?: true
+    parentWolfpackUniqueId?: true
+    documentCreationId?: true
+    documentSaveId?: true
+    documentSaveCount?: true
+    documentLastSaveDateTime?: true
+    parentDocumentEpisodeUniqueId?: true
+    documentName?: true
+    documentPath?: true
     projectName?: true
-    client?: true
-    address?: true
-    author?: true
-    buildingName?: true
-    issueDate?: true
-    location?: true
+    projectClient?: true
+    projectAddress?: true
+    projectAuthor?: true
+    projectBuildingName?: true
+    projectIssueDate?: true
+    projectLocation?: true
     projectNumber?: true
-    organizationDescription?: true
-    organizationName?: true
-    status?: true
+    projectOrganizationDescription?: true
+    projectOrganizationName?: true
+    projectStatus?: true
+    projectPlaceName?: true
+    projectElevation?: true
+    projectLatitude?: true
+    projectLongitude?: true
+    projectTimeZone?: true
+    projectGeoCoordinateSystemId?: true
+    projectGeoCoordinateSystemDefinition?: true
+    projectSpecLength?: true
+    projectSpecArea?: true
+    projectSpecAngle?: true
+    projectSpecCurrency?: true
+    projectSpecNumber?: true
+    projectSpecRotationAngle?: true
+    projectSpecSheetLength?: true
+    projectSpecSiteAngle?: true
+    projectSpecSlope?: true
+    projectSpecSpeed?: true
+    projectSpecTime?: true
+    projectSpecVolume?: true
     _all?: true
   }
 
-  export type ProjectInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which ProjectInformation to aggregate.
+     * Filter which DocumentRecord to aggregate.
      */
-    where?: ProjectInformationWhereInput
+    where?: DocumentRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ProjectInformations to fetch.
+     * Determine the order of DocumentRecords to fetch.
      */
-    orderBy?: ProjectInformationOrderByWithRelationInput | ProjectInformationOrderByWithRelationInput[]
+    orderBy?: DocumentRecordOrderByWithRelationInput | DocumentRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: ProjectInformationWhereUniqueInput
+    cursor?: DocumentRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ProjectInformations from the position of the cursor.
+     * Take `±n` DocumentRecords from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ProjectInformations.
+     * Skip the first `n` DocumentRecords.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned ProjectInformations
+     * Count returned DocumentRecords
     **/
-    _count?: true | ProjectInformationCountAggregateInputType
+    _count?: true | DocumentRecordCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: ProjectInformationAvgAggregateInputType
+    _avg?: DocumentRecordAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: ProjectInformationSumAggregateInputType
+    _sum?: DocumentRecordSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: ProjectInformationMinAggregateInputType
+    _min?: DocumentRecordMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: ProjectInformationMaxAggregateInputType
+    _max?: DocumentRecordMaxAggregateInputType
   }
 
-  export type GetProjectInformationAggregateType<T extends ProjectInformationAggregateArgs> = {
-        [P in keyof T & keyof AggregateProjectInformation]: P extends '_count' | 'count'
+  export type GetDocumentRecordAggregateType<T extends DocumentRecordAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocumentRecord]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateProjectInformation[P]>
-      : GetScalarType<T[P], AggregateProjectInformation[P]>
+        : GetScalarType<T[P], AggregateDocumentRecord[P]>
+      : GetScalarType<T[P], AggregateDocumentRecord[P]>
   }
 
 
 
 
-  export type ProjectInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ProjectInformationWhereInput
-    orderBy?: ProjectInformationOrderByWithAggregationInput | ProjectInformationOrderByWithAggregationInput[]
-    by: ProjectInformationScalarFieldEnum[] | ProjectInformationScalarFieldEnum
-    having?: ProjectInformationScalarWhereWithAggregatesInput
+  export type DocumentRecordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentRecordWhereInput
+    orderBy?: DocumentRecordOrderByWithAggregationInput | DocumentRecordOrderByWithAggregationInput[]
+    by: DocumentRecordScalarFieldEnum[] | DocumentRecordScalarFieldEnum
+    having?: DocumentRecordScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: ProjectInformationCountAggregateInputType | true
-    _avg?: ProjectInformationAvgAggregateInputType
-    _sum?: ProjectInformationSumAggregateInputType
-    _min?: ProjectInformationMinAggregateInputType
-    _max?: ProjectInformationMaxAggregateInputType
+    _count?: DocumentRecordCountAggregateInputType | true
+    _avg?: DocumentRecordAvgAggregateInputType
+    _sum?: DocumentRecordSumAggregateInputType
+    _min?: DocumentRecordMinAggregateInputType
+    _max?: DocumentRecordMaxAggregateInputType
   }
 
-  export type ProjectInformationGroupByOutputType = {
+  export type DocumentRecordGroupByOutputType = {
     id: number
-    projectId: string
-    projectName: string
-    client: string
-    address: string
-    author: string
-    buildingName: string
-    issueDate: string
-    location: string
-    projectNumber: string
-    organizationDescription: string
-    organizationName: string
-    status: string
-    _count: ProjectInformationCountAggregateOutputType | null
-    _avg: ProjectInformationAvgAggregateOutputType | null
-    _sum: ProjectInformationSumAggregateOutputType | null
-    _min: ProjectInformationMinAggregateOutputType | null
-    _max: ProjectInformationMaxAggregateOutputType | null
+    documentRecordUniqueId: string
+    parentWolfpackUniqueId: string
+    documentCreationId: string | null
+    documentSaveId: string | null
+    documentSaveCount: number | null
+    documentLastSaveDateTime: Date
+    parentDocumentEpisodeUniqueId: string
+    documentName: string | null
+    documentPath: string | null
+    projectName: string | null
+    projectClient: string | null
+    projectAddress: string | null
+    projectAuthor: string | null
+    projectBuildingName: string | null
+    projectIssueDate: string | null
+    projectLocation: string | null
+    projectNumber: string | null
+    projectOrganizationDescription: string | null
+    projectOrganizationName: string | null
+    projectStatus: string | null
+    projectPlaceName: string | null
+    projectElevation: bigint | null
+    projectLatitude: bigint | null
+    projectLongitude: bigint | null
+    projectTimeZone: bigint | null
+    projectGeoCoordinateSystemId: string | null
+    projectGeoCoordinateSystemDefinition: string | null
+    projectSpecLength: string | null
+    projectSpecArea: string | null
+    projectSpecAngle: string | null
+    projectSpecCurrency: string | null
+    projectSpecNumber: string | null
+    projectSpecRotationAngle: string | null
+    projectSpecSheetLength: string | null
+    projectSpecSiteAngle: string | null
+    projectSpecSlope: string | null
+    projectSpecSpeed: string | null
+    projectSpecTime: string | null
+    projectSpecVolume: string | null
+    _count: DocumentRecordCountAggregateOutputType | null
+    _avg: DocumentRecordAvgAggregateOutputType | null
+    _sum: DocumentRecordSumAggregateOutputType | null
+    _min: DocumentRecordMinAggregateOutputType | null
+    _max: DocumentRecordMaxAggregateOutputType | null
   }
 
-  type GetProjectInformationGroupByPayload<T extends ProjectInformationGroupByArgs> = Prisma.PrismaPromise<
+  type GetDocumentRecordGroupByPayload<T extends DocumentRecordGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<ProjectInformationGroupByOutputType, T['by']> &
+      PickEnumerable<DocumentRecordGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof ProjectInformationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof DocumentRecordGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], ProjectInformationGroupByOutputType[P]>
-            : GetScalarType<T[P], ProjectInformationGroupByOutputType[P]>
+              : GetScalarType<T[P], DocumentRecordGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentRecordGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type ProjectInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DocumentRecordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    projectId?: boolean
+    documentRecordUniqueId?: boolean
+    parentWolfpackUniqueId?: boolean
+    documentCreationId?: boolean
+    documentSaveId?: boolean
+    documentSaveCount?: boolean
+    documentLastSaveDateTime?: boolean
+    parentDocumentEpisodeUniqueId?: boolean
+    documentName?: boolean
+    documentPath?: boolean
     projectName?: boolean
-    client?: boolean
-    address?: boolean
-    author?: boolean
-    buildingName?: boolean
-    issueDate?: boolean
-    location?: boolean
+    projectClient?: boolean
+    projectAddress?: boolean
+    projectAuthor?: boolean
+    projectBuildingName?: boolean
+    projectIssueDate?: boolean
+    projectLocation?: boolean
     projectNumber?: boolean
-    organizationDescription?: boolean
-    organizationName?: boolean
-    status?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["projectInformation"]>
+    projectOrganizationDescription?: boolean
+    projectOrganizationName?: boolean
+    projectStatus?: boolean
+    projectPlaceName?: boolean
+    projectElevation?: boolean
+    projectLatitude?: boolean
+    projectLongitude?: boolean
+    projectTimeZone?: boolean
+    projectGeoCoordinateSystemId?: boolean
+    projectGeoCoordinateSystemDefinition?: boolean
+    projectSpecLength?: boolean
+    projectSpecArea?: boolean
+    projectSpecAngle?: boolean
+    projectSpecCurrency?: boolean
+    projectSpecNumber?: boolean
+    projectSpecRotationAngle?: boolean
+    projectSpecSheetLength?: boolean
+    projectSpecSiteAngle?: boolean
+    projectSpecSlope?: boolean
+    projectSpecSpeed?: boolean
+    projectSpecTime?: boolean
+    projectSpecVolume?: boolean
+  }, ExtArgs["result"]["documentRecord"]>
 
-  export type ProjectInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DocumentRecordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    projectId?: boolean
+    documentRecordUniqueId?: boolean
+    parentWolfpackUniqueId?: boolean
+    documentCreationId?: boolean
+    documentSaveId?: boolean
+    documentSaveCount?: boolean
+    documentLastSaveDateTime?: boolean
+    parentDocumentEpisodeUniqueId?: boolean
+    documentName?: boolean
+    documentPath?: boolean
     projectName?: boolean
-    client?: boolean
-    address?: boolean
-    author?: boolean
-    buildingName?: boolean
-    issueDate?: boolean
-    location?: boolean
+    projectClient?: boolean
+    projectAddress?: boolean
+    projectAuthor?: boolean
+    projectBuildingName?: boolean
+    projectIssueDate?: boolean
+    projectLocation?: boolean
     projectNumber?: boolean
-    organizationDescription?: boolean
-    organizationName?: boolean
-    status?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["projectInformation"]>
+    projectOrganizationDescription?: boolean
+    projectOrganizationName?: boolean
+    projectStatus?: boolean
+    projectPlaceName?: boolean
+    projectElevation?: boolean
+    projectLatitude?: boolean
+    projectLongitude?: boolean
+    projectTimeZone?: boolean
+    projectGeoCoordinateSystemId?: boolean
+    projectGeoCoordinateSystemDefinition?: boolean
+    projectSpecLength?: boolean
+    projectSpecArea?: boolean
+    projectSpecAngle?: boolean
+    projectSpecCurrency?: boolean
+    projectSpecNumber?: boolean
+    projectSpecRotationAngle?: boolean
+    projectSpecSheetLength?: boolean
+    projectSpecSiteAngle?: boolean
+    projectSpecSlope?: boolean
+    projectSpecSpeed?: boolean
+    projectSpecTime?: boolean
+    projectSpecVolume?: boolean
+  }, ExtArgs["result"]["documentRecord"]>
 
-  export type ProjectInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DocumentRecordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    projectId?: boolean
+    documentRecordUniqueId?: boolean
+    parentWolfpackUniqueId?: boolean
+    documentCreationId?: boolean
+    documentSaveId?: boolean
+    documentSaveCount?: boolean
+    documentLastSaveDateTime?: boolean
+    parentDocumentEpisodeUniqueId?: boolean
+    documentName?: boolean
+    documentPath?: boolean
     projectName?: boolean
-    client?: boolean
-    address?: boolean
-    author?: boolean
-    buildingName?: boolean
-    issueDate?: boolean
-    location?: boolean
+    projectClient?: boolean
+    projectAddress?: boolean
+    projectAuthor?: boolean
+    projectBuildingName?: boolean
+    projectIssueDate?: boolean
+    projectLocation?: boolean
     projectNumber?: boolean
-    organizationDescription?: boolean
-    organizationName?: boolean
-    status?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["projectInformation"]>
+    projectOrganizationDescription?: boolean
+    projectOrganizationName?: boolean
+    projectStatus?: boolean
+    projectPlaceName?: boolean
+    projectElevation?: boolean
+    projectLatitude?: boolean
+    projectLongitude?: boolean
+    projectTimeZone?: boolean
+    projectGeoCoordinateSystemId?: boolean
+    projectGeoCoordinateSystemDefinition?: boolean
+    projectSpecLength?: boolean
+    projectSpecArea?: boolean
+    projectSpecAngle?: boolean
+    projectSpecCurrency?: boolean
+    projectSpecNumber?: boolean
+    projectSpecRotationAngle?: boolean
+    projectSpecSheetLength?: boolean
+    projectSpecSiteAngle?: boolean
+    projectSpecSlope?: boolean
+    projectSpecSpeed?: boolean
+    projectSpecTime?: boolean
+    projectSpecVolume?: boolean
+  }, ExtArgs["result"]["documentRecord"]>
 
-  export type ProjectInformationSelectScalar = {
+  export type DocumentRecordSelectScalar = {
     id?: boolean
-    projectId?: boolean
+    documentRecordUniqueId?: boolean
+    parentWolfpackUniqueId?: boolean
+    documentCreationId?: boolean
+    documentSaveId?: boolean
+    documentSaveCount?: boolean
+    documentLastSaveDateTime?: boolean
+    parentDocumentEpisodeUniqueId?: boolean
+    documentName?: boolean
+    documentPath?: boolean
     projectName?: boolean
-    client?: boolean
-    address?: boolean
-    author?: boolean
-    buildingName?: boolean
-    issueDate?: boolean
-    location?: boolean
+    projectClient?: boolean
+    projectAddress?: boolean
+    projectAuthor?: boolean
+    projectBuildingName?: boolean
+    projectIssueDate?: boolean
+    projectLocation?: boolean
     projectNumber?: boolean
-    organizationDescription?: boolean
-    organizationName?: boolean
-    status?: boolean
+    projectOrganizationDescription?: boolean
+    projectOrganizationName?: boolean
+    projectStatus?: boolean
+    projectPlaceName?: boolean
+    projectElevation?: boolean
+    projectLatitude?: boolean
+    projectLongitude?: boolean
+    projectTimeZone?: boolean
+    projectGeoCoordinateSystemId?: boolean
+    projectGeoCoordinateSystemDefinition?: boolean
+    projectSpecLength?: boolean
+    projectSpecArea?: boolean
+    projectSpecAngle?: boolean
+    projectSpecCurrency?: boolean
+    projectSpecNumber?: boolean
+    projectSpecRotationAngle?: boolean
+    projectSpecSheetLength?: boolean
+    projectSpecSiteAngle?: boolean
+    projectSpecSlope?: boolean
+    projectSpecSpeed?: boolean
+    projectSpecTime?: boolean
+    projectSpecVolume?: boolean
   }
 
-  export type ProjectInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "projectId" | "projectName" | "client" | "address" | "author" | "buildingName" | "issueDate" | "location" | "projectNumber" | "organizationDescription" | "organizationName" | "status", ExtArgs["result"]["projectInformation"]>
-  export type ProjectInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type ProjectInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type ProjectInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
+  export type DocumentRecordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentRecordUniqueId" | "parentWolfpackUniqueId" | "documentCreationId" | "documentSaveId" | "documentSaveCount" | "documentLastSaveDateTime" | "parentDocumentEpisodeUniqueId" | "documentName" | "documentPath" | "projectName" | "projectClient" | "projectAddress" | "projectAuthor" | "projectBuildingName" | "projectIssueDate" | "projectLocation" | "projectNumber" | "projectOrganizationDescription" | "projectOrganizationName" | "projectStatus" | "projectPlaceName" | "projectElevation" | "projectLatitude" | "projectLongitude" | "projectTimeZone" | "projectGeoCoordinateSystemId" | "projectGeoCoordinateSystemDefinition" | "projectSpecLength" | "projectSpecArea" | "projectSpecAngle" | "projectSpecCurrency" | "projectSpecNumber" | "projectSpecRotationAngle" | "projectSpecSheetLength" | "projectSpecSiteAngle" | "projectSpecSlope" | "projectSpecSpeed" | "projectSpecTime" | "projectSpecVolume", ExtArgs["result"]["documentRecord"]>
 
-  export type $ProjectInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ProjectInformation"
-    objects: {
-      document: Prisma.$WolfpackPayload<ExtArgs>
-    }
+  export type $DocumentRecordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DocumentRecord"
+    objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      projectId: string
-      projectName: string
-      client: string
-      address: string
-      author: string
-      buildingName: string
-      issueDate: string
-      location: string
-      projectNumber: string
-      organizationDescription: string
-      organizationName: string
-      status: string
-    }, ExtArgs["result"]["projectInformation"]>
+      documentRecordUniqueId: string
+      parentWolfpackUniqueId: string
+      documentCreationId: string | null
+      documentSaveId: string | null
+      documentSaveCount: number | null
+      documentLastSaveDateTime: Date
+      parentDocumentEpisodeUniqueId: string
+      documentName: string | null
+      documentPath: string | null
+      projectName: string | null
+      projectClient: string | null
+      projectAddress: string | null
+      projectAuthor: string | null
+      projectBuildingName: string | null
+      projectIssueDate: string | null
+      projectLocation: string | null
+      projectNumber: string | null
+      projectOrganizationDescription: string | null
+      projectOrganizationName: string | null
+      projectStatus: string | null
+      projectPlaceName: string | null
+      projectElevation: bigint | null
+      projectLatitude: bigint | null
+      projectLongitude: bigint | null
+      projectTimeZone: bigint | null
+      projectGeoCoordinateSystemId: string | null
+      projectGeoCoordinateSystemDefinition: string | null
+      projectSpecLength: string | null
+      projectSpecArea: string | null
+      projectSpecAngle: string | null
+      projectSpecCurrency: string | null
+      projectSpecNumber: string | null
+      projectSpecRotationAngle: string | null
+      projectSpecSheetLength: string | null
+      projectSpecSiteAngle: string | null
+      projectSpecSlope: string | null
+      projectSpecSpeed: string | null
+      projectSpecTime: string | null
+      projectSpecVolume: string | null
+    }, ExtArgs["result"]["documentRecord"]>
     composites: {}
   }
 
-  type ProjectInformationGetPayload<S extends boolean | null | undefined | ProjectInformationDefaultArgs> = $Result.GetResult<Prisma.$ProjectInformationPayload, S>
+  type DocumentRecordGetPayload<S extends boolean | null | undefined | DocumentRecordDefaultArgs> = $Result.GetResult<Prisma.$DocumentRecordPayload, S>
 
-  type ProjectInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ProjectInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ProjectInformationCountAggregateInputType | true
+  type DocumentRecordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DocumentRecordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DocumentRecordCountAggregateInputType | true
     }
 
-  export interface ProjectInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProjectInformation'], meta: { name: 'ProjectInformation' } }
+  export interface DocumentRecordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DocumentRecord'], meta: { name: 'DocumentRecord' } }
     /**
-     * Find zero or one ProjectInformation that matches the filter.
-     * @param {ProjectInformationFindUniqueArgs} args - Arguments to find a ProjectInformation
+     * Find zero or one DocumentRecord that matches the filter.
+     * @param {DocumentRecordFindUniqueArgs} args - Arguments to find a DocumentRecord
      * @example
-     * // Get one ProjectInformation
-     * const projectInformation = await prisma.projectInformation.findUnique({
+     * // Get one DocumentRecord
+     * const documentRecord = await prisma.documentRecord.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends ProjectInformationFindUniqueArgs>(args: SelectSubset<T, ProjectInformationFindUniqueArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends DocumentRecordFindUniqueArgs>(args: SelectSubset<T, DocumentRecordFindUniqueArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one ProjectInformation that matches the filter or throw an error with `error.code='P2025'`
+     * Find one DocumentRecord that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {ProjectInformationFindUniqueOrThrowArgs} args - Arguments to find a ProjectInformation
+     * @param {DocumentRecordFindUniqueOrThrowArgs} args - Arguments to find a DocumentRecord
      * @example
-     * // Get one ProjectInformation
-     * const projectInformation = await prisma.projectInformation.findUniqueOrThrow({
+     * // Get one DocumentRecord
+     * const documentRecord = await prisma.documentRecord.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends ProjectInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, ProjectInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends DocumentRecordFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentRecordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ProjectInformation that matches the filter.
+     * Find the first DocumentRecord that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationFindFirstArgs} args - Arguments to find a ProjectInformation
+     * @param {DocumentRecordFindFirstArgs} args - Arguments to find a DocumentRecord
      * @example
-     * // Get one ProjectInformation
-     * const projectInformation = await prisma.projectInformation.findFirst({
+     * // Get one DocumentRecord
+     * const documentRecord = await prisma.documentRecord.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends ProjectInformationFindFirstArgs>(args?: SelectSubset<T, ProjectInformationFindFirstArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends DocumentRecordFindFirstArgs>(args?: SelectSubset<T, DocumentRecordFindFirstArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first ProjectInformation that matches the filter or
+     * Find the first DocumentRecord that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationFindFirstOrThrowArgs} args - Arguments to find a ProjectInformation
+     * @param {DocumentRecordFindFirstOrThrowArgs} args - Arguments to find a DocumentRecord
      * @example
-     * // Get one ProjectInformation
-     * const projectInformation = await prisma.projectInformation.findFirstOrThrow({
+     * // Get one DocumentRecord
+     * const documentRecord = await prisma.documentRecord.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends ProjectInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, ProjectInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends DocumentRecordFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentRecordFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more ProjectInformations that matches the filter.
+     * Find zero or more DocumentRecords that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {DocumentRecordFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all ProjectInformations
-     * const projectInformations = await prisma.projectInformation.findMany()
+     * // Get all DocumentRecords
+     * const documentRecords = await prisma.documentRecord.findMany()
      * 
-     * // Get first 10 ProjectInformations
-     * const projectInformations = await prisma.projectInformation.findMany({ take: 10 })
+     * // Get first 10 DocumentRecords
+     * const documentRecords = await prisma.documentRecord.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const projectInformationWithIdOnly = await prisma.projectInformation.findMany({ select: { id: true } })
+     * const documentRecordWithIdOnly = await prisma.documentRecord.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends ProjectInformationFindManyArgs>(args?: SelectSubset<T, ProjectInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends DocumentRecordFindManyArgs>(args?: SelectSubset<T, DocumentRecordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a ProjectInformation.
-     * @param {ProjectInformationCreateArgs} args - Arguments to create a ProjectInformation.
+     * Create a DocumentRecord.
+     * @param {DocumentRecordCreateArgs} args - Arguments to create a DocumentRecord.
      * @example
-     * // Create one ProjectInformation
-     * const ProjectInformation = await prisma.projectInformation.create({
+     * // Create one DocumentRecord
+     * const DocumentRecord = await prisma.documentRecord.create({
      *   data: {
-     *     // ... data to create a ProjectInformation
+     *     // ... data to create a DocumentRecord
      *   }
      * })
      * 
      */
-    create<T extends ProjectInformationCreateArgs>(args: SelectSubset<T, ProjectInformationCreateArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends DocumentRecordCreateArgs>(args: SelectSubset<T, DocumentRecordCreateArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many ProjectInformations.
-     * @param {ProjectInformationCreateManyArgs} args - Arguments to create many ProjectInformations.
+     * Create many DocumentRecords.
+     * @param {DocumentRecordCreateManyArgs} args - Arguments to create many DocumentRecords.
      * @example
-     * // Create many ProjectInformations
-     * const projectInformation = await prisma.projectInformation.createMany({
+     * // Create many DocumentRecords
+     * const documentRecord = await prisma.documentRecord.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends ProjectInformationCreateManyArgs>(args?: SelectSubset<T, ProjectInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends DocumentRecordCreateManyArgs>(args?: SelectSubset<T, DocumentRecordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many ProjectInformations and returns the data saved in the database.
-     * @param {ProjectInformationCreateManyAndReturnArgs} args - Arguments to create many ProjectInformations.
+     * Create many DocumentRecords and returns the data saved in the database.
+     * @param {DocumentRecordCreateManyAndReturnArgs} args - Arguments to create many DocumentRecords.
      * @example
-     * // Create many ProjectInformations
-     * const projectInformation = await prisma.projectInformation.createManyAndReturn({
+     * // Create many DocumentRecords
+     * const documentRecord = await prisma.documentRecord.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many ProjectInformations and only return the `id`
-     * const projectInformationWithIdOnly = await prisma.projectInformation.createManyAndReturn({
+     * // Create many DocumentRecords and only return the `id`
+     * const documentRecordWithIdOnly = await prisma.documentRecord.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3412,28 +2885,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends ProjectInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, ProjectInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends DocumentRecordCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentRecordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a ProjectInformation.
-     * @param {ProjectInformationDeleteArgs} args - Arguments to delete one ProjectInformation.
+     * Delete a DocumentRecord.
+     * @param {DocumentRecordDeleteArgs} args - Arguments to delete one DocumentRecord.
      * @example
-     * // Delete one ProjectInformation
-     * const ProjectInformation = await prisma.projectInformation.delete({
+     * // Delete one DocumentRecord
+     * const DocumentRecord = await prisma.documentRecord.delete({
      *   where: {
-     *     // ... filter to delete one ProjectInformation
+     *     // ... filter to delete one DocumentRecord
      *   }
      * })
      * 
      */
-    delete<T extends ProjectInformationDeleteArgs>(args: SelectSubset<T, ProjectInformationDeleteArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends DocumentRecordDeleteArgs>(args: SelectSubset<T, DocumentRecordDeleteArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one ProjectInformation.
-     * @param {ProjectInformationUpdateArgs} args - Arguments to update one ProjectInformation.
+     * Update one DocumentRecord.
+     * @param {DocumentRecordUpdateArgs} args - Arguments to update one DocumentRecord.
      * @example
-     * // Update one ProjectInformation
-     * const projectInformation = await prisma.projectInformation.update({
+     * // Update one DocumentRecord
+     * const documentRecord = await prisma.documentRecord.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3443,30 +2916,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends ProjectInformationUpdateArgs>(args: SelectSubset<T, ProjectInformationUpdateArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends DocumentRecordUpdateArgs>(args: SelectSubset<T, DocumentRecordUpdateArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more ProjectInformations.
-     * @param {ProjectInformationDeleteManyArgs} args - Arguments to filter ProjectInformations to delete.
+     * Delete zero or more DocumentRecords.
+     * @param {DocumentRecordDeleteManyArgs} args - Arguments to filter DocumentRecords to delete.
      * @example
-     * // Delete a few ProjectInformations
-     * const { count } = await prisma.projectInformation.deleteMany({
+     * // Delete a few DocumentRecords
+     * const { count } = await prisma.documentRecord.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends ProjectInformationDeleteManyArgs>(args?: SelectSubset<T, ProjectInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends DocumentRecordDeleteManyArgs>(args?: SelectSubset<T, DocumentRecordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ProjectInformations.
+     * Update zero or more DocumentRecords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {DocumentRecordUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many ProjectInformations
-     * const projectInformation = await prisma.projectInformation.updateMany({
+     * // Update many DocumentRecords
+     * const documentRecord = await prisma.documentRecord.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3476,14 +2949,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends ProjectInformationUpdateManyArgs>(args: SelectSubset<T, ProjectInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends DocumentRecordUpdateManyArgs>(args: SelectSubset<T, DocumentRecordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more ProjectInformations and returns the data updated in the database.
-     * @param {ProjectInformationUpdateManyAndReturnArgs} args - Arguments to update many ProjectInformations.
+     * Update zero or more DocumentRecords and returns the data updated in the database.
+     * @param {DocumentRecordUpdateManyAndReturnArgs} args - Arguments to update many DocumentRecords.
      * @example
-     * // Update many ProjectInformations
-     * const projectInformation = await prisma.projectInformation.updateManyAndReturn({
+     * // Update many DocumentRecords
+     * const documentRecord = await prisma.documentRecord.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3492,8 +2965,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more ProjectInformations and only return the `id`
-     * const projectInformationWithIdOnly = await prisma.projectInformation.updateManyAndReturn({
+     * // Update zero or more DocumentRecords and only return the `id`
+     * const documentRecordWithIdOnly = await prisma.documentRecord.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3506,56 +2979,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends ProjectInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, ProjectInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends DocumentRecordUpdateManyAndReturnArgs>(args: SelectSubset<T, DocumentRecordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one ProjectInformation.
-     * @param {ProjectInformationUpsertArgs} args - Arguments to update or create a ProjectInformation.
+     * Create or update one DocumentRecord.
+     * @param {DocumentRecordUpsertArgs} args - Arguments to update or create a DocumentRecord.
      * @example
-     * // Update or create a ProjectInformation
-     * const projectInformation = await prisma.projectInformation.upsert({
+     * // Update or create a DocumentRecord
+     * const documentRecord = await prisma.documentRecord.upsert({
      *   create: {
-     *     // ... data to create a ProjectInformation
+     *     // ... data to create a DocumentRecord
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the ProjectInformation we want to update
+     *     // ... the filter for the DocumentRecord we want to update
      *   }
      * })
      */
-    upsert<T extends ProjectInformationUpsertArgs>(args: SelectSubset<T, ProjectInformationUpsertArgs<ExtArgs>>): Prisma__ProjectInformationClient<$Result.GetResult<Prisma.$ProjectInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends DocumentRecordUpsertArgs>(args: SelectSubset<T, DocumentRecordUpsertArgs<ExtArgs>>): Prisma__DocumentRecordClient<$Result.GetResult<Prisma.$DocumentRecordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of ProjectInformations.
+     * Count the number of DocumentRecords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationCountArgs} args - Arguments to filter ProjectInformations to count.
+     * @param {DocumentRecordCountArgs} args - Arguments to filter DocumentRecords to count.
      * @example
-     * // Count the number of ProjectInformations
-     * const count = await prisma.projectInformation.count({
+     * // Count the number of DocumentRecords
+     * const count = await prisma.documentRecord.count({
      *   where: {
-     *     // ... the filter for the ProjectInformations we want to count
+     *     // ... the filter for the DocumentRecords we want to count
      *   }
      * })
     **/
-    count<T extends ProjectInformationCountArgs>(
-      args?: Subset<T, ProjectInformationCountArgs>,
+    count<T extends DocumentRecordCountArgs>(
+      args?: Subset<T, DocumentRecordCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], ProjectInformationCountAggregateOutputType>
+          : GetScalarType<T['select'], DocumentRecordCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a ProjectInformation.
+     * Allows you to perform aggregations operations on a DocumentRecord.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {DocumentRecordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3575,13 +3048,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends ProjectInformationAggregateArgs>(args: Subset<T, ProjectInformationAggregateArgs>): Prisma.PrismaPromise<GetProjectInformationAggregateType<T>>
+    aggregate<T extends DocumentRecordAggregateArgs>(args: Subset<T, DocumentRecordAggregateArgs>): Prisma.PrismaPromise<GetDocumentRecordAggregateType<T>>
 
     /**
-     * Group by ProjectInformation.
+     * Group by DocumentRecord.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {ProjectInformationGroupByArgs} args - Group by arguments.
+     * @param {DocumentRecordGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3596,14 +3069,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends ProjectInformationGroupByArgs,
+      T extends DocumentRecordGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ProjectInformationGroupByArgs['orderBy'] }
-        : { orderBy?: ProjectInformationGroupByArgs['orderBy'] },
+        ? { orderBy: DocumentRecordGroupByArgs['orderBy'] }
+        : { orderBy?: DocumentRecordGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3652,22 +3125,21 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, ProjectInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProjectInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, DocumentRecordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentRecordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the ProjectInformation model
+   * Fields of the DocumentRecord model
    */
-  readonly fields: ProjectInformationFieldRefs;
+  readonly fields: DocumentRecordFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for ProjectInformation.
+   * The delegate class that acts as a "Promise-like" for DocumentRecord.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__ProjectInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DocumentRecordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    document<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3694,7377 +3166,412 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the ProjectInformation model
+   * Fields of the DocumentRecord model
    */ 
-  interface ProjectInformationFieldRefs {
-    readonly id: FieldRef<"ProjectInformation", 'Int'>
-    readonly projectId: FieldRef<"ProjectInformation", 'String'>
-    readonly projectName: FieldRef<"ProjectInformation", 'String'>
-    readonly client: FieldRef<"ProjectInformation", 'String'>
-    readonly address: FieldRef<"ProjectInformation", 'String'>
-    readonly author: FieldRef<"ProjectInformation", 'String'>
-    readonly buildingName: FieldRef<"ProjectInformation", 'String'>
-    readonly issueDate: FieldRef<"ProjectInformation", 'String'>
-    readonly location: FieldRef<"ProjectInformation", 'String'>
-    readonly projectNumber: FieldRef<"ProjectInformation", 'String'>
-    readonly organizationDescription: FieldRef<"ProjectInformation", 'String'>
-    readonly organizationName: FieldRef<"ProjectInformation", 'String'>
-    readonly status: FieldRef<"ProjectInformation", 'String'>
+  interface DocumentRecordFieldRefs {
+    readonly id: FieldRef<"DocumentRecord", 'Int'>
+    readonly documentRecordUniqueId: FieldRef<"DocumentRecord", 'String'>
+    readonly parentWolfpackUniqueId: FieldRef<"DocumentRecord", 'String'>
+    readonly documentCreationId: FieldRef<"DocumentRecord", 'String'>
+    readonly documentSaveId: FieldRef<"DocumentRecord", 'String'>
+    readonly documentSaveCount: FieldRef<"DocumentRecord", 'Int'>
+    readonly documentLastSaveDateTime: FieldRef<"DocumentRecord", 'DateTime'>
+    readonly parentDocumentEpisodeUniqueId: FieldRef<"DocumentRecord", 'String'>
+    readonly documentName: FieldRef<"DocumentRecord", 'String'>
+    readonly documentPath: FieldRef<"DocumentRecord", 'String'>
+    readonly projectName: FieldRef<"DocumentRecord", 'String'>
+    readonly projectClient: FieldRef<"DocumentRecord", 'String'>
+    readonly projectAddress: FieldRef<"DocumentRecord", 'String'>
+    readonly projectAuthor: FieldRef<"DocumentRecord", 'String'>
+    readonly projectBuildingName: FieldRef<"DocumentRecord", 'String'>
+    readonly projectIssueDate: FieldRef<"DocumentRecord", 'String'>
+    readonly projectLocation: FieldRef<"DocumentRecord", 'String'>
+    readonly projectNumber: FieldRef<"DocumentRecord", 'String'>
+    readonly projectOrganizationDescription: FieldRef<"DocumentRecord", 'String'>
+    readonly projectOrganizationName: FieldRef<"DocumentRecord", 'String'>
+    readonly projectStatus: FieldRef<"DocumentRecord", 'String'>
+    readonly projectPlaceName: FieldRef<"DocumentRecord", 'String'>
+    readonly projectElevation: FieldRef<"DocumentRecord", 'BigInt'>
+    readonly projectLatitude: FieldRef<"DocumentRecord", 'BigInt'>
+    readonly projectLongitude: FieldRef<"DocumentRecord", 'BigInt'>
+    readonly projectTimeZone: FieldRef<"DocumentRecord", 'BigInt'>
+    readonly projectGeoCoordinateSystemId: FieldRef<"DocumentRecord", 'String'>
+    readonly projectGeoCoordinateSystemDefinition: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecLength: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecArea: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecAngle: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecCurrency: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecNumber: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecRotationAngle: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecSheetLength: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecSiteAngle: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecSlope: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecSpeed: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecTime: FieldRef<"DocumentRecord", 'String'>
+    readonly projectSpecVolume: FieldRef<"DocumentRecord", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * ProjectInformation findUnique
+   * DocumentRecord findUnique
    */
-  export type ProjectInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which DocumentRecord to fetch.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ProjectInformation to fetch.
-     */
-    where: ProjectInformationWhereUniqueInput
+    where: DocumentRecordWhereUniqueInput
   }
 
   /**
-   * ProjectInformation findUniqueOrThrow
+   * DocumentRecord findUniqueOrThrow
    */
-  export type ProjectInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which DocumentRecord to fetch.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ProjectInformation to fetch.
-     */
-    where: ProjectInformationWhereUniqueInput
+    where: DocumentRecordWhereUniqueInput
   }
 
   /**
-   * ProjectInformation findFirst
+   * DocumentRecord findFirst
    */
-  export type ProjectInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which DocumentRecord to fetch.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ProjectInformation to fetch.
-     */
-    where?: ProjectInformationWhereInput
+    where?: DocumentRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ProjectInformations to fetch.
+     * Determine the order of DocumentRecords to fetch.
      */
-    orderBy?: ProjectInformationOrderByWithRelationInput | ProjectInformationOrderByWithRelationInput[]
+    orderBy?: DocumentRecordOrderByWithRelationInput | DocumentRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ProjectInformations.
+     * Sets the position for searching for DocumentRecords.
      */
-    cursor?: ProjectInformationWhereUniqueInput
+    cursor?: DocumentRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ProjectInformations from the position of the cursor.
+     * Take `±n` DocumentRecords from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ProjectInformations.
+     * Skip the first `n` DocumentRecords.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ProjectInformations.
+     * Filter by unique combinations of DocumentRecords.
      */
-    distinct?: ProjectInformationScalarFieldEnum | ProjectInformationScalarFieldEnum[]
+    distinct?: DocumentRecordScalarFieldEnum | DocumentRecordScalarFieldEnum[]
   }
 
   /**
-   * ProjectInformation findFirstOrThrow
+   * DocumentRecord findFirstOrThrow
    */
-  export type ProjectInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which DocumentRecord to fetch.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ProjectInformation to fetch.
-     */
-    where?: ProjectInformationWhereInput
+    where?: DocumentRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ProjectInformations to fetch.
+     * Determine the order of DocumentRecords to fetch.
      */
-    orderBy?: ProjectInformationOrderByWithRelationInput | ProjectInformationOrderByWithRelationInput[]
+    orderBy?: DocumentRecordOrderByWithRelationInput | DocumentRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for ProjectInformations.
+     * Sets the position for searching for DocumentRecords.
      */
-    cursor?: ProjectInformationWhereUniqueInput
+    cursor?: DocumentRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ProjectInformations from the position of the cursor.
+     * Take `±n` DocumentRecords from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ProjectInformations.
+     * Skip the first `n` DocumentRecords.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of ProjectInformations.
+     * Filter by unique combinations of DocumentRecords.
      */
-    distinct?: ProjectInformationScalarFieldEnum | ProjectInformationScalarFieldEnum[]
+    distinct?: DocumentRecordScalarFieldEnum | DocumentRecordScalarFieldEnum[]
   }
 
   /**
-   * ProjectInformation findMany
+   * DocumentRecord findMany
    */
-  export type ProjectInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter, which DocumentRecords to fetch.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ProjectInformations to fetch.
-     */
-    where?: ProjectInformationWhereInput
+    where?: DocumentRecordWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of ProjectInformations to fetch.
+     * Determine the order of DocumentRecords to fetch.
      */
-    orderBy?: ProjectInformationOrderByWithRelationInput | ProjectInformationOrderByWithRelationInput[]
+    orderBy?: DocumentRecordOrderByWithRelationInput | DocumentRecordOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing ProjectInformations.
+     * Sets the position for listing DocumentRecords.
      */
-    cursor?: ProjectInformationWhereUniqueInput
+    cursor?: DocumentRecordWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` ProjectInformations from the position of the cursor.
+     * Take `±n` DocumentRecords from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` ProjectInformations.
+     * Skip the first `n` DocumentRecords.
      */
     skip?: number
-    distinct?: ProjectInformationScalarFieldEnum | ProjectInformationScalarFieldEnum[]
+    distinct?: DocumentRecordScalarFieldEnum | DocumentRecordScalarFieldEnum[]
   }
 
   /**
-   * ProjectInformation create
+   * DocumentRecord create
    */
-  export type ProjectInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The data needed to create a DocumentRecord.
      */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a ProjectInformation.
-     */
-    data: XOR<ProjectInformationCreateInput, ProjectInformationUncheckedCreateInput>
+    data: XOR<DocumentRecordCreateInput, DocumentRecordUncheckedCreateInput>
   }
 
   /**
-   * ProjectInformation createMany
+   * DocumentRecord createMany
    */
-  export type ProjectInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many ProjectInformations.
+     * The data used to create many DocumentRecords.
      */
-    data: ProjectInformationCreateManyInput | ProjectInformationCreateManyInput[]
+    data: DocumentRecordCreateManyInput | DocumentRecordCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * ProjectInformation createManyAndReturn
+   * DocumentRecord createManyAndReturn
    */
-  export type ProjectInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ProjectInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ProjectInformationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: DocumentRecordSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ProjectInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ProjectInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * The data used to create many ProjectInformations.
+     * The data used to create many DocumentRecords.
      */
-    data: ProjectInformationCreateManyInput | ProjectInformationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ProjectInformation update
-   */
-  export type ProjectInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to update a ProjectInformation.
-     */
-    data: XOR<ProjectInformationUpdateInput, ProjectInformationUncheckedUpdateInput>
-    /**
-     * Choose, which ProjectInformation to update.
-     */
-    where: ProjectInformationWhereUniqueInput
-  }
-
-  /**
-   * ProjectInformation updateMany
-   */
-  export type ProjectInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update ProjectInformations.
-     */
-    data: XOR<ProjectInformationUpdateManyMutationInput, ProjectInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which ProjectInformations to update
-     */
-    where?: ProjectInformationWhereInput
-    /**
-     * Limit how many ProjectInformations to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * ProjectInformation updateManyAndReturn
-   */
-  export type ProjectInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * The data used to update ProjectInformations.
-     */
-    data: XOR<ProjectInformationUpdateManyMutationInput, ProjectInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which ProjectInformations to update
-     */
-    where?: ProjectInformationWhereInput
-    /**
-     * Limit how many ProjectInformations to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ProjectInformation upsert
-   */
-  export type ProjectInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * The filter to search for the ProjectInformation to update in case it exists.
-     */
-    where: ProjectInformationWhereUniqueInput
-    /**
-     * In case the ProjectInformation found by the `where` argument doesn't exist, create a new ProjectInformation with this data.
-     */
-    create: XOR<ProjectInformationCreateInput, ProjectInformationUncheckedCreateInput>
-    /**
-     * In case the ProjectInformation was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ProjectInformationUpdateInput, ProjectInformationUncheckedUpdateInput>
-  }
-
-  /**
-   * ProjectInformation delete
-   */
-  export type ProjectInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationInclude<ExtArgs> | null
-    /**
-     * Filter which ProjectInformation to delete.
-     */
-    where: ProjectInformationWhereUniqueInput
-  }
-
-  /**
-   * ProjectInformation deleteMany
-   */
-  export type ProjectInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ProjectInformations to delete
-     */
-    where?: ProjectInformationWhereInput
-    /**
-     * Limit how many ProjectInformations to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * ProjectInformation without action
-   */
-  export type ProjectInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ProjectInformation
-     */
-    select?: ProjectInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ProjectInformation
-     */
-    omit?: ProjectInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProjectInformationInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model ElementInformation
-   */
-
-  export type AggregateElementInformation = {
-    _count: ElementInformationCountAggregateOutputType | null
-    _avg: ElementInformationAvgAggregateOutputType | null
-    _sum: ElementInformationSumAggregateOutputType | null
-    _min: ElementInformationMinAggregateOutputType | null
-    _max: ElementInformationMaxAggregateOutputType | null
-  }
-
-  export type ElementInformationAvgAggregateOutputType = {
-    id: number | null
-    idValue: number | null
-  }
-
-  export type ElementInformationSumAggregateOutputType = {
-    id: number | null
-    idValue: bigint | null
-  }
-
-  export type ElementInformationMinAggregateOutputType = {
-    id: number | null
-    uniqueElementId: string | null
-    idValue: bigint | null
-    elementVersionId: string | null
-    familyName: string | null
-    builtInCategory: string | null
-    name: string | null
-  }
-
-  export type ElementInformationMaxAggregateOutputType = {
-    id: number | null
-    uniqueElementId: string | null
-    idValue: bigint | null
-    elementVersionId: string | null
-    familyName: string | null
-    builtInCategory: string | null
-    name: string | null
-  }
-
-  export type ElementInformationCountAggregateOutputType = {
-    id: number
-    uniqueElementId: number
-    idValue: number
-    elementVersionId: number
-    familyName: number
-    builtInCategory: number
-    name: number
-    _all: number
-  }
-
-
-  export type ElementInformationAvgAggregateInputType = {
-    id?: true
-    idValue?: true
-  }
-
-  export type ElementInformationSumAggregateInputType = {
-    id?: true
-    idValue?: true
-  }
-
-  export type ElementInformationMinAggregateInputType = {
-    id?: true
-    uniqueElementId?: true
-    idValue?: true
-    elementVersionId?: true
-    familyName?: true
-    builtInCategory?: true
-    name?: true
-  }
-
-  export type ElementInformationMaxAggregateInputType = {
-    id?: true
-    uniqueElementId?: true
-    idValue?: true
-    elementVersionId?: true
-    familyName?: true
-    builtInCategory?: true
-    name?: true
-  }
-
-  export type ElementInformationCountAggregateInputType = {
-    id?: true
-    uniqueElementId?: true
-    idValue?: true
-    elementVersionId?: true
-    familyName?: true
-    builtInCategory?: true
-    name?: true
-    _all?: true
-  }
-
-  export type ElementInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ElementInformation to aggregate.
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ElementInformations to fetch.
-     */
-    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: ElementInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ElementInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ElementInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned ElementInformations
-    **/
-    _count?: true | ElementInformationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ElementInformationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ElementInformationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ElementInformationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ElementInformationMaxAggregateInputType
-  }
-
-  export type GetElementInformationAggregateType<T extends ElementInformationAggregateArgs> = {
-        [P in keyof T & keyof AggregateElementInformation]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateElementInformation[P]>
-      : GetScalarType<T[P], AggregateElementInformation[P]>
-  }
-
-
-
-
-  export type ElementInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ElementInformationWhereInput
-    orderBy?: ElementInformationOrderByWithAggregationInput | ElementInformationOrderByWithAggregationInput[]
-    by: ElementInformationScalarFieldEnum[] | ElementInformationScalarFieldEnum
-    having?: ElementInformationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ElementInformationCountAggregateInputType | true
-    _avg?: ElementInformationAvgAggregateInputType
-    _sum?: ElementInformationSumAggregateInputType
-    _min?: ElementInformationMinAggregateInputType
-    _max?: ElementInformationMaxAggregateInputType
-  }
-
-  export type ElementInformationGroupByOutputType = {
-    id: number
-    uniqueElementId: string
-    idValue: bigint
-    elementVersionId: string
-    familyName: string
-    builtInCategory: string
-    name: string
-    _count: ElementInformationCountAggregateOutputType | null
-    _avg: ElementInformationAvgAggregateOutputType | null
-    _sum: ElementInformationSumAggregateOutputType | null
-    _min: ElementInformationMinAggregateOutputType | null
-    _max: ElementInformationMaxAggregateOutputType | null
-  }
-
-  type GetElementInformationGroupByPayload<T extends ElementInformationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ElementInformationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ElementInformationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ElementInformationGroupByOutputType[P]>
-            : GetScalarType<T[P], ElementInformationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type ElementInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    uniqueElementId?: boolean
-    idValue?: boolean
-    elementVersionId?: boolean
-    familyName?: boolean
-    builtInCategory?: boolean
-    name?: boolean
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-    Parameters?: boolean | ElementInformation$ParametersArgs<ExtArgs>
-    _count?: boolean | ElementInformationCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["elementInformation"]>
-
-  export type ElementInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    uniqueElementId?: boolean
-    idValue?: boolean
-    elementVersionId?: boolean
-    familyName?: boolean
-    builtInCategory?: boolean
-    name?: boolean
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["elementInformation"]>
-
-  export type ElementInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    uniqueElementId?: boolean
-    idValue?: boolean
-    elementVersionId?: boolean
-    familyName?: boolean
-    builtInCategory?: boolean
-    name?: boolean
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["elementInformation"]>
-
-  export type ElementInformationSelectScalar = {
-    id?: boolean
-    uniqueElementId?: boolean
-    idValue?: boolean
-    elementVersionId?: boolean
-    familyName?: boolean
-    builtInCategory?: boolean
-    name?: boolean
-  }
-
-  export type ElementInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "uniqueElementId" | "idValue" | "elementVersionId" | "familyName" | "builtInCategory" | "name", ExtArgs["result"]["elementInformation"]>
-  export type ElementInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-    Parameters?: boolean | ElementInformation$ParametersArgs<ExtArgs>
-    _count?: boolean | ElementInformationCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type ElementInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type ElementInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    wolfpackId?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-
-  export type $ElementInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "ElementInformation"
-    objects: {
-      wolfpackId: Prisma.$WolfpackPayload<ExtArgs>
-      Parameters: Prisma.$ParametersPayload<ExtArgs>[]
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      uniqueElementId: string
-      idValue: bigint
-      elementVersionId: string
-      familyName: string
-      builtInCategory: string
-      name: string
-    }, ExtArgs["result"]["elementInformation"]>
-    composites: {}
-  }
-
-  type ElementInformationGetPayload<S extends boolean | null | undefined | ElementInformationDefaultArgs> = $Result.GetResult<Prisma.$ElementInformationPayload, S>
-
-  type ElementInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ElementInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ElementInformationCountAggregateInputType | true
-    }
-
-  export interface ElementInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ElementInformation'], meta: { name: 'ElementInformation' } }
-    /**
-     * Find zero or one ElementInformation that matches the filter.
-     * @param {ElementInformationFindUniqueArgs} args - Arguments to find a ElementInformation
-     * @example
-     * // Get one ElementInformation
-     * const elementInformation = await prisma.elementInformation.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends ElementInformationFindUniqueArgs>(args: SelectSubset<T, ElementInformationFindUniqueArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one ElementInformation that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {ElementInformationFindUniqueOrThrowArgs} args - Arguments to find a ElementInformation
-     * @example
-     * // Get one ElementInformation
-     * const elementInformation = await prisma.elementInformation.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends ElementInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, ElementInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ElementInformation that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationFindFirstArgs} args - Arguments to find a ElementInformation
-     * @example
-     * // Get one ElementInformation
-     * const elementInformation = await prisma.elementInformation.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends ElementInformationFindFirstArgs>(args?: SelectSubset<T, ElementInformationFindFirstArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first ElementInformation that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationFindFirstOrThrowArgs} args - Arguments to find a ElementInformation
-     * @example
-     * // Get one ElementInformation
-     * const elementInformation = await prisma.elementInformation.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends ElementInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, ElementInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more ElementInformations that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all ElementInformations
-     * const elementInformations = await prisma.elementInformation.findMany()
-     * 
-     * // Get first 10 ElementInformations
-     * const elementInformations = await prisma.elementInformation.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const elementInformationWithIdOnly = await prisma.elementInformation.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends ElementInformationFindManyArgs>(args?: SelectSubset<T, ElementInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a ElementInformation.
-     * @param {ElementInformationCreateArgs} args - Arguments to create a ElementInformation.
-     * @example
-     * // Create one ElementInformation
-     * const ElementInformation = await prisma.elementInformation.create({
-     *   data: {
-     *     // ... data to create a ElementInformation
-     *   }
-     * })
-     * 
-     */
-    create<T extends ElementInformationCreateArgs>(args: SelectSubset<T, ElementInformationCreateArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many ElementInformations.
-     * @param {ElementInformationCreateManyArgs} args - Arguments to create many ElementInformations.
-     * @example
-     * // Create many ElementInformations
-     * const elementInformation = await prisma.elementInformation.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends ElementInformationCreateManyArgs>(args?: SelectSubset<T, ElementInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many ElementInformations and returns the data saved in the database.
-     * @param {ElementInformationCreateManyAndReturnArgs} args - Arguments to create many ElementInformations.
-     * @example
-     * // Create many ElementInformations
-     * const elementInformation = await prisma.elementInformation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many ElementInformations and only return the `id`
-     * const elementInformationWithIdOnly = await prisma.elementInformation.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ElementInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, ElementInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a ElementInformation.
-     * @param {ElementInformationDeleteArgs} args - Arguments to delete one ElementInformation.
-     * @example
-     * // Delete one ElementInformation
-     * const ElementInformation = await prisma.elementInformation.delete({
-     *   where: {
-     *     // ... filter to delete one ElementInformation
-     *   }
-     * })
-     * 
-     */
-    delete<T extends ElementInformationDeleteArgs>(args: SelectSubset<T, ElementInformationDeleteArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one ElementInformation.
-     * @param {ElementInformationUpdateArgs} args - Arguments to update one ElementInformation.
-     * @example
-     * // Update one ElementInformation
-     * const elementInformation = await prisma.elementInformation.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends ElementInformationUpdateArgs>(args: SelectSubset<T, ElementInformationUpdateArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more ElementInformations.
-     * @param {ElementInformationDeleteManyArgs} args - Arguments to filter ElementInformations to delete.
-     * @example
-     * // Delete a few ElementInformations
-     * const { count } = await prisma.elementInformation.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends ElementInformationDeleteManyArgs>(args?: SelectSubset<T, ElementInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ElementInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many ElementInformations
-     * const elementInformation = await prisma.elementInformation.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends ElementInformationUpdateManyArgs>(args: SelectSubset<T, ElementInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more ElementInformations and returns the data updated in the database.
-     * @param {ElementInformationUpdateManyAndReturnArgs} args - Arguments to update many ElementInformations.
-     * @example
-     * // Update many ElementInformations
-     * const elementInformation = await prisma.elementInformation.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more ElementInformations and only return the `id`
-     * const elementInformationWithIdOnly = await prisma.elementInformation.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends ElementInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, ElementInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one ElementInformation.
-     * @param {ElementInformationUpsertArgs} args - Arguments to update or create a ElementInformation.
-     * @example
-     * // Update or create a ElementInformation
-     * const elementInformation = await prisma.elementInformation.upsert({
-     *   create: {
-     *     // ... data to create a ElementInformation
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the ElementInformation we want to update
-     *   }
-     * })
-     */
-    upsert<T extends ElementInformationUpsertArgs>(args: SelectSubset<T, ElementInformationUpsertArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of ElementInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationCountArgs} args - Arguments to filter ElementInformations to count.
-     * @example
-     * // Count the number of ElementInformations
-     * const count = await prisma.elementInformation.count({
-     *   where: {
-     *     // ... the filter for the ElementInformations we want to count
-     *   }
-     * })
-    **/
-    count<T extends ElementInformationCountArgs>(
-      args?: Subset<T, ElementInformationCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ElementInformationCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a ElementInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ElementInformationAggregateArgs>(args: Subset<T, ElementInformationAggregateArgs>): Prisma.PrismaPromise<GetElementInformationAggregateType<T>>
-
-    /**
-     * Group by ElementInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ElementInformationGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends ElementInformationGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ElementInformationGroupByArgs['orderBy'] }
-        : { orderBy?: ElementInformationGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, ElementInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetElementInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the ElementInformation model
-   */
-  readonly fields: ElementInformationFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for ElementInformation.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__ElementInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    wolfpackId<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    Parameters<T extends ElementInformation$ParametersArgs<ExtArgs> = {}>(args?: Subset<T, ElementInformation$ParametersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the ElementInformation model
-   */ 
-  interface ElementInformationFieldRefs {
-    readonly id: FieldRef<"ElementInformation", 'Int'>
-    readonly uniqueElementId: FieldRef<"ElementInformation", 'String'>
-    readonly idValue: FieldRef<"ElementInformation", 'BigInt'>
-    readonly elementVersionId: FieldRef<"ElementInformation", 'String'>
-    readonly familyName: FieldRef<"ElementInformation", 'String'>
-    readonly builtInCategory: FieldRef<"ElementInformation", 'String'>
-    readonly name: FieldRef<"ElementInformation", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * ElementInformation findUnique
-   */
-  export type ElementInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ElementInformation to fetch.
-     */
-    where: ElementInformationWhereUniqueInput
-  }
-
-  /**
-   * ElementInformation findUniqueOrThrow
-   */
-  export type ElementInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ElementInformation to fetch.
-     */
-    where: ElementInformationWhereUniqueInput
-  }
-
-  /**
-   * ElementInformation findFirst
-   */
-  export type ElementInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ElementInformation to fetch.
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ElementInformations to fetch.
-     */
-    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ElementInformations.
-     */
-    cursor?: ElementInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ElementInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ElementInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ElementInformations.
-     */
-    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
-  }
-
-  /**
-   * ElementInformation findFirstOrThrow
-   */
-  export type ElementInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ElementInformation to fetch.
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ElementInformations to fetch.
-     */
-    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for ElementInformations.
-     */
-    cursor?: ElementInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ElementInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ElementInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of ElementInformations.
-     */
-    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
-  }
-
-  /**
-   * ElementInformation findMany
-   */
-  export type ElementInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which ElementInformations to fetch.
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of ElementInformations to fetch.
-     */
-    orderBy?: ElementInformationOrderByWithRelationInput | ElementInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing ElementInformations.
-     */
-    cursor?: ElementInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` ElementInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` ElementInformations.
-     */
-    skip?: number
-    distinct?: ElementInformationScalarFieldEnum | ElementInformationScalarFieldEnum[]
-  }
-
-  /**
-   * ElementInformation create
-   */
-  export type ElementInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a ElementInformation.
-     */
-    data: XOR<ElementInformationCreateInput, ElementInformationUncheckedCreateInput>
-  }
-
-  /**
-   * ElementInformation createMany
-   */
-  export type ElementInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many ElementInformations.
-     */
-    data: ElementInformationCreateManyInput | ElementInformationCreateManyInput[]
+    data: DocumentRecordCreateManyInput | DocumentRecordCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * ElementInformation createManyAndReturn
+   * DocumentRecord update
    */
-  export type ElementInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ElementInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ElementInformationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ElementInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ElementInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * The data used to create many ElementInformations.
+     * The data needed to update a DocumentRecord.
      */
-    data: ElementInformationCreateManyInput | ElementInformationCreateManyInput[]
-    skipDuplicates?: boolean
+    data: XOR<DocumentRecordUpdateInput, DocumentRecordUncheckedUpdateInput>
     /**
-     * Choose, which related nodes to fetch as well
+     * Choose, which DocumentRecord to update.
      */
-    include?: ElementInformationIncludeCreateManyAndReturn<ExtArgs> | null
+    where: DocumentRecordWhereUniqueInput
   }
 
   /**
-   * ElementInformation update
+   * DocumentRecord updateMany
    */
-  export type ElementInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ElementInformation
+     * The data used to update DocumentRecords.
      */
-    select?: ElementInformationSelect<ExtArgs> | null
+    data: XOR<DocumentRecordUpdateManyMutationInput, DocumentRecordUncheckedUpdateManyInput>
     /**
-     * Omit specific fields from the ElementInformation
+     * Filter which DocumentRecords to update
      */
-    omit?: ElementInformationOmit<ExtArgs> | null
+    where?: DocumentRecordWhereInput
     /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to update a ElementInformation.
-     */
-    data: XOR<ElementInformationUpdateInput, ElementInformationUncheckedUpdateInput>
-    /**
-     * Choose, which ElementInformation to update.
-     */
-    where: ElementInformationWhereUniqueInput
-  }
-
-  /**
-   * ElementInformation updateMany
-   */
-  export type ElementInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update ElementInformations.
-     */
-    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which ElementInformations to update
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * Limit how many ElementInformations to update.
+     * Limit how many DocumentRecords to update.
      */
     limit?: number
   }
 
   /**
-   * ElementInformation updateManyAndReturn
+   * DocumentRecord updateManyAndReturn
    */
-  export type ElementInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ElementInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ElementInformationSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: DocumentRecordSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the ElementInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ElementInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * The data used to update ElementInformations.
+     * The data used to update DocumentRecords.
      */
-    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyInput>
+    data: XOR<DocumentRecordUpdateManyMutationInput, DocumentRecordUncheckedUpdateManyInput>
     /**
-     * Filter which ElementInformations to update
+     * Filter which DocumentRecords to update
      */
-    where?: ElementInformationWhereInput
+    where?: DocumentRecordWhereInput
     /**
-     * Limit how many ElementInformations to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * ElementInformation upsert
-   */
-  export type ElementInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * The filter to search for the ElementInformation to update in case it exists.
-     */
-    where: ElementInformationWhereUniqueInput
-    /**
-     * In case the ElementInformation found by the `where` argument doesn't exist, create a new ElementInformation with this data.
-     */
-    create: XOR<ElementInformationCreateInput, ElementInformationUncheckedCreateInput>
-    /**
-     * In case the ElementInformation was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ElementInformationUpdateInput, ElementInformationUncheckedUpdateInput>
-  }
-
-  /**
-   * ElementInformation delete
-   */
-  export type ElementInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the ElementInformation
-     */
-    select?: ElementInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the ElementInformation
-     */
-    omit?: ElementInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ElementInformationInclude<ExtArgs> | null
-    /**
-     * Filter which ElementInformation to delete.
-     */
-    where: ElementInformationWhereUniqueInput
-  }
-
-  /**
-   * ElementInformation deleteMany
-   */
-  export type ElementInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which ElementInformations to delete
-     */
-    where?: ElementInformationWhereInput
-    /**
-     * Limit how many ElementInformations to delete.
+     * Limit how many DocumentRecords to update.
      */
     limit?: number
   }
 
   /**
-   * ElementInformation.Parameters
+   * DocumentRecord upsert
    */
-  export type ElementInformation$ParametersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Parameters
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ParametersSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Parameters
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ParametersOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * The filter to search for the DocumentRecord to update in case it exists.
      */
-    include?: ParametersInclude<ExtArgs> | null
-    where?: ParametersWhereInput
-    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
-    cursor?: ParametersWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
+    where: DocumentRecordWhereUniqueInput
+    /**
+     * In case the DocumentRecord found by the `where` argument doesn't exist, create a new DocumentRecord with this data.
+     */
+    create: XOR<DocumentRecordCreateInput, DocumentRecordUncheckedCreateInput>
+    /**
+     * In case the DocumentRecord was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocumentRecordUpdateInput, DocumentRecordUncheckedUpdateInput>
   }
 
   /**
-   * ElementInformation without action
+   * DocumentRecord delete
    */
-  export type ElementInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the ElementInformation
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ElementInformationSelect<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the ElementInformation
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ElementInformationOmit<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
     /**
-     * Choose, which related nodes to fetch as well
+     * Filter which DocumentRecord to delete.
      */
-    include?: ElementInformationInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Parameters
-   */
-
-  export type AggregateParameters = {
-    _count: ParametersCountAggregateOutputType | null
-    _avg: ParametersAvgAggregateOutputType | null
-    _sum: ParametersSumAggregateOutputType | null
-    _min: ParametersMinAggregateOutputType | null
-    _max: ParametersMaxAggregateOutputType | null
-  }
-
-  export type ParametersAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type ParametersSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type ParametersMinAggregateOutputType = {
-    id: number | null
-    createdAt: Date | null
-    parameterGuid: string | null
-    documentOwner: string | null
-    storageType: $Enums.StorageType | null
-    name: string | null
-    value: string | null
-    isReadOnly: boolean | null
-    typeId: string | null
-    dataType: string | null
-    groupTypeId: string | null
-    hasValue: boolean | null
-    isShared: boolean | null
-    isUserModifiable: boolean | null
-    sharedParameterGuid: string | null
-  }
-
-  export type ParametersMaxAggregateOutputType = {
-    id: number | null
-    createdAt: Date | null
-    parameterGuid: string | null
-    documentOwner: string | null
-    storageType: $Enums.StorageType | null
-    name: string | null
-    value: string | null
-    isReadOnly: boolean | null
-    typeId: string | null
-    dataType: string | null
-    groupTypeId: string | null
-    hasValue: boolean | null
-    isShared: boolean | null
-    isUserModifiable: boolean | null
-    sharedParameterGuid: string | null
-  }
-
-  export type ParametersCountAggregateOutputType = {
-    id: number
-    createdAt: number
-    parameterGuid: number
-    documentOwner: number
-    storageType: number
-    name: number
-    value: number
-    isReadOnly: number
-    typeId: number
-    dataType: number
-    groupTypeId: number
-    hasValue: number
-    isShared: number
-    isUserModifiable: number
-    sharedParameterGuid: number
-    _all: number
-  }
-
-
-  export type ParametersAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type ParametersSumAggregateInputType = {
-    id?: true
-  }
-
-  export type ParametersMinAggregateInputType = {
-    id?: true
-    createdAt?: true
-    parameterGuid?: true
-    documentOwner?: true
-    storageType?: true
-    name?: true
-    value?: true
-    isReadOnly?: true
-    typeId?: true
-    dataType?: true
-    groupTypeId?: true
-    hasValue?: true
-    isShared?: true
-    isUserModifiable?: true
-    sharedParameterGuid?: true
-  }
-
-  export type ParametersMaxAggregateInputType = {
-    id?: true
-    createdAt?: true
-    parameterGuid?: true
-    documentOwner?: true
-    storageType?: true
-    name?: true
-    value?: true
-    isReadOnly?: true
-    typeId?: true
-    dataType?: true
-    groupTypeId?: true
-    hasValue?: true
-    isShared?: true
-    isUserModifiable?: true
-    sharedParameterGuid?: true
-  }
-
-  export type ParametersCountAggregateInputType = {
-    id?: true
-    createdAt?: true
-    parameterGuid?: true
-    documentOwner?: true
-    storageType?: true
-    name?: true
-    value?: true
-    isReadOnly?: true
-    typeId?: true
-    dataType?: true
-    groupTypeId?: true
-    hasValue?: true
-    isShared?: true
-    isUserModifiable?: true
-    sharedParameterGuid?: true
-    _all?: true
-  }
-
-  export type ParametersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Parameters to aggregate.
-     */
-    where?: ParametersWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Parameters to fetch.
-     */
-    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: ParametersWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Parameters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Parameters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Parameters
-    **/
-    _count?: true | ParametersCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: ParametersAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: ParametersSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: ParametersMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: ParametersMaxAggregateInputType
-  }
-
-  export type GetParametersAggregateType<T extends ParametersAggregateArgs> = {
-        [P in keyof T & keyof AggregateParameters]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateParameters[P]>
-      : GetScalarType<T[P], AggregateParameters[P]>
-  }
-
-
-
-
-  export type ParametersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ParametersWhereInput
-    orderBy?: ParametersOrderByWithAggregationInput | ParametersOrderByWithAggregationInput[]
-    by: ParametersScalarFieldEnum[] | ParametersScalarFieldEnum
-    having?: ParametersScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: ParametersCountAggregateInputType | true
-    _avg?: ParametersAvgAggregateInputType
-    _sum?: ParametersSumAggregateInputType
-    _min?: ParametersMinAggregateInputType
-    _max?: ParametersMaxAggregateInputType
-  }
-
-  export type ParametersGroupByOutputType = {
-    id: number
-    createdAt: Date
-    parameterGuid: string
-    documentOwner: string
-    storageType: $Enums.StorageType
-    name: string
-    value: string
-    isReadOnly: boolean
-    typeId: string
-    dataType: string
-    groupTypeId: string
-    hasValue: boolean
-    isShared: boolean
-    isUserModifiable: boolean
-    sharedParameterGuid: string
-    _count: ParametersCountAggregateOutputType | null
-    _avg: ParametersAvgAggregateOutputType | null
-    _sum: ParametersSumAggregateOutputType | null
-    _min: ParametersMinAggregateOutputType | null
-    _max: ParametersMaxAggregateOutputType | null
-  }
-
-  type GetParametersGroupByPayload<T extends ParametersGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<ParametersGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof ParametersGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], ParametersGroupByOutputType[P]>
-            : GetScalarType<T[P], ParametersGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type ParametersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    createdAt?: boolean
-    parameterGuid?: boolean
-    documentOwner?: boolean
-    storageType?: boolean
-    name?: boolean
-    value?: boolean
-    isReadOnly?: boolean
-    typeId?: boolean
-    dataType?: boolean
-    groupTypeId?: boolean
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: boolean
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parameters"]>
-
-  export type ParametersSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    createdAt?: boolean
-    parameterGuid?: boolean
-    documentOwner?: boolean
-    storageType?: boolean
-    name?: boolean
-    value?: boolean
-    isReadOnly?: boolean
-    typeId?: boolean
-    dataType?: boolean
-    groupTypeId?: boolean
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: boolean
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parameters"]>
-
-  export type ParametersSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    createdAt?: boolean
-    parameterGuid?: boolean
-    documentOwner?: boolean
-    storageType?: boolean
-    name?: boolean
-    value?: boolean
-    isReadOnly?: boolean
-    typeId?: boolean
-    dataType?: boolean
-    groupTypeId?: boolean
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: boolean
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["parameters"]>
-
-  export type ParametersSelectScalar = {
-    id?: boolean
-    createdAt?: boolean
-    parameterGuid?: boolean
-    documentOwner?: boolean
-    storageType?: boolean
-    name?: boolean
-    value?: boolean
-    isReadOnly?: boolean
-    typeId?: boolean
-    dataType?: boolean
-    groupTypeId?: boolean
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: boolean
-  }
-
-  export type ParametersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "parameterGuid" | "documentOwner" | "storageType" | "name" | "value" | "isReadOnly" | "typeId" | "dataType" | "groupTypeId" | "hasValue" | "isShared" | "isUserModifiable" | "sharedParameterGuid", ExtArgs["result"]["parameters"]>
-  export type ParametersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }
-  export type ParametersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }
-  export type ParametersIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    parentElementInfo?: boolean | ElementInformationDefaultArgs<ExtArgs>
-  }
-
-  export type $ParametersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Parameters"
-    objects: {
-      parentElementInfo: Prisma.$ElementInformationPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      createdAt: Date
-      parameterGuid: string
-      documentOwner: string
-      storageType: $Enums.StorageType
-      name: string
-      value: string
-      isReadOnly: boolean
-      typeId: string
-      dataType: string
-      groupTypeId: string
-      hasValue: boolean
-      isShared: boolean
-      isUserModifiable: boolean
-      sharedParameterGuid: string
-    }, ExtArgs["result"]["parameters"]>
-    composites: {}
-  }
-
-  type ParametersGetPayload<S extends boolean | null | undefined | ParametersDefaultArgs> = $Result.GetResult<Prisma.$ParametersPayload, S>
-
-  type ParametersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<ParametersFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: ParametersCountAggregateInputType | true
-    }
-
-  export interface ParametersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Parameters'], meta: { name: 'Parameters' } }
-    /**
-     * Find zero or one Parameters that matches the filter.
-     * @param {ParametersFindUniqueArgs} args - Arguments to find a Parameters
-     * @example
-     * // Get one Parameters
-     * const parameters = await prisma.parameters.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends ParametersFindUniqueArgs>(args: SelectSubset<T, ParametersFindUniqueArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Parameters that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {ParametersFindUniqueOrThrowArgs} args - Arguments to find a Parameters
-     * @example
-     * // Get one Parameters
-     * const parameters = await prisma.parameters.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends ParametersFindUniqueOrThrowArgs>(args: SelectSubset<T, ParametersFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Parameters that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersFindFirstArgs} args - Arguments to find a Parameters
-     * @example
-     * // Get one Parameters
-     * const parameters = await prisma.parameters.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends ParametersFindFirstArgs>(args?: SelectSubset<T, ParametersFindFirstArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Parameters that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersFindFirstOrThrowArgs} args - Arguments to find a Parameters
-     * @example
-     * // Get one Parameters
-     * const parameters = await prisma.parameters.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends ParametersFindFirstOrThrowArgs>(args?: SelectSubset<T, ParametersFindFirstOrThrowArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Parameters that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Parameters
-     * const parameters = await prisma.parameters.findMany()
-     * 
-     * // Get first 10 Parameters
-     * const parameters = await prisma.parameters.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const parametersWithIdOnly = await prisma.parameters.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends ParametersFindManyArgs>(args?: SelectSubset<T, ParametersFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Parameters.
-     * @param {ParametersCreateArgs} args - Arguments to create a Parameters.
-     * @example
-     * // Create one Parameters
-     * const Parameters = await prisma.parameters.create({
-     *   data: {
-     *     // ... data to create a Parameters
-     *   }
-     * })
-     * 
-     */
-    create<T extends ParametersCreateArgs>(args: SelectSubset<T, ParametersCreateArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Parameters.
-     * @param {ParametersCreateManyArgs} args - Arguments to create many Parameters.
-     * @example
-     * // Create many Parameters
-     * const parameters = await prisma.parameters.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends ParametersCreateManyArgs>(args?: SelectSubset<T, ParametersCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Parameters and returns the data saved in the database.
-     * @param {ParametersCreateManyAndReturnArgs} args - Arguments to create many Parameters.
-     * @example
-     * // Create many Parameters
-     * const parameters = await prisma.parameters.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Parameters and only return the `id`
-     * const parametersWithIdOnly = await prisma.parameters.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ParametersCreateManyAndReturnArgs>(args?: SelectSubset<T, ParametersCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Parameters.
-     * @param {ParametersDeleteArgs} args - Arguments to delete one Parameters.
-     * @example
-     * // Delete one Parameters
-     * const Parameters = await prisma.parameters.delete({
-     *   where: {
-     *     // ... filter to delete one Parameters
-     *   }
-     * })
-     * 
-     */
-    delete<T extends ParametersDeleteArgs>(args: SelectSubset<T, ParametersDeleteArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Parameters.
-     * @param {ParametersUpdateArgs} args - Arguments to update one Parameters.
-     * @example
-     * // Update one Parameters
-     * const parameters = await prisma.parameters.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends ParametersUpdateArgs>(args: SelectSubset<T, ParametersUpdateArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Parameters.
-     * @param {ParametersDeleteManyArgs} args - Arguments to filter Parameters to delete.
-     * @example
-     * // Delete a few Parameters
-     * const { count } = await prisma.parameters.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends ParametersDeleteManyArgs>(args?: SelectSubset<T, ParametersDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Parameters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Parameters
-     * const parameters = await prisma.parameters.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends ParametersUpdateManyArgs>(args: SelectSubset<T, ParametersUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Parameters and returns the data updated in the database.
-     * @param {ParametersUpdateManyAndReturnArgs} args - Arguments to update many Parameters.
-     * @example
-     * // Update many Parameters
-     * const parameters = await prisma.parameters.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Parameters and only return the `id`
-     * const parametersWithIdOnly = await prisma.parameters.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends ParametersUpdateManyAndReturnArgs>(args: SelectSubset<T, ParametersUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Parameters.
-     * @param {ParametersUpsertArgs} args - Arguments to update or create a Parameters.
-     * @example
-     * // Update or create a Parameters
-     * const parameters = await prisma.parameters.upsert({
-     *   create: {
-     *     // ... data to create a Parameters
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Parameters we want to update
-     *   }
-     * })
-     */
-    upsert<T extends ParametersUpsertArgs>(args: SelectSubset<T, ParametersUpsertArgs<ExtArgs>>): Prisma__ParametersClient<$Result.GetResult<Prisma.$ParametersPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Parameters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersCountArgs} args - Arguments to filter Parameters to count.
-     * @example
-     * // Count the number of Parameters
-     * const count = await prisma.parameters.count({
-     *   where: {
-     *     // ... the filter for the Parameters we want to count
-     *   }
-     * })
-    **/
-    count<T extends ParametersCountArgs>(
-      args?: Subset<T, ParametersCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], ParametersCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Parameters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends ParametersAggregateArgs>(args: Subset<T, ParametersAggregateArgs>): Prisma.PrismaPromise<GetParametersAggregateType<T>>
-
-    /**
-     * Group by Parameters.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {ParametersGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends ParametersGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: ParametersGroupByArgs['orderBy'] }
-        : { orderBy?: ParametersGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, ParametersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetParametersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Parameters model
-   */
-  readonly fields: ParametersFieldRefs;
+    where: DocumentRecordWhereUniqueInput
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Parameters.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
+   * DocumentRecord deleteMany
    */
-  export interface Prisma__ParametersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    parentElementInfo<T extends ElementInformationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ElementInformationDefaultArgs<ExtArgs>>): Prisma__ElementInformationClient<$Result.GetResult<Prisma.$ElementInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  export type DocumentRecordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
+     * Filter which DocumentRecords to delete
      */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    where?: DocumentRecordWhereInput
     /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Parameters model
-   */ 
-  interface ParametersFieldRefs {
-    readonly id: FieldRef<"Parameters", 'Int'>
-    readonly createdAt: FieldRef<"Parameters", 'DateTime'>
-    readonly parameterGuid: FieldRef<"Parameters", 'String'>
-    readonly documentOwner: FieldRef<"Parameters", 'String'>
-    readonly storageType: FieldRef<"Parameters", 'StorageType'>
-    readonly name: FieldRef<"Parameters", 'String'>
-    readonly value: FieldRef<"Parameters", 'String'>
-    readonly isReadOnly: FieldRef<"Parameters", 'Boolean'>
-    readonly typeId: FieldRef<"Parameters", 'String'>
-    readonly dataType: FieldRef<"Parameters", 'String'>
-    readonly groupTypeId: FieldRef<"Parameters", 'String'>
-    readonly hasValue: FieldRef<"Parameters", 'Boolean'>
-    readonly isShared: FieldRef<"Parameters", 'Boolean'>
-    readonly isUserModifiable: FieldRef<"Parameters", 'Boolean'>
-    readonly sharedParameterGuid: FieldRef<"Parameters", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Parameters findUnique
-   */
-  export type ParametersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter, which Parameters to fetch.
-     */
-    where: ParametersWhereUniqueInput
-  }
-
-  /**
-   * Parameters findUniqueOrThrow
-   */
-  export type ParametersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter, which Parameters to fetch.
-     */
-    where: ParametersWhereUniqueInput
-  }
-
-  /**
-   * Parameters findFirst
-   */
-  export type ParametersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter, which Parameters to fetch.
-     */
-    where?: ParametersWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Parameters to fetch.
-     */
-    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Parameters.
-     */
-    cursor?: ParametersWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Parameters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Parameters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Parameters.
-     */
-    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
-  }
-
-  /**
-   * Parameters findFirstOrThrow
-   */
-  export type ParametersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter, which Parameters to fetch.
-     */
-    where?: ParametersWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Parameters to fetch.
-     */
-    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Parameters.
-     */
-    cursor?: ParametersWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Parameters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Parameters.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Parameters.
-     */
-    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
-  }
-
-  /**
-   * Parameters findMany
-   */
-  export type ParametersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter, which Parameters to fetch.
-     */
-    where?: ParametersWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Parameters to fetch.
-     */
-    orderBy?: ParametersOrderByWithRelationInput | ParametersOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Parameters.
-     */
-    cursor?: ParametersWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Parameters from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Parameters.
-     */
-    skip?: number
-    distinct?: ParametersScalarFieldEnum | ParametersScalarFieldEnum[]
-  }
-
-  /**
-   * Parameters create
-   */
-  export type ParametersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Parameters.
-     */
-    data: XOR<ParametersCreateInput, ParametersUncheckedCreateInput>
-  }
-
-  /**
-   * Parameters createMany
-   */
-  export type ParametersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Parameters.
-     */
-    data: ParametersCreateManyInput | ParametersCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Parameters createManyAndReturn
-   */
-  export type ParametersCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * The data used to create many Parameters.
-     */
-    data: ParametersCreateManyInput | ParametersCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Parameters update
-   */
-  export type ParametersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Parameters.
-     */
-    data: XOR<ParametersUpdateInput, ParametersUncheckedUpdateInput>
-    /**
-     * Choose, which Parameters to update.
-     */
-    where: ParametersWhereUniqueInput
-  }
-
-  /**
-   * Parameters updateMany
-   */
-  export type ParametersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Parameters.
-     */
-    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyInput>
-    /**
-     * Filter which Parameters to update
-     */
-    where?: ParametersWhereInput
-    /**
-     * Limit how many Parameters to update.
+     * Limit how many DocumentRecords to delete.
      */
     limit?: number
   }
 
   /**
-   * Parameters updateManyAndReturn
+   * DocumentRecord without action
    */
-  export type ParametersUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DocumentRecordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Parameters
+     * Select specific fields to fetch from the DocumentRecord
      */
-    select?: ParametersSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: DocumentRecordSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Parameters
+     * Omit specific fields from the DocumentRecord
      */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * The data used to update Parameters.
-     */
-    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyInput>
-    /**
-     * Filter which Parameters to update
-     */
-    where?: ParametersWhereInput
-    /**
-     * Limit how many Parameters to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Parameters upsert
-   */
-  export type ParametersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Parameters to update in case it exists.
-     */
-    where: ParametersWhereUniqueInput
-    /**
-     * In case the Parameters found by the `where` argument doesn't exist, create a new Parameters with this data.
-     */
-    create: XOR<ParametersCreateInput, ParametersUncheckedCreateInput>
-    /**
-     * In case the Parameters was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<ParametersUpdateInput, ParametersUncheckedUpdateInput>
-  }
-
-  /**
-   * Parameters delete
-   */
-  export type ParametersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-    /**
-     * Filter which Parameters to delete.
-     */
-    where: ParametersWhereUniqueInput
-  }
-
-  /**
-   * Parameters deleteMany
-   */
-  export type ParametersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Parameters to delete
-     */
-    where?: ParametersWhereInput
-    /**
-     * Limit how many Parameters to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Parameters without action
-   */
-  export type ParametersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Parameters
-     */
-    select?: ParametersSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Parameters
-     */
-    omit?: ParametersOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ParametersInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model DocumentInformation
-   */
-
-  export type AggregateDocumentInformation = {
-    _count: DocumentInformationCountAggregateOutputType | null
-    _avg: DocumentInformationAvgAggregateOutputType | null
-    _sum: DocumentInformationSumAggregateOutputType | null
-    _min: DocumentInformationMinAggregateOutputType | null
-    _max: DocumentInformationMaxAggregateOutputType | null
-  }
-
-  export type DocumentInformationAvgAggregateOutputType = {
-    id: number | null
-    saveCount: number | null
-  }
-
-  export type DocumentInformationSumAggregateOutputType = {
-    id: number | null
-    saveCount: number | null
-  }
-
-  export type DocumentInformationMinAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    name: string | null
-    path: string | null
-    uuid: string | null
-    saveCount: number | null
-  }
-
-  export type DocumentInformationMaxAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    name: string | null
-    path: string | null
-    uuid: string | null
-    saveCount: number | null
-  }
-
-  export type DocumentInformationCountAggregateOutputType = {
-    id: number
-    documentId: number
-    name: number
-    path: number
-    uuid: number
-    saveCount: number
-    _all: number
-  }
-
-
-  export type DocumentInformationAvgAggregateInputType = {
-    id?: true
-    saveCount?: true
-  }
-
-  export type DocumentInformationSumAggregateInputType = {
-    id?: true
-    saveCount?: true
-  }
-
-  export type DocumentInformationMinAggregateInputType = {
-    id?: true
-    documentId?: true
-    name?: true
-    path?: true
-    uuid?: true
-    saveCount?: true
-  }
-
-  export type DocumentInformationMaxAggregateInputType = {
-    id?: true
-    documentId?: true
-    name?: true
-    path?: true
-    uuid?: true
-    saveCount?: true
-  }
-
-  export type DocumentInformationCountAggregateInputType = {
-    id?: true
-    documentId?: true
-    name?: true
-    path?: true
-    uuid?: true
-    saveCount?: true
-    _all?: true
-  }
-
-  export type DocumentInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which DocumentInformation to aggregate.
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentInformations to fetch.
-     */
-    orderBy?: DocumentInformationOrderByWithRelationInput | DocumentInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: DocumentInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned DocumentInformations
-    **/
-    _count?: true | DocumentInformationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: DocumentInformationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: DocumentInformationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: DocumentInformationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: DocumentInformationMaxAggregateInputType
-  }
-
-  export type GetDocumentInformationAggregateType<T extends DocumentInformationAggregateArgs> = {
-        [P in keyof T & keyof AggregateDocumentInformation]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateDocumentInformation[P]>
-      : GetScalarType<T[P], AggregateDocumentInformation[P]>
-  }
-
-
-
-
-  export type DocumentInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DocumentInformationWhereInput
-    orderBy?: DocumentInformationOrderByWithAggregationInput | DocumentInformationOrderByWithAggregationInput[]
-    by: DocumentInformationScalarFieldEnum[] | DocumentInformationScalarFieldEnum
-    having?: DocumentInformationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: DocumentInformationCountAggregateInputType | true
-    _avg?: DocumentInformationAvgAggregateInputType
-    _sum?: DocumentInformationSumAggregateInputType
-    _min?: DocumentInformationMinAggregateInputType
-    _max?: DocumentInformationMaxAggregateInputType
-  }
-
-  export type DocumentInformationGroupByOutputType = {
-    id: number
-    documentId: string
-    name: string
-    path: string
-    uuid: string
-    saveCount: number
-    _count: DocumentInformationCountAggregateOutputType | null
-    _avg: DocumentInformationAvgAggregateOutputType | null
-    _sum: DocumentInformationSumAggregateOutputType | null
-    _min: DocumentInformationMinAggregateOutputType | null
-    _max: DocumentInformationMaxAggregateOutputType | null
-  }
-
-  type GetDocumentInformationGroupByPayload<T extends DocumentInformationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<DocumentInformationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof DocumentInformationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], DocumentInformationGroupByOutputType[P]>
-            : GetScalarType<T[P], DocumentInformationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type DocumentInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    name?: boolean
-    path?: boolean
-    uuid?: boolean
-    saveCount?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentInformation"]>
-
-  export type DocumentInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    name?: boolean
-    path?: boolean
-    uuid?: boolean
-    saveCount?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentInformation"]>
-
-  export type DocumentInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    name?: boolean
-    path?: boolean
-    uuid?: boolean
-    saveCount?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentInformation"]>
-
-  export type DocumentInformationSelectScalar = {
-    id?: boolean
-    documentId?: boolean
-    name?: boolean
-    path?: boolean
-    uuid?: boolean
-    saveCount?: boolean
-  }
-
-  export type DocumentInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentId" | "name" | "path" | "uuid" | "saveCount", ExtArgs["result"]["documentInformation"]>
-  export type DocumentInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type DocumentInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type DocumentInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-
-  export type $DocumentInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "DocumentInformation"
-    objects: {
-      document: Prisma.$WolfpackPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      documentId: string
-      name: string
-      path: string
-      uuid: string
-      saveCount: number
-    }, ExtArgs["result"]["documentInformation"]>
-    composites: {}
-  }
-
-  type DocumentInformationGetPayload<S extends boolean | null | undefined | DocumentInformationDefaultArgs> = $Result.GetResult<Prisma.$DocumentInformationPayload, S>
-
-  type DocumentInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DocumentInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DocumentInformationCountAggregateInputType | true
-    }
-
-  export interface DocumentInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DocumentInformation'], meta: { name: 'DocumentInformation' } }
-    /**
-     * Find zero or one DocumentInformation that matches the filter.
-     * @param {DocumentInformationFindUniqueArgs} args - Arguments to find a DocumentInformation
-     * @example
-     * // Get one DocumentInformation
-     * const documentInformation = await prisma.documentInformation.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends DocumentInformationFindUniqueArgs>(args: SelectSubset<T, DocumentInformationFindUniqueArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one DocumentInformation that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {DocumentInformationFindUniqueOrThrowArgs} args - Arguments to find a DocumentInformation
-     * @example
-     * // Get one DocumentInformation
-     * const documentInformation = await prisma.documentInformation.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends DocumentInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first DocumentInformation that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationFindFirstArgs} args - Arguments to find a DocumentInformation
-     * @example
-     * // Get one DocumentInformation
-     * const documentInformation = await prisma.documentInformation.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends DocumentInformationFindFirstArgs>(args?: SelectSubset<T, DocumentInformationFindFirstArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first DocumentInformation that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationFindFirstOrThrowArgs} args - Arguments to find a DocumentInformation
-     * @example
-     * // Get one DocumentInformation
-     * const documentInformation = await prisma.documentInformation.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends DocumentInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more DocumentInformations that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all DocumentInformations
-     * const documentInformations = await prisma.documentInformation.findMany()
-     * 
-     * // Get first 10 DocumentInformations
-     * const documentInformations = await prisma.documentInformation.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const documentInformationWithIdOnly = await prisma.documentInformation.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends DocumentInformationFindManyArgs>(args?: SelectSubset<T, DocumentInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a DocumentInformation.
-     * @param {DocumentInformationCreateArgs} args - Arguments to create a DocumentInformation.
-     * @example
-     * // Create one DocumentInformation
-     * const DocumentInformation = await prisma.documentInformation.create({
-     *   data: {
-     *     // ... data to create a DocumentInformation
-     *   }
-     * })
-     * 
-     */
-    create<T extends DocumentInformationCreateArgs>(args: SelectSubset<T, DocumentInformationCreateArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many DocumentInformations.
-     * @param {DocumentInformationCreateManyArgs} args - Arguments to create many DocumentInformations.
-     * @example
-     * // Create many DocumentInformations
-     * const documentInformation = await prisma.documentInformation.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends DocumentInformationCreateManyArgs>(args?: SelectSubset<T, DocumentInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many DocumentInformations and returns the data saved in the database.
-     * @param {DocumentInformationCreateManyAndReturnArgs} args - Arguments to create many DocumentInformations.
-     * @example
-     * // Create many DocumentInformations
-     * const documentInformation = await prisma.documentInformation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many DocumentInformations and only return the `id`
-     * const documentInformationWithIdOnly = await prisma.documentInformation.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends DocumentInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a DocumentInformation.
-     * @param {DocumentInformationDeleteArgs} args - Arguments to delete one DocumentInformation.
-     * @example
-     * // Delete one DocumentInformation
-     * const DocumentInformation = await prisma.documentInformation.delete({
-     *   where: {
-     *     // ... filter to delete one DocumentInformation
-     *   }
-     * })
-     * 
-     */
-    delete<T extends DocumentInformationDeleteArgs>(args: SelectSubset<T, DocumentInformationDeleteArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one DocumentInformation.
-     * @param {DocumentInformationUpdateArgs} args - Arguments to update one DocumentInformation.
-     * @example
-     * // Update one DocumentInformation
-     * const documentInformation = await prisma.documentInformation.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends DocumentInformationUpdateArgs>(args: SelectSubset<T, DocumentInformationUpdateArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more DocumentInformations.
-     * @param {DocumentInformationDeleteManyArgs} args - Arguments to filter DocumentInformations to delete.
-     * @example
-     * // Delete a few DocumentInformations
-     * const { count } = await prisma.documentInformation.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends DocumentInformationDeleteManyArgs>(args?: SelectSubset<T, DocumentInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more DocumentInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many DocumentInformations
-     * const documentInformation = await prisma.documentInformation.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends DocumentInformationUpdateManyArgs>(args: SelectSubset<T, DocumentInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more DocumentInformations and returns the data updated in the database.
-     * @param {DocumentInformationUpdateManyAndReturnArgs} args - Arguments to update many DocumentInformations.
-     * @example
-     * // Update many DocumentInformations
-     * const documentInformation = await prisma.documentInformation.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more DocumentInformations and only return the `id`
-     * const documentInformationWithIdOnly = await prisma.documentInformation.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends DocumentInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, DocumentInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one DocumentInformation.
-     * @param {DocumentInformationUpsertArgs} args - Arguments to update or create a DocumentInformation.
-     * @example
-     * // Update or create a DocumentInformation
-     * const documentInformation = await prisma.documentInformation.upsert({
-     *   create: {
-     *     // ... data to create a DocumentInformation
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the DocumentInformation we want to update
-     *   }
-     * })
-     */
-    upsert<T extends DocumentInformationUpsertArgs>(args: SelectSubset<T, DocumentInformationUpsertArgs<ExtArgs>>): Prisma__DocumentInformationClient<$Result.GetResult<Prisma.$DocumentInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of DocumentInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationCountArgs} args - Arguments to filter DocumentInformations to count.
-     * @example
-     * // Count the number of DocumentInformations
-     * const count = await prisma.documentInformation.count({
-     *   where: {
-     *     // ... the filter for the DocumentInformations we want to count
-     *   }
-     * })
-    **/
-    count<T extends DocumentInformationCountArgs>(
-      args?: Subset<T, DocumentInformationCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], DocumentInformationCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a DocumentInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends DocumentInformationAggregateArgs>(args: Subset<T, DocumentInformationAggregateArgs>): Prisma.PrismaPromise<GetDocumentInformationAggregateType<T>>
-
-    /**
-     * Group by DocumentInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentInformationGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends DocumentInformationGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DocumentInformationGroupByArgs['orderBy'] }
-        : { orderBy?: DocumentInformationGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, DocumentInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the DocumentInformation model
-   */
-  readonly fields: DocumentInformationFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for DocumentInformation.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__DocumentInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    document<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the DocumentInformation model
-   */ 
-  interface DocumentInformationFieldRefs {
-    readonly id: FieldRef<"DocumentInformation", 'Int'>
-    readonly documentId: FieldRef<"DocumentInformation", 'String'>
-    readonly name: FieldRef<"DocumentInformation", 'String'>
-    readonly path: FieldRef<"DocumentInformation", 'String'>
-    readonly uuid: FieldRef<"DocumentInformation", 'String'>
-    readonly saveCount: FieldRef<"DocumentInformation", 'Int'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * DocumentInformation findUnique
-   */
-  export type DocumentInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentInformation to fetch.
-     */
-    where: DocumentInformationWhereUniqueInput
-  }
-
-  /**
-   * DocumentInformation findUniqueOrThrow
-   */
-  export type DocumentInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentInformation to fetch.
-     */
-    where: DocumentInformationWhereUniqueInput
-  }
-
-  /**
-   * DocumentInformation findFirst
-   */
-  export type DocumentInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentInformation to fetch.
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentInformations to fetch.
-     */
-    orderBy?: DocumentInformationOrderByWithRelationInput | DocumentInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for DocumentInformations.
-     */
-    cursor?: DocumentInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of DocumentInformations.
-     */
-    distinct?: DocumentInformationScalarFieldEnum | DocumentInformationScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentInformation findFirstOrThrow
-   */
-  export type DocumentInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentInformation to fetch.
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentInformations to fetch.
-     */
-    orderBy?: DocumentInformationOrderByWithRelationInput | DocumentInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for DocumentInformations.
-     */
-    cursor?: DocumentInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of DocumentInformations.
-     */
-    distinct?: DocumentInformationScalarFieldEnum | DocumentInformationScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentInformation findMany
-   */
-  export type DocumentInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentInformations to fetch.
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentInformations to fetch.
-     */
-    orderBy?: DocumentInformationOrderByWithRelationInput | DocumentInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing DocumentInformations.
-     */
-    cursor?: DocumentInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentInformations.
-     */
-    skip?: number
-    distinct?: DocumentInformationScalarFieldEnum | DocumentInformationScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentInformation create
-   */
-  export type DocumentInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a DocumentInformation.
-     */
-    data: XOR<DocumentInformationCreateInput, DocumentInformationUncheckedCreateInput>
-  }
-
-  /**
-   * DocumentInformation createMany
-   */
-  export type DocumentInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many DocumentInformations.
-     */
-    data: DocumentInformationCreateManyInput | DocumentInformationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * DocumentInformation createManyAndReturn
-   */
-  export type DocumentInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * The data used to create many DocumentInformations.
-     */
-    data: DocumentInformationCreateManyInput | DocumentInformationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DocumentInformation update
-   */
-  export type DocumentInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to update a DocumentInformation.
-     */
-    data: XOR<DocumentInformationUpdateInput, DocumentInformationUncheckedUpdateInput>
-    /**
-     * Choose, which DocumentInformation to update.
-     */
-    where: DocumentInformationWhereUniqueInput
-  }
-
-  /**
-   * DocumentInformation updateMany
-   */
-  export type DocumentInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update DocumentInformations.
-     */
-    data: XOR<DocumentInformationUpdateManyMutationInput, DocumentInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which DocumentInformations to update
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * Limit how many DocumentInformations to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * DocumentInformation updateManyAndReturn
-   */
-  export type DocumentInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * The data used to update DocumentInformations.
-     */
-    data: XOR<DocumentInformationUpdateManyMutationInput, DocumentInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which DocumentInformations to update
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * Limit how many DocumentInformations to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DocumentInformation upsert
-   */
-  export type DocumentInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * The filter to search for the DocumentInformation to update in case it exists.
-     */
-    where: DocumentInformationWhereUniqueInput
-    /**
-     * In case the DocumentInformation found by the `where` argument doesn't exist, create a new DocumentInformation with this data.
-     */
-    create: XOR<DocumentInformationCreateInput, DocumentInformationUncheckedCreateInput>
-    /**
-     * In case the DocumentInformation was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<DocumentInformationUpdateInput, DocumentInformationUncheckedUpdateInput>
-  }
-
-  /**
-   * DocumentInformation delete
-   */
-  export type DocumentInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-    /**
-     * Filter which DocumentInformation to delete.
-     */
-    where: DocumentInformationWhereUniqueInput
-  }
-
-  /**
-   * DocumentInformation deleteMany
-   */
-  export type DocumentInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which DocumentInformations to delete
-     */
-    where?: DocumentInformationWhereInput
-    /**
-     * Limit how many DocumentInformations to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * DocumentInformation without action
-   */
-  export type DocumentInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentInformation
-     */
-    select?: DocumentInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentInformation
-     */
-    omit?: DocumentInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentInformationInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model DocumentWarning
-   */
-
-  export type AggregateDocumentWarning = {
-    _count: DocumentWarningCountAggregateOutputType | null
-    _avg: DocumentWarningAvgAggregateOutputType | null
-    _sum: DocumentWarningSumAggregateOutputType | null
-    _min: DocumentWarningMinAggregateOutputType | null
-    _max: DocumentWarningMaxAggregateOutputType | null
-  }
-
-  export type DocumentWarningAvgAggregateOutputType = {
-    id: number | null
-    failingElementId: number | null
-  }
-
-  export type DocumentWarningSumAggregateOutputType = {
-    id: number | null
-    failingElementId: bigint[]
-  }
-
-  export type DocumentWarningMinAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    createdAt: Date | null
-    severity: string | null
-    message: string | null
-  }
-
-  export type DocumentWarningMaxAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    createdAt: Date | null
-    severity: string | null
-    message: string | null
-  }
-
-  export type DocumentWarningCountAggregateOutputType = {
-    id: number
-    documentId: number
-    createdAt: number
-    severity: number
-    message: number
-    failingElementId: number
-    _all: number
-  }
-
-
-  export type DocumentWarningAvgAggregateInputType = {
-    id?: true
-    failingElementId?: true
-  }
-
-  export type DocumentWarningSumAggregateInputType = {
-    id?: true
-    failingElementId?: true
-  }
-
-  export type DocumentWarningMinAggregateInputType = {
-    id?: true
-    documentId?: true
-    createdAt?: true
-    severity?: true
-    message?: true
-  }
-
-  export type DocumentWarningMaxAggregateInputType = {
-    id?: true
-    documentId?: true
-    createdAt?: true
-    severity?: true
-    message?: true
-  }
-
-  export type DocumentWarningCountAggregateInputType = {
-    id?: true
-    documentId?: true
-    createdAt?: true
-    severity?: true
-    message?: true
-    failingElementId?: true
-    _all?: true
-  }
-
-  export type DocumentWarningAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which DocumentWarning to aggregate.
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentWarnings to fetch.
-     */
-    orderBy?: DocumentWarningOrderByWithRelationInput | DocumentWarningOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: DocumentWarningWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentWarnings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentWarnings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned DocumentWarnings
-    **/
-    _count?: true | DocumentWarningCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: DocumentWarningAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: DocumentWarningSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: DocumentWarningMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: DocumentWarningMaxAggregateInputType
-  }
-
-  export type GetDocumentWarningAggregateType<T extends DocumentWarningAggregateArgs> = {
-        [P in keyof T & keyof AggregateDocumentWarning]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateDocumentWarning[P]>
-      : GetScalarType<T[P], AggregateDocumentWarning[P]>
-  }
-
-
-
-
-  export type DocumentWarningGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DocumentWarningWhereInput
-    orderBy?: DocumentWarningOrderByWithAggregationInput | DocumentWarningOrderByWithAggregationInput[]
-    by: DocumentWarningScalarFieldEnum[] | DocumentWarningScalarFieldEnum
-    having?: DocumentWarningScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: DocumentWarningCountAggregateInputType | true
-    _avg?: DocumentWarningAvgAggregateInputType
-    _sum?: DocumentWarningSumAggregateInputType
-    _min?: DocumentWarningMinAggregateInputType
-    _max?: DocumentWarningMaxAggregateInputType
-  }
-
-  export type DocumentWarningGroupByOutputType = {
-    id: number
-    documentId: string
-    createdAt: Date
-    severity: string
-    message: string
-    failingElementId: bigint[]
-    _count: DocumentWarningCountAggregateOutputType | null
-    _avg: DocumentWarningAvgAggregateOutputType | null
-    _sum: DocumentWarningSumAggregateOutputType | null
-    _min: DocumentWarningMinAggregateOutputType | null
-    _max: DocumentWarningMaxAggregateOutputType | null
-  }
-
-  type GetDocumentWarningGroupByPayload<T extends DocumentWarningGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<DocumentWarningGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof DocumentWarningGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], DocumentWarningGroupByOutputType[P]>
-            : GetScalarType<T[P], DocumentWarningGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type DocumentWarningSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    createdAt?: boolean
-    severity?: boolean
-    message?: boolean
-    failingElementId?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentWarning"]>
-
-  export type DocumentWarningSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    createdAt?: boolean
-    severity?: boolean
-    message?: boolean
-    failingElementId?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentWarning"]>
-
-  export type DocumentWarningSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    createdAt?: boolean
-    severity?: boolean
-    message?: boolean
-    failingElementId?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["documentWarning"]>
-
-  export type DocumentWarningSelectScalar = {
-    id?: boolean
-    documentId?: boolean
-    createdAt?: boolean
-    severity?: boolean
-    message?: boolean
-    failingElementId?: boolean
-  }
-
-  export type DocumentWarningOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentId" | "createdAt" | "severity" | "message" | "failingElementId", ExtArgs["result"]["documentWarning"]>
-  export type DocumentWarningInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type DocumentWarningIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type DocumentWarningIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-
-  export type $DocumentWarningPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "DocumentWarning"
-    objects: {
-      document: Prisma.$WolfpackPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      documentId: string
-      createdAt: Date
-      severity: string
-      message: string
-      failingElementId: bigint[]
-    }, ExtArgs["result"]["documentWarning"]>
-    composites: {}
-  }
-
-  type DocumentWarningGetPayload<S extends boolean | null | undefined | DocumentWarningDefaultArgs> = $Result.GetResult<Prisma.$DocumentWarningPayload, S>
-
-  type DocumentWarningCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<DocumentWarningFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: DocumentWarningCountAggregateInputType | true
-    }
-
-  export interface DocumentWarningDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DocumentWarning'], meta: { name: 'DocumentWarning' } }
-    /**
-     * Find zero or one DocumentWarning that matches the filter.
-     * @param {DocumentWarningFindUniqueArgs} args - Arguments to find a DocumentWarning
-     * @example
-     * // Get one DocumentWarning
-     * const documentWarning = await prisma.documentWarning.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends DocumentWarningFindUniqueArgs>(args: SelectSubset<T, DocumentWarningFindUniqueArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one DocumentWarning that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {DocumentWarningFindUniqueOrThrowArgs} args - Arguments to find a DocumentWarning
-     * @example
-     * // Get one DocumentWarning
-     * const documentWarning = await prisma.documentWarning.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends DocumentWarningFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentWarningFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first DocumentWarning that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningFindFirstArgs} args - Arguments to find a DocumentWarning
-     * @example
-     * // Get one DocumentWarning
-     * const documentWarning = await prisma.documentWarning.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends DocumentWarningFindFirstArgs>(args?: SelectSubset<T, DocumentWarningFindFirstArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first DocumentWarning that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningFindFirstOrThrowArgs} args - Arguments to find a DocumentWarning
-     * @example
-     * // Get one DocumentWarning
-     * const documentWarning = await prisma.documentWarning.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends DocumentWarningFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentWarningFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more DocumentWarnings that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all DocumentWarnings
-     * const documentWarnings = await prisma.documentWarning.findMany()
-     * 
-     * // Get first 10 DocumentWarnings
-     * const documentWarnings = await prisma.documentWarning.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const documentWarningWithIdOnly = await prisma.documentWarning.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends DocumentWarningFindManyArgs>(args?: SelectSubset<T, DocumentWarningFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a DocumentWarning.
-     * @param {DocumentWarningCreateArgs} args - Arguments to create a DocumentWarning.
-     * @example
-     * // Create one DocumentWarning
-     * const DocumentWarning = await prisma.documentWarning.create({
-     *   data: {
-     *     // ... data to create a DocumentWarning
-     *   }
-     * })
-     * 
-     */
-    create<T extends DocumentWarningCreateArgs>(args: SelectSubset<T, DocumentWarningCreateArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many DocumentWarnings.
-     * @param {DocumentWarningCreateManyArgs} args - Arguments to create many DocumentWarnings.
-     * @example
-     * // Create many DocumentWarnings
-     * const documentWarning = await prisma.documentWarning.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends DocumentWarningCreateManyArgs>(args?: SelectSubset<T, DocumentWarningCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many DocumentWarnings and returns the data saved in the database.
-     * @param {DocumentWarningCreateManyAndReturnArgs} args - Arguments to create many DocumentWarnings.
-     * @example
-     * // Create many DocumentWarnings
-     * const documentWarning = await prisma.documentWarning.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many DocumentWarnings and only return the `id`
-     * const documentWarningWithIdOnly = await prisma.documentWarning.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends DocumentWarningCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentWarningCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a DocumentWarning.
-     * @param {DocumentWarningDeleteArgs} args - Arguments to delete one DocumentWarning.
-     * @example
-     * // Delete one DocumentWarning
-     * const DocumentWarning = await prisma.documentWarning.delete({
-     *   where: {
-     *     // ... filter to delete one DocumentWarning
-     *   }
-     * })
-     * 
-     */
-    delete<T extends DocumentWarningDeleteArgs>(args: SelectSubset<T, DocumentWarningDeleteArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one DocumentWarning.
-     * @param {DocumentWarningUpdateArgs} args - Arguments to update one DocumentWarning.
-     * @example
-     * // Update one DocumentWarning
-     * const documentWarning = await prisma.documentWarning.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends DocumentWarningUpdateArgs>(args: SelectSubset<T, DocumentWarningUpdateArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more DocumentWarnings.
-     * @param {DocumentWarningDeleteManyArgs} args - Arguments to filter DocumentWarnings to delete.
-     * @example
-     * // Delete a few DocumentWarnings
-     * const { count } = await prisma.documentWarning.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends DocumentWarningDeleteManyArgs>(args?: SelectSubset<T, DocumentWarningDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more DocumentWarnings.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many DocumentWarnings
-     * const documentWarning = await prisma.documentWarning.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends DocumentWarningUpdateManyArgs>(args: SelectSubset<T, DocumentWarningUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more DocumentWarnings and returns the data updated in the database.
-     * @param {DocumentWarningUpdateManyAndReturnArgs} args - Arguments to update many DocumentWarnings.
-     * @example
-     * // Update many DocumentWarnings
-     * const documentWarning = await prisma.documentWarning.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more DocumentWarnings and only return the `id`
-     * const documentWarningWithIdOnly = await prisma.documentWarning.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends DocumentWarningUpdateManyAndReturnArgs>(args: SelectSubset<T, DocumentWarningUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one DocumentWarning.
-     * @param {DocumentWarningUpsertArgs} args - Arguments to update or create a DocumentWarning.
-     * @example
-     * // Update or create a DocumentWarning
-     * const documentWarning = await prisma.documentWarning.upsert({
-     *   create: {
-     *     // ... data to create a DocumentWarning
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the DocumentWarning we want to update
-     *   }
-     * })
-     */
-    upsert<T extends DocumentWarningUpsertArgs>(args: SelectSubset<T, DocumentWarningUpsertArgs<ExtArgs>>): Prisma__DocumentWarningClient<$Result.GetResult<Prisma.$DocumentWarningPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of DocumentWarnings.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningCountArgs} args - Arguments to filter DocumentWarnings to count.
-     * @example
-     * // Count the number of DocumentWarnings
-     * const count = await prisma.documentWarning.count({
-     *   where: {
-     *     // ... the filter for the DocumentWarnings we want to count
-     *   }
-     * })
-    **/
-    count<T extends DocumentWarningCountArgs>(
-      args?: Subset<T, DocumentWarningCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], DocumentWarningCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a DocumentWarning.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends DocumentWarningAggregateArgs>(args: Subset<T, DocumentWarningAggregateArgs>): Prisma.PrismaPromise<GetDocumentWarningAggregateType<T>>
-
-    /**
-     * Group by DocumentWarning.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {DocumentWarningGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends DocumentWarningGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: DocumentWarningGroupByArgs['orderBy'] }
-        : { orderBy?: DocumentWarningGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, DocumentWarningGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentWarningGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the DocumentWarning model
-   */
-  readonly fields: DocumentWarningFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for DocumentWarning.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__DocumentWarningClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    document<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the DocumentWarning model
-   */ 
-  interface DocumentWarningFieldRefs {
-    readonly id: FieldRef<"DocumentWarning", 'Int'>
-    readonly documentId: FieldRef<"DocumentWarning", 'String'>
-    readonly createdAt: FieldRef<"DocumentWarning", 'DateTime'>
-    readonly severity: FieldRef<"DocumentWarning", 'String'>
-    readonly message: FieldRef<"DocumentWarning", 'String'>
-    readonly failingElementId: FieldRef<"DocumentWarning", 'BigInt[]'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * DocumentWarning findUnique
-   */
-  export type DocumentWarningFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentWarning to fetch.
-     */
-    where: DocumentWarningWhereUniqueInput
-  }
-
-  /**
-   * DocumentWarning findUniqueOrThrow
-   */
-  export type DocumentWarningFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentWarning to fetch.
-     */
-    where: DocumentWarningWhereUniqueInput
-  }
-
-  /**
-   * DocumentWarning findFirst
-   */
-  export type DocumentWarningFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentWarning to fetch.
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentWarnings to fetch.
-     */
-    orderBy?: DocumentWarningOrderByWithRelationInput | DocumentWarningOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for DocumentWarnings.
-     */
-    cursor?: DocumentWarningWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentWarnings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentWarnings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of DocumentWarnings.
-     */
-    distinct?: DocumentWarningScalarFieldEnum | DocumentWarningScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentWarning findFirstOrThrow
-   */
-  export type DocumentWarningFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentWarning to fetch.
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentWarnings to fetch.
-     */
-    orderBy?: DocumentWarningOrderByWithRelationInput | DocumentWarningOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for DocumentWarnings.
-     */
-    cursor?: DocumentWarningWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentWarnings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentWarnings.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of DocumentWarnings.
-     */
-    distinct?: DocumentWarningScalarFieldEnum | DocumentWarningScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentWarning findMany
-   */
-  export type DocumentWarningFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter, which DocumentWarnings to fetch.
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of DocumentWarnings to fetch.
-     */
-    orderBy?: DocumentWarningOrderByWithRelationInput | DocumentWarningOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing DocumentWarnings.
-     */
-    cursor?: DocumentWarningWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` DocumentWarnings from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` DocumentWarnings.
-     */
-    skip?: number
-    distinct?: DocumentWarningScalarFieldEnum | DocumentWarningScalarFieldEnum[]
-  }
-
-  /**
-   * DocumentWarning create
-   */
-  export type DocumentWarningCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * The data needed to create a DocumentWarning.
-     */
-    data: XOR<DocumentWarningCreateInput, DocumentWarningUncheckedCreateInput>
-  }
-
-  /**
-   * DocumentWarning createMany
-   */
-  export type DocumentWarningCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many DocumentWarnings.
-     */
-    data: DocumentWarningCreateManyInput | DocumentWarningCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * DocumentWarning createManyAndReturn
-   */
-  export type DocumentWarningCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * The data used to create many DocumentWarnings.
-     */
-    data: DocumentWarningCreateManyInput | DocumentWarningCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DocumentWarning update
-   */
-  export type DocumentWarningUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * The data needed to update a DocumentWarning.
-     */
-    data: XOR<DocumentWarningUpdateInput, DocumentWarningUncheckedUpdateInput>
-    /**
-     * Choose, which DocumentWarning to update.
-     */
-    where: DocumentWarningWhereUniqueInput
-  }
-
-  /**
-   * DocumentWarning updateMany
-   */
-  export type DocumentWarningUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update DocumentWarnings.
-     */
-    data: XOR<DocumentWarningUpdateManyMutationInput, DocumentWarningUncheckedUpdateManyInput>
-    /**
-     * Filter which DocumentWarnings to update
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * Limit how many DocumentWarnings to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * DocumentWarning updateManyAndReturn
-   */
-  export type DocumentWarningUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * The data used to update DocumentWarnings.
-     */
-    data: XOR<DocumentWarningUpdateManyMutationInput, DocumentWarningUncheckedUpdateManyInput>
-    /**
-     * Filter which DocumentWarnings to update
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * Limit how many DocumentWarnings to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * DocumentWarning upsert
-   */
-  export type DocumentWarningUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * The filter to search for the DocumentWarning to update in case it exists.
-     */
-    where: DocumentWarningWhereUniqueInput
-    /**
-     * In case the DocumentWarning found by the `where` argument doesn't exist, create a new DocumentWarning with this data.
-     */
-    create: XOR<DocumentWarningCreateInput, DocumentWarningUncheckedCreateInput>
-    /**
-     * In case the DocumentWarning was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<DocumentWarningUpdateInput, DocumentWarningUncheckedUpdateInput>
-  }
-
-  /**
-   * DocumentWarning delete
-   */
-  export type DocumentWarningDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-    /**
-     * Filter which DocumentWarning to delete.
-     */
-    where: DocumentWarningWhereUniqueInput
-  }
-
-  /**
-   * DocumentWarning deleteMany
-   */
-  export type DocumentWarningDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which DocumentWarnings to delete
-     */
-    where?: DocumentWarningWhereInput
-    /**
-     * Limit how many DocumentWarnings to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * DocumentWarning without action
-   */
-  export type DocumentWarningDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the DocumentWarning
-     */
-    select?: DocumentWarningSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the DocumentWarning
-     */
-    omit?: DocumentWarningOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: DocumentWarningInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model SiteInformation
-   */
-
-  export type AggregateSiteInformation = {
-    _count: SiteInformationCountAggregateOutputType | null
-    _avg: SiteInformationAvgAggregateOutputType | null
-    _sum: SiteInformationSumAggregateOutputType | null
-    _min: SiteInformationMinAggregateOutputType | null
-    _max: SiteInformationMaxAggregateOutputType | null
-  }
-
-  export type SiteInformationAvgAggregateOutputType = {
-    id: number | null
-    elevation: number | null
-    latitude: number | null
-    longitude: number | null
-    timeZone: number | null
-  }
-
-  export type SiteInformationSumAggregateOutputType = {
-    id: number | null
-    elevation: bigint | null
-    latitude: bigint | null
-    longitude: bigint | null
-    timeZone: bigint | null
-  }
-
-  export type SiteInformationMinAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    placeName: string | null
-    elevation: bigint | null
-    latitude: bigint | null
-    longitude: bigint | null
-    timeZone: bigint | null
-    coordinateSystemId: string | null
-    coordinateSystemDefinition: string | null
-  }
-
-  export type SiteInformationMaxAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    placeName: string | null
-    elevation: bigint | null
-    latitude: bigint | null
-    longitude: bigint | null
-    timeZone: bigint | null
-    coordinateSystemId: string | null
-    coordinateSystemDefinition: string | null
-  }
-
-  export type SiteInformationCountAggregateOutputType = {
-    id: number
-    documentId: number
-    placeName: number
-    elevation: number
-    latitude: number
-    longitude: number
-    timeZone: number
-    coordinateSystemId: number
-    coordinateSystemDefinition: number
-    _all: number
-  }
-
-
-  export type SiteInformationAvgAggregateInputType = {
-    id?: true
-    elevation?: true
-    latitude?: true
-    longitude?: true
-    timeZone?: true
-  }
-
-  export type SiteInformationSumAggregateInputType = {
-    id?: true
-    elevation?: true
-    latitude?: true
-    longitude?: true
-    timeZone?: true
-  }
-
-  export type SiteInformationMinAggregateInputType = {
-    id?: true
-    documentId?: true
-    placeName?: true
-    elevation?: true
-    latitude?: true
-    longitude?: true
-    timeZone?: true
-    coordinateSystemId?: true
-    coordinateSystemDefinition?: true
-  }
-
-  export type SiteInformationMaxAggregateInputType = {
-    id?: true
-    documentId?: true
-    placeName?: true
-    elevation?: true
-    latitude?: true
-    longitude?: true
-    timeZone?: true
-    coordinateSystemId?: true
-    coordinateSystemDefinition?: true
-  }
-
-  export type SiteInformationCountAggregateInputType = {
-    id?: true
-    documentId?: true
-    placeName?: true
-    elevation?: true
-    latitude?: true
-    longitude?: true
-    timeZone?: true
-    coordinateSystemId?: true
-    coordinateSystemDefinition?: true
-    _all?: true
-  }
-
-  export type SiteInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which SiteInformation to aggregate.
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of SiteInformations to fetch.
-     */
-    orderBy?: SiteInformationOrderByWithRelationInput | SiteInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: SiteInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` SiteInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` SiteInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned SiteInformations
-    **/
-    _count?: true | SiteInformationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: SiteInformationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: SiteInformationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: SiteInformationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: SiteInformationMaxAggregateInputType
-  }
-
-  export type GetSiteInformationAggregateType<T extends SiteInformationAggregateArgs> = {
-        [P in keyof T & keyof AggregateSiteInformation]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateSiteInformation[P]>
-      : GetScalarType<T[P], AggregateSiteInformation[P]>
-  }
-
-
-
-
-  export type SiteInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: SiteInformationWhereInput
-    orderBy?: SiteInformationOrderByWithAggregationInput | SiteInformationOrderByWithAggregationInput[]
-    by: SiteInformationScalarFieldEnum[] | SiteInformationScalarFieldEnum
-    having?: SiteInformationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: SiteInformationCountAggregateInputType | true
-    _avg?: SiteInformationAvgAggregateInputType
-    _sum?: SiteInformationSumAggregateInputType
-    _min?: SiteInformationMinAggregateInputType
-    _max?: SiteInformationMaxAggregateInputType
-  }
-
-  export type SiteInformationGroupByOutputType = {
-    id: number
-    documentId: string
-    placeName: string
-    elevation: bigint
-    latitude: bigint
-    longitude: bigint
-    timeZone: bigint
-    coordinateSystemId: string
-    coordinateSystemDefinition: string
-    _count: SiteInformationCountAggregateOutputType | null
-    _avg: SiteInformationAvgAggregateOutputType | null
-    _sum: SiteInformationSumAggregateOutputType | null
-    _min: SiteInformationMinAggregateOutputType | null
-    _max: SiteInformationMaxAggregateOutputType | null
-  }
-
-  type GetSiteInformationGroupByPayload<T extends SiteInformationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<SiteInformationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof SiteInformationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], SiteInformationGroupByOutputType[P]>
-            : GetScalarType<T[P], SiteInformationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type SiteInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    placeName?: boolean
-    elevation?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    timeZone?: boolean
-    coordinateSystemId?: boolean
-    coordinateSystemDefinition?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["siteInformation"]>
-
-  export type SiteInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    placeName?: boolean
-    elevation?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    timeZone?: boolean
-    coordinateSystemId?: boolean
-    coordinateSystemDefinition?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["siteInformation"]>
-
-  export type SiteInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    placeName?: boolean
-    elevation?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    timeZone?: boolean
-    coordinateSystemId?: boolean
-    coordinateSystemDefinition?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["siteInformation"]>
-
-  export type SiteInformationSelectScalar = {
-    id?: boolean
-    documentId?: boolean
-    placeName?: boolean
-    elevation?: boolean
-    latitude?: boolean
-    longitude?: boolean
-    timeZone?: boolean
-    coordinateSystemId?: boolean
-    coordinateSystemDefinition?: boolean
-  }
-
-  export type SiteInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentId" | "placeName" | "elevation" | "latitude" | "longitude" | "timeZone" | "coordinateSystemId" | "coordinateSystemDefinition", ExtArgs["result"]["siteInformation"]>
-  export type SiteInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type SiteInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type SiteInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-
-  export type $SiteInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "SiteInformation"
-    objects: {
-      document: Prisma.$WolfpackPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      documentId: string
-      placeName: string
-      elevation: bigint
-      latitude: bigint
-      longitude: bigint
-      timeZone: bigint
-      coordinateSystemId: string
-      coordinateSystemDefinition: string
-    }, ExtArgs["result"]["siteInformation"]>
-    composites: {}
-  }
-
-  type SiteInformationGetPayload<S extends boolean | null | undefined | SiteInformationDefaultArgs> = $Result.GetResult<Prisma.$SiteInformationPayload, S>
-
-  type SiteInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<SiteInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: SiteInformationCountAggregateInputType | true
-    }
-
-  export interface SiteInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SiteInformation'], meta: { name: 'SiteInformation' } }
-    /**
-     * Find zero or one SiteInformation that matches the filter.
-     * @param {SiteInformationFindUniqueArgs} args - Arguments to find a SiteInformation
-     * @example
-     * // Get one SiteInformation
-     * const siteInformation = await prisma.siteInformation.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends SiteInformationFindUniqueArgs>(args: SelectSubset<T, SiteInformationFindUniqueArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one SiteInformation that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {SiteInformationFindUniqueOrThrowArgs} args - Arguments to find a SiteInformation
-     * @example
-     * // Get one SiteInformation
-     * const siteInformation = await prisma.siteInformation.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends SiteInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, SiteInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first SiteInformation that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationFindFirstArgs} args - Arguments to find a SiteInformation
-     * @example
-     * // Get one SiteInformation
-     * const siteInformation = await prisma.siteInformation.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends SiteInformationFindFirstArgs>(args?: SelectSubset<T, SiteInformationFindFirstArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first SiteInformation that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationFindFirstOrThrowArgs} args - Arguments to find a SiteInformation
-     * @example
-     * // Get one SiteInformation
-     * const siteInformation = await prisma.siteInformation.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends SiteInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, SiteInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more SiteInformations that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all SiteInformations
-     * const siteInformations = await prisma.siteInformation.findMany()
-     * 
-     * // Get first 10 SiteInformations
-     * const siteInformations = await prisma.siteInformation.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const siteInformationWithIdOnly = await prisma.siteInformation.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends SiteInformationFindManyArgs>(args?: SelectSubset<T, SiteInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a SiteInformation.
-     * @param {SiteInformationCreateArgs} args - Arguments to create a SiteInformation.
-     * @example
-     * // Create one SiteInformation
-     * const SiteInformation = await prisma.siteInformation.create({
-     *   data: {
-     *     // ... data to create a SiteInformation
-     *   }
-     * })
-     * 
-     */
-    create<T extends SiteInformationCreateArgs>(args: SelectSubset<T, SiteInformationCreateArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many SiteInformations.
-     * @param {SiteInformationCreateManyArgs} args - Arguments to create many SiteInformations.
-     * @example
-     * // Create many SiteInformations
-     * const siteInformation = await prisma.siteInformation.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends SiteInformationCreateManyArgs>(args?: SelectSubset<T, SiteInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SiteInformations and returns the data saved in the database.
-     * @param {SiteInformationCreateManyAndReturnArgs} args - Arguments to create many SiteInformations.
-     * @example
-     * // Create many SiteInformations
-     * const siteInformation = await prisma.siteInformation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SiteInformations and only return the `id`
-     * const siteInformationWithIdOnly = await prisma.siteInformation.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SiteInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, SiteInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a SiteInformation.
-     * @param {SiteInformationDeleteArgs} args - Arguments to delete one SiteInformation.
-     * @example
-     * // Delete one SiteInformation
-     * const SiteInformation = await prisma.siteInformation.delete({
-     *   where: {
-     *     // ... filter to delete one SiteInformation
-     *   }
-     * })
-     * 
-     */
-    delete<T extends SiteInformationDeleteArgs>(args: SelectSubset<T, SiteInformationDeleteArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one SiteInformation.
-     * @param {SiteInformationUpdateArgs} args - Arguments to update one SiteInformation.
-     * @example
-     * // Update one SiteInformation
-     * const siteInformation = await prisma.siteInformation.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends SiteInformationUpdateArgs>(args: SelectSubset<T, SiteInformationUpdateArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more SiteInformations.
-     * @param {SiteInformationDeleteManyArgs} args - Arguments to filter SiteInformations to delete.
-     * @example
-     * // Delete a few SiteInformations
-     * const { count } = await prisma.siteInformation.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends SiteInformationDeleteManyArgs>(args?: SelectSubset<T, SiteInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more SiteInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many SiteInformations
-     * const siteInformation = await prisma.siteInformation.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends SiteInformationUpdateManyArgs>(args: SelectSubset<T, SiteInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more SiteInformations and returns the data updated in the database.
-     * @param {SiteInformationUpdateManyAndReturnArgs} args - Arguments to update many SiteInformations.
-     * @example
-     * // Update many SiteInformations
-     * const siteInformation = await prisma.siteInformation.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more SiteInformations and only return the `id`
-     * const siteInformationWithIdOnly = await prisma.siteInformation.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends SiteInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, SiteInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one SiteInformation.
-     * @param {SiteInformationUpsertArgs} args - Arguments to update or create a SiteInformation.
-     * @example
-     * // Update or create a SiteInformation
-     * const siteInformation = await prisma.siteInformation.upsert({
-     *   create: {
-     *     // ... data to create a SiteInformation
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the SiteInformation we want to update
-     *   }
-     * })
-     */
-    upsert<T extends SiteInformationUpsertArgs>(args: SelectSubset<T, SiteInformationUpsertArgs<ExtArgs>>): Prisma__SiteInformationClient<$Result.GetResult<Prisma.$SiteInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of SiteInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationCountArgs} args - Arguments to filter SiteInformations to count.
-     * @example
-     * // Count the number of SiteInformations
-     * const count = await prisma.siteInformation.count({
-     *   where: {
-     *     // ... the filter for the SiteInformations we want to count
-     *   }
-     * })
-    **/
-    count<T extends SiteInformationCountArgs>(
-      args?: Subset<T, SiteInformationCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], SiteInformationCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a SiteInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends SiteInformationAggregateArgs>(args: Subset<T, SiteInformationAggregateArgs>): Prisma.PrismaPromise<GetSiteInformationAggregateType<T>>
-
-    /**
-     * Group by SiteInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {SiteInformationGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends SiteInformationGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: SiteInformationGroupByArgs['orderBy'] }
-        : { orderBy?: SiteInformationGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, SiteInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSiteInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the SiteInformation model
-   */
-  readonly fields: SiteInformationFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for SiteInformation.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__SiteInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    document<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the SiteInformation model
-   */ 
-  interface SiteInformationFieldRefs {
-    readonly id: FieldRef<"SiteInformation", 'Int'>
-    readonly documentId: FieldRef<"SiteInformation", 'String'>
-    readonly placeName: FieldRef<"SiteInformation", 'String'>
-    readonly elevation: FieldRef<"SiteInformation", 'BigInt'>
-    readonly latitude: FieldRef<"SiteInformation", 'BigInt'>
-    readonly longitude: FieldRef<"SiteInformation", 'BigInt'>
-    readonly timeZone: FieldRef<"SiteInformation", 'BigInt'>
-    readonly coordinateSystemId: FieldRef<"SiteInformation", 'String'>
-    readonly coordinateSystemDefinition: FieldRef<"SiteInformation", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * SiteInformation findUnique
-   */
-  export type SiteInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which SiteInformation to fetch.
-     */
-    where: SiteInformationWhereUniqueInput
-  }
-
-  /**
-   * SiteInformation findUniqueOrThrow
-   */
-  export type SiteInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which SiteInformation to fetch.
-     */
-    where: SiteInformationWhereUniqueInput
-  }
-
-  /**
-   * SiteInformation findFirst
-   */
-  export type SiteInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which SiteInformation to fetch.
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of SiteInformations to fetch.
-     */
-    orderBy?: SiteInformationOrderByWithRelationInput | SiteInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for SiteInformations.
-     */
-    cursor?: SiteInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` SiteInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` SiteInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of SiteInformations.
-     */
-    distinct?: SiteInformationScalarFieldEnum | SiteInformationScalarFieldEnum[]
-  }
-
-  /**
-   * SiteInformation findFirstOrThrow
-   */
-  export type SiteInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which SiteInformation to fetch.
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of SiteInformations to fetch.
-     */
-    orderBy?: SiteInformationOrderByWithRelationInput | SiteInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for SiteInformations.
-     */
-    cursor?: SiteInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` SiteInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` SiteInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of SiteInformations.
-     */
-    distinct?: SiteInformationScalarFieldEnum | SiteInformationScalarFieldEnum[]
-  }
-
-  /**
-   * SiteInformation findMany
-   */
-  export type SiteInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which SiteInformations to fetch.
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of SiteInformations to fetch.
-     */
-    orderBy?: SiteInformationOrderByWithRelationInput | SiteInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing SiteInformations.
-     */
-    cursor?: SiteInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` SiteInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` SiteInformations.
-     */
-    skip?: number
-    distinct?: SiteInformationScalarFieldEnum | SiteInformationScalarFieldEnum[]
-  }
-
-  /**
-   * SiteInformation create
-   */
-  export type SiteInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a SiteInformation.
-     */
-    data: XOR<SiteInformationCreateInput, SiteInformationUncheckedCreateInput>
-  }
-
-  /**
-   * SiteInformation createMany
-   */
-  export type SiteInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many SiteInformations.
-     */
-    data: SiteInformationCreateManyInput | SiteInformationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * SiteInformation createManyAndReturn
-   */
-  export type SiteInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * The data used to create many SiteInformations.
-     */
-    data: SiteInformationCreateManyInput | SiteInformationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * SiteInformation update
-   */
-  export type SiteInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to update a SiteInformation.
-     */
-    data: XOR<SiteInformationUpdateInput, SiteInformationUncheckedUpdateInput>
-    /**
-     * Choose, which SiteInformation to update.
-     */
-    where: SiteInformationWhereUniqueInput
-  }
-
-  /**
-   * SiteInformation updateMany
-   */
-  export type SiteInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update SiteInformations.
-     */
-    data: XOR<SiteInformationUpdateManyMutationInput, SiteInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which SiteInformations to update
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * Limit how many SiteInformations to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * SiteInformation updateManyAndReturn
-   */
-  export type SiteInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * The data used to update SiteInformations.
-     */
-    data: XOR<SiteInformationUpdateManyMutationInput, SiteInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which SiteInformations to update
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * Limit how many SiteInformations to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * SiteInformation upsert
-   */
-  export type SiteInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * The filter to search for the SiteInformation to update in case it exists.
-     */
-    where: SiteInformationWhereUniqueInput
-    /**
-     * In case the SiteInformation found by the `where` argument doesn't exist, create a new SiteInformation with this data.
-     */
-    create: XOR<SiteInformationCreateInput, SiteInformationUncheckedCreateInput>
-    /**
-     * In case the SiteInformation was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<SiteInformationUpdateInput, SiteInformationUncheckedUpdateInput>
-  }
-
-  /**
-   * SiteInformation delete
-   */
-  export type SiteInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-    /**
-     * Filter which SiteInformation to delete.
-     */
-    where: SiteInformationWhereUniqueInput
-  }
-
-  /**
-   * SiteInformation deleteMany
-   */
-  export type SiteInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which SiteInformations to delete
-     */
-    where?: SiteInformationWhereInput
-    /**
-     * Limit how many SiteInformations to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * SiteInformation without action
-   */
-  export type SiteInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SiteInformation
-     */
-    select?: SiteInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the SiteInformation
-     */
-    omit?: SiteInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SiteInformationInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model UnitsInformation
-   */
-
-  export type AggregateUnitsInformation = {
-    _count: UnitsInformationCountAggregateOutputType | null
-    _avg: UnitsInformationAvgAggregateOutputType | null
-    _sum: UnitsInformationSumAggregateOutputType | null
-    _min: UnitsInformationMinAggregateOutputType | null
-    _max: UnitsInformationMaxAggregateOutputType | null
-  }
-
-  export type UnitsInformationAvgAggregateOutputType = {
-    id: number | null
-  }
-
-  export type UnitsInformationSumAggregateOutputType = {
-    id: number | null
-  }
-
-  export type UnitsInformationMinAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    lengthUnits: string | null
-    areaUnits: string | null
-    angle: string | null
-    currency: string | null
-    number: string | null
-    rotationAngle: string | null
-    sheetLength: string | null
-    slope: string | null
-    speed: string | null
-    time: string | null
-    volume: string | null
-  }
-
-  export type UnitsInformationMaxAggregateOutputType = {
-    id: number | null
-    documentId: string | null
-    lengthUnits: string | null
-    areaUnits: string | null
-    angle: string | null
-    currency: string | null
-    number: string | null
-    rotationAngle: string | null
-    sheetLength: string | null
-    slope: string | null
-    speed: string | null
-    time: string | null
-    volume: string | null
-  }
-
-  export type UnitsInformationCountAggregateOutputType = {
-    id: number
-    documentId: number
-    lengthUnits: number
-    areaUnits: number
-    angle: number
-    currency: number
-    number: number
-    rotationAngle: number
-    sheetLength: number
-    slope: number
-    speed: number
-    time: number
-    volume: number
-    _all: number
-  }
-
-
-  export type UnitsInformationAvgAggregateInputType = {
-    id?: true
-  }
-
-  export type UnitsInformationSumAggregateInputType = {
-    id?: true
-  }
-
-  export type UnitsInformationMinAggregateInputType = {
-    id?: true
-    documentId?: true
-    lengthUnits?: true
-    areaUnits?: true
-    angle?: true
-    currency?: true
-    number?: true
-    rotationAngle?: true
-    sheetLength?: true
-    slope?: true
-    speed?: true
-    time?: true
-    volume?: true
-  }
-
-  export type UnitsInformationMaxAggregateInputType = {
-    id?: true
-    documentId?: true
-    lengthUnits?: true
-    areaUnits?: true
-    angle?: true
-    currency?: true
-    number?: true
-    rotationAngle?: true
-    sheetLength?: true
-    slope?: true
-    speed?: true
-    time?: true
-    volume?: true
-  }
-
-  export type UnitsInformationCountAggregateInputType = {
-    id?: true
-    documentId?: true
-    lengthUnits?: true
-    areaUnits?: true
-    angle?: true
-    currency?: true
-    number?: true
-    rotationAngle?: true
-    sheetLength?: true
-    slope?: true
-    speed?: true
-    time?: true
-    volume?: true
-    _all?: true
-  }
-
-  export type UnitsInformationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which UnitsInformation to aggregate.
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of UnitsInformations to fetch.
-     */
-    orderBy?: UnitsInformationOrderByWithRelationInput | UnitsInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: UnitsInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` UnitsInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` UnitsInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned UnitsInformations
-    **/
-    _count?: true | UnitsInformationCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: UnitsInformationAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UnitsInformationSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: UnitsInformationMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: UnitsInformationMaxAggregateInputType
-  }
-
-  export type GetUnitsInformationAggregateType<T extends UnitsInformationAggregateArgs> = {
-        [P in keyof T & keyof AggregateUnitsInformation]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateUnitsInformation[P]>
-      : GetScalarType<T[P], AggregateUnitsInformation[P]>
-  }
-
-
-
-
-  export type UnitsInformationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UnitsInformationWhereInput
-    orderBy?: UnitsInformationOrderByWithAggregationInput | UnitsInformationOrderByWithAggregationInput[]
-    by: UnitsInformationScalarFieldEnum[] | UnitsInformationScalarFieldEnum
-    having?: UnitsInformationScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: UnitsInformationCountAggregateInputType | true
-    _avg?: UnitsInformationAvgAggregateInputType
-    _sum?: UnitsInformationSumAggregateInputType
-    _min?: UnitsInformationMinAggregateInputType
-    _max?: UnitsInformationMaxAggregateInputType
-  }
-
-  export type UnitsInformationGroupByOutputType = {
-    id: number
-    documentId: string
-    lengthUnits: string
-    areaUnits: string
-    angle: string
-    currency: string
-    number: string
-    rotationAngle: string
-    sheetLength: string
-    slope: string
-    speed: string
-    time: string
-    volume: string
-    _count: UnitsInformationCountAggregateOutputType | null
-    _avg: UnitsInformationAvgAggregateOutputType | null
-    _sum: UnitsInformationSumAggregateOutputType | null
-    _min: UnitsInformationMinAggregateOutputType | null
-    _max: UnitsInformationMaxAggregateOutputType | null
-  }
-
-  type GetUnitsInformationGroupByPayload<T extends UnitsInformationGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<UnitsInformationGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof UnitsInformationGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], UnitsInformationGroupByOutputType[P]>
-            : GetScalarType<T[P], UnitsInformationGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type UnitsInformationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    lengthUnits?: boolean
-    areaUnits?: boolean
-    angle?: boolean
-    currency?: boolean
-    number?: boolean
-    rotationAngle?: boolean
-    sheetLength?: boolean
-    slope?: boolean
-    speed?: boolean
-    time?: boolean
-    volume?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["unitsInformation"]>
-
-  export type UnitsInformationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    lengthUnits?: boolean
-    areaUnits?: boolean
-    angle?: boolean
-    currency?: boolean
-    number?: boolean
-    rotationAngle?: boolean
-    sheetLength?: boolean
-    slope?: boolean
-    speed?: boolean
-    time?: boolean
-    volume?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["unitsInformation"]>
-
-  export type UnitsInformationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    documentId?: boolean
-    lengthUnits?: boolean
-    areaUnits?: boolean
-    angle?: boolean
-    currency?: boolean
-    number?: boolean
-    rotationAngle?: boolean
-    sheetLength?: boolean
-    slope?: boolean
-    speed?: boolean
-    time?: boolean
-    volume?: boolean
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["unitsInformation"]>
-
-  export type UnitsInformationSelectScalar = {
-    id?: boolean
-    documentId?: boolean
-    lengthUnits?: boolean
-    areaUnits?: boolean
-    angle?: boolean
-    currency?: boolean
-    number?: boolean
-    rotationAngle?: boolean
-    sheetLength?: boolean
-    slope?: boolean
-    speed?: boolean
-    time?: boolean
-    volume?: boolean
-  }
-
-  export type UnitsInformationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "documentId" | "lengthUnits" | "areaUnits" | "angle" | "currency" | "number" | "rotationAngle" | "sheetLength" | "slope" | "speed" | "time" | "volume", ExtArgs["result"]["unitsInformation"]>
-  export type UnitsInformationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type UnitsInformationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-  export type UnitsInformationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    document?: boolean | WolfpackDefaultArgs<ExtArgs>
-  }
-
-  export type $UnitsInformationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "UnitsInformation"
-    objects: {
-      document: Prisma.$WolfpackPayload<ExtArgs>
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: number
-      documentId: string
-      lengthUnits: string
-      areaUnits: string
-      angle: string
-      currency: string
-      number: string
-      rotationAngle: string
-      sheetLength: string
-      slope: string
-      speed: string
-      time: string
-      volume: string
-    }, ExtArgs["result"]["unitsInformation"]>
-    composites: {}
-  }
-
-  type UnitsInformationGetPayload<S extends boolean | null | undefined | UnitsInformationDefaultArgs> = $Result.GetResult<Prisma.$UnitsInformationPayload, S>
-
-  type UnitsInformationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<UnitsInformationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: UnitsInformationCountAggregateInputType | true
-    }
-
-  export interface UnitsInformationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UnitsInformation'], meta: { name: 'UnitsInformation' } }
-    /**
-     * Find zero or one UnitsInformation that matches the filter.
-     * @param {UnitsInformationFindUniqueArgs} args - Arguments to find a UnitsInformation
-     * @example
-     * // Get one UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends UnitsInformationFindUniqueArgs>(args: SelectSubset<T, UnitsInformationFindUniqueArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one UnitsInformation that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {UnitsInformationFindUniqueOrThrowArgs} args - Arguments to find a UnitsInformation
-     * @example
-     * // Get one UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends UnitsInformationFindUniqueOrThrowArgs>(args: SelectSubset<T, UnitsInformationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first UnitsInformation that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationFindFirstArgs} args - Arguments to find a UnitsInformation
-     * @example
-     * // Get one UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends UnitsInformationFindFirstArgs>(args?: SelectSubset<T, UnitsInformationFindFirstArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first UnitsInformation that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationFindFirstOrThrowArgs} args - Arguments to find a UnitsInformation
-     * @example
-     * // Get one UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends UnitsInformationFindFirstOrThrowArgs>(args?: SelectSubset<T, UnitsInformationFindFirstOrThrowArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more UnitsInformations that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all UnitsInformations
-     * const unitsInformations = await prisma.unitsInformation.findMany()
-     * 
-     * // Get first 10 UnitsInformations
-     * const unitsInformations = await prisma.unitsInformation.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const unitsInformationWithIdOnly = await prisma.unitsInformation.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends UnitsInformationFindManyArgs>(args?: SelectSubset<T, UnitsInformationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a UnitsInformation.
-     * @param {UnitsInformationCreateArgs} args - Arguments to create a UnitsInformation.
-     * @example
-     * // Create one UnitsInformation
-     * const UnitsInformation = await prisma.unitsInformation.create({
-     *   data: {
-     *     // ... data to create a UnitsInformation
-     *   }
-     * })
-     * 
-     */
-    create<T extends UnitsInformationCreateArgs>(args: SelectSubset<T, UnitsInformationCreateArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many UnitsInformations.
-     * @param {UnitsInformationCreateManyArgs} args - Arguments to create many UnitsInformations.
-     * @example
-     * // Create many UnitsInformations
-     * const unitsInformation = await prisma.unitsInformation.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends UnitsInformationCreateManyArgs>(args?: SelectSubset<T, UnitsInformationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many UnitsInformations and returns the data saved in the database.
-     * @param {UnitsInformationCreateManyAndReturnArgs} args - Arguments to create many UnitsInformations.
-     * @example
-     * // Create many UnitsInformations
-     * const unitsInformation = await prisma.unitsInformation.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many UnitsInformations and only return the `id`
-     * const unitsInformationWithIdOnly = await prisma.unitsInformation.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends UnitsInformationCreateManyAndReturnArgs>(args?: SelectSubset<T, UnitsInformationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a UnitsInformation.
-     * @param {UnitsInformationDeleteArgs} args - Arguments to delete one UnitsInformation.
-     * @example
-     * // Delete one UnitsInformation
-     * const UnitsInformation = await prisma.unitsInformation.delete({
-     *   where: {
-     *     // ... filter to delete one UnitsInformation
-     *   }
-     * })
-     * 
-     */
-    delete<T extends UnitsInformationDeleteArgs>(args: SelectSubset<T, UnitsInformationDeleteArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one UnitsInformation.
-     * @param {UnitsInformationUpdateArgs} args - Arguments to update one UnitsInformation.
-     * @example
-     * // Update one UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends UnitsInformationUpdateArgs>(args: SelectSubset<T, UnitsInformationUpdateArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more UnitsInformations.
-     * @param {UnitsInformationDeleteManyArgs} args - Arguments to filter UnitsInformations to delete.
-     * @example
-     * // Delete a few UnitsInformations
-     * const { count } = await prisma.unitsInformation.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends UnitsInformationDeleteManyArgs>(args?: SelectSubset<T, UnitsInformationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more UnitsInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many UnitsInformations
-     * const unitsInformation = await prisma.unitsInformation.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends UnitsInformationUpdateManyArgs>(args: SelectSubset<T, UnitsInformationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more UnitsInformations and returns the data updated in the database.
-     * @param {UnitsInformationUpdateManyAndReturnArgs} args - Arguments to update many UnitsInformations.
-     * @example
-     * // Update many UnitsInformations
-     * const unitsInformation = await prisma.unitsInformation.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more UnitsInformations and only return the `id`
-     * const unitsInformationWithIdOnly = await prisma.unitsInformation.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends UnitsInformationUpdateManyAndReturnArgs>(args: SelectSubset<T, UnitsInformationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one UnitsInformation.
-     * @param {UnitsInformationUpsertArgs} args - Arguments to update or create a UnitsInformation.
-     * @example
-     * // Update or create a UnitsInformation
-     * const unitsInformation = await prisma.unitsInformation.upsert({
-     *   create: {
-     *     // ... data to create a UnitsInformation
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the UnitsInformation we want to update
-     *   }
-     * })
-     */
-    upsert<T extends UnitsInformationUpsertArgs>(args: SelectSubset<T, UnitsInformationUpsertArgs<ExtArgs>>): Prisma__UnitsInformationClient<$Result.GetResult<Prisma.$UnitsInformationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of UnitsInformations.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationCountArgs} args - Arguments to filter UnitsInformations to count.
-     * @example
-     * // Count the number of UnitsInformations
-     * const count = await prisma.unitsInformation.count({
-     *   where: {
-     *     // ... the filter for the UnitsInformations we want to count
-     *   }
-     * })
-    **/
-    count<T extends UnitsInformationCountArgs>(
-      args?: Subset<T, UnitsInformationCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], UnitsInformationCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a UnitsInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends UnitsInformationAggregateArgs>(args: Subset<T, UnitsInformationAggregateArgs>): Prisma.PrismaPromise<GetUnitsInformationAggregateType<T>>
-
-    /**
-     * Group by UnitsInformation.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {UnitsInformationGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends UnitsInformationGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UnitsInformationGroupByArgs['orderBy'] }
-        : { orderBy?: UnitsInformationGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, UnitsInformationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUnitsInformationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the UnitsInformation model
-   */
-  readonly fields: UnitsInformationFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for UnitsInformation.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__UnitsInformationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    document<T extends WolfpackDefaultArgs<ExtArgs> = {}>(args?: Subset<T, WolfpackDefaultArgs<ExtArgs>>): Prisma__WolfpackClient<$Result.GetResult<Prisma.$WolfpackPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the UnitsInformation model
-   */ 
-  interface UnitsInformationFieldRefs {
-    readonly id: FieldRef<"UnitsInformation", 'Int'>
-    readonly documentId: FieldRef<"UnitsInformation", 'String'>
-    readonly lengthUnits: FieldRef<"UnitsInformation", 'String'>
-    readonly areaUnits: FieldRef<"UnitsInformation", 'String'>
-    readonly angle: FieldRef<"UnitsInformation", 'String'>
-    readonly currency: FieldRef<"UnitsInformation", 'String'>
-    readonly number: FieldRef<"UnitsInformation", 'String'>
-    readonly rotationAngle: FieldRef<"UnitsInformation", 'String'>
-    readonly sheetLength: FieldRef<"UnitsInformation", 'String'>
-    readonly slope: FieldRef<"UnitsInformation", 'String'>
-    readonly speed: FieldRef<"UnitsInformation", 'String'>
-    readonly time: FieldRef<"UnitsInformation", 'String'>
-    readonly volume: FieldRef<"UnitsInformation", 'String'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * UnitsInformation findUnique
-   */
-  export type UnitsInformationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which UnitsInformation to fetch.
-     */
-    where: UnitsInformationWhereUniqueInput
-  }
-
-  /**
-   * UnitsInformation findUniqueOrThrow
-   */
-  export type UnitsInformationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which UnitsInformation to fetch.
-     */
-    where: UnitsInformationWhereUniqueInput
-  }
-
-  /**
-   * UnitsInformation findFirst
-   */
-  export type UnitsInformationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which UnitsInformation to fetch.
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of UnitsInformations to fetch.
-     */
-    orderBy?: UnitsInformationOrderByWithRelationInput | UnitsInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for UnitsInformations.
-     */
-    cursor?: UnitsInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` UnitsInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` UnitsInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of UnitsInformations.
-     */
-    distinct?: UnitsInformationScalarFieldEnum | UnitsInformationScalarFieldEnum[]
-  }
-
-  /**
-   * UnitsInformation findFirstOrThrow
-   */
-  export type UnitsInformationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which UnitsInformation to fetch.
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of UnitsInformations to fetch.
-     */
-    orderBy?: UnitsInformationOrderByWithRelationInput | UnitsInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for UnitsInformations.
-     */
-    cursor?: UnitsInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` UnitsInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` UnitsInformations.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of UnitsInformations.
-     */
-    distinct?: UnitsInformationScalarFieldEnum | UnitsInformationScalarFieldEnum[]
-  }
-
-  /**
-   * UnitsInformation findMany
-   */
-  export type UnitsInformationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter, which UnitsInformations to fetch.
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of UnitsInformations to fetch.
-     */
-    orderBy?: UnitsInformationOrderByWithRelationInput | UnitsInformationOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing UnitsInformations.
-     */
-    cursor?: UnitsInformationWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` UnitsInformations from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` UnitsInformations.
-     */
-    skip?: number
-    distinct?: UnitsInformationScalarFieldEnum | UnitsInformationScalarFieldEnum[]
-  }
-
-  /**
-   * UnitsInformation create
-   */
-  export type UnitsInformationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to create a UnitsInformation.
-     */
-    data: XOR<UnitsInformationCreateInput, UnitsInformationUncheckedCreateInput>
-  }
-
-  /**
-   * UnitsInformation createMany
-   */
-  export type UnitsInformationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many UnitsInformations.
-     */
-    data: UnitsInformationCreateManyInput | UnitsInformationCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * UnitsInformation createManyAndReturn
-   */
-  export type UnitsInformationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * The data used to create many UnitsInformations.
-     */
-    data: UnitsInformationCreateManyInput | UnitsInformationCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * UnitsInformation update
-   */
-  export type UnitsInformationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * The data needed to update a UnitsInformation.
-     */
-    data: XOR<UnitsInformationUpdateInput, UnitsInformationUncheckedUpdateInput>
-    /**
-     * Choose, which UnitsInformation to update.
-     */
-    where: UnitsInformationWhereUniqueInput
-  }
-
-  /**
-   * UnitsInformation updateMany
-   */
-  export type UnitsInformationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update UnitsInformations.
-     */
-    data: XOR<UnitsInformationUpdateManyMutationInput, UnitsInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which UnitsInformations to update
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * Limit how many UnitsInformations to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * UnitsInformation updateManyAndReturn
-   */
-  export type UnitsInformationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * The data used to update UnitsInformations.
-     */
-    data: XOR<UnitsInformationUpdateManyMutationInput, UnitsInformationUncheckedUpdateManyInput>
-    /**
-     * Filter which UnitsInformations to update
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * Limit how many UnitsInformations to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * UnitsInformation upsert
-   */
-  export type UnitsInformationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * The filter to search for the UnitsInformation to update in case it exists.
-     */
-    where: UnitsInformationWhereUniqueInput
-    /**
-     * In case the UnitsInformation found by the `where` argument doesn't exist, create a new UnitsInformation with this data.
-     */
-    create: XOR<UnitsInformationCreateInput, UnitsInformationUncheckedCreateInput>
-    /**
-     * In case the UnitsInformation was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<UnitsInformationUpdateInput, UnitsInformationUncheckedUpdateInput>
-  }
-
-  /**
-   * UnitsInformation delete
-   */
-  export type UnitsInformationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
-    /**
-     * Filter which UnitsInformation to delete.
-     */
-    where: UnitsInformationWhereUniqueInput
-  }
-
-  /**
-   * UnitsInformation deleteMany
-   */
-  export type UnitsInformationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which UnitsInformations to delete
-     */
-    where?: UnitsInformationWhereInput
-    /**
-     * Limit how many UnitsInformations to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * UnitsInformation without action
-   */
-  export type UnitsInformationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the UnitsInformation
-     */
-    select?: UnitsInformationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the UnitsInformation
-     */
-    omit?: UnitsInformationOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UnitsInformationInclude<ExtArgs> | null
+    omit?: DocumentRecordOmit<ExtArgs> | null
   }
 
 
@@ -11085,10 +3592,8 @@ export namespace Prisma {
   export const WolfpackScalarFieldEnum: {
     id: 'id',
     documentName: 'documentName',
-    documentSessionId: 'documentSessionId',
-    documentCreationId: 'documentCreationId',
-    changedElements: 'changedElements',
     fileOrigin: 'fileOrigin',
+    documentVersion: 'documentVersion',
     wasCompleted: 'wasCompleted',
     timeTaken: 'timeTaken',
     createdAt: 'createdAt',
@@ -11101,115 +3606,50 @@ export namespace Prisma {
   export type WolfpackScalarFieldEnum = (typeof WolfpackScalarFieldEnum)[keyof typeof WolfpackScalarFieldEnum]
 
 
-  export const ProjectInformationScalarFieldEnum: {
+  export const DocumentRecordScalarFieldEnum: {
     id: 'id',
-    projectId: 'projectId',
+    documentRecordUniqueId: 'documentRecordUniqueId',
+    parentWolfpackUniqueId: 'parentWolfpackUniqueId',
+    documentCreationId: 'documentCreationId',
+    documentSaveId: 'documentSaveId',
+    documentSaveCount: 'documentSaveCount',
+    documentLastSaveDateTime: 'documentLastSaveDateTime',
+    parentDocumentEpisodeUniqueId: 'parentDocumentEpisodeUniqueId',
+    documentName: 'documentName',
+    documentPath: 'documentPath',
     projectName: 'projectName',
-    client: 'client',
-    address: 'address',
-    author: 'author',
-    buildingName: 'buildingName',
-    issueDate: 'issueDate',
-    location: 'location',
+    projectClient: 'projectClient',
+    projectAddress: 'projectAddress',
+    projectAuthor: 'projectAuthor',
+    projectBuildingName: 'projectBuildingName',
+    projectIssueDate: 'projectIssueDate',
+    projectLocation: 'projectLocation',
     projectNumber: 'projectNumber',
-    organizationDescription: 'organizationDescription',
-    organizationName: 'organizationName',
-    status: 'status'
+    projectOrganizationDescription: 'projectOrganizationDescription',
+    projectOrganizationName: 'projectOrganizationName',
+    projectStatus: 'projectStatus',
+    projectPlaceName: 'projectPlaceName',
+    projectElevation: 'projectElevation',
+    projectLatitude: 'projectLatitude',
+    projectLongitude: 'projectLongitude',
+    projectTimeZone: 'projectTimeZone',
+    projectGeoCoordinateSystemId: 'projectGeoCoordinateSystemId',
+    projectGeoCoordinateSystemDefinition: 'projectGeoCoordinateSystemDefinition',
+    projectSpecLength: 'projectSpecLength',
+    projectSpecArea: 'projectSpecArea',
+    projectSpecAngle: 'projectSpecAngle',
+    projectSpecCurrency: 'projectSpecCurrency',
+    projectSpecNumber: 'projectSpecNumber',
+    projectSpecRotationAngle: 'projectSpecRotationAngle',
+    projectSpecSheetLength: 'projectSpecSheetLength',
+    projectSpecSiteAngle: 'projectSpecSiteAngle',
+    projectSpecSlope: 'projectSpecSlope',
+    projectSpecSpeed: 'projectSpecSpeed',
+    projectSpecTime: 'projectSpecTime',
+    projectSpecVolume: 'projectSpecVolume'
   };
 
-  export type ProjectInformationScalarFieldEnum = (typeof ProjectInformationScalarFieldEnum)[keyof typeof ProjectInformationScalarFieldEnum]
-
-
-  export const ElementInformationScalarFieldEnum: {
-    id: 'id',
-    uniqueElementId: 'uniqueElementId',
-    idValue: 'idValue',
-    elementVersionId: 'elementVersionId',
-    familyName: 'familyName',
-    builtInCategory: 'builtInCategory',
-    name: 'name'
-  };
-
-  export type ElementInformationScalarFieldEnum = (typeof ElementInformationScalarFieldEnum)[keyof typeof ElementInformationScalarFieldEnum]
-
-
-  export const ParametersScalarFieldEnum: {
-    id: 'id',
-    createdAt: 'createdAt',
-    parameterGuid: 'parameterGuid',
-    documentOwner: 'documentOwner',
-    storageType: 'storageType',
-    name: 'name',
-    value: 'value',
-    isReadOnly: 'isReadOnly',
-    typeId: 'typeId',
-    dataType: 'dataType',
-    groupTypeId: 'groupTypeId',
-    hasValue: 'hasValue',
-    isShared: 'isShared',
-    isUserModifiable: 'isUserModifiable',
-    sharedParameterGuid: 'sharedParameterGuid'
-  };
-
-  export type ParametersScalarFieldEnum = (typeof ParametersScalarFieldEnum)[keyof typeof ParametersScalarFieldEnum]
-
-
-  export const DocumentInformationScalarFieldEnum: {
-    id: 'id',
-    documentId: 'documentId',
-    name: 'name',
-    path: 'path',
-    uuid: 'uuid',
-    saveCount: 'saveCount'
-  };
-
-  export type DocumentInformationScalarFieldEnum = (typeof DocumentInformationScalarFieldEnum)[keyof typeof DocumentInformationScalarFieldEnum]
-
-
-  export const DocumentWarningScalarFieldEnum: {
-    id: 'id',
-    documentId: 'documentId',
-    createdAt: 'createdAt',
-    severity: 'severity',
-    message: 'message',
-    failingElementId: 'failingElementId'
-  };
-
-  export type DocumentWarningScalarFieldEnum = (typeof DocumentWarningScalarFieldEnum)[keyof typeof DocumentWarningScalarFieldEnum]
-
-
-  export const SiteInformationScalarFieldEnum: {
-    id: 'id',
-    documentId: 'documentId',
-    placeName: 'placeName',
-    elevation: 'elevation',
-    latitude: 'latitude',
-    longitude: 'longitude',
-    timeZone: 'timeZone',
-    coordinateSystemId: 'coordinateSystemId',
-    coordinateSystemDefinition: 'coordinateSystemDefinition'
-  };
-
-  export type SiteInformationScalarFieldEnum = (typeof SiteInformationScalarFieldEnum)[keyof typeof SiteInformationScalarFieldEnum]
-
-
-  export const UnitsInformationScalarFieldEnum: {
-    id: 'id',
-    documentId: 'documentId',
-    lengthUnits: 'lengthUnits',
-    areaUnits: 'areaUnits',
-    angle: 'angle',
-    currency: 'currency',
-    number: 'number',
-    rotationAngle: 'rotationAngle',
-    sheetLength: 'sheetLength',
-    slope: 'slope',
-    speed: 'speed',
-    time: 'time',
-    volume: 'volume'
-  };
-
-  export type UnitsInformationScalarFieldEnum = (typeof UnitsInformationScalarFieldEnum)[keyof typeof UnitsInformationScalarFieldEnum]
+  export type DocumentRecordScalarFieldEnum = (typeof DocumentRecordScalarFieldEnum)[keyof typeof DocumentRecordScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11287,20 +3727,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt[]'
-   */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -11350,16 +3776,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'StorageType'
+   * Reference to a field of type 'BigInt'
    */
-  export type EnumStorageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StorageType'>
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
     
 
 
   /**
-   * Reference to a field of type 'StorageType[]'
+   * Reference to a field of type 'BigInt[]'
    */
-  export type ListEnumStorageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'StorageType[]'>
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
   /**
    * Deep Input Types
@@ -11372,10 +3798,8 @@ export namespace Prisma {
     NOT?: WolfpackWhereInput | WolfpackWhereInput[]
     id?: IntFilter<"Wolfpack"> | number
     documentName?: StringFilter<"Wolfpack"> | string
-    documentSessionId?: StringFilter<"Wolfpack"> | string
-    documentCreationId?: StringFilter<"Wolfpack"> | string
-    changedElements?: BigIntNullableListFilter<"Wolfpack">
     fileOrigin?: StringFilter<"Wolfpack"> | string
+    documentVersion?: StringFilter<"Wolfpack"> | string
     wasCompleted?: BoolFilter<"Wolfpack"> | boolean
     timeTaken?: FloatFilter<"Wolfpack"> | number
     createdAt?: DateTimeFilter<"Wolfpack"> | Date | string
@@ -11383,21 +3807,13 @@ export namespace Prisma {
     resultCount?: IntFilter<"Wolfpack"> | number
     testName?: StringFilter<"Wolfpack"> | string
     results?: JsonNullableFilter<"Wolfpack">
-    projectInformation?: XOR<ProjectInformationNullableScalarRelationFilter, ProjectInformationWhereInput> | null
-    documentInformation?: XOR<DocumentInformationNullableScalarRelationFilter, DocumentInformationWhereInput> | null
-    siteInformation?: XOR<SiteInformationNullableScalarRelationFilter, SiteInformationWhereInput> | null
-    unitsInformation?: XOR<UnitsInformationNullableScalarRelationFilter, UnitsInformationWhereInput> | null
-    warnings?: DocumentWarningListRelationFilter
-    elementInfo?: ElementInformationListRelationFilter
   }
 
   export type WolfpackOrderByWithRelationInput = {
     id?: SortOrder
     documentName?: SortOrder
-    documentSessionId?: SortOrder
-    documentCreationId?: SortOrder
-    changedElements?: SortOrder
     fileOrigin?: SortOrder
+    documentVersion?: SortOrder
     wasCompleted?: SortOrder
     timeTaken?: SortOrder
     createdAt?: SortOrder
@@ -11405,46 +3821,30 @@ export namespace Prisma {
     resultCount?: SortOrder
     testName?: SortOrder
     results?: SortOrderInput | SortOrder
-    projectInformation?: ProjectInformationOrderByWithRelationInput
-    documentInformation?: DocumentInformationOrderByWithRelationInput
-    siteInformation?: SiteInformationOrderByWithRelationInput
-    unitsInformation?: UnitsInformationOrderByWithRelationInput
-    warnings?: DocumentWarningOrderByRelationAggregateInput
-    elementInfo?: ElementInformationOrderByRelationAggregateInput
   }
 
   export type WolfpackWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    guid?: string
     AND?: WolfpackWhereInput | WolfpackWhereInput[]
     OR?: WolfpackWhereInput[]
     NOT?: WolfpackWhereInput | WolfpackWhereInput[]
     documentName?: StringFilter<"Wolfpack"> | string
-    documentSessionId?: StringFilter<"Wolfpack"> | string
-    documentCreationId?: StringFilter<"Wolfpack"> | string
-    changedElements?: BigIntNullableListFilter<"Wolfpack">
     fileOrigin?: StringFilter<"Wolfpack"> | string
+    documentVersion?: StringFilter<"Wolfpack"> | string
     wasCompleted?: BoolFilter<"Wolfpack"> | boolean
     timeTaken?: FloatFilter<"Wolfpack"> | number
     createdAt?: DateTimeFilter<"Wolfpack"> | Date | string
+    guid?: StringFilter<"Wolfpack"> | string
     resultCount?: IntFilter<"Wolfpack"> | number
     testName?: StringFilter<"Wolfpack"> | string
     results?: JsonNullableFilter<"Wolfpack">
-    projectInformation?: XOR<ProjectInformationNullableScalarRelationFilter, ProjectInformationWhereInput> | null
-    documentInformation?: XOR<DocumentInformationNullableScalarRelationFilter, DocumentInformationWhereInput> | null
-    siteInformation?: XOR<SiteInformationNullableScalarRelationFilter, SiteInformationWhereInput> | null
-    unitsInformation?: XOR<UnitsInformationNullableScalarRelationFilter, UnitsInformationWhereInput> | null
-    warnings?: DocumentWarningListRelationFilter
-    elementInfo?: ElementInformationListRelationFilter
-  }, "id" | "guid">
+  }, "id">
 
   export type WolfpackOrderByWithAggregationInput = {
     id?: SortOrder
     documentName?: SortOrder
-    documentSessionId?: SortOrder
-    documentCreationId?: SortOrder
-    changedElements?: SortOrder
     fileOrigin?: SortOrder
+    documentVersion?: SortOrder
     wasCompleted?: SortOrder
     timeTaken?: SortOrder
     createdAt?: SortOrder
@@ -11465,10 +3865,8 @@ export namespace Prisma {
     NOT?: WolfpackScalarWhereWithAggregatesInput | WolfpackScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Wolfpack"> | number
     documentName?: StringWithAggregatesFilter<"Wolfpack"> | string
-    documentSessionId?: StringWithAggregatesFilter<"Wolfpack"> | string
-    documentCreationId?: StringWithAggregatesFilter<"Wolfpack"> | string
-    changedElements?: BigIntNullableListFilter<"Wolfpack">
     fileOrigin?: StringWithAggregatesFilter<"Wolfpack"> | string
+    documentVersion?: StringWithAggregatesFilter<"Wolfpack"> | string
     wasCompleted?: BoolWithAggregatesFilter<"Wolfpack"> | boolean
     timeTaken?: FloatWithAggregatesFilter<"Wolfpack"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Wolfpack"> | Date | string
@@ -11478,584 +3876,239 @@ export namespace Prisma {
     results?: JsonNullableWithAggregatesFilter<"Wolfpack">
   }
 
-  export type ProjectInformationWhereInput = {
-    AND?: ProjectInformationWhereInput | ProjectInformationWhereInput[]
-    OR?: ProjectInformationWhereInput[]
-    NOT?: ProjectInformationWhereInput | ProjectInformationWhereInput[]
-    id?: IntFilter<"ProjectInformation"> | number
-    projectId?: StringFilter<"ProjectInformation"> | string
-    projectName?: StringFilter<"ProjectInformation"> | string
-    client?: StringFilter<"ProjectInformation"> | string
-    address?: StringFilter<"ProjectInformation"> | string
-    author?: StringFilter<"ProjectInformation"> | string
-    buildingName?: StringFilter<"ProjectInformation"> | string
-    issueDate?: StringFilter<"ProjectInformation"> | string
-    location?: StringFilter<"ProjectInformation"> | string
-    projectNumber?: StringFilter<"ProjectInformation"> | string
-    organizationDescription?: StringFilter<"ProjectInformation"> | string
-    organizationName?: StringFilter<"ProjectInformation"> | string
-    status?: StringFilter<"ProjectInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
+  export type DocumentRecordWhereInput = {
+    AND?: DocumentRecordWhereInput | DocumentRecordWhereInput[]
+    OR?: DocumentRecordWhereInput[]
+    NOT?: DocumentRecordWhereInput | DocumentRecordWhereInput[]
+    id?: IntFilter<"DocumentRecord"> | number
+    documentRecordUniqueId?: StringFilter<"DocumentRecord"> | string
+    parentWolfpackUniqueId?: StringFilter<"DocumentRecord"> | string
+    documentCreationId?: StringNullableFilter<"DocumentRecord"> | string | null
+    documentSaveId?: StringNullableFilter<"DocumentRecord"> | string | null
+    documentSaveCount?: IntNullableFilter<"DocumentRecord"> | number | null
+    documentLastSaveDateTime?: DateTimeFilter<"DocumentRecord"> | Date | string
+    parentDocumentEpisodeUniqueId?: StringFilter<"DocumentRecord"> | string
+    documentName?: StringNullableFilter<"DocumentRecord"> | string | null
+    documentPath?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectClient?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectAddress?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectAuthor?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectBuildingName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectIssueDate?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectLocation?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectNumber?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectOrganizationDescription?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectOrganizationName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectStatus?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectPlaceName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectElevation?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectLatitude?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectLongitude?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectTimeZone?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectGeoCoordinateSystemId?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectGeoCoordinateSystemDefinition?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecLength?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecArea?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecCurrency?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecNumber?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecRotationAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSheetLength?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSiteAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSlope?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSpeed?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecTime?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecVolume?: StringNullableFilter<"DocumentRecord"> | string | null
   }
 
-  export type ProjectInformationOrderByWithRelationInput = {
+  export type DocumentRecordOrderByWithRelationInput = {
     id?: SortOrder
-    projectId?: SortOrder
-    projectName?: SortOrder
-    client?: SortOrder
-    address?: SortOrder
-    author?: SortOrder
-    buildingName?: SortOrder
-    issueDate?: SortOrder
-    location?: SortOrder
-    projectNumber?: SortOrder
-    organizationDescription?: SortOrder
-    organizationName?: SortOrder
-    status?: SortOrder
-    document?: WolfpackOrderByWithRelationInput
+    documentRecordUniqueId?: SortOrder
+    parentWolfpackUniqueId?: SortOrder
+    documentCreationId?: SortOrderInput | SortOrder
+    documentSaveId?: SortOrderInput | SortOrder
+    documentSaveCount?: SortOrderInput | SortOrder
+    documentLastSaveDateTime?: SortOrder
+    parentDocumentEpisodeUniqueId?: SortOrder
+    documentName?: SortOrderInput | SortOrder
+    documentPath?: SortOrderInput | SortOrder
+    projectName?: SortOrderInput | SortOrder
+    projectClient?: SortOrderInput | SortOrder
+    projectAddress?: SortOrderInput | SortOrder
+    projectAuthor?: SortOrderInput | SortOrder
+    projectBuildingName?: SortOrderInput | SortOrder
+    projectIssueDate?: SortOrderInput | SortOrder
+    projectLocation?: SortOrderInput | SortOrder
+    projectNumber?: SortOrderInput | SortOrder
+    projectOrganizationDescription?: SortOrderInput | SortOrder
+    projectOrganizationName?: SortOrderInput | SortOrder
+    projectStatus?: SortOrderInput | SortOrder
+    projectPlaceName?: SortOrderInput | SortOrder
+    projectElevation?: SortOrderInput | SortOrder
+    projectLatitude?: SortOrderInput | SortOrder
+    projectLongitude?: SortOrderInput | SortOrder
+    projectTimeZone?: SortOrderInput | SortOrder
+    projectGeoCoordinateSystemId?: SortOrderInput | SortOrder
+    projectGeoCoordinateSystemDefinition?: SortOrderInput | SortOrder
+    projectSpecLength?: SortOrderInput | SortOrder
+    projectSpecArea?: SortOrderInput | SortOrder
+    projectSpecAngle?: SortOrderInput | SortOrder
+    projectSpecCurrency?: SortOrderInput | SortOrder
+    projectSpecNumber?: SortOrderInput | SortOrder
+    projectSpecRotationAngle?: SortOrderInput | SortOrder
+    projectSpecSheetLength?: SortOrderInput | SortOrder
+    projectSpecSiteAngle?: SortOrderInput | SortOrder
+    projectSpecSlope?: SortOrderInput | SortOrder
+    projectSpecSpeed?: SortOrderInput | SortOrder
+    projectSpecTime?: SortOrderInput | SortOrder
+    projectSpecVolume?: SortOrderInput | SortOrder
   }
 
-  export type ProjectInformationWhereUniqueInput = Prisma.AtLeast<{
+  export type DocumentRecordWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    projectId?: string
-    AND?: ProjectInformationWhereInput | ProjectInformationWhereInput[]
-    OR?: ProjectInformationWhereInput[]
-    NOT?: ProjectInformationWhereInput | ProjectInformationWhereInput[]
-    projectName?: StringFilter<"ProjectInformation"> | string
-    client?: StringFilter<"ProjectInformation"> | string
-    address?: StringFilter<"ProjectInformation"> | string
-    author?: StringFilter<"ProjectInformation"> | string
-    buildingName?: StringFilter<"ProjectInformation"> | string
-    issueDate?: StringFilter<"ProjectInformation"> | string
-    location?: StringFilter<"ProjectInformation"> | string
-    projectNumber?: StringFilter<"ProjectInformation"> | string
-    organizationDescription?: StringFilter<"ProjectInformation"> | string
-    organizationName?: StringFilter<"ProjectInformation"> | string
-    status?: StringFilter<"ProjectInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }, "id" | "projectId">
+    documentRecordUniqueId?: string
+    parentWolfpackUniqueId?: string
+    documentSaveId?: string
+    AND?: DocumentRecordWhereInput | DocumentRecordWhereInput[]
+    OR?: DocumentRecordWhereInput[]
+    NOT?: DocumentRecordWhereInput | DocumentRecordWhereInput[]
+    documentCreationId?: StringNullableFilter<"DocumentRecord"> | string | null
+    documentSaveCount?: IntNullableFilter<"DocumentRecord"> | number | null
+    documentLastSaveDateTime?: DateTimeFilter<"DocumentRecord"> | Date | string
+    parentDocumentEpisodeUniqueId?: StringFilter<"DocumentRecord"> | string
+    documentName?: StringNullableFilter<"DocumentRecord"> | string | null
+    documentPath?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectClient?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectAddress?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectAuthor?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectBuildingName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectIssueDate?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectLocation?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectNumber?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectOrganizationDescription?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectOrganizationName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectStatus?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectPlaceName?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectElevation?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectLatitude?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectLongitude?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectTimeZone?: BigIntNullableFilter<"DocumentRecord"> | bigint | number | null
+    projectGeoCoordinateSystemId?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectGeoCoordinateSystemDefinition?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecLength?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecArea?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecCurrency?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecNumber?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecRotationAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSheetLength?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSiteAngle?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSlope?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecSpeed?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecTime?: StringNullableFilter<"DocumentRecord"> | string | null
+    projectSpecVolume?: StringNullableFilter<"DocumentRecord"> | string | null
+  }, "id" | "documentRecordUniqueId" | "parentWolfpackUniqueId" | "documentSaveId">
 
-  export type ProjectInformationOrderByWithAggregationInput = {
+  export type DocumentRecordOrderByWithAggregationInput = {
     id?: SortOrder
-    projectId?: SortOrder
-    projectName?: SortOrder
-    client?: SortOrder
-    address?: SortOrder
-    author?: SortOrder
-    buildingName?: SortOrder
-    issueDate?: SortOrder
-    location?: SortOrder
-    projectNumber?: SortOrder
-    organizationDescription?: SortOrder
-    organizationName?: SortOrder
-    status?: SortOrder
-    _count?: ProjectInformationCountOrderByAggregateInput
-    _avg?: ProjectInformationAvgOrderByAggregateInput
-    _max?: ProjectInformationMaxOrderByAggregateInput
-    _min?: ProjectInformationMinOrderByAggregateInput
-    _sum?: ProjectInformationSumOrderByAggregateInput
+    documentRecordUniqueId?: SortOrder
+    parentWolfpackUniqueId?: SortOrder
+    documentCreationId?: SortOrderInput | SortOrder
+    documentSaveId?: SortOrderInput | SortOrder
+    documentSaveCount?: SortOrderInput | SortOrder
+    documentLastSaveDateTime?: SortOrder
+    parentDocumentEpisodeUniqueId?: SortOrder
+    documentName?: SortOrderInput | SortOrder
+    documentPath?: SortOrderInput | SortOrder
+    projectName?: SortOrderInput | SortOrder
+    projectClient?: SortOrderInput | SortOrder
+    projectAddress?: SortOrderInput | SortOrder
+    projectAuthor?: SortOrderInput | SortOrder
+    projectBuildingName?: SortOrderInput | SortOrder
+    projectIssueDate?: SortOrderInput | SortOrder
+    projectLocation?: SortOrderInput | SortOrder
+    projectNumber?: SortOrderInput | SortOrder
+    projectOrganizationDescription?: SortOrderInput | SortOrder
+    projectOrganizationName?: SortOrderInput | SortOrder
+    projectStatus?: SortOrderInput | SortOrder
+    projectPlaceName?: SortOrderInput | SortOrder
+    projectElevation?: SortOrderInput | SortOrder
+    projectLatitude?: SortOrderInput | SortOrder
+    projectLongitude?: SortOrderInput | SortOrder
+    projectTimeZone?: SortOrderInput | SortOrder
+    projectGeoCoordinateSystemId?: SortOrderInput | SortOrder
+    projectGeoCoordinateSystemDefinition?: SortOrderInput | SortOrder
+    projectSpecLength?: SortOrderInput | SortOrder
+    projectSpecArea?: SortOrderInput | SortOrder
+    projectSpecAngle?: SortOrderInput | SortOrder
+    projectSpecCurrency?: SortOrderInput | SortOrder
+    projectSpecNumber?: SortOrderInput | SortOrder
+    projectSpecRotationAngle?: SortOrderInput | SortOrder
+    projectSpecSheetLength?: SortOrderInput | SortOrder
+    projectSpecSiteAngle?: SortOrderInput | SortOrder
+    projectSpecSlope?: SortOrderInput | SortOrder
+    projectSpecSpeed?: SortOrderInput | SortOrder
+    projectSpecTime?: SortOrderInput | SortOrder
+    projectSpecVolume?: SortOrderInput | SortOrder
+    _count?: DocumentRecordCountOrderByAggregateInput
+    _avg?: DocumentRecordAvgOrderByAggregateInput
+    _max?: DocumentRecordMaxOrderByAggregateInput
+    _min?: DocumentRecordMinOrderByAggregateInput
+    _sum?: DocumentRecordSumOrderByAggregateInput
   }
 
-  export type ProjectInformationScalarWhereWithAggregatesInput = {
-    AND?: ProjectInformationScalarWhereWithAggregatesInput | ProjectInformationScalarWhereWithAggregatesInput[]
-    OR?: ProjectInformationScalarWhereWithAggregatesInput[]
-    NOT?: ProjectInformationScalarWhereWithAggregatesInput | ProjectInformationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ProjectInformation"> | number
-    projectId?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    projectName?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    client?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    address?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    author?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    buildingName?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    issueDate?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    location?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    projectNumber?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    organizationDescription?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    organizationName?: StringWithAggregatesFilter<"ProjectInformation"> | string
-    status?: StringWithAggregatesFilter<"ProjectInformation"> | string
-  }
-
-  export type ElementInformationWhereInput = {
-    AND?: ElementInformationWhereInput | ElementInformationWhereInput[]
-    OR?: ElementInformationWhereInput[]
-    NOT?: ElementInformationWhereInput | ElementInformationWhereInput[]
-    id?: IntFilter<"ElementInformation"> | number
-    uniqueElementId?: StringFilter<"ElementInformation"> | string
-    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
-    elementVersionId?: StringFilter<"ElementInformation"> | string
-    familyName?: StringFilter<"ElementInformation"> | string
-    builtInCategory?: StringFilter<"ElementInformation"> | string
-    name?: StringFilter<"ElementInformation"> | string
-    wolfpackId?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-    Parameters?: ParametersListRelationFilter
-  }
-
-  export type ElementInformationOrderByWithRelationInput = {
-    id?: SortOrder
-    uniqueElementId?: SortOrder
-    idValue?: SortOrder
-    elementVersionId?: SortOrder
-    familyName?: SortOrder
-    builtInCategory?: SortOrder
-    name?: SortOrder
-    wolfpackId?: WolfpackOrderByWithRelationInput
-    Parameters?: ParametersOrderByRelationAggregateInput
-  }
-
-  export type ElementInformationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    uniqueElementId?: string
-    AND?: ElementInformationWhereInput | ElementInformationWhereInput[]
-    OR?: ElementInformationWhereInput[]
-    NOT?: ElementInformationWhereInput | ElementInformationWhereInput[]
-    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
-    elementVersionId?: StringFilter<"ElementInformation"> | string
-    familyName?: StringFilter<"ElementInformation"> | string
-    builtInCategory?: StringFilter<"ElementInformation"> | string
-    name?: StringFilter<"ElementInformation"> | string
-    wolfpackId?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-    Parameters?: ParametersListRelationFilter
-  }, "id" | "uniqueElementId">
-
-  export type ElementInformationOrderByWithAggregationInput = {
-    id?: SortOrder
-    uniqueElementId?: SortOrder
-    idValue?: SortOrder
-    elementVersionId?: SortOrder
-    familyName?: SortOrder
-    builtInCategory?: SortOrder
-    name?: SortOrder
-    _count?: ElementInformationCountOrderByAggregateInput
-    _avg?: ElementInformationAvgOrderByAggregateInput
-    _max?: ElementInformationMaxOrderByAggregateInput
-    _min?: ElementInformationMinOrderByAggregateInput
-    _sum?: ElementInformationSumOrderByAggregateInput
-  }
-
-  export type ElementInformationScalarWhereWithAggregatesInput = {
-    AND?: ElementInformationScalarWhereWithAggregatesInput | ElementInformationScalarWhereWithAggregatesInput[]
-    OR?: ElementInformationScalarWhereWithAggregatesInput[]
-    NOT?: ElementInformationScalarWhereWithAggregatesInput | ElementInformationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"ElementInformation"> | number
-    uniqueElementId?: StringWithAggregatesFilter<"ElementInformation"> | string
-    idValue?: BigIntWithAggregatesFilter<"ElementInformation"> | bigint | number
-    elementVersionId?: StringWithAggregatesFilter<"ElementInformation"> | string
-    familyName?: StringWithAggregatesFilter<"ElementInformation"> | string
-    builtInCategory?: StringWithAggregatesFilter<"ElementInformation"> | string
-    name?: StringWithAggregatesFilter<"ElementInformation"> | string
-  }
-
-  export type ParametersWhereInput = {
-    AND?: ParametersWhereInput | ParametersWhereInput[]
-    OR?: ParametersWhereInput[]
-    NOT?: ParametersWhereInput | ParametersWhereInput[]
-    id?: IntFilter<"Parameters"> | number
-    createdAt?: DateTimeFilter<"Parameters"> | Date | string
-    parameterGuid?: StringFilter<"Parameters"> | string
-    documentOwner?: StringFilter<"Parameters"> | string
-    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
-    name?: StringFilter<"Parameters"> | string
-    value?: StringFilter<"Parameters"> | string
-    isReadOnly?: BoolFilter<"Parameters"> | boolean
-    typeId?: StringFilter<"Parameters"> | string
-    dataType?: StringFilter<"Parameters"> | string
-    groupTypeId?: StringFilter<"Parameters"> | string
-    hasValue?: BoolFilter<"Parameters"> | boolean
-    isShared?: BoolFilter<"Parameters"> | boolean
-    isUserModifiable?: BoolFilter<"Parameters"> | boolean
-    sharedParameterGuid?: StringFilter<"Parameters"> | string
-    parentElementInfo?: XOR<ElementInformationScalarRelationFilter, ElementInformationWhereInput>
-  }
-
-  export type ParametersOrderByWithRelationInput = {
-    id?: SortOrder
-    createdAt?: SortOrder
-    parameterGuid?: SortOrder
-    documentOwner?: SortOrder
-    storageType?: SortOrder
-    name?: SortOrder
-    value?: SortOrder
-    isReadOnly?: SortOrder
-    typeId?: SortOrder
-    dataType?: SortOrder
-    groupTypeId?: SortOrder
-    hasValue?: SortOrder
-    isShared?: SortOrder
-    isUserModifiable?: SortOrder
-    sharedParameterGuid?: SortOrder
-    parentElementInfo?: ElementInformationOrderByWithRelationInput
-  }
-
-  export type ParametersWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    parameterGuid?: string
-    AND?: ParametersWhereInput | ParametersWhereInput[]
-    OR?: ParametersWhereInput[]
-    NOT?: ParametersWhereInput | ParametersWhereInput[]
-    createdAt?: DateTimeFilter<"Parameters"> | Date | string
-    documentOwner?: StringFilter<"Parameters"> | string
-    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
-    name?: StringFilter<"Parameters"> | string
-    value?: StringFilter<"Parameters"> | string
-    isReadOnly?: BoolFilter<"Parameters"> | boolean
-    typeId?: StringFilter<"Parameters"> | string
-    dataType?: StringFilter<"Parameters"> | string
-    groupTypeId?: StringFilter<"Parameters"> | string
-    hasValue?: BoolFilter<"Parameters"> | boolean
-    isShared?: BoolFilter<"Parameters"> | boolean
-    isUserModifiable?: BoolFilter<"Parameters"> | boolean
-    sharedParameterGuid?: StringFilter<"Parameters"> | string
-    parentElementInfo?: XOR<ElementInformationScalarRelationFilter, ElementInformationWhereInput>
-  }, "id" | "parameterGuid">
-
-  export type ParametersOrderByWithAggregationInput = {
-    id?: SortOrder
-    createdAt?: SortOrder
-    parameterGuid?: SortOrder
-    documentOwner?: SortOrder
-    storageType?: SortOrder
-    name?: SortOrder
-    value?: SortOrder
-    isReadOnly?: SortOrder
-    typeId?: SortOrder
-    dataType?: SortOrder
-    groupTypeId?: SortOrder
-    hasValue?: SortOrder
-    isShared?: SortOrder
-    isUserModifiable?: SortOrder
-    sharedParameterGuid?: SortOrder
-    _count?: ParametersCountOrderByAggregateInput
-    _avg?: ParametersAvgOrderByAggregateInput
-    _max?: ParametersMaxOrderByAggregateInput
-    _min?: ParametersMinOrderByAggregateInput
-    _sum?: ParametersSumOrderByAggregateInput
-  }
-
-  export type ParametersScalarWhereWithAggregatesInput = {
-    AND?: ParametersScalarWhereWithAggregatesInput | ParametersScalarWhereWithAggregatesInput[]
-    OR?: ParametersScalarWhereWithAggregatesInput[]
-    NOT?: ParametersScalarWhereWithAggregatesInput | ParametersScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"Parameters"> | number
-    createdAt?: DateTimeWithAggregatesFilter<"Parameters"> | Date | string
-    parameterGuid?: StringWithAggregatesFilter<"Parameters"> | string
-    documentOwner?: StringWithAggregatesFilter<"Parameters"> | string
-    storageType?: EnumStorageTypeWithAggregatesFilter<"Parameters"> | $Enums.StorageType
-    name?: StringWithAggregatesFilter<"Parameters"> | string
-    value?: StringWithAggregatesFilter<"Parameters"> | string
-    isReadOnly?: BoolWithAggregatesFilter<"Parameters"> | boolean
-    typeId?: StringWithAggregatesFilter<"Parameters"> | string
-    dataType?: StringWithAggregatesFilter<"Parameters"> | string
-    groupTypeId?: StringWithAggregatesFilter<"Parameters"> | string
-    hasValue?: BoolWithAggregatesFilter<"Parameters"> | boolean
-    isShared?: BoolWithAggregatesFilter<"Parameters"> | boolean
-    isUserModifiable?: BoolWithAggregatesFilter<"Parameters"> | boolean
-    sharedParameterGuid?: StringWithAggregatesFilter<"Parameters"> | string
-  }
-
-  export type DocumentInformationWhereInput = {
-    AND?: DocumentInformationWhereInput | DocumentInformationWhereInput[]
-    OR?: DocumentInformationWhereInput[]
-    NOT?: DocumentInformationWhereInput | DocumentInformationWhereInput[]
-    id?: IntFilter<"DocumentInformation"> | number
-    documentId?: StringFilter<"DocumentInformation"> | string
-    name?: StringFilter<"DocumentInformation"> | string
-    path?: StringFilter<"DocumentInformation"> | string
-    uuid?: StringFilter<"DocumentInformation"> | string
-    saveCount?: IntFilter<"DocumentInformation"> | number
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }
-
-  export type DocumentInformationOrderByWithRelationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    name?: SortOrder
-    path?: SortOrder
-    uuid?: SortOrder
-    saveCount?: SortOrder
-    document?: WolfpackOrderByWithRelationInput
-  }
-
-  export type DocumentInformationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    documentId?: string
-    AND?: DocumentInformationWhereInput | DocumentInformationWhereInput[]
-    OR?: DocumentInformationWhereInput[]
-    NOT?: DocumentInformationWhereInput | DocumentInformationWhereInput[]
-    name?: StringFilter<"DocumentInformation"> | string
-    path?: StringFilter<"DocumentInformation"> | string
-    uuid?: StringFilter<"DocumentInformation"> | string
-    saveCount?: IntFilter<"DocumentInformation"> | number
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }, "id" | "documentId">
-
-  export type DocumentInformationOrderByWithAggregationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    name?: SortOrder
-    path?: SortOrder
-    uuid?: SortOrder
-    saveCount?: SortOrder
-    _count?: DocumentInformationCountOrderByAggregateInput
-    _avg?: DocumentInformationAvgOrderByAggregateInput
-    _max?: DocumentInformationMaxOrderByAggregateInput
-    _min?: DocumentInformationMinOrderByAggregateInput
-    _sum?: DocumentInformationSumOrderByAggregateInput
-  }
-
-  export type DocumentInformationScalarWhereWithAggregatesInput = {
-    AND?: DocumentInformationScalarWhereWithAggregatesInput | DocumentInformationScalarWhereWithAggregatesInput[]
-    OR?: DocumentInformationScalarWhereWithAggregatesInput[]
-    NOT?: DocumentInformationScalarWhereWithAggregatesInput | DocumentInformationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"DocumentInformation"> | number
-    documentId?: StringWithAggregatesFilter<"DocumentInformation"> | string
-    name?: StringWithAggregatesFilter<"DocumentInformation"> | string
-    path?: StringWithAggregatesFilter<"DocumentInformation"> | string
-    uuid?: StringWithAggregatesFilter<"DocumentInformation"> | string
-    saveCount?: IntWithAggregatesFilter<"DocumentInformation"> | number
-  }
-
-  export type DocumentWarningWhereInput = {
-    AND?: DocumentWarningWhereInput | DocumentWarningWhereInput[]
-    OR?: DocumentWarningWhereInput[]
-    NOT?: DocumentWarningWhereInput | DocumentWarningWhereInput[]
-    id?: IntFilter<"DocumentWarning"> | number
-    documentId?: StringFilter<"DocumentWarning"> | string
-    createdAt?: DateTimeFilter<"DocumentWarning"> | Date | string
-    severity?: StringFilter<"DocumentWarning"> | string
-    message?: StringFilter<"DocumentWarning"> | string
-    failingElementId?: BigIntNullableListFilter<"DocumentWarning">
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }
-
-  export type DocumentWarningOrderByWithRelationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    createdAt?: SortOrder
-    severity?: SortOrder
-    message?: SortOrder
-    failingElementId?: SortOrder
-    document?: WolfpackOrderByWithRelationInput
-  }
-
-  export type DocumentWarningWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    documentId?: string
-    AND?: DocumentWarningWhereInput | DocumentWarningWhereInput[]
-    OR?: DocumentWarningWhereInput[]
-    NOT?: DocumentWarningWhereInput | DocumentWarningWhereInput[]
-    createdAt?: DateTimeFilter<"DocumentWarning"> | Date | string
-    severity?: StringFilter<"DocumentWarning"> | string
-    message?: StringFilter<"DocumentWarning"> | string
-    failingElementId?: BigIntNullableListFilter<"DocumentWarning">
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }, "id" | "documentId">
-
-  export type DocumentWarningOrderByWithAggregationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    createdAt?: SortOrder
-    severity?: SortOrder
-    message?: SortOrder
-    failingElementId?: SortOrder
-    _count?: DocumentWarningCountOrderByAggregateInput
-    _avg?: DocumentWarningAvgOrderByAggregateInput
-    _max?: DocumentWarningMaxOrderByAggregateInput
-    _min?: DocumentWarningMinOrderByAggregateInput
-    _sum?: DocumentWarningSumOrderByAggregateInput
-  }
-
-  export type DocumentWarningScalarWhereWithAggregatesInput = {
-    AND?: DocumentWarningScalarWhereWithAggregatesInput | DocumentWarningScalarWhereWithAggregatesInput[]
-    OR?: DocumentWarningScalarWhereWithAggregatesInput[]
-    NOT?: DocumentWarningScalarWhereWithAggregatesInput | DocumentWarningScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"DocumentWarning"> | number
-    documentId?: StringWithAggregatesFilter<"DocumentWarning"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"DocumentWarning"> | Date | string
-    severity?: StringWithAggregatesFilter<"DocumentWarning"> | string
-    message?: StringWithAggregatesFilter<"DocumentWarning"> | string
-    failingElementId?: BigIntNullableListFilter<"DocumentWarning">
-  }
-
-  export type SiteInformationWhereInput = {
-    AND?: SiteInformationWhereInput | SiteInformationWhereInput[]
-    OR?: SiteInformationWhereInput[]
-    NOT?: SiteInformationWhereInput | SiteInformationWhereInput[]
-    id?: IntFilter<"SiteInformation"> | number
-    documentId?: StringFilter<"SiteInformation"> | string
-    placeName?: StringFilter<"SiteInformation"> | string
-    elevation?: BigIntFilter<"SiteInformation"> | bigint | number
-    latitude?: BigIntFilter<"SiteInformation"> | bigint | number
-    longitude?: BigIntFilter<"SiteInformation"> | bigint | number
-    timeZone?: BigIntFilter<"SiteInformation"> | bigint | number
-    coordinateSystemId?: StringFilter<"SiteInformation"> | string
-    coordinateSystemDefinition?: StringFilter<"SiteInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }
-
-  export type SiteInformationOrderByWithRelationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    placeName?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-    coordinateSystemId?: SortOrder
-    coordinateSystemDefinition?: SortOrder
-    document?: WolfpackOrderByWithRelationInput
-  }
-
-  export type SiteInformationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    documentId?: string
-    AND?: SiteInformationWhereInput | SiteInformationWhereInput[]
-    OR?: SiteInformationWhereInput[]
-    NOT?: SiteInformationWhereInput | SiteInformationWhereInput[]
-    placeName?: StringFilter<"SiteInformation"> | string
-    elevation?: BigIntFilter<"SiteInformation"> | bigint | number
-    latitude?: BigIntFilter<"SiteInformation"> | bigint | number
-    longitude?: BigIntFilter<"SiteInformation"> | bigint | number
-    timeZone?: BigIntFilter<"SiteInformation"> | bigint | number
-    coordinateSystemId?: StringFilter<"SiteInformation"> | string
-    coordinateSystemDefinition?: StringFilter<"SiteInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }, "id" | "documentId">
-
-  export type SiteInformationOrderByWithAggregationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    placeName?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-    coordinateSystemId?: SortOrder
-    coordinateSystemDefinition?: SortOrder
-    _count?: SiteInformationCountOrderByAggregateInput
-    _avg?: SiteInformationAvgOrderByAggregateInput
-    _max?: SiteInformationMaxOrderByAggregateInput
-    _min?: SiteInformationMinOrderByAggregateInput
-    _sum?: SiteInformationSumOrderByAggregateInput
-  }
-
-  export type SiteInformationScalarWhereWithAggregatesInput = {
-    AND?: SiteInformationScalarWhereWithAggregatesInput | SiteInformationScalarWhereWithAggregatesInput[]
-    OR?: SiteInformationScalarWhereWithAggregatesInput[]
-    NOT?: SiteInformationScalarWhereWithAggregatesInput | SiteInformationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"SiteInformation"> | number
-    documentId?: StringWithAggregatesFilter<"SiteInformation"> | string
-    placeName?: StringWithAggregatesFilter<"SiteInformation"> | string
-    elevation?: BigIntWithAggregatesFilter<"SiteInformation"> | bigint | number
-    latitude?: BigIntWithAggregatesFilter<"SiteInformation"> | bigint | number
-    longitude?: BigIntWithAggregatesFilter<"SiteInformation"> | bigint | number
-    timeZone?: BigIntWithAggregatesFilter<"SiteInformation"> | bigint | number
-    coordinateSystemId?: StringWithAggregatesFilter<"SiteInformation"> | string
-    coordinateSystemDefinition?: StringWithAggregatesFilter<"SiteInformation"> | string
-  }
-
-  export type UnitsInformationWhereInput = {
-    AND?: UnitsInformationWhereInput | UnitsInformationWhereInput[]
-    OR?: UnitsInformationWhereInput[]
-    NOT?: UnitsInformationWhereInput | UnitsInformationWhereInput[]
-    id?: IntFilter<"UnitsInformation"> | number
-    documentId?: StringFilter<"UnitsInformation"> | string
-    lengthUnits?: StringFilter<"UnitsInformation"> | string
-    areaUnits?: StringFilter<"UnitsInformation"> | string
-    angle?: StringFilter<"UnitsInformation"> | string
-    currency?: StringFilter<"UnitsInformation"> | string
-    number?: StringFilter<"UnitsInformation"> | string
-    rotationAngle?: StringFilter<"UnitsInformation"> | string
-    sheetLength?: StringFilter<"UnitsInformation"> | string
-    slope?: StringFilter<"UnitsInformation"> | string
-    speed?: StringFilter<"UnitsInformation"> | string
-    time?: StringFilter<"UnitsInformation"> | string
-    volume?: StringFilter<"UnitsInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }
-
-  export type UnitsInformationOrderByWithRelationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    lengthUnits?: SortOrder
-    areaUnits?: SortOrder
-    angle?: SortOrder
-    currency?: SortOrder
-    number?: SortOrder
-    rotationAngle?: SortOrder
-    sheetLength?: SortOrder
-    slope?: SortOrder
-    speed?: SortOrder
-    time?: SortOrder
-    volume?: SortOrder
-    document?: WolfpackOrderByWithRelationInput
-  }
-
-  export type UnitsInformationWhereUniqueInput = Prisma.AtLeast<{
-    id?: number
-    documentId?: string
-    AND?: UnitsInformationWhereInput | UnitsInformationWhereInput[]
-    OR?: UnitsInformationWhereInput[]
-    NOT?: UnitsInformationWhereInput | UnitsInformationWhereInput[]
-    lengthUnits?: StringFilter<"UnitsInformation"> | string
-    areaUnits?: StringFilter<"UnitsInformation"> | string
-    angle?: StringFilter<"UnitsInformation"> | string
-    currency?: StringFilter<"UnitsInformation"> | string
-    number?: StringFilter<"UnitsInformation"> | string
-    rotationAngle?: StringFilter<"UnitsInformation"> | string
-    sheetLength?: StringFilter<"UnitsInformation"> | string
-    slope?: StringFilter<"UnitsInformation"> | string
-    speed?: StringFilter<"UnitsInformation"> | string
-    time?: StringFilter<"UnitsInformation"> | string
-    volume?: StringFilter<"UnitsInformation"> | string
-    document?: XOR<WolfpackScalarRelationFilter, WolfpackWhereInput>
-  }, "id" | "documentId">
-
-  export type UnitsInformationOrderByWithAggregationInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    lengthUnits?: SortOrder
-    areaUnits?: SortOrder
-    angle?: SortOrder
-    currency?: SortOrder
-    number?: SortOrder
-    rotationAngle?: SortOrder
-    sheetLength?: SortOrder
-    slope?: SortOrder
-    speed?: SortOrder
-    time?: SortOrder
-    volume?: SortOrder
-    _count?: UnitsInformationCountOrderByAggregateInput
-    _avg?: UnitsInformationAvgOrderByAggregateInput
-    _max?: UnitsInformationMaxOrderByAggregateInput
-    _min?: UnitsInformationMinOrderByAggregateInput
-    _sum?: UnitsInformationSumOrderByAggregateInput
-  }
-
-  export type UnitsInformationScalarWhereWithAggregatesInput = {
-    AND?: UnitsInformationScalarWhereWithAggregatesInput | UnitsInformationScalarWhereWithAggregatesInput[]
-    OR?: UnitsInformationScalarWhereWithAggregatesInput[]
-    NOT?: UnitsInformationScalarWhereWithAggregatesInput | UnitsInformationScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"UnitsInformation"> | number
-    documentId?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    lengthUnits?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    areaUnits?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    angle?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    currency?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    number?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    rotationAngle?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    sheetLength?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    slope?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    speed?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    time?: StringWithAggregatesFilter<"UnitsInformation"> | string
-    volume?: StringWithAggregatesFilter<"UnitsInformation"> | string
+  export type DocumentRecordScalarWhereWithAggregatesInput = {
+    AND?: DocumentRecordScalarWhereWithAggregatesInput | DocumentRecordScalarWhereWithAggregatesInput[]
+    OR?: DocumentRecordScalarWhereWithAggregatesInput[]
+    NOT?: DocumentRecordScalarWhereWithAggregatesInput | DocumentRecordScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DocumentRecord"> | number
+    documentRecordUniqueId?: StringWithAggregatesFilter<"DocumentRecord"> | string
+    parentWolfpackUniqueId?: StringWithAggregatesFilter<"DocumentRecord"> | string
+    documentCreationId?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    documentSaveId?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    documentSaveCount?: IntNullableWithAggregatesFilter<"DocumentRecord"> | number | null
+    documentLastSaveDateTime?: DateTimeWithAggregatesFilter<"DocumentRecord"> | Date | string
+    parentDocumentEpisodeUniqueId?: StringWithAggregatesFilter<"DocumentRecord"> | string
+    documentName?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    documentPath?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectName?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectClient?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectAddress?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectAuthor?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectBuildingName?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectIssueDate?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectLocation?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectNumber?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectOrganizationDescription?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectOrganizationName?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectStatus?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectPlaceName?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectElevation?: BigIntNullableWithAggregatesFilter<"DocumentRecord"> | bigint | number | null
+    projectLatitude?: BigIntNullableWithAggregatesFilter<"DocumentRecord"> | bigint | number | null
+    projectLongitude?: BigIntNullableWithAggregatesFilter<"DocumentRecord"> | bigint | number | null
+    projectTimeZone?: BigIntNullableWithAggregatesFilter<"DocumentRecord"> | bigint | number | null
+    projectGeoCoordinateSystemId?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectGeoCoordinateSystemDefinition?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecLength?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecArea?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecAngle?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecCurrency?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecNumber?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecRotationAngle?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecSheetLength?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecSiteAngle?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecSlope?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecSpeed?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecTime?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
+    projectSpecVolume?: StringNullableWithAggregatesFilter<"DocumentRecord"> | string | null
   }
 
   export type WolfpackCreateInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
+    documentName: string
     fileOrigin: string
+    documentVersion: string
     wasCompleted?: boolean
     timeTaken?: number
     createdAt?: Date | string
@@ -12063,21 +4116,13 @@ export namespace Prisma {
     resultCount?: number
     testName: string
     results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
   }
 
   export type WolfpackUncheckedCreateInput = {
     id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
+    documentName: string
     fileOrigin: string
+    documentVersion: string
     wasCompleted?: boolean
     timeTaken?: number
     createdAt?: Date | string
@@ -12085,20 +4130,12 @@ export namespace Prisma {
     resultCount?: number
     testName: string
     results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
   }
 
   export type WolfpackUpdateInput = {
     documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
     fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
     wasCompleted?: BoolFieldUpdateOperationsInput | boolean
     timeTaken?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12106,21 +4143,13 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
   }
 
   export type WolfpackUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
     fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
     wasCompleted?: BoolFieldUpdateOperationsInput | boolean
     timeTaken?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12128,21 +4157,13 @@ export namespace Prisma {
     resultCount?: IntFieldUpdateOperationsInput | number
     testName?: StringFieldUpdateOperationsInput | string
     results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
   }
 
   export type WolfpackCreateManyInput = {
     id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
+    documentName: string
     fileOrigin: string
+    documentVersion: string
     wasCompleted?: boolean
     timeTaken?: number
     createdAt?: Date | string
@@ -12154,10 +4175,8 @@ export namespace Prisma {
 
   export type WolfpackUpdateManyMutationInput = {
     documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
     fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
     wasCompleted?: BoolFieldUpdateOperationsInput | boolean
     timeTaken?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12170,10 +4189,8 @@ export namespace Prisma {
   export type WolfpackUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
     fileOrigin?: StringFieldUpdateOperationsInput | string
+    documentVersion?: StringFieldUpdateOperationsInput | string
     wasCompleted?: BoolFieldUpdateOperationsInput | boolean
     timeTaken?: FloatFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12183,610 +4200,303 @@ export namespace Prisma {
     results?: NullableJsonNullValueInput | InputJsonValue
   }
 
-  export type ProjectInformationCreateInput = {
-    projectName?: string
-    client?: string
-    address?: string
-    author?: string
-    buildingName?: string
-    issueDate?: string
-    location?: string
-    projectNumber?: string
-    organizationDescription?: string
-    organizationName?: string
-    status?: string
-    document: WolfpackCreateNestedOneWithoutProjectInformationInput
-  }
-
-  export type ProjectInformationUncheckedCreateInput = {
+  export type DocumentRecordCreateInput = {
     id?: number
-    projectId: string
-    projectName?: string
-    client?: string
-    address?: string
-    author?: string
-    buildingName?: string
-    issueDate?: string
-    location?: string
-    projectNumber?: string
-    organizationDescription?: string
-    organizationName?: string
-    status?: string
+    documentRecordUniqueId: string
+    parentWolfpackUniqueId: string
+    documentCreationId?: string | null
+    documentSaveId?: string | null
+    documentSaveCount?: number | null
+    documentLastSaveDateTime?: Date | string
+    parentDocumentEpisodeUniqueId: string
+    documentName?: string | null
+    documentPath?: string | null
+    projectName?: string | null
+    projectClient?: string | null
+    projectAddress?: string | null
+    projectAuthor?: string | null
+    projectBuildingName?: string | null
+    projectIssueDate?: string | null
+    projectLocation?: string | null
+    projectNumber?: string | null
+    projectOrganizationDescription?: string | null
+    projectOrganizationName?: string | null
+    projectStatus?: string | null
+    projectPlaceName?: string | null
+    projectElevation?: bigint | number | null
+    projectLatitude?: bigint | number | null
+    projectLongitude?: bigint | number | null
+    projectTimeZone?: bigint | number | null
+    projectGeoCoordinateSystemId?: string | null
+    projectGeoCoordinateSystemDefinition?: string | null
+    projectSpecLength?: string | null
+    projectSpecArea?: string | null
+    projectSpecAngle?: string | null
+    projectSpecCurrency?: string | null
+    projectSpecNumber?: string | null
+    projectSpecRotationAngle?: string | null
+    projectSpecSheetLength?: string | null
+    projectSpecSiteAngle?: string | null
+    projectSpecSlope?: string | null
+    projectSpecSpeed?: string | null
+    projectSpecTime?: string | null
+    projectSpecVolume?: string | null
   }
 
-  export type ProjectInformationUpdateInput = {
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    document?: WolfpackUpdateOneRequiredWithoutProjectInformationNestedInput
-  }
-
-  export type ProjectInformationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    projectId?: StringFieldUpdateOperationsInput | string
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ProjectInformationCreateManyInput = {
+  export type DocumentRecordUncheckedCreateInput = {
     id?: number
-    projectId: string
-    projectName?: string
-    client?: string
-    address?: string
-    author?: string
-    buildingName?: string
-    issueDate?: string
-    location?: string
-    projectNumber?: string
-    organizationDescription?: string
-    organizationName?: string
-    status?: string
+    documentRecordUniqueId: string
+    parentWolfpackUniqueId: string
+    documentCreationId?: string | null
+    documentSaveId?: string | null
+    documentSaveCount?: number | null
+    documentLastSaveDateTime?: Date | string
+    parentDocumentEpisodeUniqueId: string
+    documentName?: string | null
+    documentPath?: string | null
+    projectName?: string | null
+    projectClient?: string | null
+    projectAddress?: string | null
+    projectAuthor?: string | null
+    projectBuildingName?: string | null
+    projectIssueDate?: string | null
+    projectLocation?: string | null
+    projectNumber?: string | null
+    projectOrganizationDescription?: string | null
+    projectOrganizationName?: string | null
+    projectStatus?: string | null
+    projectPlaceName?: string | null
+    projectElevation?: bigint | number | null
+    projectLatitude?: bigint | number | null
+    projectLongitude?: bigint | number | null
+    projectTimeZone?: bigint | number | null
+    projectGeoCoordinateSystemId?: string | null
+    projectGeoCoordinateSystemDefinition?: string | null
+    projectSpecLength?: string | null
+    projectSpecArea?: string | null
+    projectSpecAngle?: string | null
+    projectSpecCurrency?: string | null
+    projectSpecNumber?: string | null
+    projectSpecRotationAngle?: string | null
+    projectSpecSheetLength?: string | null
+    projectSpecSiteAngle?: string | null
+    projectSpecSlope?: string | null
+    projectSpecSpeed?: string | null
+    projectSpecTime?: string | null
+    projectSpecVolume?: string | null
   }
 
-  export type ProjectInformationUpdateManyMutationInput = {
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
+  export type DocumentRecordUpdateInput = {
+    documentRecordUniqueId?: StringFieldUpdateOperationsInput | string
+    parentWolfpackUniqueId?: StringFieldUpdateOperationsInput | string
+    documentCreationId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveCount?: NullableIntFieldUpdateOperationsInput | number | null
+    documentLastSaveDateTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    parentDocumentEpisodeUniqueId?: StringFieldUpdateOperationsInput | string
+    documentName?: NullableStringFieldUpdateOperationsInput | string | null
+    documentPath?: NullableStringFieldUpdateOperationsInput | string | null
+    projectName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectClient?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAuthor?: NullableStringFieldUpdateOperationsInput | string | null
+    projectBuildingName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectIssueDate?: NullableStringFieldUpdateOperationsInput | string | null
+    projectLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    projectNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    projectPlaceName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectElevation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLatitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLongitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectTimeZone?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectGeoCoordinateSystemId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectGeoCoordinateSystemDefinition?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecArea?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecCurrency?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecRotationAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSheetLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSiteAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSlope?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSpeed?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecTime?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecVolume?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ProjectInformationUncheckedUpdateManyInput = {
+  export type DocumentRecordUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    projectId?: StringFieldUpdateOperationsInput | string
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
+    documentRecordUniqueId?: StringFieldUpdateOperationsInput | string
+    parentWolfpackUniqueId?: StringFieldUpdateOperationsInput | string
+    documentCreationId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveCount?: NullableIntFieldUpdateOperationsInput | number | null
+    documentLastSaveDateTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    parentDocumentEpisodeUniqueId?: StringFieldUpdateOperationsInput | string
+    documentName?: NullableStringFieldUpdateOperationsInput | string | null
+    documentPath?: NullableStringFieldUpdateOperationsInput | string | null
+    projectName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectClient?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAuthor?: NullableStringFieldUpdateOperationsInput | string | null
+    projectBuildingName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectIssueDate?: NullableStringFieldUpdateOperationsInput | string | null
+    projectLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    projectNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    projectPlaceName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectElevation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLatitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLongitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectTimeZone?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectGeoCoordinateSystemId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectGeoCoordinateSystemDefinition?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecArea?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecCurrency?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecRotationAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSheetLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSiteAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSlope?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSpeed?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecTime?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecVolume?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ElementInformationCreateInput = {
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-    wolfpackId: WolfpackCreateNestedOneWithoutElementInfoInput
-    Parameters?: ParametersCreateNestedManyWithoutParentElementInfoInput
-  }
-
-  export type ElementInformationUncheckedCreateInput = {
+  export type DocumentRecordCreateManyInput = {
     id?: number
-    uniqueElementId: string
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput
+    documentRecordUniqueId: string
+    parentWolfpackUniqueId: string
+    documentCreationId?: string | null
+    documentSaveId?: string | null
+    documentSaveCount?: number | null
+    documentLastSaveDateTime?: Date | string
+    parentDocumentEpisodeUniqueId: string
+    documentName?: string | null
+    documentPath?: string | null
+    projectName?: string | null
+    projectClient?: string | null
+    projectAddress?: string | null
+    projectAuthor?: string | null
+    projectBuildingName?: string | null
+    projectIssueDate?: string | null
+    projectLocation?: string | null
+    projectNumber?: string | null
+    projectOrganizationDescription?: string | null
+    projectOrganizationName?: string | null
+    projectStatus?: string | null
+    projectPlaceName?: string | null
+    projectElevation?: bigint | number | null
+    projectLatitude?: bigint | number | null
+    projectLongitude?: bigint | number | null
+    projectTimeZone?: bigint | number | null
+    projectGeoCoordinateSystemId?: string | null
+    projectGeoCoordinateSystemDefinition?: string | null
+    projectSpecLength?: string | null
+    projectSpecArea?: string | null
+    projectSpecAngle?: string | null
+    projectSpecCurrency?: string | null
+    projectSpecNumber?: string | null
+    projectSpecRotationAngle?: string | null
+    projectSpecSheetLength?: string | null
+    projectSpecSiteAngle?: string | null
+    projectSpecSlope?: string | null
+    projectSpecSpeed?: string | null
+    projectSpecTime?: string | null
+    projectSpecVolume?: string | null
   }
 
-  export type ElementInformationUpdateInput = {
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    wolfpackId?: WolfpackUpdateOneRequiredWithoutElementInfoNestedInput
-    Parameters?: ParametersUpdateManyWithoutParentElementInfoNestedInput
+  export type DocumentRecordUpdateManyMutationInput = {
+    documentRecordUniqueId?: StringFieldUpdateOperationsInput | string
+    parentWolfpackUniqueId?: StringFieldUpdateOperationsInput | string
+    documentCreationId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveCount?: NullableIntFieldUpdateOperationsInput | number | null
+    documentLastSaveDateTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    parentDocumentEpisodeUniqueId?: StringFieldUpdateOperationsInput | string
+    documentName?: NullableStringFieldUpdateOperationsInput | string | null
+    documentPath?: NullableStringFieldUpdateOperationsInput | string | null
+    projectName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectClient?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAuthor?: NullableStringFieldUpdateOperationsInput | string | null
+    projectBuildingName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectIssueDate?: NullableStringFieldUpdateOperationsInput | string | null
+    projectLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    projectNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    projectPlaceName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectElevation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLatitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLongitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectTimeZone?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectGeoCoordinateSystemId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectGeoCoordinateSystemDefinition?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecArea?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecCurrency?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecRotationAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSheetLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSiteAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSlope?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSpeed?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecTime?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecVolume?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type ElementInformationUncheckedUpdateInput = {
+  export type DocumentRecordUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    uniqueElementId?: StringFieldUpdateOperationsInput | string
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    Parameters?: ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput
-  }
-
-  export type ElementInformationCreateManyInput = {
-    id?: number
-    uniqueElementId: string
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-  }
-
-  export type ElementInformationUpdateManyMutationInput = {
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ElementInformationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    uniqueElementId?: StringFieldUpdateOperationsInput | string
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersCreateInput = {
-    createdAt?: Date | string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-    parentElementInfo: ElementInformationCreateNestedOneWithoutParametersInput
-  }
-
-  export type ParametersUncheckedCreateInput = {
-    id?: number
-    createdAt?: Date | string
-    parameterGuid: string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-  }
-
-  export type ParametersUpdateInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-    parentElementInfo?: ElementInformationUpdateOneRequiredWithoutParametersNestedInput
-  }
-
-  export type ParametersUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    parameterGuid?: StringFieldUpdateOperationsInput | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersCreateManyInput = {
-    id?: number
-    createdAt?: Date | string
-    parameterGuid: string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-  }
-
-  export type ParametersUpdateManyMutationInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    parameterGuid?: StringFieldUpdateOperationsInput | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type DocumentInformationCreateInput = {
-    name?: string
-    path?: string
-    uuid?: string
-    saveCount?: number
-    document: WolfpackCreateNestedOneWithoutDocumentInformationInput
-  }
-
-  export type DocumentInformationUncheckedCreateInput = {
-    id?: number
-    documentId: string
-    name?: string
-    path?: string
-    uuid?: string
-    saveCount?: number
-  }
-
-  export type DocumentInformationUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-    document?: WolfpackUpdateOneRequiredWithoutDocumentInformationNestedInput
-  }
-
-  export type DocumentInformationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type DocumentInformationCreateManyInput = {
-    id?: number
-    documentId: string
-    name?: string
-    path?: string
-    uuid?: string
-    saveCount?: number
-  }
-
-  export type DocumentInformationUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type DocumentInformationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type DocumentWarningCreateInput = {
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-    document: WolfpackCreateNestedOneWithoutWarningsInput
-  }
-
-  export type DocumentWarningUncheckedCreateInput = {
-    id?: number
-    documentId: string
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUpdateInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-    document?: WolfpackUpdateOneRequiredWithoutWarningsNestedInput
-  }
-
-  export type DocumentWarningUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningCreateManyInput = {
-    id?: number
-    documentId: string
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUpdateManyMutationInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type SiteInformationCreateInput = {
-    placeName?: string
-    elevation?: bigint | number
-    latitude?: bigint | number
-    longitude?: bigint | number
-    timeZone?: bigint | number
-    coordinateSystemId?: string
-    coordinateSystemDefinition?: string
-    document: WolfpackCreateNestedOneWithoutSiteInformationInput
-  }
-
-  export type SiteInformationUncheckedCreateInput = {
-    id?: number
-    documentId: string
-    placeName?: string
-    elevation?: bigint | number
-    latitude?: bigint | number
-    longitude?: bigint | number
-    timeZone?: bigint | number
-    coordinateSystemId?: string
-    coordinateSystemDefinition?: string
-  }
-
-  export type SiteInformationUpdateInput = {
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-    document?: WolfpackUpdateOneRequiredWithoutSiteInformationNestedInput
-  }
-
-  export type SiteInformationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type SiteInformationCreateManyInput = {
-    id?: number
-    documentId: string
-    placeName?: string
-    elevation?: bigint | number
-    latitude?: bigint | number
-    longitude?: bigint | number
-    timeZone?: bigint | number
-    coordinateSystemId?: string
-    coordinateSystemDefinition?: string
-  }
-
-  export type SiteInformationUpdateManyMutationInput = {
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type SiteInformationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UnitsInformationCreateInput = {
-    lengthUnits?: string
-    areaUnits?: string
-    angle?: string
-    currency?: string
-    number?: string
-    rotationAngle?: string
-    sheetLength?: string
-    slope?: string
-    speed?: string
-    time?: string
-    volume?: string
-    document: WolfpackCreateNestedOneWithoutUnitsInformationInput
-  }
-
-  export type UnitsInformationUncheckedCreateInput = {
-    id?: number
-    documentId: string
-    lengthUnits?: string
-    areaUnits?: string
-    angle?: string
-    currency?: string
-    number?: string
-    rotationAngle?: string
-    sheetLength?: string
-    slope?: string
-    speed?: string
-    time?: string
-    volume?: string
-  }
-
-  export type UnitsInformationUpdateInput = {
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
-    document?: WolfpackUpdateOneRequiredWithoutUnitsInformationNestedInput
-  }
-
-  export type UnitsInformationUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UnitsInformationCreateManyInput = {
-    id?: number
-    documentId: string
-    lengthUnits?: string
-    areaUnits?: string
-    angle?: string
-    currency?: string
-    number?: string
-    rotationAngle?: string
-    sheetLength?: string
-    slope?: string
-    speed?: string
-    time?: string
-    volume?: string
-  }
-
-  export type UnitsInformationUpdateManyMutationInput = {
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UnitsInformationUncheckedUpdateManyInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentId?: StringFieldUpdateOperationsInput | string
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
+    documentRecordUniqueId?: StringFieldUpdateOperationsInput | string
+    parentWolfpackUniqueId?: StringFieldUpdateOperationsInput | string
+    documentCreationId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveId?: NullableStringFieldUpdateOperationsInput | string | null
+    documentSaveCount?: NullableIntFieldUpdateOperationsInput | number | null
+    documentLastSaveDateTime?: DateTimeFieldUpdateOperationsInput | Date | string
+    parentDocumentEpisodeUniqueId?: StringFieldUpdateOperationsInput | string
+    documentName?: NullableStringFieldUpdateOperationsInput | string | null
+    documentPath?: NullableStringFieldUpdateOperationsInput | string | null
+    projectName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectClient?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAddress?: NullableStringFieldUpdateOperationsInput | string | null
+    projectAuthor?: NullableStringFieldUpdateOperationsInput | string | null
+    projectBuildingName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectIssueDate?: NullableStringFieldUpdateOperationsInput | string | null
+    projectLocation?: NullableStringFieldUpdateOperationsInput | string | null
+    projectNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    projectOrganizationName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectStatus?: NullableStringFieldUpdateOperationsInput | string | null
+    projectPlaceName?: NullableStringFieldUpdateOperationsInput | string | null
+    projectElevation?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLatitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectLongitude?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectTimeZone?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    projectGeoCoordinateSystemId?: NullableStringFieldUpdateOperationsInput | string | null
+    projectGeoCoordinateSystemDefinition?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecArea?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecCurrency?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecRotationAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSheetLength?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSiteAngle?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSlope?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecSpeed?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecTime?: NullableStringFieldUpdateOperationsInput | string | null
+    projectSpecVolume?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -12813,14 +4523,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type BigIntNullableListFilter<$PrismaModel = never> = {
-    equals?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
-    has?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
-    hasEvery?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    hasSome?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    isEmpty?: boolean
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -12873,58 +4575,16 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type ProjectInformationNullableScalarRelationFilter = {
-    is?: ProjectInformationWhereInput | null
-    isNot?: ProjectInformationWhereInput | null
-  }
-
-  export type DocumentInformationNullableScalarRelationFilter = {
-    is?: DocumentInformationWhereInput | null
-    isNot?: DocumentInformationWhereInput | null
-  }
-
-  export type SiteInformationNullableScalarRelationFilter = {
-    is?: SiteInformationWhereInput | null
-    isNot?: SiteInformationWhereInput | null
-  }
-
-  export type UnitsInformationNullableScalarRelationFilter = {
-    is?: UnitsInformationWhereInput | null
-    isNot?: UnitsInformationWhereInput | null
-  }
-
-  export type DocumentWarningListRelationFilter = {
-    every?: DocumentWarningWhereInput
-    some?: DocumentWarningWhereInput
-    none?: DocumentWarningWhereInput
-  }
-
-  export type ElementInformationListRelationFilter = {
-    every?: ElementInformationWhereInput
-    some?: ElementInformationWhereInput
-    none?: ElementInformationWhereInput
-  }
-
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-  export type DocumentWarningOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ElementInformationOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
   export type WolfpackCountOrderByAggregateInput = {
     id?: SortOrder
     documentName?: SortOrder
-    documentSessionId?: SortOrder
-    documentCreationId?: SortOrder
-    changedElements?: SortOrder
     fileOrigin?: SortOrder
+    documentVersion?: SortOrder
     wasCompleted?: SortOrder
     timeTaken?: SortOrder
     createdAt?: SortOrder
@@ -12936,7 +4596,6 @@ export namespace Prisma {
 
   export type WolfpackAvgOrderByAggregateInput = {
     id?: SortOrder
-    changedElements?: SortOrder
     timeTaken?: SortOrder
     resultCount?: SortOrder
   }
@@ -12944,9 +4603,8 @@ export namespace Prisma {
   export type WolfpackMaxOrderByAggregateInput = {
     id?: SortOrder
     documentName?: SortOrder
-    documentSessionId?: SortOrder
-    documentCreationId?: SortOrder
     fileOrigin?: SortOrder
+    documentVersion?: SortOrder
     wasCompleted?: SortOrder
     timeTaken?: SortOrder
     createdAt?: SortOrder
@@ -12958,9 +4616,8 @@ export namespace Prisma {
   export type WolfpackMinOrderByAggregateInput = {
     id?: SortOrder
     documentName?: SortOrder
-    documentSessionId?: SortOrder
-    documentCreationId?: SortOrder
     fileOrigin?: SortOrder
+    documentVersion?: SortOrder
     wasCompleted?: SortOrder
     timeTaken?: SortOrder
     createdAt?: SortOrder
@@ -12971,7 +4628,6 @@ export namespace Prisma {
 
   export type WolfpackSumOrderByAggregateInput = {
     id?: SortOrder
-    changedElements?: SortOrder
     timeTaken?: SortOrder
     resultCount?: SortOrder
   }
@@ -13074,495 +4730,242 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
-  export type WolfpackScalarRelationFilter = {
-    is?: WolfpackWhereInput
-    isNot?: WolfpackWhereInput
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type ProjectInformationCountOrderByAggregateInput = {
-    id?: SortOrder
-    projectId?: SortOrder
-    projectName?: SortOrder
-    client?: SortOrder
-    address?: SortOrder
-    author?: SortOrder
-    buildingName?: SortOrder
-    issueDate?: SortOrder
-    location?: SortOrder
-    projectNumber?: SortOrder
-    organizationDescription?: SortOrder
-    organizationName?: SortOrder
-    status?: SortOrder
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
-  export type ProjectInformationAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type ProjectInformationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    projectId?: SortOrder
-    projectName?: SortOrder
-    client?: SortOrder
-    address?: SortOrder
-    author?: SortOrder
-    buildingName?: SortOrder
-    issueDate?: SortOrder
-    location?: SortOrder
-    projectNumber?: SortOrder
-    organizationDescription?: SortOrder
-    organizationName?: SortOrder
-    status?: SortOrder
-  }
-
-  export type ProjectInformationMinOrderByAggregateInput = {
-    id?: SortOrder
-    projectId?: SortOrder
-    projectName?: SortOrder
-    client?: SortOrder
-    address?: SortOrder
-    author?: SortOrder
-    buildingName?: SortOrder
-    issueDate?: SortOrder
-    location?: SortOrder
-    projectNumber?: SortOrder
-    organizationDescription?: SortOrder
-    organizationName?: SortOrder
-    status?: SortOrder
-  }
-
-  export type ProjectInformationSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
     lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
-  export type ParametersListRelationFilter = {
-    every?: ParametersWhereInput
-    some?: ParametersWhereInput
-    none?: ParametersWhereInput
-  }
-
-  export type ParametersOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ElementInformationCountOrderByAggregateInput = {
+  export type DocumentRecordCountOrderByAggregateInput = {
     id?: SortOrder
-    uniqueElementId?: SortOrder
-    idValue?: SortOrder
-    elementVersionId?: SortOrder
-    familyName?: SortOrder
-    builtInCategory?: SortOrder
-    name?: SortOrder
+    documentRecordUniqueId?: SortOrder
+    parentWolfpackUniqueId?: SortOrder
+    documentCreationId?: SortOrder
+    documentSaveId?: SortOrder
+    documentSaveCount?: SortOrder
+    documentLastSaveDateTime?: SortOrder
+    parentDocumentEpisodeUniqueId?: SortOrder
+    documentName?: SortOrder
+    documentPath?: SortOrder
+    projectName?: SortOrder
+    projectClient?: SortOrder
+    projectAddress?: SortOrder
+    projectAuthor?: SortOrder
+    projectBuildingName?: SortOrder
+    projectIssueDate?: SortOrder
+    projectLocation?: SortOrder
+    projectNumber?: SortOrder
+    projectOrganizationDescription?: SortOrder
+    projectOrganizationName?: SortOrder
+    projectStatus?: SortOrder
+    projectPlaceName?: SortOrder
+    projectElevation?: SortOrder
+    projectLatitude?: SortOrder
+    projectLongitude?: SortOrder
+    projectTimeZone?: SortOrder
+    projectGeoCoordinateSystemId?: SortOrder
+    projectGeoCoordinateSystemDefinition?: SortOrder
+    projectSpecLength?: SortOrder
+    projectSpecArea?: SortOrder
+    projectSpecAngle?: SortOrder
+    projectSpecCurrency?: SortOrder
+    projectSpecNumber?: SortOrder
+    projectSpecRotationAngle?: SortOrder
+    projectSpecSheetLength?: SortOrder
+    projectSpecSiteAngle?: SortOrder
+    projectSpecSlope?: SortOrder
+    projectSpecSpeed?: SortOrder
+    projectSpecTime?: SortOrder
+    projectSpecVolume?: SortOrder
   }
 
-  export type ElementInformationAvgOrderByAggregateInput = {
+  export type DocumentRecordAvgOrderByAggregateInput = {
     id?: SortOrder
-    idValue?: SortOrder
+    documentSaveCount?: SortOrder
+    projectElevation?: SortOrder
+    projectLatitude?: SortOrder
+    projectLongitude?: SortOrder
+    projectTimeZone?: SortOrder
   }
 
-  export type ElementInformationMaxOrderByAggregateInput = {
+  export type DocumentRecordMaxOrderByAggregateInput = {
     id?: SortOrder
-    uniqueElementId?: SortOrder
-    idValue?: SortOrder
-    elementVersionId?: SortOrder
-    familyName?: SortOrder
-    builtInCategory?: SortOrder
-    name?: SortOrder
+    documentRecordUniqueId?: SortOrder
+    parentWolfpackUniqueId?: SortOrder
+    documentCreationId?: SortOrder
+    documentSaveId?: SortOrder
+    documentSaveCount?: SortOrder
+    documentLastSaveDateTime?: SortOrder
+    parentDocumentEpisodeUniqueId?: SortOrder
+    documentName?: SortOrder
+    documentPath?: SortOrder
+    projectName?: SortOrder
+    projectClient?: SortOrder
+    projectAddress?: SortOrder
+    projectAuthor?: SortOrder
+    projectBuildingName?: SortOrder
+    projectIssueDate?: SortOrder
+    projectLocation?: SortOrder
+    projectNumber?: SortOrder
+    projectOrganizationDescription?: SortOrder
+    projectOrganizationName?: SortOrder
+    projectStatus?: SortOrder
+    projectPlaceName?: SortOrder
+    projectElevation?: SortOrder
+    projectLatitude?: SortOrder
+    projectLongitude?: SortOrder
+    projectTimeZone?: SortOrder
+    projectGeoCoordinateSystemId?: SortOrder
+    projectGeoCoordinateSystemDefinition?: SortOrder
+    projectSpecLength?: SortOrder
+    projectSpecArea?: SortOrder
+    projectSpecAngle?: SortOrder
+    projectSpecCurrency?: SortOrder
+    projectSpecNumber?: SortOrder
+    projectSpecRotationAngle?: SortOrder
+    projectSpecSheetLength?: SortOrder
+    projectSpecSiteAngle?: SortOrder
+    projectSpecSlope?: SortOrder
+    projectSpecSpeed?: SortOrder
+    projectSpecTime?: SortOrder
+    projectSpecVolume?: SortOrder
   }
 
-  export type ElementInformationMinOrderByAggregateInput = {
+  export type DocumentRecordMinOrderByAggregateInput = {
     id?: SortOrder
-    uniqueElementId?: SortOrder
-    idValue?: SortOrder
-    elementVersionId?: SortOrder
-    familyName?: SortOrder
-    builtInCategory?: SortOrder
-    name?: SortOrder
+    documentRecordUniqueId?: SortOrder
+    parentWolfpackUniqueId?: SortOrder
+    documentCreationId?: SortOrder
+    documentSaveId?: SortOrder
+    documentSaveCount?: SortOrder
+    documentLastSaveDateTime?: SortOrder
+    parentDocumentEpisodeUniqueId?: SortOrder
+    documentName?: SortOrder
+    documentPath?: SortOrder
+    projectName?: SortOrder
+    projectClient?: SortOrder
+    projectAddress?: SortOrder
+    projectAuthor?: SortOrder
+    projectBuildingName?: SortOrder
+    projectIssueDate?: SortOrder
+    projectLocation?: SortOrder
+    projectNumber?: SortOrder
+    projectOrganizationDescription?: SortOrder
+    projectOrganizationName?: SortOrder
+    projectStatus?: SortOrder
+    projectPlaceName?: SortOrder
+    projectElevation?: SortOrder
+    projectLatitude?: SortOrder
+    projectLongitude?: SortOrder
+    projectTimeZone?: SortOrder
+    projectGeoCoordinateSystemId?: SortOrder
+    projectGeoCoordinateSystemDefinition?: SortOrder
+    projectSpecLength?: SortOrder
+    projectSpecArea?: SortOrder
+    projectSpecAngle?: SortOrder
+    projectSpecCurrency?: SortOrder
+    projectSpecNumber?: SortOrder
+    projectSpecRotationAngle?: SortOrder
+    projectSpecSheetLength?: SortOrder
+    projectSpecSiteAngle?: SortOrder
+    projectSpecSlope?: SortOrder
+    projectSpecSpeed?: SortOrder
+    projectSpecTime?: SortOrder
+    projectSpecVolume?: SortOrder
   }
 
-  export type ElementInformationSumOrderByAggregateInput = {
+  export type DocumentRecordSumOrderByAggregateInput = {
     id?: SortOrder
-    idValue?: SortOrder
+    documentSaveCount?: SortOrder
+    projectElevation?: SortOrder
+    projectLatitude?: SortOrder
+    projectLongitude?: SortOrder
+    projectTimeZone?: SortOrder
   }
 
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
     lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type EnumStorageTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumStorageTypeFilter<$PrismaModel> | $Enums.StorageType
-  }
-
-  export type ElementInformationScalarRelationFilter = {
-    is?: ElementInformationWhereInput
-    isNot?: ElementInformationWhereInput
-  }
-
-  export type ParametersCountOrderByAggregateInput = {
-    id?: SortOrder
-    createdAt?: SortOrder
-    parameterGuid?: SortOrder
-    documentOwner?: SortOrder
-    storageType?: SortOrder
-    name?: SortOrder
-    value?: SortOrder
-    isReadOnly?: SortOrder
-    typeId?: SortOrder
-    dataType?: SortOrder
-    groupTypeId?: SortOrder
-    hasValue?: SortOrder
-    isShared?: SortOrder
-    isUserModifiable?: SortOrder
-    sharedParameterGuid?: SortOrder
-  }
-
-  export type ParametersAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type ParametersMaxOrderByAggregateInput = {
-    id?: SortOrder
-    createdAt?: SortOrder
-    parameterGuid?: SortOrder
-    documentOwner?: SortOrder
-    storageType?: SortOrder
-    name?: SortOrder
-    value?: SortOrder
-    isReadOnly?: SortOrder
-    typeId?: SortOrder
-    dataType?: SortOrder
-    groupTypeId?: SortOrder
-    hasValue?: SortOrder
-    isShared?: SortOrder
-    isUserModifiable?: SortOrder
-    sharedParameterGuid?: SortOrder
-  }
-
-  export type ParametersMinOrderByAggregateInput = {
-    id?: SortOrder
-    createdAt?: SortOrder
-    parameterGuid?: SortOrder
-    documentOwner?: SortOrder
-    storageType?: SortOrder
-    name?: SortOrder
-    value?: SortOrder
-    isReadOnly?: SortOrder
-    typeId?: SortOrder
-    dataType?: SortOrder
-    groupTypeId?: SortOrder
-    hasValue?: SortOrder
-    isShared?: SortOrder
-    isUserModifiable?: SortOrder
-    sharedParameterGuid?: SortOrder
-  }
-
-  export type ParametersSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type EnumStorageTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel> | $Enums.StorageType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumStorageTypeFilter<$PrismaModel>
-    _max?: NestedEnumStorageTypeFilter<$PrismaModel>
-  }
-
-  export type DocumentInformationCountOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    name?: SortOrder
-    path?: SortOrder
-    uuid?: SortOrder
-    saveCount?: SortOrder
-  }
-
-  export type DocumentInformationAvgOrderByAggregateInput = {
-    id?: SortOrder
-    saveCount?: SortOrder
-  }
-
-  export type DocumentInformationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    name?: SortOrder
-    path?: SortOrder
-    uuid?: SortOrder
-    saveCount?: SortOrder
-  }
-
-  export type DocumentInformationMinOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    name?: SortOrder
-    path?: SortOrder
-    uuid?: SortOrder
-    saveCount?: SortOrder
-  }
-
-  export type DocumentInformationSumOrderByAggregateInput = {
-    id?: SortOrder
-    saveCount?: SortOrder
-  }
-
-  export type DocumentWarningCountOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    createdAt?: SortOrder
-    severity?: SortOrder
-    message?: SortOrder
-    failingElementId?: SortOrder
-  }
-
-  export type DocumentWarningAvgOrderByAggregateInput = {
-    id?: SortOrder
-    failingElementId?: SortOrder
-  }
-
-  export type DocumentWarningMaxOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    createdAt?: SortOrder
-    severity?: SortOrder
-    message?: SortOrder
-  }
-
-  export type DocumentWarningMinOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    createdAt?: SortOrder
-    severity?: SortOrder
-    message?: SortOrder
-  }
-
-  export type DocumentWarningSumOrderByAggregateInput = {
-    id?: SortOrder
-    failingElementId?: SortOrder
-  }
-
-  export type SiteInformationCountOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    placeName?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-    coordinateSystemId?: SortOrder
-    coordinateSystemDefinition?: SortOrder
-  }
-
-  export type SiteInformationAvgOrderByAggregateInput = {
-    id?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-  }
-
-  export type SiteInformationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    placeName?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-    coordinateSystemId?: SortOrder
-    coordinateSystemDefinition?: SortOrder
-  }
-
-  export type SiteInformationMinOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    placeName?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-    coordinateSystemId?: SortOrder
-    coordinateSystemDefinition?: SortOrder
-  }
-
-  export type SiteInformationSumOrderByAggregateInput = {
-    id?: SortOrder
-    elevation?: SortOrder
-    latitude?: SortOrder
-    longitude?: SortOrder
-    timeZone?: SortOrder
-  }
-
-  export type UnitsInformationCountOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    lengthUnits?: SortOrder
-    areaUnits?: SortOrder
-    angle?: SortOrder
-    currency?: SortOrder
-    number?: SortOrder
-    rotationAngle?: SortOrder
-    sheetLength?: SortOrder
-    slope?: SortOrder
-    speed?: SortOrder
-    time?: SortOrder
-    volume?: SortOrder
-  }
-
-  export type UnitsInformationAvgOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type UnitsInformationMaxOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    lengthUnits?: SortOrder
-    areaUnits?: SortOrder
-    angle?: SortOrder
-    currency?: SortOrder
-    number?: SortOrder
-    rotationAngle?: SortOrder
-    sheetLength?: SortOrder
-    slope?: SortOrder
-    speed?: SortOrder
-    time?: SortOrder
-    volume?: SortOrder
-  }
-
-  export type UnitsInformationMinOrderByAggregateInput = {
-    id?: SortOrder
-    documentId?: SortOrder
-    lengthUnits?: SortOrder
-    areaUnits?: SortOrder
-    angle?: SortOrder
-    currency?: SortOrder
-    number?: SortOrder
-    rotationAngle?: SortOrder
-    sheetLength?: SortOrder
-    slope?: SortOrder
-    speed?: SortOrder
-    time?: SortOrder
-    volume?: SortOrder
-  }
-
-  export type UnitsInformationSumOrderByAggregateInput = {
-    id?: SortOrder
-  }
-
-  export type WolfpackCreatechangedElementsInput = {
-    set: bigint[] | number[]
-  }
-
-  export type ProjectInformationCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: ProjectInformationCreateOrConnectWithoutDocumentInput
-    connect?: ProjectInformationWhereUniqueInput
-  }
-
-  export type DocumentInformationCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: DocumentInformationCreateOrConnectWithoutDocumentInput
-    connect?: DocumentInformationWhereUniqueInput
-  }
-
-  export type SiteInformationCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: SiteInformationCreateOrConnectWithoutDocumentInput
-    connect?: SiteInformationWhereUniqueInput
-  }
-
-  export type UnitsInformationCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: UnitsInformationCreateOrConnectWithoutDocumentInput
-    connect?: UnitsInformationWhereUniqueInput
-  }
-
-  export type DocumentWarningCreateNestedManyWithoutDocumentInput = {
-    create?: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput> | DocumentWarningCreateWithoutDocumentInput[] | DocumentWarningUncheckedCreateWithoutDocumentInput[]
-    connectOrCreate?: DocumentWarningCreateOrConnectWithoutDocumentInput | DocumentWarningCreateOrConnectWithoutDocumentInput[]
-    createMany?: DocumentWarningCreateManyDocumentInputEnvelope
-    connect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-  }
-
-  export type ElementInformationCreateNestedManyWithoutWolfpackIdInput = {
-    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
-    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
-    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-  }
-
-  export type ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: ProjectInformationCreateOrConnectWithoutDocumentInput
-    connect?: ProjectInformationWhereUniqueInput
-  }
-
-  export type DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: DocumentInformationCreateOrConnectWithoutDocumentInput
-    connect?: DocumentInformationWhereUniqueInput
-  }
-
-  export type SiteInformationUncheckedCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: SiteInformationCreateOrConnectWithoutDocumentInput
-    connect?: SiteInformationWhereUniqueInput
-  }
-
-  export type UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput = {
-    create?: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: UnitsInformationCreateOrConnectWithoutDocumentInput
-    connect?: UnitsInformationWhereUniqueInput
-  }
-
-  export type DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput = {
-    create?: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput> | DocumentWarningCreateWithoutDocumentInput[] | DocumentWarningUncheckedCreateWithoutDocumentInput[]
-    connectOrCreate?: DocumentWarningCreateOrConnectWithoutDocumentInput | DocumentWarningCreateOrConnectWithoutDocumentInput[]
-    createMany?: DocumentWarningCreateManyDocumentInputEnvelope
-    connect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-  }
-
-  export type ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput = {
-    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
-    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
-    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type WolfpackUpdatechangedElementsInput = {
-    set?: bigint[] | number[]
-    push?: bigint | number | bigint[] | number[]
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -13589,301 +4992,24 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type ProjectInformationUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: ProjectInformationCreateOrConnectWithoutDocumentInput
-    upsert?: ProjectInformationUpsertWithoutDocumentInput
-    disconnect?: ProjectInformationWhereInput | boolean
-    delete?: ProjectInformationWhereInput | boolean
-    connect?: ProjectInformationWhereUniqueInput
-    update?: XOR<XOR<ProjectInformationUpdateToOneWithWhereWithoutDocumentInput, ProjectInformationUpdateWithoutDocumentInput>, ProjectInformationUncheckedUpdateWithoutDocumentInput>
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
-  export type DocumentInformationUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: DocumentInformationCreateOrConnectWithoutDocumentInput
-    upsert?: DocumentInformationUpsertWithoutDocumentInput
-    disconnect?: DocumentInformationWhereInput | boolean
-    delete?: DocumentInformationWhereInput | boolean
-    connect?: DocumentInformationWhereUniqueInput
-    update?: XOR<XOR<DocumentInformationUpdateToOneWithWhereWithoutDocumentInput, DocumentInformationUpdateWithoutDocumentInput>, DocumentInformationUncheckedUpdateWithoutDocumentInput>
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
-  export type SiteInformationUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: SiteInformationCreateOrConnectWithoutDocumentInput
-    upsert?: SiteInformationUpsertWithoutDocumentInput
-    disconnect?: SiteInformationWhereInput | boolean
-    delete?: SiteInformationWhereInput | boolean
-    connect?: SiteInformationWhereUniqueInput
-    update?: XOR<XOR<SiteInformationUpdateToOneWithWhereWithoutDocumentInput, SiteInformationUpdateWithoutDocumentInput>, SiteInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type UnitsInformationUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: UnitsInformationCreateOrConnectWithoutDocumentInput
-    upsert?: UnitsInformationUpsertWithoutDocumentInput
-    disconnect?: UnitsInformationWhereInput | boolean
-    delete?: UnitsInformationWhereInput | boolean
-    connect?: UnitsInformationWhereUniqueInput
-    update?: XOR<XOR<UnitsInformationUpdateToOneWithWhereWithoutDocumentInput, UnitsInformationUpdateWithoutDocumentInput>, UnitsInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningUpdateManyWithoutDocumentNestedInput = {
-    create?: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput> | DocumentWarningCreateWithoutDocumentInput[] | DocumentWarningUncheckedCreateWithoutDocumentInput[]
-    connectOrCreate?: DocumentWarningCreateOrConnectWithoutDocumentInput | DocumentWarningCreateOrConnectWithoutDocumentInput[]
-    upsert?: DocumentWarningUpsertWithWhereUniqueWithoutDocumentInput | DocumentWarningUpsertWithWhereUniqueWithoutDocumentInput[]
-    createMany?: DocumentWarningCreateManyDocumentInputEnvelope
-    set?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    disconnect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    delete?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    connect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    update?: DocumentWarningUpdateWithWhereUniqueWithoutDocumentInput | DocumentWarningUpdateWithWhereUniqueWithoutDocumentInput[]
-    updateMany?: DocumentWarningUpdateManyWithWhereWithoutDocumentInput | DocumentWarningUpdateManyWithWhereWithoutDocumentInput[]
-    deleteMany?: DocumentWarningScalarWhereInput | DocumentWarningScalarWhereInput[]
-  }
-
-  export type ElementInformationUpdateManyWithoutWolfpackIdNestedInput = {
-    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
-    upsert?: ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput[]
-    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
-    set?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    disconnect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    delete?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    update?: ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput[]
-    updateMany?: ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput | ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput[]
-    deleteMany?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
-  }
-
-  export type ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: ProjectInformationCreateOrConnectWithoutDocumentInput
-    upsert?: ProjectInformationUpsertWithoutDocumentInput
-    disconnect?: ProjectInformationWhereInput | boolean
-    delete?: ProjectInformationWhereInput | boolean
-    connect?: ProjectInformationWhereUniqueInput
-    update?: XOR<XOR<ProjectInformationUpdateToOneWithWhereWithoutDocumentInput, ProjectInformationUpdateWithoutDocumentInput>, ProjectInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: DocumentInformationCreateOrConnectWithoutDocumentInput
-    upsert?: DocumentInformationUpsertWithoutDocumentInput
-    disconnect?: DocumentInformationWhereInput | boolean
-    delete?: DocumentInformationWhereInput | boolean
-    connect?: DocumentInformationWhereUniqueInput
-    update?: XOR<XOR<DocumentInformationUpdateToOneWithWhereWithoutDocumentInput, DocumentInformationUpdateWithoutDocumentInput>, DocumentInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: SiteInformationCreateOrConnectWithoutDocumentInput
-    upsert?: SiteInformationUpsertWithoutDocumentInput
-    disconnect?: SiteInformationWhereInput | boolean
-    delete?: SiteInformationWhereInput | boolean
-    connect?: SiteInformationWhereUniqueInput
-    update?: XOR<XOR<SiteInformationUpdateToOneWithWhereWithoutDocumentInput, SiteInformationUpdateWithoutDocumentInput>, SiteInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput = {
-    create?: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-    connectOrCreate?: UnitsInformationCreateOrConnectWithoutDocumentInput
-    upsert?: UnitsInformationUpsertWithoutDocumentInput
-    disconnect?: UnitsInformationWhereInput | boolean
-    delete?: UnitsInformationWhereInput | boolean
-    connect?: UnitsInformationWhereUniqueInput
-    update?: XOR<XOR<UnitsInformationUpdateToOneWithWhereWithoutDocumentInput, UnitsInformationUpdateWithoutDocumentInput>, UnitsInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput = {
-    create?: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput> | DocumentWarningCreateWithoutDocumentInput[] | DocumentWarningUncheckedCreateWithoutDocumentInput[]
-    connectOrCreate?: DocumentWarningCreateOrConnectWithoutDocumentInput | DocumentWarningCreateOrConnectWithoutDocumentInput[]
-    upsert?: DocumentWarningUpsertWithWhereUniqueWithoutDocumentInput | DocumentWarningUpsertWithWhereUniqueWithoutDocumentInput[]
-    createMany?: DocumentWarningCreateManyDocumentInputEnvelope
-    set?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    disconnect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    delete?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    connect?: DocumentWarningWhereUniqueInput | DocumentWarningWhereUniqueInput[]
-    update?: DocumentWarningUpdateWithWhereUniqueWithoutDocumentInput | DocumentWarningUpdateWithWhereUniqueWithoutDocumentInput[]
-    updateMany?: DocumentWarningUpdateManyWithWhereWithoutDocumentInput | DocumentWarningUpdateManyWithWhereWithoutDocumentInput[]
-    deleteMany?: DocumentWarningScalarWhereInput | DocumentWarningScalarWhereInput[]
-  }
-
-  export type ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput = {
-    create?: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput> | ElementInformationCreateWithoutWolfpackIdInput[] | ElementInformationUncheckedCreateWithoutWolfpackIdInput[]
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutWolfpackIdInput | ElementInformationCreateOrConnectWithoutWolfpackIdInput[]
-    upsert?: ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput[]
-    createMany?: ElementInformationCreateManyWolfpackIdInputEnvelope
-    set?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    disconnect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    delete?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    connect?: ElementInformationWhereUniqueInput | ElementInformationWhereUniqueInput[]
-    update?: ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput | ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput[]
-    updateMany?: ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput | ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput[]
-    deleteMany?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
-  }
-
-  export type WolfpackCreateNestedOneWithoutProjectInformationInput = {
-    create?: XOR<WolfpackCreateWithoutProjectInformationInput, WolfpackUncheckedCreateWithoutProjectInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutProjectInformationInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutProjectInformationNestedInput = {
-    create?: XOR<WolfpackCreateWithoutProjectInformationInput, WolfpackUncheckedCreateWithoutProjectInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutProjectInformationInput
-    upsert?: WolfpackUpsertWithoutProjectInformationInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutProjectInformationInput, WolfpackUpdateWithoutProjectInformationInput>, WolfpackUncheckedUpdateWithoutProjectInformationInput>
-  }
-
-  export type WolfpackCreateNestedOneWithoutElementInfoInput = {
-    create?: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutElementInfoInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type ParametersCreateNestedManyWithoutParentElementInfoInput = {
-    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
-    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
-    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
-    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-  }
-
-  export type ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput = {
-    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
-    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
-    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
-    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-  }
-
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
+  export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null
     increment?: bigint | number
     decrement?: bigint | number
     multiply?: bigint | number
     divide?: bigint | number
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutElementInfoNestedInput = {
-    create?: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutElementInfoInput
-    upsert?: WolfpackUpsertWithoutElementInfoInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutElementInfoInput, WolfpackUpdateWithoutElementInfoInput>, WolfpackUncheckedUpdateWithoutElementInfoInput>
-  }
-
-  export type ParametersUpdateManyWithoutParentElementInfoNestedInput = {
-    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
-    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
-    upsert?: ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput | ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput[]
-    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
-    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    update?: ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput | ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput[]
-    updateMany?: ParametersUpdateManyWithWhereWithoutParentElementInfoInput | ParametersUpdateManyWithWhereWithoutParentElementInfoInput[]
-    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
-  }
-
-  export type ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput = {
-    create?: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput> | ParametersCreateWithoutParentElementInfoInput[] | ParametersUncheckedCreateWithoutParentElementInfoInput[]
-    connectOrCreate?: ParametersCreateOrConnectWithoutParentElementInfoInput | ParametersCreateOrConnectWithoutParentElementInfoInput[]
-    upsert?: ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput | ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput[]
-    createMany?: ParametersCreateManyParentElementInfoInputEnvelope
-    set?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    disconnect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    delete?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    connect?: ParametersWhereUniqueInput | ParametersWhereUniqueInput[]
-    update?: ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput | ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput[]
-    updateMany?: ParametersUpdateManyWithWhereWithoutParentElementInfoInput | ParametersUpdateManyWithWhereWithoutParentElementInfoInput[]
-    deleteMany?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
-  }
-
-  export type ElementInformationCreateNestedOneWithoutParametersInput = {
-    create?: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutParametersInput
-    connect?: ElementInformationWhereUniqueInput
-  }
-
-  export type EnumStorageTypeFieldUpdateOperationsInput = {
-    set?: $Enums.StorageType
-  }
-
-  export type ElementInformationUpdateOneRequiredWithoutParametersNestedInput = {
-    create?: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
-    connectOrCreate?: ElementInformationCreateOrConnectWithoutParametersInput
-    upsert?: ElementInformationUpsertWithoutParametersInput
-    connect?: ElementInformationWhereUniqueInput
-    update?: XOR<XOR<ElementInformationUpdateToOneWithWhereWithoutParametersInput, ElementInformationUpdateWithoutParametersInput>, ElementInformationUncheckedUpdateWithoutParametersInput>
-  }
-
-  export type WolfpackCreateNestedOneWithoutDocumentInformationInput = {
-    create?: XOR<WolfpackCreateWithoutDocumentInformationInput, WolfpackUncheckedCreateWithoutDocumentInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutDocumentInformationInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutDocumentInformationNestedInput = {
-    create?: XOR<WolfpackCreateWithoutDocumentInformationInput, WolfpackUncheckedCreateWithoutDocumentInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutDocumentInformationInput
-    upsert?: WolfpackUpsertWithoutDocumentInformationInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutDocumentInformationInput, WolfpackUpdateWithoutDocumentInformationInput>, WolfpackUncheckedUpdateWithoutDocumentInformationInput>
-  }
-
-  export type DocumentWarningCreatefailingElementIdInput = {
-    set: bigint[] | number[]
-  }
-
-  export type WolfpackCreateNestedOneWithoutWarningsInput = {
-    create?: XOR<WolfpackCreateWithoutWarningsInput, WolfpackUncheckedCreateWithoutWarningsInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutWarningsInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type DocumentWarningUpdatefailingElementIdInput = {
-    set?: bigint[] | number[]
-    push?: bigint | number | bigint[] | number[]
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutWarningsNestedInput = {
-    create?: XOR<WolfpackCreateWithoutWarningsInput, WolfpackUncheckedCreateWithoutWarningsInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutWarningsInput
-    upsert?: WolfpackUpsertWithoutWarningsInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutWarningsInput, WolfpackUpdateWithoutWarningsInput>, WolfpackUncheckedUpdateWithoutWarningsInput>
-  }
-
-  export type WolfpackCreateNestedOneWithoutSiteInformationInput = {
-    create?: XOR<WolfpackCreateWithoutSiteInformationInput, WolfpackUncheckedCreateWithoutSiteInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutSiteInformationInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutSiteInformationNestedInput = {
-    create?: XOR<WolfpackCreateWithoutSiteInformationInput, WolfpackUncheckedCreateWithoutSiteInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutSiteInformationInput
-    upsert?: WolfpackUpsertWithoutSiteInformationInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutSiteInformationInput, WolfpackUpdateWithoutSiteInformationInput>, WolfpackUncheckedUpdateWithoutSiteInformationInput>
-  }
-
-  export type WolfpackCreateNestedOneWithoutUnitsInformationInput = {
-    create?: XOR<WolfpackCreateWithoutUnitsInformationInput, WolfpackUncheckedCreateWithoutUnitsInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutUnitsInformationInput
-    connect?: WolfpackWhereUniqueInput
-  }
-
-  export type WolfpackUpdateOneRequiredWithoutUnitsInformationNestedInput = {
-    create?: XOR<WolfpackCreateWithoutUnitsInformationInput, WolfpackUncheckedCreateWithoutUnitsInformationInput>
-    connectOrCreate?: WolfpackCreateOrConnectWithoutUnitsInformationInput
-    upsert?: WolfpackUpsertWithoutUnitsInformationInput
-    connect?: WolfpackWhereUniqueInput
-    update?: XOR<XOR<WolfpackUpdateToOneWithWhereWithoutUnitsInformationInput, WolfpackUpdateWithoutUnitsInformationInput>, WolfpackUncheckedUpdateWithoutUnitsInformationInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -14043,1268 +5169,89 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
     lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
     lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedEnumStorageTypeFilter<$PrismaModel = never> = {
-    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumStorageTypeFilter<$PrismaModel> | $Enums.StorageType
-  }
-
-  export type NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.StorageType | EnumStorageTypeFieldRefInput<$PrismaModel>
-    in?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    notIn?: $Enums.StorageType[] | ListEnumStorageTypeFieldRefInput<$PrismaModel>
-    not?: NestedEnumStorageTypeWithAggregatesFilter<$PrismaModel> | $Enums.StorageType
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumStorageTypeFilter<$PrismaModel>
-    _max?: NestedEnumStorageTypeFilter<$PrismaModel>
-  }
-
-  export type ProjectInformationCreateWithoutDocumentInput = {
-    projectName?: string
-    client?: string
-    address?: string
-    author?: string
-    buildingName?: string
-    issueDate?: string
-    location?: string
-    projectNumber?: string
-    organizationDescription?: string
-    organizationName?: string
-    status?: string
-  }
-
-  export type ProjectInformationUncheckedCreateWithoutDocumentInput = {
-    id?: number
-    projectName?: string
-    client?: string
-    address?: string
-    author?: string
-    buildingName?: string
-    issueDate?: string
-    location?: string
-    projectNumber?: string
-    organizationDescription?: string
-    organizationName?: string
-    status?: string
-  }
-
-  export type ProjectInformationCreateOrConnectWithoutDocumentInput = {
-    where: ProjectInformationWhereUniqueInput
-    create: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type DocumentInformationCreateWithoutDocumentInput = {
-    name?: string
-    path?: string
-    uuid?: string
-    saveCount?: number
-  }
-
-  export type DocumentInformationUncheckedCreateWithoutDocumentInput = {
-    id?: number
-    name?: string
-    path?: string
-    uuid?: string
-    saveCount?: number
-  }
-
-  export type DocumentInformationCreateOrConnectWithoutDocumentInput = {
-    where: DocumentInformationWhereUniqueInput
-    create: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type SiteInformationCreateWithoutDocumentInput = {
-    placeName?: string
-    elevation?: bigint | number
-    latitude?: bigint | number
-    longitude?: bigint | number
-    timeZone?: bigint | number
-    coordinateSystemId?: string
-    coordinateSystemDefinition?: string
-  }
-
-  export type SiteInformationUncheckedCreateWithoutDocumentInput = {
-    id?: number
-    placeName?: string
-    elevation?: bigint | number
-    latitude?: bigint | number
-    longitude?: bigint | number
-    timeZone?: bigint | number
-    coordinateSystemId?: string
-    coordinateSystemDefinition?: string
-  }
-
-  export type SiteInformationCreateOrConnectWithoutDocumentInput = {
-    where: SiteInformationWhereUniqueInput
-    create: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type UnitsInformationCreateWithoutDocumentInput = {
-    lengthUnits?: string
-    areaUnits?: string
-    angle?: string
-    currency?: string
-    number?: string
-    rotationAngle?: string
-    sheetLength?: string
-    slope?: string
-    speed?: string
-    time?: string
-    volume?: string
-  }
-
-  export type UnitsInformationUncheckedCreateWithoutDocumentInput = {
-    id?: number
-    lengthUnits?: string
-    areaUnits?: string
-    angle?: string
-    currency?: string
-    number?: string
-    rotationAngle?: string
-    sheetLength?: string
-    slope?: string
-    speed?: string
-    time?: string
-    volume?: string
-  }
-
-  export type UnitsInformationCreateOrConnectWithoutDocumentInput = {
-    where: UnitsInformationWhereUniqueInput
-    create: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningCreateWithoutDocumentInput = {
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUncheckedCreateWithoutDocumentInput = {
-    id?: number
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningCreateOrConnectWithoutDocumentInput = {
-    where: DocumentWarningWhereUniqueInput
-    create: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningCreateManyDocumentInputEnvelope = {
-    data: DocumentWarningCreateManyDocumentInput | DocumentWarningCreateManyDocumentInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ElementInformationCreateWithoutWolfpackIdInput = {
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-    Parameters?: ParametersCreateNestedManyWithoutParentElementInfoInput
-  }
-
-  export type ElementInformationUncheckedCreateWithoutWolfpackIdInput = {
-    id?: number
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-    Parameters?: ParametersUncheckedCreateNestedManyWithoutParentElementInfoInput
-  }
-
-  export type ElementInformationCreateOrConnectWithoutWolfpackIdInput = {
-    where: ElementInformationWhereUniqueInput
-    create: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput>
-  }
-
-  export type ElementInformationCreateManyWolfpackIdInputEnvelope = {
-    data: ElementInformationCreateManyWolfpackIdInput | ElementInformationCreateManyWolfpackIdInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ProjectInformationUpsertWithoutDocumentInput = {
-    update: XOR<ProjectInformationUpdateWithoutDocumentInput, ProjectInformationUncheckedUpdateWithoutDocumentInput>
-    create: XOR<ProjectInformationCreateWithoutDocumentInput, ProjectInformationUncheckedCreateWithoutDocumentInput>
-    where?: ProjectInformationWhereInput
-  }
-
-  export type ProjectInformationUpdateToOneWithWhereWithoutDocumentInput = {
-    where?: ProjectInformationWhereInput
-    data: XOR<ProjectInformationUpdateWithoutDocumentInput, ProjectInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type ProjectInformationUpdateWithoutDocumentInput = {
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ProjectInformationUncheckedUpdateWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    projectName?: StringFieldUpdateOperationsInput | string
-    client?: StringFieldUpdateOperationsInput | string
-    address?: StringFieldUpdateOperationsInput | string
-    author?: StringFieldUpdateOperationsInput | string
-    buildingName?: StringFieldUpdateOperationsInput | string
-    issueDate?: StringFieldUpdateOperationsInput | string
-    location?: StringFieldUpdateOperationsInput | string
-    projectNumber?: StringFieldUpdateOperationsInput | string
-    organizationDescription?: StringFieldUpdateOperationsInput | string
-    organizationName?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type DocumentInformationUpsertWithoutDocumentInput = {
-    update: XOR<DocumentInformationUpdateWithoutDocumentInput, DocumentInformationUncheckedUpdateWithoutDocumentInput>
-    create: XOR<DocumentInformationCreateWithoutDocumentInput, DocumentInformationUncheckedCreateWithoutDocumentInput>
-    where?: DocumentInformationWhereInput
-  }
-
-  export type DocumentInformationUpdateToOneWithWhereWithoutDocumentInput = {
-    where?: DocumentInformationWhereInput
-    data: XOR<DocumentInformationUpdateWithoutDocumentInput, DocumentInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type DocumentInformationUpdateWithoutDocumentInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type DocumentInformationUncheckedUpdateWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    path?: StringFieldUpdateOperationsInput | string
-    uuid?: StringFieldUpdateOperationsInput | string
-    saveCount?: IntFieldUpdateOperationsInput | number
-  }
-
-  export type SiteInformationUpsertWithoutDocumentInput = {
-    update: XOR<SiteInformationUpdateWithoutDocumentInput, SiteInformationUncheckedUpdateWithoutDocumentInput>
-    create: XOR<SiteInformationCreateWithoutDocumentInput, SiteInformationUncheckedCreateWithoutDocumentInput>
-    where?: SiteInformationWhereInput
-  }
-
-  export type SiteInformationUpdateToOneWithWhereWithoutDocumentInput = {
-    where?: SiteInformationWhereInput
-    data: XOR<SiteInformationUpdateWithoutDocumentInput, SiteInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type SiteInformationUpdateWithoutDocumentInput = {
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type SiteInformationUncheckedUpdateWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    placeName?: StringFieldUpdateOperationsInput | string
-    elevation?: BigIntFieldUpdateOperationsInput | bigint | number
-    latitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    longitude?: BigIntFieldUpdateOperationsInput | bigint | number
-    timeZone?: BigIntFieldUpdateOperationsInput | bigint | number
-    coordinateSystemId?: StringFieldUpdateOperationsInput | string
-    coordinateSystemDefinition?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UnitsInformationUpsertWithoutDocumentInput = {
-    update: XOR<UnitsInformationUpdateWithoutDocumentInput, UnitsInformationUncheckedUpdateWithoutDocumentInput>
-    create: XOR<UnitsInformationCreateWithoutDocumentInput, UnitsInformationUncheckedCreateWithoutDocumentInput>
-    where?: UnitsInformationWhereInput
-  }
-
-  export type UnitsInformationUpdateToOneWithWhereWithoutDocumentInput = {
-    where?: UnitsInformationWhereInput
-    data: XOR<UnitsInformationUpdateWithoutDocumentInput, UnitsInformationUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type UnitsInformationUpdateWithoutDocumentInput = {
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type UnitsInformationUncheckedUpdateWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    lengthUnits?: StringFieldUpdateOperationsInput | string
-    areaUnits?: StringFieldUpdateOperationsInput | string
-    angle?: StringFieldUpdateOperationsInput | string
-    currency?: StringFieldUpdateOperationsInput | string
-    number?: StringFieldUpdateOperationsInput | string
-    rotationAngle?: StringFieldUpdateOperationsInput | string
-    sheetLength?: StringFieldUpdateOperationsInput | string
-    slope?: StringFieldUpdateOperationsInput | string
-    speed?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    volume?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type DocumentWarningUpsertWithWhereUniqueWithoutDocumentInput = {
-    where: DocumentWarningWhereUniqueInput
-    update: XOR<DocumentWarningUpdateWithoutDocumentInput, DocumentWarningUncheckedUpdateWithoutDocumentInput>
-    create: XOR<DocumentWarningCreateWithoutDocumentInput, DocumentWarningUncheckedCreateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningUpdateWithWhereUniqueWithoutDocumentInput = {
-    where: DocumentWarningWhereUniqueInput
-    data: XOR<DocumentWarningUpdateWithoutDocumentInput, DocumentWarningUncheckedUpdateWithoutDocumentInput>
-  }
-
-  export type DocumentWarningUpdateManyWithWhereWithoutDocumentInput = {
-    where: DocumentWarningScalarWhereInput
-    data: XOR<DocumentWarningUpdateManyMutationInput, DocumentWarningUncheckedUpdateManyWithoutDocumentInput>
-  }
-
-  export type DocumentWarningScalarWhereInput = {
-    AND?: DocumentWarningScalarWhereInput | DocumentWarningScalarWhereInput[]
-    OR?: DocumentWarningScalarWhereInput[]
-    NOT?: DocumentWarningScalarWhereInput | DocumentWarningScalarWhereInput[]
-    id?: IntFilter<"DocumentWarning"> | number
-    documentId?: StringFilter<"DocumentWarning"> | string
-    createdAt?: DateTimeFilter<"DocumentWarning"> | Date | string
-    severity?: StringFilter<"DocumentWarning"> | string
-    message?: StringFilter<"DocumentWarning"> | string
-    failingElementId?: BigIntNullableListFilter<"DocumentWarning">
-  }
-
-  export type ElementInformationUpsertWithWhereUniqueWithoutWolfpackIdInput = {
-    where: ElementInformationWhereUniqueInput
-    update: XOR<ElementInformationUpdateWithoutWolfpackIdInput, ElementInformationUncheckedUpdateWithoutWolfpackIdInput>
-    create: XOR<ElementInformationCreateWithoutWolfpackIdInput, ElementInformationUncheckedCreateWithoutWolfpackIdInput>
-  }
-
-  export type ElementInformationUpdateWithWhereUniqueWithoutWolfpackIdInput = {
-    where: ElementInformationWhereUniqueInput
-    data: XOR<ElementInformationUpdateWithoutWolfpackIdInput, ElementInformationUncheckedUpdateWithoutWolfpackIdInput>
-  }
-
-  export type ElementInformationUpdateManyWithWhereWithoutWolfpackIdInput = {
-    where: ElementInformationScalarWhereInput
-    data: XOR<ElementInformationUpdateManyMutationInput, ElementInformationUncheckedUpdateManyWithoutWolfpackIdInput>
-  }
-
-  export type ElementInformationScalarWhereInput = {
-    AND?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
-    OR?: ElementInformationScalarWhereInput[]
-    NOT?: ElementInformationScalarWhereInput | ElementInformationScalarWhereInput[]
-    id?: IntFilter<"ElementInformation"> | number
-    uniqueElementId?: StringFilter<"ElementInformation"> | string
-    idValue?: BigIntFilter<"ElementInformation"> | bigint | number
-    elementVersionId?: StringFilter<"ElementInformation"> | string
-    familyName?: StringFilter<"ElementInformation"> | string
-    builtInCategory?: StringFilter<"ElementInformation"> | string
-    name?: StringFilter<"ElementInformation"> | string
-  }
-
-  export type WolfpackCreateWithoutProjectInformationInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutProjectInformationInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutProjectInformationInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutProjectInformationInput, WolfpackUncheckedCreateWithoutProjectInformationInput>
-  }
-
-  export type WolfpackUpsertWithoutProjectInformationInput = {
-    update: XOR<WolfpackUpdateWithoutProjectInformationInput, WolfpackUncheckedUpdateWithoutProjectInformationInput>
-    create: XOR<WolfpackCreateWithoutProjectInformationInput, WolfpackUncheckedCreateWithoutProjectInformationInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutProjectInformationInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutProjectInformationInput, WolfpackUncheckedUpdateWithoutProjectInformationInput>
-  }
-
-  export type WolfpackUpdateWithoutProjectInformationInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutProjectInformationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackCreateWithoutElementInfoInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutElementInfoInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutElementInfoInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
-  }
-
-  export type ParametersCreateWithoutParentElementInfoInput = {
-    createdAt?: Date | string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-  }
-
-  export type ParametersUncheckedCreateWithoutParentElementInfoInput = {
-    id?: number
-    createdAt?: Date | string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-  }
-
-  export type ParametersCreateOrConnectWithoutParentElementInfoInput = {
-    where: ParametersWhereUniqueInput
-    create: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput>
-  }
-
-  export type ParametersCreateManyParentElementInfoInputEnvelope = {
-    data: ParametersCreateManyParentElementInfoInput | ParametersCreateManyParentElementInfoInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type WolfpackUpsertWithoutElementInfoInput = {
-    update: XOR<WolfpackUpdateWithoutElementInfoInput, WolfpackUncheckedUpdateWithoutElementInfoInput>
-    create: XOR<WolfpackCreateWithoutElementInfoInput, WolfpackUncheckedCreateWithoutElementInfoInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutElementInfoInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutElementInfoInput, WolfpackUncheckedUpdateWithoutElementInfoInput>
-  }
-
-  export type WolfpackUpdateWithoutElementInfoInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutElementInfoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-  }
-
-  export type ParametersUpsertWithWhereUniqueWithoutParentElementInfoInput = {
-    where: ParametersWhereUniqueInput
-    update: XOR<ParametersUpdateWithoutParentElementInfoInput, ParametersUncheckedUpdateWithoutParentElementInfoInput>
-    create: XOR<ParametersCreateWithoutParentElementInfoInput, ParametersUncheckedCreateWithoutParentElementInfoInput>
-  }
-
-  export type ParametersUpdateWithWhereUniqueWithoutParentElementInfoInput = {
-    where: ParametersWhereUniqueInput
-    data: XOR<ParametersUpdateWithoutParentElementInfoInput, ParametersUncheckedUpdateWithoutParentElementInfoInput>
-  }
-
-  export type ParametersUpdateManyWithWhereWithoutParentElementInfoInput = {
-    where: ParametersScalarWhereInput
-    data: XOR<ParametersUpdateManyMutationInput, ParametersUncheckedUpdateManyWithoutParentElementInfoInput>
-  }
-
-  export type ParametersScalarWhereInput = {
-    AND?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
-    OR?: ParametersScalarWhereInput[]
-    NOT?: ParametersScalarWhereInput | ParametersScalarWhereInput[]
-    id?: IntFilter<"Parameters"> | number
-    createdAt?: DateTimeFilter<"Parameters"> | Date | string
-    parameterGuid?: StringFilter<"Parameters"> | string
-    documentOwner?: StringFilter<"Parameters"> | string
-    storageType?: EnumStorageTypeFilter<"Parameters"> | $Enums.StorageType
-    name?: StringFilter<"Parameters"> | string
-    value?: StringFilter<"Parameters"> | string
-    isReadOnly?: BoolFilter<"Parameters"> | boolean
-    typeId?: StringFilter<"Parameters"> | string
-    dataType?: StringFilter<"Parameters"> | string
-    groupTypeId?: StringFilter<"Parameters"> | string
-    hasValue?: BoolFilter<"Parameters"> | boolean
-    isShared?: BoolFilter<"Parameters"> | boolean
-    isUserModifiable?: BoolFilter<"Parameters"> | boolean
-    sharedParameterGuid?: StringFilter<"Parameters"> | string
-  }
-
-  export type ElementInformationCreateWithoutParametersInput = {
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-    wolfpackId: WolfpackCreateNestedOneWithoutElementInfoInput
-  }
-
-  export type ElementInformationUncheckedCreateWithoutParametersInput = {
-    id?: number
-    uniqueElementId: string
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-  }
-
-  export type ElementInformationCreateOrConnectWithoutParametersInput = {
-    where: ElementInformationWhereUniqueInput
-    create: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
-  }
-
-  export type ElementInformationUpsertWithoutParametersInput = {
-    update: XOR<ElementInformationUpdateWithoutParametersInput, ElementInformationUncheckedUpdateWithoutParametersInput>
-    create: XOR<ElementInformationCreateWithoutParametersInput, ElementInformationUncheckedCreateWithoutParametersInput>
-    where?: ElementInformationWhereInput
-  }
-
-  export type ElementInformationUpdateToOneWithWhereWithoutParametersInput = {
-    where?: ElementInformationWhereInput
-    data: XOR<ElementInformationUpdateWithoutParametersInput, ElementInformationUncheckedUpdateWithoutParametersInput>
-  }
-
-  export type ElementInformationUpdateWithoutParametersInput = {
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    wolfpackId?: WolfpackUpdateOneRequiredWithoutElementInfoNestedInput
-  }
-
-  export type ElementInformationUncheckedUpdateWithoutParametersInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    uniqueElementId?: StringFieldUpdateOperationsInput | string
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type WolfpackCreateWithoutDocumentInformationInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutDocumentInformationInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutDocumentInformationInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutDocumentInformationInput, WolfpackUncheckedCreateWithoutDocumentInformationInput>
-  }
-
-  export type WolfpackUpsertWithoutDocumentInformationInput = {
-    update: XOR<WolfpackUpdateWithoutDocumentInformationInput, WolfpackUncheckedUpdateWithoutDocumentInformationInput>
-    create: XOR<WolfpackCreateWithoutDocumentInformationInput, WolfpackUncheckedCreateWithoutDocumentInformationInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutDocumentInformationInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutDocumentInformationInput, WolfpackUncheckedUpdateWithoutDocumentInformationInput>
-  }
-
-  export type WolfpackUpdateWithoutDocumentInformationInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutDocumentInformationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackCreateWithoutWarningsInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutWarningsInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutWarningsInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutWarningsInput, WolfpackUncheckedCreateWithoutWarningsInput>
-  }
-
-  export type WolfpackUpsertWithoutWarningsInput = {
-    update: XOR<WolfpackUpdateWithoutWarningsInput, WolfpackUncheckedUpdateWithoutWarningsInput>
-    create: XOR<WolfpackCreateWithoutWarningsInput, WolfpackUncheckedCreateWithoutWarningsInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutWarningsInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutWarningsInput, WolfpackUncheckedUpdateWithoutWarningsInput>
-  }
-
-  export type WolfpackUpdateWithoutWarningsInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutWarningsInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackCreateWithoutSiteInformationInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutSiteInformationInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    unitsInformation?: UnitsInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutSiteInformationInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutSiteInformationInput, WolfpackUncheckedCreateWithoutSiteInformationInput>
-  }
-
-  export type WolfpackUpsertWithoutSiteInformationInput = {
-    update: XOR<WolfpackUpdateWithoutSiteInformationInput, WolfpackUncheckedUpdateWithoutSiteInformationInput>
-    create: XOR<WolfpackCreateWithoutSiteInformationInput, WolfpackUncheckedCreateWithoutSiteInformationInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutSiteInformationInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutSiteInformationInput, WolfpackUncheckedUpdateWithoutSiteInformationInput>
-  }
-
-  export type WolfpackUpdateWithoutSiteInformationInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutSiteInformationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    unitsInformation?: UnitsInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackCreateWithoutUnitsInformationInput = {
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackUncheckedCreateWithoutUnitsInformationInput = {
-    id?: number
-    documentName?: string
-    documentSessionId?: string
-    documentCreationId?: string
-    changedElements?: WolfpackCreatechangedElementsInput | bigint[] | number[]
-    fileOrigin: string
-    wasCompleted?: boolean
-    timeTaken?: number
-    createdAt?: Date | string
-    guid: string
-    resultCount?: number
-    testName: string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedCreateNestedOneWithoutDocumentInput
-    documentInformation?: DocumentInformationUncheckedCreateNestedOneWithoutDocumentInput
-    siteInformation?: SiteInformationUncheckedCreateNestedOneWithoutDocumentInput
-    warnings?: DocumentWarningUncheckedCreateNestedManyWithoutDocumentInput
-    elementInfo?: ElementInformationUncheckedCreateNestedManyWithoutWolfpackIdInput
-  }
-
-  export type WolfpackCreateOrConnectWithoutUnitsInformationInput = {
-    where: WolfpackWhereUniqueInput
-    create: XOR<WolfpackCreateWithoutUnitsInformationInput, WolfpackUncheckedCreateWithoutUnitsInformationInput>
-  }
-
-  export type WolfpackUpsertWithoutUnitsInformationInput = {
-    update: XOR<WolfpackUpdateWithoutUnitsInformationInput, WolfpackUncheckedUpdateWithoutUnitsInformationInput>
-    create: XOR<WolfpackCreateWithoutUnitsInformationInput, WolfpackUncheckedCreateWithoutUnitsInformationInput>
-    where?: WolfpackWhereInput
-  }
-
-  export type WolfpackUpdateToOneWithWhereWithoutUnitsInformationInput = {
-    where?: WolfpackWhereInput
-    data: XOR<WolfpackUpdateWithoutUnitsInformationInput, WolfpackUncheckedUpdateWithoutUnitsInformationInput>
-  }
-
-  export type WolfpackUpdateWithoutUnitsInformationInput = {
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type WolfpackUncheckedUpdateWithoutUnitsInformationInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    documentName?: StringFieldUpdateOperationsInput | string
-    documentSessionId?: StringFieldUpdateOperationsInput | string
-    documentCreationId?: StringFieldUpdateOperationsInput | string
-    changedElements?: WolfpackUpdatechangedElementsInput | bigint[] | number[]
-    fileOrigin?: StringFieldUpdateOperationsInput | string
-    wasCompleted?: BoolFieldUpdateOperationsInput | boolean
-    timeTaken?: FloatFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    guid?: StringFieldUpdateOperationsInput | string
-    resultCount?: IntFieldUpdateOperationsInput | number
-    testName?: StringFieldUpdateOperationsInput | string
-    results?: NullableJsonNullValueInput | InputJsonValue
-    projectInformation?: ProjectInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    documentInformation?: DocumentInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    siteInformation?: SiteInformationUncheckedUpdateOneWithoutDocumentNestedInput
-    warnings?: DocumentWarningUncheckedUpdateManyWithoutDocumentNestedInput
-    elementInfo?: ElementInformationUncheckedUpdateManyWithoutWolfpackIdNestedInput
-  }
-
-  export type DocumentWarningCreateManyDocumentInput = {
-    id?: number
-    createdAt: Date | string
-    severity: string
-    message: string
-    failingElementId?: DocumentWarningCreatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type ElementInformationCreateManyWolfpackIdInput = {
-    id?: number
-    idValue: bigint | number
-    elementVersionId?: string
-    familyName?: string
-    builtInCategory?: string
-    name?: string
-  }
-
-  export type DocumentWarningUpdateWithoutDocumentInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUncheckedUpdateWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type DocumentWarningUncheckedUpdateManyWithoutDocumentInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    severity?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    failingElementId?: DocumentWarningUpdatefailingElementIdInput | bigint[] | number[]
-  }
-
-  export type ElementInformationUpdateWithoutWolfpackIdInput = {
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    Parameters?: ParametersUpdateManyWithoutParentElementInfoNestedInput
-  }
-
-  export type ElementInformationUncheckedUpdateWithoutWolfpackIdInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    Parameters?: ParametersUncheckedUpdateManyWithoutParentElementInfoNestedInput
-  }
-
-  export type ElementInformationUncheckedUpdateManyWithoutWolfpackIdInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    idValue?: BigIntFieldUpdateOperationsInput | bigint | number
-    elementVersionId?: StringFieldUpdateOperationsInput | string
-    familyName?: StringFieldUpdateOperationsInput | string
-    builtInCategory?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersCreateManyParentElementInfoInput = {
-    id?: number
-    createdAt?: Date | string
-    documentOwner?: string
-    storageType?: $Enums.StorageType
-    name?: string
-    value?: string
-    isReadOnly?: boolean
-    typeId?: string
-    dataType?: string
-    groupTypeId?: string
-    hasValue?: boolean
-    isShared?: boolean
-    isUserModifiable?: boolean
-    sharedParameterGuid?: string
-  }
-
-  export type ParametersUpdateWithoutParentElementInfoInput = {
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersUncheckedUpdateWithoutParentElementInfoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
-  }
-
-  export type ParametersUncheckedUpdateManyWithoutParentElementInfoInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    documentOwner?: StringFieldUpdateOperationsInput | string
-    storageType?: EnumStorageTypeFieldUpdateOperationsInput | $Enums.StorageType
-    name?: StringFieldUpdateOperationsInput | string
-    value?: StringFieldUpdateOperationsInput | string
-    isReadOnly?: BoolFieldUpdateOperationsInput | boolean
-    typeId?: StringFieldUpdateOperationsInput | string
-    dataType?: StringFieldUpdateOperationsInput | string
-    groupTypeId?: StringFieldUpdateOperationsInput | string
-    hasValue?: BoolFieldUpdateOperationsInput | boolean
-    isShared?: BoolFieldUpdateOperationsInput | boolean
-    isUserModifiable?: BoolFieldUpdateOperationsInput | boolean
-    sharedParameterGuid?: StringFieldUpdateOperationsInput | string
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
 

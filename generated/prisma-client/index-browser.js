@@ -120,10 +120,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 exports.Prisma.WolfpackScalarFieldEnum = {
   id: 'id',
   documentName: 'documentName',
-  documentSessionId: 'documentSessionId',
-  documentCreationId: 'documentCreationId',
-  changedElements: 'changedElements',
   fileOrigin: 'fileOrigin',
+  documentVersion: 'documentVersion',
   wasCompleted: 'wasCompleted',
   timeTaken: 'timeTaken',
   createdAt: 'createdAt',
@@ -133,94 +131,47 @@ exports.Prisma.WolfpackScalarFieldEnum = {
   results: 'results'
 };
 
-exports.Prisma.ProjectInformationScalarFieldEnum = {
+exports.Prisma.DocumentRecordScalarFieldEnum = {
   id: 'id',
-  projectId: 'projectId',
+  documentRecordUniqueId: 'documentRecordUniqueId',
+  parentWolfpackUniqueId: 'parentWolfpackUniqueId',
+  documentCreationId: 'documentCreationId',
+  documentSaveId: 'documentSaveId',
+  documentSaveCount: 'documentSaveCount',
+  documentLastSaveDateTime: 'documentLastSaveDateTime',
+  parentDocumentEpisodeUniqueId: 'parentDocumentEpisodeUniqueId',
+  documentName: 'documentName',
+  documentPath: 'documentPath',
   projectName: 'projectName',
-  client: 'client',
-  address: 'address',
-  author: 'author',
-  buildingName: 'buildingName',
-  issueDate: 'issueDate',
-  location: 'location',
+  projectClient: 'projectClient',
+  projectAddress: 'projectAddress',
+  projectAuthor: 'projectAuthor',
+  projectBuildingName: 'projectBuildingName',
+  projectIssueDate: 'projectIssueDate',
+  projectLocation: 'projectLocation',
   projectNumber: 'projectNumber',
-  organizationDescription: 'organizationDescription',
-  organizationName: 'organizationName',
-  status: 'status'
-};
-
-exports.Prisma.ElementInformationScalarFieldEnum = {
-  id: 'id',
-  uniqueElementId: 'uniqueElementId',
-  idValue: 'idValue',
-  elementVersionId: 'elementVersionId',
-  familyName: 'familyName',
-  builtInCategory: 'builtInCategory',
-  name: 'name'
-};
-
-exports.Prisma.ParametersScalarFieldEnum = {
-  id: 'id',
-  createdAt: 'createdAt',
-  parameterGuid: 'parameterGuid',
-  documentOwner: 'documentOwner',
-  storageType: 'storageType',
-  name: 'name',
-  value: 'value',
-  isReadOnly: 'isReadOnly',
-  typeId: 'typeId',
-  dataType: 'dataType',
-  groupTypeId: 'groupTypeId',
-  hasValue: 'hasValue',
-  isShared: 'isShared',
-  isUserModifiable: 'isUserModifiable',
-  sharedParameterGuid: 'sharedParameterGuid'
-};
-
-exports.Prisma.DocumentInformationScalarFieldEnum = {
-  id: 'id',
-  documentId: 'documentId',
-  name: 'name',
-  path: 'path',
-  uuid: 'uuid',
-  saveCount: 'saveCount'
-};
-
-exports.Prisma.DocumentWarningScalarFieldEnum = {
-  id: 'id',
-  documentId: 'documentId',
-  createdAt: 'createdAt',
-  severity: 'severity',
-  message: 'message',
-  failingElementId: 'failingElementId'
-};
-
-exports.Prisma.SiteInformationScalarFieldEnum = {
-  id: 'id',
-  documentId: 'documentId',
-  placeName: 'placeName',
-  elevation: 'elevation',
-  latitude: 'latitude',
-  longitude: 'longitude',
-  timeZone: 'timeZone',
-  coordinateSystemId: 'coordinateSystemId',
-  coordinateSystemDefinition: 'coordinateSystemDefinition'
-};
-
-exports.Prisma.UnitsInformationScalarFieldEnum = {
-  id: 'id',
-  documentId: 'documentId',
-  lengthUnits: 'lengthUnits',
-  areaUnits: 'areaUnits',
-  angle: 'angle',
-  currency: 'currency',
-  number: 'number',
-  rotationAngle: 'rotationAngle',
-  sheetLength: 'sheetLength',
-  slope: 'slope',
-  speed: 'speed',
-  time: 'time',
-  volume: 'volume'
+  projectOrganizationDescription: 'projectOrganizationDescription',
+  projectOrganizationName: 'projectOrganizationName',
+  projectStatus: 'projectStatus',
+  projectPlaceName: 'projectPlaceName',
+  projectElevation: 'projectElevation',
+  projectLatitude: 'projectLatitude',
+  projectLongitude: 'projectLongitude',
+  projectTimeZone: 'projectTimeZone',
+  projectGeoCoordinateSystemId: 'projectGeoCoordinateSystemId',
+  projectGeoCoordinateSystemDefinition: 'projectGeoCoordinateSystemDefinition',
+  projectSpecLength: 'projectSpecLength',
+  projectSpecArea: 'projectSpecArea',
+  projectSpecAngle: 'projectSpecAngle',
+  projectSpecCurrency: 'projectSpecCurrency',
+  projectSpecNumber: 'projectSpecNumber',
+  projectSpecRotationAngle: 'projectSpecRotationAngle',
+  projectSpecSheetLength: 'projectSpecSheetLength',
+  projectSpecSiteAngle: 'projectSpecSiteAngle',
+  projectSpecSlope: 'projectSpecSlope',
+  projectSpecSpeed: 'projectSpecSpeed',
+  projectSpecTime: 'projectSpecTime',
+  projectSpecVolume: 'projectSpecVolume'
 };
 
 exports.Prisma.SortOrder = {
@@ -248,23 +199,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.StorageType = exports.$Enums.StorageType = {
-  INTEGER: 'INTEGER',
-  DOUBLE: 'DOUBLE',
-  STRING: 'STRING',
-  ELEMENTID: 'ELEMENTID',
-  INVALID: 'INVALID'
-};
+
 
 exports.Prisma.ModelName = {
   Wolfpack: 'Wolfpack',
-  ProjectInformation: 'ProjectInformation',
-  ElementInformation: 'ElementInformation',
-  Parameters: 'Parameters',
-  DocumentInformation: 'DocumentInformation',
-  DocumentWarning: 'DocumentWarning',
-  SiteInformation: 'SiteInformation',
-  UnitsInformation: 'UnitsInformation'
+  DocumentRecord: 'DocumentRecord'
 };
 
 /**

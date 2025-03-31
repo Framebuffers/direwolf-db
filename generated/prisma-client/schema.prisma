@@ -8,130 +8,472 @@ generator client {
   output   = "../generated/prisma-client"
 }
 
-enum StorageType {
-  INTEGER
-  DOUBLE
-  STRING
-  ELEMENTID
-  INVALID
-}
-
 model Wolfpack {
-  id                  Int                  @id @default(autoincrement())
-  projectInformation  ProjectInformation?
-  documentInformation DocumentInformation?
-  siteInformation     SiteInformation?
-  unitsInformation    UnitsInformation?
-  warnings            DocumentWarning[]
-  documentName        String               @default("")
-  documentSessionId   String               @default("00000000-0000-0000-0000-000000000000")
-  documentCreationId  String               @default("00000000-0000-0000-0000-000000000000")
-  changedElements     BigInt[]
-  fileOrigin          String               @db.VarChar(255)
-  wasCompleted        Boolean              @default(false)
-  timeTaken           Float                @default(0)
-  createdAt           DateTime             @default(now())
-  guid                String               @unique
-  resultCount         Int                  @default(0)
-  testName            String               @db.VarChar(255)
-  results             Json?                @db.Json
-  elementInfo         ElementInformation[]
+  id              Int      @id @default(autoincrement())
+  documentName    String   @db.VarChar(255)
+  fileOrigin      String   @db.VarChar(255)
+  documentVersion String
+  wasCompleted    Boolean  @default(false)
+  timeTaken       Float    @default(0)
+  createdAt       DateTime @default(now())
+  guid            String
+  resultCount     Int      @default(0)
+  testName        String   @db.VarChar(255)
+  results         Json?    @db.Json
 }
 
-model ProjectInformation {
-  id                      Int      @id @default(autoincrement())
-  projectId               String   @unique
-  document                Wolfpack @relation(fields: [projectId], references: [guid])
-  projectName             String   @default("") @db.VarChar(255)
-  client                  String   @default("") @db.VarChar(255)
-  address                 String   @default("") @db.VarChar(255)
-  author                  String   @default("") @db.VarChar(255)
-  buildingName            String   @default("") @db.VarChar(255)
-  issueDate               String   @default("") @db.VarChar(255)
-  location                String   @default("") @db.VarChar(255)
-  projectNumber           String   @default("") @db.VarChar(255)
-  organizationDescription String   @default("") @db.VarChar(255)
-  organizationName        String   @default("") @db.VarChar(255)
-  status                  String   @default("") @db.VarChar(255)
+// model Wolfpack {
+//   id               Int      @unique @default(autoincrement())
+//   wolfpackUniqueId String   @unique @default(cuid())
+//   createdAt        DateTime @default(now())
+//   name             String?  @default("wolfpack")
+//   timeTaken        BigInt   @default(0)
+//   source           String
+//   wasCompleted     Boolean  @default(false)
+//   resultCount      Int      @default(0)
+//   result           Json
+//   document         Json?
+//   episode          Json?
+//   elements         Json?
+//   warnings         Json?
+// }
+
+// model DocumentEpisodeRecord {
+//   id                            Int                      @unique @default(autoincrement())
+//   documentEpisodeUniqueId       String                   @unique @default(uuid())
+//   parentWolfpackFK              Wolfpack                 @relation(fields: [parentWolfpackUniqueId], references: [wolfpackUniqueId])
+//   parentWolfpackUniqueId        String                   @unique
+//   documentFK                    DocumentRecord?          @relation(fields: [documentMetadataUniqueId], references: [documentRecordUniqueId])
+//   documentMetadataUniqueId      String?
+//   documentEpisodeRecordUniqueId String?                  @unique @default(uuid())
+//   documentVersionUniqueId       String?                  @default(uuid())
+//   documentCreationId            String?
+//   documentSaveId                String?                  @unique
+//   documentSaveCount             Int?                     @default(0)
+//   documentLastSaveDateTime      DateTime                 @default(now())
+//   ElementRecord                 ElementRecord?
+//   WarningCollectionRecord       WarningCollectionRecord?
+// }
+
+model DocumentRecord {
+  id                                   Int      @unique @default(autoincrement())
+  documentRecordUniqueId               String   @unique
+  parentWolfpackUniqueId               String   @unique
+  documentCreationId                   String?
+  documentSaveId                       String?  @unique
+  documentSaveCount                    Int?     @default(0)
+  documentLastSaveDateTime             DateTime @default(now())
+  parentDocumentEpisodeUniqueId        String
+  documentName                         String?  @db.VarChar(255)
+  documentPath                         String?  @db.VarChar(255)
+  projectName                          String?  @db.VarChar(255)
+  projectClient                        String?  @db.VarChar(255)
+  projectAddress                       String?  @db.VarChar(255)
+  projectAuthor                        String?  @db.VarChar(255)
+  projectBuildingName                  String?  @db.VarChar(255)
+  projectIssueDate                     String?  @db.VarChar(255)
+  projectLocation                      String?  @db.VarChar(255)
+  projectNumber                        String?  @db.VarChar(255)
+  projectOrganizationDescription       String?  @db.VarChar(255)
+  projectOrganizationName              String?  @db.VarChar(255)
+  projectStatus                        String?  @db.VarChar(255)
+  projectPlaceName                     String?  @db.VarChar(255)
+  projectElevation                     BigInt?  @default(0)
+  projectLatitude                      BigInt?  @default(0)
+  projectLongitude                     BigInt?  @default(0)
+  projectTimeZone                      BigInt?  @default(0)
+  projectGeoCoordinateSystemId         String?  @db.VarChar(255)
+  projectGeoCoordinateSystemDefinition String?  @db.VarChar(255)
+  projectSpecLength                    String?  @db.VarChar(255)
+  projectSpecArea                      String?  @db.VarChar(255)
+  projectSpecAngle                     String?  @db.VarChar(255)
+  projectSpecCurrency                  String?  @db.VarChar(255)
+  projectSpecNumber                    String?  @db.VarChar(255)
+  projectSpecRotationAngle             String?  @db.VarChar(255)
+  projectSpecSheetLength               String?  @db.VarChar(255)
+  projectSpecSiteAngle                 String?  @db.VarChar(255)
+  projectSpecSlope                     String?  @db.VarChar(255)
+  projectSpecSpeed                     String?  @db.VarChar(255)
+  projectSpecTime                      String?  @db.VarChar(255)
+  projectSpecVolume                    String?  @db.VarChar(255)
 }
 
-model ElementInformation {
-  id               Int          @id @default(autoincrement())
-  uniqueElementId  String       @unique
-  wolfpackId       Wolfpack     @relation(fields: [uniqueElementId], references: [guid])
-  idValue          BigInt
-  elementVersionId String       @default("00000000-0000-0000-0000-000000000000")
-  familyName       String       @default("")
-  builtInCategory  String       @default("")
-  name             String       @default("")
-  Parameters       Parameters[]
-}
+// model ElementRecord {
+//   id                                              Int                   @unique @default(autoincrement())
+//   elementUniqueId                                 String                @unique @default(uuid())
+//   parentDocumentFK                                DocumentEpisodeRecord @relation(fields: [id], references: [id])
+//   parentdocumentUniqueId                          String
+//   documentVersionUniqueId                         String
+//   elementArePhasesModifiable                      Boolean?              @default(false)
+//   elementCanBeLocked                              Boolean?              @default(false)
+//   elementCanFlipFacing                            Boolean?              @default(false)
+//   elementCanFlipHand                              Boolean?              @default(false)
+//   elementCanFlipWorkPlane                         Boolean?              @default(false)
+//   elementCanHaveTypeAssigned                      Boolean?              @default(false)
+//   elementCanRotate                                Boolean?              @default(false)
+//   elementCanSplit                                 Boolean?              @default(false)
+//   elementIsFacingFlipped                          Boolean?              @default(false)
+//   elementIsHandFlipped                            Boolean?              @default(false)
+//   elementHasModifiedGeometry                      Boolean?              @default(false)
+//   elementHasPhases                                Boolean?              @default(false)
+//   elementHasSpatialElementCalculationPoint        Boolean?              @default(false)
+//   elementHasSpatialElementFromToCalculationPoints Boolean?              @default(false)
+//   elementHasSweptProfile                          Boolean?              @default(false)
+//   elementIsExternalFileReference                  Boolean?              @default(false)
+//   elementIsMirrored                               Boolean?              @default(false)
+//   elementIsMonitoringLinkElement                  Boolean?              @default(false)
+//   elementIsMonitoringLocalElement                 Boolean?              @default(false)
+//   elementIsPinned                                 Boolean?              @default(false)
+//   elementIsSlantedColumn                          Boolean?              @default(false)
+//   elementIsViewSpecific                           Boolean?              @default(false)
+//   elementDoesReferToExternalResourceReferences    Boolean?              @default(false)
+//   elementTransformHasReflection                   Boolean?              @default(false)
+//   elementTransformIsConformal                     Boolean?              @default(false)
+//   elementIsVisible                                Boolean?              @default(false)
+//   elementAnalyticalModelValueId                   BigInt?               @default(-1)
+//   elementCreatedPhaseValueId                      BigInt?               @default(-1)
+//   elementDemolishedPhaseValueId                   BigInt?               @default(-1)
+//   elementHostFaceValueId                          BigInt?               @default(-1)
+//   elementHostParameterValueId                     BigInt?               @default(-1)
+//   elementLevelValueId                             BigInt?               @default(-1)
+//   elementCopingsValueId                           BigInt[]
+//   elementDependentElementsValueId                 BigInt[]
+//   elementMaterialsValueId                         BigInt[]
+//   elementMonitoredLinksValueId                    BigInt[]
+//   elementReferencesValueId                        BigInt[]
+//   elementSubComponentsValueId                     BigInt[]
+//   elementWorksetValueId                           BigInt?               @default(-1)
+//   elementDesignOptionUniqueId                     String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementSymbolUniqueId                           String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementFromRoomUniqueId                         String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementHostUniqueId                             String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementPhaseUniqueId                            String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementRoomUniqueId                             String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementSpaceUniqueId                            String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementSuperComponentUniqueId                   String?               @default("00000000-0000-0000-0000-000000000000")
+//   familyTypeForgeId                               String?               @db.VarChar(255)
+//   familyBuiltInCategoryName                       String?               @db.VarChar(255)
+//   familyName                                      String?               @db.VarChar(255)
+//   elementCategoryType                             String?               @db.VarChar(255)
+//   elementTypesCount                               String?               @db.VarChar(255)
+//   elementInstancesCount                           String?               @db.VarChar(255)
+//   elementInstancesUniqueId                        String?               @db.VarChar(255)
+//   elementSpatialElementCalculationPoints          String?               @db.VarChar(255)
+//   elementPhaseStatus                              String?               @db.VarChar(255)
+//   elementExternalResourceReferences               String?               @db.VarChar(255)
+//   elementEntitySchemasUniqueId                    String?               @default("00000000-0000-0000-0000-000000000000")
+//   elementTransformHandOrientation                 Float[]
+//   elementTransformBasis                           Float[]
+//   elementTransformDeterminant                     Float?                @default(0)
+//   elementTransformIdentityBasis                   Float[]
+//   elementTransformOrigin                          Float[]
+//   elementTransformScale                           BigInt?               @default(0)
+//   elementPointPlacementLocation                   String?               @db.VarChar(255)
+//   elementPointPlacementName                       String?               @db.VarChar(255)
+//   elementPointReference                           String?               @db.VarChar(255)
+//   elementFacingOrientation                        Float[]
+//   elementStructuralMaterialValueId                BigInt?               @default(0)
+//   elementStructuralMaterialType                   String?               @db.VarChar(255)
+//   elementStructuralType                           String?               @db.VarChar(255)
+//   elementStructuralInstanceUsage                  String?               @db.VarChar(255)
+//   elementInstances                                InstanceRecord[]
+// }
 
-model Parameters {
-  id                  Int                @id @default(autoincrement())
-  createdAt           DateTime           @default(now())
-  parameterGuid       String             @unique
-  documentOwner       String             @default("00000000-0000-0000-0000-000000000000")
-  parentElementInfo   ElementInformation @relation(fields: [parameterGuid], references: [uniqueElementId])
-  storageType         StorageType        @default(INVALID)
-  name                String             @default("")
-  value               String             @default("")
-  isReadOnly          Boolean            @default(false)
-  typeId              String             @default("")
-  dataType            String             @default("")
-  groupTypeId         String             @default("")
-  hasValue            Boolean            @default(false)
-  isShared            Boolean            @default(false)
-  isUserModifiable    Boolean            @default(false)
-  sharedParameterGuid String             @default("00000000-0000-0000-0000-000000000000")
-}
+// // Parameters *cannot* be orphaned. Therefore, they're tied to an specific Document's episode (documentUniqueID + documentSaveCount + documentVersionUniqueId)
+// model InstanceRecord {
+//   id                              Int               @unique @default(autoincrement())
+//   instanceRecordUniqueId          String            @unique @default(uuid())
+//   parentElementFK                 ElementRecord     @relation(fields: [id], references: [id])
+//   instanceCreatedAt               DateTime          @default(now())
+//   instanceValueId                 BigInt?           @default(0)
+//   instanceUniqueId                String?           @db.VarChar(255)
+//   instanceFamilyName              String?           @db.VarChar(255)
+//   instanceBuiltInCategory         String?           @db.VarChar(255)
+//   instanceWorkset                 String?           @db.VarChar(255)
+//   instanceViews                   String[]
+//   instanceIsGrouped               Boolean?          @default(false)
+//   instanceIsModifiable            Boolean?          @default(false)
+//   instanceIsViewSpecific          Boolean?          @default(false)
+//   instanceIsBuiltInCategory       Boolean?          @default(false)
+//   instanceIsAnnotative            Boolean?          @default(false)
+//   instanceIsModel                 Boolean?          @default(false)
+//   instanceIsPinned                Boolean?          @default(false)
+//   instanceIsWorkshared            Boolean?          @default(false)
+//   instanceOwnerViewUniqueId       BigInt?           @default(0)
+//   instanceDesignOptionUniqueId    String?           @db.VarChar(255)
+//   instanceWorksetUniqueId         String?           @db.VarChar(255)
+//   instanceLevelUniqueId           String?           @db.VarChar(255)
+//   instanceCreatedPhaseUniqueId    String?           @db.VarChar(255)
+//   instanceDemolishedPhaseUniqueId String?           @db.VarChar(255)
+//   instanceGroupUniqueId           String?           @db.VarChar(255)
+//   instanceParameters              ParameterRecord[]
+// }
 
-model DocumentInformation {
-  id         Int      @id @default(autoincrement())
-  documentId String   @unique
-  document   Wolfpack @relation(fields: [documentId], references: [guid])
-  name       String   @default("") @db.VarChar(255)
-  path       String   @default("") @db.VarChar(255)
-  uuid       String   @default("")
-  saveCount  Int      @default(0)
-}
+// // Parameters *cannot* be orphaned. Therefore, they're tied to an specific Document's episode (documentUniqueID + documentSaveCount + documentVersionUniqueId)
+// model ParameterRecord {
+//   id                           Int             @unique @default(autoincrement())
+//   parameterUniqueId            String          @unique @default(uuid())
+//   parentInstanceFK             InstanceRecord? @relation(fields: [id], references: [id])
+//   parentInstanceUniqueId       String?
+//   parameterCreatedAt           DateTime        @default(now())
+//   parameterHasValue            Boolean?        @default(false)
+//   parameterIsReadOnly          Boolean?        @default(false)
+//   parameterIsUserModifiable    Boolean?        @default(false)
+//   parameterIsShared            Boolean?        @default(false)
+//   parameterStorageType         String?    @default("")
+//   parameterName                String?         @db.VarChar(255)
+//   parameterValue               String?         @db.VarChar(255)
+//   parameterForgeTypeId         String?         @db.VarChar(255)
+//   parameterForgeDataType       String?         @db.VarChar(255)
+//   parameterForgeGroupTypeId    String?         @db.VarChar(255)
+//   parameterSharedParameterGuid String?         @default("00000000-0000-0000-0000-000000000000")
+// }
 
-model DocumentWarning {
-  id               Int      @id @default(autoincrement())
-  documentId       String   @unique
-  document         Wolfpack @relation(fields: [documentId], references: [guid])
-  createdAt        DateTime
-  severity         String
-  message          String
-  failingElementId BigInt[]
-}
+// model WarningCollectionRecord {
+//   id                                           Int                    @unique @default(autoincrement())
+//   warningCollectionRecordUniqueId              String                 @unique @default(uuid())
+//   parentDocumentFK                             DocumentEpisodeRecord? @relation(fields: [id], references: [id])
+//   parentDocumentEpisodeUniqueId                String                 @unique
+//   warningsCreatedAt                            DateTime               @default(now())
+//   warningsSeverityLevelNoneCount               Int?                   @default(0)
+//   warningsSeverityLevelWarningCount            Int?                   @default(0)
+//   warningsSeverityLevelErrorCount              Int?                   @default(0)
+//   warningsSeverityLevelDocumentCorruptionError Int?                   @default(0)
+//   warningsJournalFileName                      String?
+//   warnings                                     WarningRecord[]
+// }
 
-model SiteInformation {
-  id                         Int      @id @default(autoincrement())
-  documentId                 String   @unique
-  document                   Wolfpack @relation(fields: [documentId], references: [guid])
-  placeName                  String   @default("")
-  elevation                  BigInt   @default(0)
-  latitude                   BigInt   @default(0)
-  longitude                  BigInt   @default(0)
-  timeZone                   BigInt   @default(0)
-  coordinateSystemId         String   @default("")
-  coordinateSystemDefinition String   @default("")
-}
+// model WarningRecord {
+//   id                             Int                      @unique @default(autoincrement())
+//   warningRecordUniqueId          String                   @unique @default(uuid())
+//   parentWarningCollectionFK      WarningCollectionRecord? @relation(fields: [id], references: [id])
+//   warningMessage                 String
+//   warningSeverity                String
+//   warningFailingElementsUniqueId BigInt[]
+// }
 
-model UnitsInformation {
-  id            Int      @id @default(autoincrement())
-  documentId    String   @unique
-  document      Wolfpack @relation(fields: [documentId], references: [guid])
-  lengthUnits   String   @default("") @db.VarChar(255)
-  areaUnits     String   @default("") @db.VarChar(255)
-  angle         String   @default("") @db.VarChar(255)
-  currency      String   @default("") @db.VarChar(255)
-  number        String   @default("") @db.VarChar(255)
-  rotationAngle String   @default("") @db.VarChar(255)
-  sheetLength   String   @default("") @db.VarChar(255)
-  slope         String   @default("") @db.VarChar(255)
-  speed         String   @default("") @db.VarChar(255)
-  time          String   @default("") @db.VarChar(255)
-  volume        String   @default("") @db.VarChar(255)
-}
+// model Wolfpack {
+//   id                  Int                  @id @default(autoincrement())
+//   projectInformation  ProjectInformation?
+//   documentInformation DocumentInformation?
+//   siteInformation     SiteInformation?
+//   unitsInformation    UnitsInformation?
+//   warnings            DocumentWarning[]
+//   documentName String @default("")
+//   documentSessionId   String               @default("00000000-0000-0000-0000-000000000000")
+//   documentCreationId  String               @default("00000000-0000-0000-0000-000000000000")
+//   changedElements     BigInt[]
+//   fileOrigin          String               @db.VarChar(255)
+//   wasCompleted        Boolean              @default(false)
+//   timeTaken           Float                @default(0)
+//   createdAt           DateTime             @default(now())
+//   guid                String               @unique
+//   resultCount         Int                  @default(0)
+//   testName            String               @db.VarChar(255)
+//   results             Json?                @db.Json
+//   elementInfo         ElementInformation[]
+// }
+
+// model ProjectInformation {
+//   id                      Int      @id @default(autoincrement())
+//   projectId               String   @unique
+//   document                Wolfpack @relation(fields: [projectId], references: [guid])
+//   projectName             String   @db.VarChar(255)
+//   client                  String   @db.VarChar(255)
+//   address                 String   @db.VarChar(255)
+//   author                  String   @db.VarChar(255)
+//   buildingName            String   @db.VarChar(255)
+//   issueDate               String   @db.VarChar(255)
+//   location                String   @db.VarChar(255)
+//   projectNumber           String   @db.VarChar(255)
+//   organizationDescription String   @db.VarChar(255)
+//   organizationName        String   @db.VarChar(255)
+//   status                  String   @db.VarChar(255)
+// }
+
+// model ElementInformation {
+//   id               Int          @id @default(autoincrement())
+//   uniqueElementId  String       @unique
+//   wolfpackId       Wolfpack     @relation(fields: [uniqueElementId], references: [guid])
+//   idValue          BigInt
+//   elementVersionId String       @default("00000000-0000-0000-0000-000000000000")
+//   familyName       String       @default("")
+//   builtInCategory  String       @default("")
+//   name             String       @default("")
+//   Parameters       Parameters[]
+// }
+
+// model Parameters {
+//   id                  Int                @id @default(autoincrement())
+//   createdAt           DateTime           @default(now())
+//   parameterGuid       String             @unique
+//   documentOwner       String             @default("00000000-0000-0000-0000-000000000000")
+//   parentElementInfo   ElementInformation @relation(fields: [parameterGuid], references: [uniqueElementId])
+//   storageType         StorageType        @default(INVALID)
+//   name                String             @default("")
+//   value               String             @default("")
+//   isReadOnly          Boolean            @default(false)
+//   typeId              String             @default("")
+//   dataType            String             @default("")
+//   groupTypeId         String             @default("")
+//   hasValue            Boolean            @default(false)
+//   isShared            Boolean            @default(false)
+//   isUserModifiable    Boolean            @default(false)
+//   sharedParameterGuid String             @default("00000000-0000-0000-0000-000000000000")
+// }
+
+// model DocumentInformation {
+//   id         Int      @id @default(autoincrement())
+//   documentId String   @unique
+//   document   Wolfpack @relation(fields: [documentId], references: [guid])
+//   documentName       String   @db.VarChar(255)
+//   documentPath       String   @db.VarChar(255)
+//   documentUniqueId       String   @default("")
+//   documentVersionId String @default("")
+//   documentSaveCount  Int      @default(0)
+//   documentProjectName String @default("")
+// @default("00000000-0000-0000-0000-000000000000")
+
+// }
+
+// model DocumentWarning {
+//   id               Int      @id @default(autoincrement())
+//   documentId       String   @unique
+//   document         Wolfpack @relation(fields: [documentId], references: [guid])
+//   createdAt        DateTime
+//   severity         String
+//   message          String
+//   failingElementId BigInt[]
+// }
+
+// model SiteInformation {
+//   id                         Int      @id @default(autoincrement())
+//   documentId                 String   @unique
+//   document                   Wolfpack @relation(fields: [documentId], references: [guid])
+//   placeName                  String   @default("")
+//   elevation                  BigInt   @default(0)
+//   latitude                   BigInt   @default(0)
+//   longitude                  BigInt   @default(0)
+//   timeZone                   BigInt   @default(0)
+//   coordinateSystemId         String   @default("")
+//   coordinateSystemDefinition String   @default("")
+// }
+
+// model UnitsInformation {
+//   id            Int      @id @default(autoincrement())
+//   documentId    String   @unique
+//   document      Wolfpack @relation(fields: [documentId], references: [guid])
+//   lengthUnits   String   @db.VarChar(255)
+//   areaUnits     String   @db.VarChar(255)
+//   angle         String   @db.VarChar(255)
+//   currency      String   @db.VarChar(255)
+//   number        String   @db.VarChar(255)
+//   rotationAngle String   @db.VarChar(255)
+//   sheetLength   String   @db.VarChar(255)
+//   slope         String   @db.VarChar(255)
+//   speed         String   @db.VarChar(255)
+//   time          String   @db.VarChar(255)
+//   volume        String   @db.VarChar(255)
+// }
+// id                              Int               @unique @default(autoincrement())
+// RecordUniqueId                  String            @unique @default("00000000-0000-0000-0000-000000000000")
+// DocumentOwnerUniqueId           String            @default("00000000-0000-0000-0000-000000000000")
+// DocumentVersionUniqueId         String            @db.VarChar(255)
+// InstanceCreatedAt               DateTime          @default(now())
+// InstanceValueId                 BigInt?           @default(0)
+// InstanceUniqueId                String?           @db.VarChar(255)
+// InstanceFamilyName              String?           @db.VarChar(255)
+// InstanceBuiltInCategory         String?           @db.VarChar(255)
+// InstanceWorkset                 String?           @db.VarChar(255)
+// InstanceViews                   String[]
+// InstanceDesignOptionUniqueId    String?           @db.VarChar(255)
+// InstanceOwnerViewUniqueId       BigInt?           @default(0)
+// InstanceWorksetUniqueId         String?           @db.VarChar(255)
+// InstanceLevelUniqueId           String?           @db.VarChar(255)
+// InstanceCreatedPhaseUniqueId    String?           @db.VarChar(255)
+// InstanceDemolishedPhaseUniqueId String?           @db.VarChar(255)
+// InstanceGroupUniqueId           String?           @db.VarChar(255)
+// InstanceIsGrouped               Boolean?          @default(false)
+// InstanceIsModifiable            Boolean?          @default(false)
+// InstanceIsViewSpecific          Boolean?          @default(false)
+// InstanceIsBuiltInCategory       Boolean?          @default(false)
+// InstanceIsAnnotative            Boolean?          @default(false)
+// InstanceIsModel                 Boolean?          @default(false)
+// InstanceIsPinned                Boolean?          @default(false)
+// InstanceIsWorkshared            Boolean?          @default(false)
+// InstanceParameters              ParameterRecord[]
+
+// RecordUniqueId                                  String   @unique @default("00000000-0000-0000-0000-000000000000")
+// DocumentUniqueId                                String   @default("00000000-0000-0000-0000-000000000000")
+// ElementArePhasesModifiable                      Boolean? @default(false)
+// ElementCanBeLocked                              Boolean? @default(false)
+// ElementCanFlipFacing                            Boolean? @default(false)
+// ElementCanFlipHand                              Boolean? @default(false)
+// ElementCanFlipWorkPlane                         Boolean? @default(false)
+// ElementCanHaveTypeAssigned                      Boolean? @default(false)
+// ElementCanRotate                                Boolean? @default(false)
+// ElementCanSplit                                 Boolean? @default(false)
+// ElementIsFacingFlipped                          Boolean? @default(false)
+// ElementIsHandFlipped                            Boolean? @default(false)
+// ElementHasModifiedGeometry                      Boolean? @default(false)
+// ElementHasPhases                                Boolean? @default(false)
+// ElementHasSpatialElementCalculationPoint        Boolean? @default(false)
+// ElementHasSpatialElementFromToCalculationPoints Boolean? @default(false)
+// ElementHasSweptProfile                          Boolean? @default(false)
+// ElementIsExternalFileReference                  Boolean? @default(false)
+// ElementIsMirrored                               Boolean? @default(false)
+// ElementIsMonitoringLinkElement                  Boolean? @default(false)
+// ElementIsMonitoringLocalElement                 Boolean? @default(false)
+// ElementIsPinned                                 Boolean? @default(false)
+// ElementIsSlantedColumn                          Boolean? @default(false)
+// ElementIsViewSpecific                           Boolean? @default(false)
+// ElementDoesReferToExternalResourceReferences    Boolean? @default(false)
+// ElementTransformHasReflection                   Boolean? @default(false)
+// ElementTransformIsConformal                     Boolean? @default(false)
+// ElementIsVisible                                Boolean? @default(false)
+// ElementAnalyticalModelValueId                   BigInt?  @default(0)
+// ElementCreatedPhaseValueId                      BigInt?  @default(0)
+// ElementDemolishedPhaseValueId                   BigInt?  @default(0)
+// ElementHostFaceValueId                          BigInt?  @default(0)
+// ElementHostParameterValueId                     BigInt?  @default(0)
+// ElementLevelValueId                             BigInt?  @default(0)
+// ElementCopingsValueId                           BigInt[]
+// ElementDependentElementsValueId                 BigInt[]
+// ElementMaterialsValueId                         BigInt[]
+// ElementMonitoredLinksValueId                    BigInt[]
+// ElementReferencesValueId                        BigInt[]
+// ElementSubComponentsValueId                     BigInt[]
+// ElementWorksetValueId                           BigInt?  @default(0)
+// ElementDesignOptionUniqueId                     String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementSymbolUniqueId                           String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementFromRoomUniqueId                         String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementHostUniqueId                             String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementPhaseUniqueId                            String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementRoomUniqueId                             String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementSpaceUniqueId                            String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementSuperComponentUniqueId                   String?  @default("00000000-0000-0000-0000-000000000000")
+// FamilyTypeForgeId                               String?  @db.VarChar(255)
+// FamilyBuiltInCategoryName                       String?  @db.VarChar(255)
+// FamilyName                                      String?  @db.VarChar(255)
+// ElementCategoryType                             String?  @db.VarChar(255)
+// ElementTypesCount                               String?  @db.VarChar(255)
+// ElementInstancesCount                           String?  @db.VarChar(255)
+// ElementInstancesUniqueId                        String?  @db.VarChar(255)
+// ElementSpatialElementCalculationPoints          String?  @db.VarChar(255)
+// ElementPhaseStatus                              String?  @db.VarChar(255)
+// ElementExternalResourceReferences               String?  @db.VarChar(255)
+// ElementEntitySchemasUniqueId                    String?  @default("00000000-0000-0000-0000-000000000000")
+// ElementTransformHandOrientation                 Float[]
+// ElementTransformBasis                           Float[]
+// ElementTransformDeterminant                     Float?   @default(0)
+// ElementTransformIdentityBasis                   Float[]
+// ElementTransformOrigin                          Float[]
+// ElementTransformScale                           BigInt?  @default(0)
+// ElementPointPlacementLocation                   String?  @db.VarChar(255)
+// ElementPointPlacementName                       String?  @db.VarChar(255)
+// ElementPointReference                           String?  @db.VarChar(255)
+// ElementFacingOrientation                        Float[]
+// ElementStructuralMaterialValueId                BigInt?  @default(0)
+// ElementStructuralMaterialType                   String?  @db.VarChar(255)
+// ElementStructuralType                           String?  @db.VarChar(255)
+// ElementStructuralInstanceUsage                  String?  @db.VarChar(255)
