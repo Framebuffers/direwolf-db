@@ -19,7 +19,7 @@ model Wolfpack {
   guid            String
   resultCount     Int      @default(0)
   testName        String   @db.VarChar(255)
-  results         Json?    @db.Json
+  results         Json?    
 }
 
 // model Wolfpack {
