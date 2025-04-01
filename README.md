@@ -2,6 +2,11 @@
 
 Docker container with a PostgreSQL database, Prisma ORM and a blank Node app template.
 
+## ⚠️ WARNING
+
+This demo is hard-wired to listen to a single PostgreSQL URL. Rename the provided `.env.example` to `.env` before starting the container.
+This project, as well as this file, **IS NOT MEANT FOR PRODUCTION USE**. You have been warned.
+
 ## 🏗️ Build
 - You need Docker and `docker-compose`
 - Run `docker-compose up`
