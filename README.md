@@ -2,6 +2,16 @@
 
 Docker container with a PostgreSQL database, Prisma ORM and a blank Node app template.
 
+## 🏗️ Build
+- You need Docker and `docker-compose`
+- Run `docker-compose up`
+- Done!
+
+# ⛴️ Ports
+- `localhost:3000`: Blank Node.js project.
+- `localhost:3001`: Grafana dashboard.
+- `localhost:5555`: Prisma Studio ORM.
+
 ## 📂 Schema
 
 Wolfpack's format follows the following schema:
@@ -17,6 +27,31 @@ Wolfpack's format follows the following schema:
 - `resultCount`: count of Prey objects inside of the Wolfpack.
 - `testName`: name of the query.
 - `results`: a JSON string containing each serialised Prey object.
+
+## 🎛️ Dashboard
+
+![Screenshot 2025-04-01 012222](https://github.com/user-attachments/assets/b557fd6b-f5ff-4d89-9f5f-7b61d3f15aa2)
+
+This database includes a Grafana dashboard at `localhost:3001`. It is configured to read from `ModelInfo` tests (Send Model to DB). Every `ModelInfo` test will be queried for:
+- Views inside Document
+- Views not in Sheets
+- Annotative Elements
+- External References
+- Model Groups
+- Detail Groups
+- Design Options
+- Level Count
+- Grid Count
+- Warning Count
+- Unenclosed Rooms
+- Viewports
+- Unconnected Ducts
+- Unconnected Pipes
+- Unconnected Electrical Fixtures
+- Non-native styles
+- Flipped Elements
+- Elements per Workset
+- Time taken for a complete query.
 
 ## 📃 To do
 
